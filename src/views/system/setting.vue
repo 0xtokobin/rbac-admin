@@ -233,7 +233,7 @@ const backSettings = () => {
           <el-option
             v-for="(value, key) in languages"
             :key="key"
-            :label="value.name"
+            :label="(value.name as string)"
             :value="key"
           />
         </el-select>

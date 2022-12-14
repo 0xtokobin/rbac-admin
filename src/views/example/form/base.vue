@@ -8,11 +8,11 @@ const { t } = useI18n();
 const form = reactive({
   name: '',
   region: '',
-  date: [],
+  date: '',
   date1: '',
   date2: '',
   publish: false,
-  type: [],
+  type: '',
   tag: [],
   desc: '',
 });

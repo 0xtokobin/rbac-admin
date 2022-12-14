@@ -58,7 +58,7 @@ const wrapStyle = computed(() => {
       <el-menu
         router
         collapse-transition
-        :mode="props.mode"
+        :mode="(props.mode as any)"
         :collapse="props.mode == 'vertical' ? systemStore.collapse : false"
         :unique-opened="systemStore.settings.UniqueOpened"
         :default-active="route.path"

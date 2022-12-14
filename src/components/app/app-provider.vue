@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import type { Language } from 'element-plus/es/locale';
 import { Settings } from '@/constants/settings';
 import { SettingsValueEnum } from '@/constants/enums';
 import { setEpThemeColor } from '@/utils/theme';
@@ -20,8 +21,9 @@ const { getDictionaryAll } = useDictionary();
 
 const { t, messages } = useI18n();
 
-const locale =
-  messages.value[systemStore.language][Settings.ElementPlus.language];
+const locale = messages.value[systemStore.language][
+  Settings.ElementPlus.language
+] as Language;
 
 watch(
   () => systemStore.settings.ColorScheme,
