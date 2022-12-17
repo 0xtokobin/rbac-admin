@@ -1,114 +1,118 @@
 {
-  "menuName": "功能示例",
-  "menuDescription": "",
-  "table": {
-    "menuName": "功能表格",
-    "menuDescription": ""
-  },
-  "icon": {
-    "menuName": "Svg 图标",
-    "menuDescription": "点击图标即可复制图标，您可以在 src/assets/svgs/ 目录自定义扩展基于 Svg 的图标",
-    "base": "基础图标",
-    "colorScheme": "配色方案图标",
-    "emoji": "Emoji 图标",
-    "social": "社交图标",
-    "copySuccess": "复制成功"
-  },
-  "editor": {
-    "menuName": "富文本编辑器",
-    "menuDescription": ""
-  },
-  "charts": {
-    "menuName": "图表分析",
-    "menuDescription": ""
-  },
-  "map": {
-    "menuName": "地图交互",
-    "menuDescription": ""
-  },
-  "form": {
-    "menuName": "表单",
-    "menuDescription": "",
-    "base": {
-      "menuName": "基础表单",
-      "menuDescription": "",
-      "activityName": "活动名称",
-      "activityZone": "活动区域",
-      "zoneOne": "区域一",
-      "zoneTwo": "区域二",
-      "activityTime": "活动时间",
-      "publish": "发布",
-      "activityType": "活动类型",
-      "typeOne": "活动一",
-      "typeTwo": "活动二",
-      "typeThree": "活动三",
-      "activityTag": "活动标签",
-      "tagOne": "标签一",
-      "tagTwo": "标签二",
-      "tagThree": "标签三",
-      "desc": "备注"
-    },
-    "step": {
-      "menuName": "分布表单",
-      "menuDescription": ""
-    },
-    "pro": {
-      "menuName": "高级表单",
-      "menuDescription": ""
-    }
-  },
-  "result": {
-    "menuName": "结果页",
-    "menuDescription": "",
-    "success": {
-      "menuName": "成功",
-      "menuDescription": "",
-      "title": "成功提示",
-      "subTitle": "操作成功，您可以通过 extra 插槽进行内容扩展！"
-    },
-    "warning": {
-      "menuName": "警告",
-      "menuDescription": "",
-      "title": "警告提示",
-      "subTitle": "这是一个警告类型的结果提示，您可以用于操作警告提示！"
-    },
-    "error": {
-      "menuName": "错误",
-      "menuDescription": "",
-      "title": "错误提示",
-      "subTitle": "操作失败类型提示，常用于表单提交失败等场景！"
-    },
-    "info": {
-      "menuName": "信息",
-      "menuDescription": "",
-      "title": "信息提示",
-      "subTitle": "普通信息提示，副标题也可以通过插槽进行扩展！"
-    }
-  },
-  "keepAlive": {
-    "menuName": "页面缓存",
-    "menuDescription": "",
-    "open": {
-      "menuName": "开启缓存",
-      "menuDescription": "该页面开启了 Keep Alive 缓存"
-    },
-    "close": {
-      "menuName": "关闭缓存",
-      "menuDescription": "该页面没有开启 Keep Alive 缓存"
-    }
-  },
-  "navigation": {
-    "one": {
-      "menuName": "多层导航",
-      "menuDescription": ""
-    },
-    "two": {
-      "menuName": "多层导航",
-      "menuDescription": ""
-    },
-    "three": {
-      "menuName": "多层导航",
-      "menuDescription": ""
-    }
-  }
+	"menuName": "功能示例",
+	"menuDescription": "",
+	"table": {
+		"menuName": "功能表格",
+		"menuDescription": ""
+	},
+	"icon": {
+		"menuName": "Svg 图标",
+		"menuDescription": "点击图标即可复制图标，您可以在 src/assets/svgs/ 目录自定义扩展基于 Svg 的图标",
+		"base": "基础图标",
+		"colorScheme": "配色方案图标",
+		"emoji": "Emoji 图标",
+		"social": "社交图标",
+		"copySuccess": "复制成功"
+	},
+	"editor": {
+		"menuName": "富文本编辑器",
+		"menuDescription": ""
+	},
+	"charts": {
+		"menuName": "图表分析",
+		"menuDescription": ""
+	},
+	"map": {
+		"menuName": "地图交互",
+		"menuDescription": ""
+	},
+	"form": {
+		"menuName": "表单",
+		"menuDescription": "",
+		"base": {
+			"menuName": "基础表单",
+			"menuDescription": "",
+			"activityName": "活动名称",
+			"activityZone": "活动区域",
+			"zoneOne": "区域一",
+			"zoneTwo": "区域二",
+			"activityTime": "活动时间",
+			"publish": "发布",
+			"activityType": "活动类型",
+			"typeOne": "活动一",
+			"typeTwo": "活动二",
+			"typeThree": "活动三",
+			"activityTag": "活动标签",
+			"tagOne": "标签一",
+			"tagTwo": "标签二",
+			"tagThree": "标签三",
+			"desc": "备注"
+		},
+		"step": {
+			"menuName": "分布表单",
+			"menuDescription": "",
+			"payAccount": "付款账户",
+			"getAccount": "收款账户",
+			"getName": "收款姓名",
+			"price": "转账金额"
+		},
+		"pro": {
+			"menuName": "高级表单",
+			"menuDescription": ""
+		}
+	},
+	"result": {
+		"menuName": "结果页",
+		"menuDescription": "",
+		"success": {
+			"menuName": "成功",
+			"menuDescription": "",
+			"title": "成功提示",
+			"subTitle": "操作成功，您可以通过 extra 插槽进行内容扩展！"
+		},
+		"warning": {
+			"menuName": "警告",
+			"menuDescription": "",
+			"title": "警告提示",
+			"subTitle": "这是一个警告类型的结果提示，您可以用于操作警告提示！"
+		},
+		"error": {
+			"menuName": "错误",
+			"menuDescription": "",
+			"title": "错误提示",
+			"subTitle": "操作失败类型提示，常用于表单提交失败等场景！"
+		},
+		"info": {
+			"menuName": "信息",
+			"menuDescription": "",
+			"title": "信息提示",
+			"subTitle": "普通信息提示，副标题也可以通过插槽进行扩展！"
+		}
+	},
+	"keepAlive": {
+		"menuName": "页面缓存",
+		"menuDescription": "",
+		"open": {
+			"menuName": "开启缓存",
+			"menuDescription": "该页面开启了 Keep Alive 缓存"
+		},
+		"close": {
+			"menuName": "关闭缓存",
+			"menuDescription": "该页面没有开启 Keep Alive 缓存"
+		}
+	},
+	"navigation": {
+		"one": {
+			"menuName": "多层导航",
+			"menuDescription": ""
+		},
+		"two": {
+			"menuName": "多层导航",
+			"menuDescription": ""
+		},
+		"three": {
+			"menuName": "多层导航",
+			"menuDescription": ""
+		}
+	}
 }

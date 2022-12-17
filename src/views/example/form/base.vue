@@ -16,10 +16,6 @@ const form = reactive({
   tag: [],
   desc: '',
 });
-
-const onSubmit = () => {
-  console.log('submit!');
-};
 </script>
 <template>
   <crud-card>
