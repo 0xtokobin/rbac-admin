@@ -47,25 +47,13 @@ const props = defineProps({
   --wings-cloud-table-table-row-height: 3.2rem;
 }
 
-.wings-cloud-crud-table {
-}
-
-.el-table__body {
-}
-
 .wings-cloud-crud-table-row {
   height: var(--wings-cloud-table-table-row-height);
-}
-
-.wings-cloud-crud-table-cell {
 }
 
 .wings-cloud-crud-table-header-row {
   &:first-child {
     height: var(--wings-cloud-table-table-row-height);
   }
-}
-
-.wings-cloud-crud-table-header-cell {
 }
 </style>

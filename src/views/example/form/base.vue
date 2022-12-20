@@ -44,15 +44,13 @@ const form = reactive({
         </el-select>
       </el-form-item>
       <el-form-item :label="t('example.form.base.activityTime')">
-        <el-col :span="11">
-          <el-date-picker
-            v-model="form.date"
-            type="datetimerange"
-            range-separator="-"
-            :start-placeholder="t('crud.placeholder.startTime')"
-            :end-placeholder="t('crud.placeholder.endTime')"
-          />
-        </el-col>
+        <el-date-picker
+          v-model="form.date"
+          type="datetimerange"
+          range-separator="-"
+          :start-placeholder="t('crud.placeholder.startTime')"
+          :end-placeholder="t('crud.placeholder.endTime')"
+        />
       </el-form-item>
       <el-form-item :label="t('example.form.base.publish')">
         <el-switch v-model="form.publish" />
