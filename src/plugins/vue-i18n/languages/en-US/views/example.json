@@ -1,118 +1,127 @@
 {
-	"menuName": "Examples",
-	"menuDescription": "",
-	"table": {
-		"menuName": "Function Table",
-		"menuDescription": ""
-	},
-	"icon": {
-		"menuName": "Svg Icon",
-		"menuDescription": "Click the icon to copy the icon, and you can customize the extension Svg-based icon in the src/assets/svgs/ directory",
-		"base": "Base Icons",
-		"colorScheme": "Color Scheme Icons",
-		"emoji": "Emoji Icons",
-		"social": "Social Icons",
-		"copySuccess": "Copy Success"
-	},
-	"editor": {
-		"menuName": "Rich Text Editor",
-		"menuDescription": ""
-	},
-	"charts": {
-		"menuName": "Chart Analysis",
-		"menuDescription": ""
-	},
-	"map": {
-		"menuName": "Map Interaction",
-		"menuDescription": "",
-		"payAccount": "Account Of Payment",
-		"getAccount": "Account To Be Credited",
-		"getName": "Name Of Recipient",
-		"price": "Transfer Amount"
-	},
-	"form": {
-		"menuName": "Form",
-		"menuDescription": "",
-		"base": {
-			"menuName": "Basic Form",
-			"menuDescription": "",
-			"activityName": "Activity name",
-			"activityZone": "Activity Zone",
-			"zoneOne": "Zone One",
-			"zoneTwo": "Zone Two",
-			"activityTime": "Activity Time",
-			"publish": "Publish",
-			"activityType": "Activity Type",
-			"typeOne": "Activity One",
-			"typeTwo": "Activity Two",
-			"typeThree": "Activity Three",
-			"activityTag": "Activity Tag",
-			"tagOne": "Tag One",
-			"tagTwo": "Tag Two",
-			"tagThree": "Tag Three",
-			"desc": "Remark"
-		},
-		"step": {
-			"menuName": "Paging Form",
-			"menuDescription": ""
-		},
-		"pro": {
-			"menuName": "Advanced Form",
-			"menuDescription": ""
-		}
-	},
-	"result": {
-		"menuName": "Result Page",
-		"menuDescription": "",
-		"success": {
-			"menuName": "Success",
-			"menuDescription": "",
-			"title": "Success Tip",
-			"subTitle": "The operation is successful. You can expand your content through the extra slot!"
-		},
-		"warning": {
-			"menuName": "Warning",
-			"menuDescription": "",
-			"title": "Warning Tip",
-			"subTitle": "This is a warning type result prompt that you can use to manipulate warning prompts!"
-		},
-		"error": {
-			"menuName": "Error",
-			"menuDescription": "",
-			"title": "Error Tip",
-			"subTitle": "Operation failure type prompt, often used for form submission failure scenarios!"
-		},
-		"info": {
-			"menuName": "Info",
-			"menuDescription": "",
-			"title": "Info Tip",
-			"subTitle": "This is a general message prompt. Subheadings can also be expanded through slots!"
-		}
-	},
-	"keepAlive": {
-		"menuName": "Page Cache",
-		"menuDescription": "",
-		"open": {
-			"menuName": "Enabling Caching",
-			"menuDescription": "The Keep Alive cache is enabled on this page"
-		},
-		"close": {
-			"menuName": "Turning off caching",
-			"menuDescription": "The Keep Alive cache is not enabled on this page"
-		}
-	},
-	"navigation": {
-		"one": {
-			"menuName": "Nested Navigation",
-			"menuDescription": ""
-		},
-		"two": {
-			"menuName": "Nested Navigation",
-			"menuDescription": ""
-		},
-		"three": {
-			"menuName": "Nested Navigation",
-			"menuDescription": ""
-		}
-	}
+  "menuName": "Examples",
+  "menuDescription": "",
+  "table": {
+    "menuName": "Function Table",
+    "menuDescription": ""
+  },
+  "icon": {
+    "menuName": "Svg Icon",
+    "menuDescription": "Click the icon to copy the icon, and you can customize the extension Svg-based icon in the src/assets/svgs/ directory",
+    "base": "Base Icons",
+    "colorScheme": "Color Scheme Icons",
+    "emoji": "Emoji Icons",
+    "social": "Social Icons",
+    "copySuccess": "Copy Success"
+  },
+  "editor": {
+    "menuName": "Rich Text Editor",
+    "menuDescription": ""
+  },
+  "charts": {
+    "menuName": "Chart Analysis",
+    "menuDescription": ""
+  },
+  "map": {
+    "menuName": "Map Interaction",
+    "menuDescription": "",
+    "payAccount": "Account Of Payment",
+    "getAccount": "Account To Be Credited",
+    "getName": "Name Of Recipient",
+    "price": "Transfer Amount"
+  },
+  "form": {
+    "menuName": "Form",
+    "menuDescription": "",
+    "base": {
+      "menuName": "Basic Form",
+      "menuDescription": "",
+      "activityName": "Activity name",
+      "activityZone": "Activity Zone",
+      "zoneOne": "Zone One",
+      "zoneTwo": "Zone Two",
+      "activityTime": "Activity Time",
+      "publish": "Publish",
+      "activityType": "Activity Type",
+      "typeOne": "Activity One",
+      "typeTwo": "Activity Two",
+      "typeThree": "Activity Three",
+      "activityTag": "Activity Tag",
+      "tagOne": "Tag One",
+      "tagTwo": "Tag Two",
+      "tagThree": "Tag Three",
+      "desc": "Remark"
+    },
+    "step": {
+      "menuName": "Paging Form",
+      "menuDescription": "",
+      "next": "Next Step",
+      "payAccount": "Account Of Payment",
+      "getAccount": "Account To Be Credited",
+      "getName": "Receiving Name",
+      "price": "Transfer Amount",
+      "unit": "Yuan",
+      "stepOne": "Fill in the transfer information",
+      "stepTwo": "Confirm the transfer information",
+      "stepThree": "Successful"
+    },
+    "pro": {
+      "menuName": "Advanced Form",
+      "menuDescription": ""
+    }
+  },
+  "result": {
+    "menuName": "Result Page",
+    "menuDescription": "",
+    "success": {
+      "menuName": "Success",
+      "menuDescription": "",
+      "title": "Success Tip",
+      "subTitle": "The operation is successful. You can expand your content through the extra slot!"
+    },
+    "warning": {
+      "menuName": "Warning",
+      "menuDescription": "",
+      "title": "Warning Tip",
+      "subTitle": "This is a warning type result prompt that you can use to manipulate warning prompts!"
+    },
+    "error": {
+      "menuName": "Error",
+      "menuDescription": "",
+      "title": "Error Tip",
+      "subTitle": "Operation failure type prompt, often used for form submission failure scenarios!"
+    },
+    "info": {
+      "menuName": "Info",
+      "menuDescription": "",
+      "title": "Info Tip",
+      "subTitle": "This is a general message prompt. Subheadings can also be expanded through slots!"
+    }
+  },
+  "keepAlive": {
+    "menuName": "Page Cache",
+    "menuDescription": "",
+    "open": {
+      "menuName": "Enabling Caching",
+      "menuDescription": "The Keep Alive cache is enabled on this page"
+    },
+    "close": {
+      "menuName": "Turning off caching",
+      "menuDescription": "The Keep Alive cache is not enabled on this page"
+    }
+  },
+  "navigation": {
+    "one": {
+      "menuName": "Nested Navigation",
+      "menuDescription": ""
+    },
+    "two": {
+      "menuName": "Nested Navigation",
+      "menuDescription": ""
+    },
+    "three": {
+      "menuName": "Nested Navigation",
+      "menuDescription": ""
+    }
+  }
 }

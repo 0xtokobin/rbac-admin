@@ -45,6 +45,7 @@ const cancel = () => {
   <el-form
     v-bind="$attrs"
     :label-position="systemStore.isMobile ? 'top' : 'right'"
+    :style="systemStore.isMobile ? 'width:100%' : 'width:680px;margin:0 auto'"
   >
     <slot></slot>
     <el-form-item v-if="props.action && !slots.action">
