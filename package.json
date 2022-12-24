@@ -46,8 +46,11 @@
     ]
   },
   "dependencies": {
+    "@amap/amap-jsapi-loader": "^1.0.1",
     "@vueuse/core": "^9.6.0",
     "@vueuse/integrations": "^9.6.0",
+    "@wangeditor/editor": "^5.1.23",
+    "@wangeditor/editor-for-vue": "^5.1.12",
     "axios": "^1.2.1",
     "element-plus": "^2.2.26",
     "mockjs": "^1.1.0",
