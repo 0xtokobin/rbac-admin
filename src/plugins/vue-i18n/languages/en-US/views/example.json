@@ -56,6 +56,7 @@
       "menuName": "Paging Form",
       "menuDescription": "",
       "next": "Next Step",
+      "pre": "Last Step",
       "payAccount": "Account Of Payment",
       "getAccount": "Account To Be Credited",
       "getName": "Receiving Name",
@@ -63,7 +64,9 @@
       "unit": "Yuan",
       "stepOne": "Fill in the transfer information",
       "stepTwo": "Confirm the transfer information",
-      "stepThree": "Successful"
+      "stepThree": "Successful",
+      "password": "Pay Password",
+      "success": "Operate Successfully"
     },
     "pro": {
       "menuName": "Advanced Form",

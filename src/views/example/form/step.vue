@@ -10,13 +10,16 @@ const form = reactive({
   getAccount: '',
   getName: '',
   price: 0,
+  password: '',
 });
+
+const step = ref<number>(1);
 </script>
 <template>
   <crud-card>
     <el-steps
       align-center
-      :active="1"
+      :active="step"
       w="60%"
       p-t-8
       p-b-14
@@ -32,6 +35,8 @@ const form = reactive({
       :model="form"
       label-width="180px"
       :submit-label="t('example.form.step.next')"
+      v-if="step == 1"
+      @submit="step = 2"
     >
       <el-form-item :label="t('example.form.step.payAccount')">
         <el-input
@@ -77,5 +82,47 @@ const form = reactive({
         </el-input>
       </el-form-item>
     </crud-page-form>
+    <crud-page-form
+      action
+      :model="form"
+      label-width="180px"
+      :submit-label="t('example.form.step.next')"
+      v-if="step == 2"
+      :cancel-label="t('example.form.step.pre')"
+      @submit="step = 3"
+    >
+      <el-form-item :label="t('example.form.step.payAccount')">
+        <div>test@test.com</div>
+      </el-form-item>
+      <el-form-item :label="t('example.form.step.getAccount')">
+        <div>中国银行</div>
+      </el-form-item>
+      <el-form-item :label="t('example.form.step.getName')">
+        <div>测试</div>
+      </el-form-item>
+      <el-form-item :label="t('example.form.step.price')">
+        <div>29000 元</div>
+      </el-form-item>
+      <el-form-item :label="t('example.form.step.password')">
+        <el-input
+          v-model="form.password"
+          :placeholder="
+            t('crud.placeholder.enter', {
+              label: t('example.form.step.password'),
+            })
+          "
+        >
+        </el-input>
+      </el-form-item>
+    </crud-page-form>
+    <el-result
+      icon="success"
+      :title="t('example.form.step.success')"
+      v-if="step == 3"
+    >
+      <template #extra>
+        <el-button type="primary">{{ t('crud.btn.confirm') }}</el-button>
+      </template>
+    </el-result>
   </crud-card>
 </template>
