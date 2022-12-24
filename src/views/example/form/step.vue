@@ -90,6 +90,7 @@ const step = ref<number>(1);
       v-if="step == 2"
       :cancel-label="t('example.form.step.pre')"
       @submit="step = 3"
+      @cancel="step = 1"
     >
       <el-form-item :label="t('example.form.step.payAccount')">
         <div>test@test.com</div>
@@ -121,7 +122,9 @@ const step = ref<number>(1);
       v-if="step == 3"
     >
       <template #extra>
-        <el-button type="primary">{{ t('crud.btn.confirm') }}</el-button>
+        <el-button type="primary" @click="step = 1">
+          {{ t('crud.btn.confirm') }}
+        </el-button>
       </template>
     </el-result>
   </crud-card>
