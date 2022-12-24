@@ -52,6 +52,7 @@
       "menuName": "分布表单",
       "menuDescription": "",
       "next": "下一步",
+      "pre": "上一步",
       "payAccount": "付款账户",
       "getAccount": "收款账户",
       "getName": "收款姓名",
@@ -59,7 +60,9 @@
       "unit": "元",
       "stepOne": "填写转账信息",
       "stepTwo": "确认转账信息",
-      "stepThree": "完成"
+      "stepThree": "完成",
+      "password": "支付密码",
+      "success": "操作成功"
     },
     "pro": {
       "menuName": "高级表单",
