@@ -8,6 +8,7 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     App: typeof import('./../components/app/app.vue')['default']
+    AppLoading: typeof import('./../components/app/app-loading.vue')['default']
     AppProvider: typeof import('./../components/app/app-provider.vue')['default']
     AvatarUpload: typeof import('./../components/upload/avatar-upload.vue')['default']
     CrudCard: typeof import('./../components/crud/crud-card.vue')['default']

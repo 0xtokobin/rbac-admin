@@ -13,14 +13,11 @@ const initMap = () => {
     version: '2.0',
     plugins: ['AMap.Scale', 'AMap.ToolBar', 'AMap.Geolocation', 'AMap.HawkEye'],
   }).then((AMap) => {
-    map.value = new AMap.Map('container', {
+    map.value = new AMap.Map('example-map', {
       viewMode: '3D',
       zoom: 5,
-      center: [116.397436, 39.909165],
-      dragEnable: true,
-      scrollWheel: true,
-      doubleClickZoom: true,
-      keyboardEnable: true,
+      zooms: [2, 22],
+      center: [105.602725, 37.076636],
     });
   });
 };
@@ -31,15 +28,6 @@ onMounted(() => {
 </script>
 <template>
   <crud-card>
-    <div id="container"></div>
+    <div id="example-map" w-full h-xl></div>
   </crud-card>
 </template>
-
-<style lang="scss" scoped>
-#container {
-  width: 100%;
-  height: 500px;
-  margin: 0;
-  padding: 0;
-}
-</style>

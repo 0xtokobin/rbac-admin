@@ -1,6 +1,9 @@
 <script lang="ts" setup>
 import '@wangeditor/editor/dist/css/style.css';
+import { i18nChangeLanguage } from '@wangeditor/editor';
 import { Editor, Toolbar } from '@wangeditor/editor-for-vue';
+import { useSystemStore } from '@/hooks/use-store/use-system-store';
+import { LanguageEnum } from '@/constants/enums';
 
 defineOptions({
   name: 'ExampleEditor',
@@ -10,16 +13,12 @@ const mode = 'default';
 
 const editorRef = shallowRef();
 
-const valueHtml = ref('<p>hello</p>');
-
-onMounted(() => {
-  setTimeout(() => {
-    valueHtml.value = '<p>模拟 Ajax 异步设置内容</p>';
-  }, 1500);
-});
+const valueHtml = ref('');
 
 const toolbarConfig = {};
-const editorConfig = { placeholder: '请输入内容...' };
+const editorConfig = {};
+
+const systemStore = useSystemStore();
 
 onBeforeUnmount(() => {
   const editor = editorRef.value;
@@ -29,6 +28,9 @@ onBeforeUnmount(() => {
 
 const handleCreated = (editor: any) => {
   editorRef.value = editor;
+  i18nChangeLanguage(
+    systemStore.language === LanguageEnum.EN_US_ALIAS ? 'en' : 'zh-CN'
+  );
 };
 </script>
 <template>

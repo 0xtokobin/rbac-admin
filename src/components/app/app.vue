@@ -14,13 +14,13 @@ const systemStore = useSystemStore();
       <router-view v-slot="{ Component, route }">
         <Suspense>
           <transition name="wings-cloud-page" mode="out-in" appear>
-            <div>
-              <keep-alive :include="systemStore.keepAliveNames">
-                <component :is="Component" :key="route.fullPath" />
-              </keep-alive>
-            </div>
+            <keep-alive :include="systemStore.keepAliveNames">
+              <component :is="Component" :key="route.fullPath" />
+            </keep-alive>
           </transition>
-          <template #fallback> Loading... </template>
+          <template #fallback>
+            <app-loading></app-loading>
+          </template>
         </Suspense>
       </router-view>
     </template>
