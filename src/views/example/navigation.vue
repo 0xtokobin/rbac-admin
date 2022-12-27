@@ -4,5 +4,5 @@ defineOptions({
 });
 </script>
 <template>
-  <crud-card></crud-card>
+  <crud-card> </crud-card>
 </template>
