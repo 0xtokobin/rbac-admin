@@ -46,7 +46,7 @@ const systemStore = useSystemStore();
             <img mr-4 w-9 h-9 src="@/assets/logo-white.svg" />
             <span>{{ t('app.name') }}</span>
           </div>
-          <div text-8 font-400>{{ t('app.subName') }}</div>
+          <div text-8 font-400>{{ t('app.description') }}</div>
         </div>
         <div style="font-size: 14px" font-300>{{ t('app.copyright') }}</div>
       </div>
