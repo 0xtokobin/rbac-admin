@@ -1,10 +1,10 @@
-# Wings Cloud Admin
+# RBAC Admin Vue
 
 ✨ 基于 Vuejs + Element Plus 构建的中后台权限管理系统，集成国际化多语言、多主题多布局、状态管理、自动导入、接口 Mock 等功能，提供常用的静态页面模板
 
-📌 源码: [wingscloud/wings-cloud-admin](https://github.com/wingscloud/wings-cloud-admin)
+📌 源码: [wingscloud/rbac-admin-vue](https://github.com/wingscloud/rbac-admin-vue)
 
-🌰 演示地址: [https://wings-cloud-admin.netlify.app](https://wings-cloud-admin.netlify.app)
+🌰 演示地址: [https://rbac-admin-vue.netlify.app](https://rbac-admin-vue.netlify.app)
 
 📘 使用文档: [https://wings-cloud-docs.netlify.app](https://wings-cloud-docs.netlify.app)
 
