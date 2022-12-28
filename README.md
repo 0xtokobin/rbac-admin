@@ -1,10 +1,10 @@
-# RBAC Admin Vue
+# RBAC Admin Web
 
-✨ 基于 Vuejs + Element Plus 构建的中后台权限管理系统，集成国际化多语言、多主题多布局、状态管理、自动导入、接口 Mock 等功能，提供常用的静态页面模板
+🚀🚀🚀 中后台权限管理系统 - Web 前端，基于 Vuejs + Element Plus 构建，集成国际化多语言、多主题多布局、状态管理、自动导入、接口 Mock 等功能，提供常用的静态页面模板
 
-📌 源码: [wingscloud/rbac-admin-vue](https://github.com/wingscloud/rbac-admin-vue)
+📌 源码: [wingscloud/rbac-admin-web](https://github.com/wingscloud/rbac-admin-web)
 
-🌰 演示地址: [https://rbac-admin-vue.netlify.app](https://rbac-admin-vue.netlify.app)
+🌰 演示地址: [https://rbac-admin.netlify.app](https://rbac-admin.netlify.app)
 
 📘 使用文档: [https://wings-cloud-docs.netlify.app](https://wings-cloud-docs.netlify.app)
 
@@ -53,7 +53,7 @@
 通过 Github Clone 代码，或者 fork 该仓库
 
 ```shell
-git clone https://github.com/wingscloud/rbac-admin-vue.git
+git clone https://github.com/wingscloud/rbac-admin-web.git
 ```
 
 安装依赖包
