@@ -1,12 +1,12 @@
-# RBAC Admin Web
+# 🚀🚀🚀 RBAC Admin Web
 
-🚀🚀🚀 中后台权限管理系统 - Web 前端，基于 Vuejs + Element Plus 构建，集成国际化多语言、多主题多布局、状态管理、自动导入、接口 Mock 等功能，提供常用的静态页面模板
+中后台权限管理系统 - Web 前端，基于 Vuejs + Element Plus 构建，集成国际化多语言、多主题多布局、状态管理、自动导入、接口 Mock 等功能，提供常用的静态页面模板
 
-📌 源码: [wingscloud/rbac-admin-web](https://github.com/wingscloud/rbac-admin-web)
+源码: [wingscloud/rbac-admin-web](https://github.com/wingscloud/rbac-admin-web)
 
-🌰 演示地址: [https://rbac-admin.netlify.app](https://rbac-admin.netlify.app)
+演示地址: [https://rbac-admin.netlify.app](https://rbac-admin.netlify.app)
 
-📘 使用文档: [https://wings-cloud-docs.netlify.app](https://wings-cloud-docs.netlify.app)
+使用文档: [https://wings-cloud-docs.netlify.app](https://wings-cloud-docs.netlify.app)
 
 <table>
 	<tr>
@@ -14,19 +14,27 @@
   </tr>
   <tr>
     <td><img width="100%" src="./.github/assets/signin.jpg"></td>
-    <td><img width="100%" src="./.github/assets/signup.jpg"></td>
   </tr>
   <tr>
-    <td><img width="100%" src="./.github/assets/layout.jpg"></td>
-    <td><img width="100%" src="./.github/assets/layout-aside.jpg"></td>
+    <td><img width="100%" src="./.github/assets/workbench.jpg"></td>
   </tr>
   <tr>
-    <td><img width="100%" src="./.github/assets/theme.jpg"></td>
+    <td><img width="100%" src="./.github/assets/color-scheme.jpg"></td>
+  </tr>
+  <tr>
     <td><img width="100%" src="./.github/assets/dark.jpg"></td>
   </tr>
   <tr>
-    <td><img width="100%" src="./.github/assets/square.jpg"></td>
-    <td><img width="100%" src="./.github/assets/round.jpg"></td>
+    <td><img width="100%" src="./.github/assets/layout.jpg"></td>
+  </tr>
+  <tr>
+    <td><img width="100%" src="./.github/assets/i18n.jpg"></td>
+  </tr>
+  <tr>
+    <td><img width="100%" src="./.github/assets/menu.jpg"></td>
+  </tr>
+  <tr>
+    <td><img width="100%" src="./.github/assets/step-form.jpg"></td>
   </tr>
 </table>
 
