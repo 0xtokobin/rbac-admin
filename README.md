@@ -6,8 +6,6 @@
 
 演示地址: [https://rbac-admin.netlify.app](https://rbac-admin.netlify.app)
 
-使用文档: [https://wings-cloud-docs.netlify.app](https://wings-cloud-docs.netlify.app)
-
 <table>
 	<tr>
     <td colspan="2"> <img width="100%" src="./.github/icons/banner.svg"></td>
