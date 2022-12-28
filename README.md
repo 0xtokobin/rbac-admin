@@ -1,6 +1,6 @@
 # Wings Cloud Admin
 
-✨ 中后台权限管理系统，基于 Vuejs + Element Plus 构建，支持国际化、多主题多布局、响应式界面
+✨ 基于 Vuejs + Element Plus 构建的中后台权限管理系统，集成国际化多语言、多主题多布局、状态管理、自动导入、接口 Mock 等功能，提供常用的静态页面模板
 
 📌 源码: [wingscloud/wings-cloud-admin](https://github.com/wingscloud/wings-cloud-admin)
 
@@ -50,10 +50,10 @@
 
 ## 开始
 
-通过 Github Clone 代码，或者 fork 该仓库后 Clone
+通过 Github Clone 代码，或者 fork 该仓库
 
 ```shell
-git clone https://github.com/wingscloud/wings-cloud-admin.git
+git clone https://github.com/wingscloud/rbac-admin-vue.git
 ```
 
 安装依赖包
