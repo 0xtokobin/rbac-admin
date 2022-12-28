@@ -13,28 +13,28 @@
     <td colspan="2"> <img width="100%" src="./.github/icons/banner.svg"></td>
   </tr>
   <tr>
-    <td><img width="100%" src="./.github/assets/signin.jpg"></td>
+    <td><img width="100%" src="./.github/assets/signin.png"></td>
   </tr>
   <tr>
-    <td><img width="100%" src="./.github/assets/workbench.jpg"></td>
+    <td><img width="100%" src="./.github/assets/workbench.png"></td>
   </tr>
   <tr>
-    <td><img width="100%" src="./.github/assets/color-scheme.jpg"></td>
+    <td><img width="100%" src="./.github/assets/color-scheme.png"></td>
   </tr>
   <tr>
-    <td><img width="100%" src="./.github/assets/dark.jpg"></td>
+    <td><img width="100%" src="./.github/assets/dark-mode.png"></td>
   </tr>
   <tr>
-    <td><img width="100%" src="./.github/assets/layout.jpg"></td>
+    <td><img width="100%" src="./.github/assets/layout.png"></td>
   </tr>
   <tr>
-    <td><img width="100%" src="./.github/assets/i18n.jpg"></td>
+    <td><img width="100%" src="./.github/assets/i18n.png"></td>
   </tr>
   <tr>
-    <td><img width="100%" src="./.github/assets/menu.jpg"></td>
+    <td><img width="100%" src="./.github/assets/menu.png"></td>
   </tr>
   <tr>
-    <td><img width="100%" src="./.github/assets/step-form.jpg"></td>
+    <td><img width="100%" src="./.github/assets/step-form.png"></td>
   </tr>
 </table>
 
