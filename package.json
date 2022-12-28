@@ -1,11 +1,11 @@
 {
-  "name": "wings-cloud-admin",
+  "name": "rbac-admin-vue",
   "version": "1.0.0",
-  "description": "中后台权限管理系统，基于 Vuejs + Element Plus 构建，支持国际化、多主题多布局、响应式界面",
+  "description": "基于 Vuejs + Element Plus 构建的中后台权限管理系统，集成国际化多语言、多主题多布局、状态管理、自动导入、接口 Mock 等功能，提供常用的静态页面模板",
   "main": "index.html",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wingscloud/wings-cloud-admin.git"
+    "url": "https://github.com/wingscloud/rbac-admin-vue.git"
   },
   "author": "Kaivan Wong",
   "license": "MIT",
