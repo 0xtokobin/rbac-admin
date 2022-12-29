@@ -10,7 +10,11 @@ const props = defineProps({
   },
 });
 
-const refresh = () => {};
+const reloadView: any = inject('reloadView');
+
+const refresh = () => {
+  reloadView.reload();
+};
 </script>
 
 <template>
