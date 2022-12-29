@@ -65,3 +65,13 @@ export const getUserRoles = <T>(): Promise<
 > => {
   return GET('/system/user/roles');
 };
+
+/**
+ * @name getUserNotificationByNotRead
+ * @description 获取用户通知列表
+ */
+export const getUserNotificationByNotRead = <T>(): Promise<
+  any | ResponseData<T> | undefined
+> => {
+  return GET('/system/user/notReadNotification');
+};
