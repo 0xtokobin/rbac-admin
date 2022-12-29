@@ -6,10 +6,18 @@
     "menuDescription": "",
     "welcome": "Welcome back, ",
     "shortcuts": "Shortcuts",
+    "shortcutsUser": "User Management",
+    "shortcutsProfile": "Personal Profile",
+    "shortcutsDeparment": "Department Management",
+    "shortcutsRole": "Role Management",
+    "shortcutsMenu": "Menu Management",
     "role": "Role: ",
     "department": "Department:",
-    "active": "Recently Active",
-    "calendar": "To Do"
+    "calendar": "To Do",
+    "team": "Team",
+    "loginTimes": "Login Times",
+    "todoToday": "Todo Today",
+    "notRead": "Unread Notification"
   },
   "dashboard": {
     "menuName": "Dashboard",
