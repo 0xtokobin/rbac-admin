@@ -63,10 +63,6 @@
       "stepThree": "完成",
       "password": "支付密码",
       "success": "操作成功"
-    },
-    "pro": {
-      "menuName": "高级表单",
-      "menuDescription": ""
     }
   },
   "result": {

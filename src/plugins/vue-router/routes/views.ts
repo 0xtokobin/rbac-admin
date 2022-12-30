@@ -135,17 +135,6 @@ export default [
               i18nKey: 'example.form.step',
             },
           },
-          {
-            path: '/example/form/pro',
-            name: 'example.form.pro',
-            component: () => import('@/views/example/form/pro.vue'),
-            meta: {
-              layout: 'admin',
-              isMenu: true,
-              sort: 3,
-              i18nKey: 'example.form.pro',
-            },
-          },
         ],
       },
       {

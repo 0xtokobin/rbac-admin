@@ -18,9 +18,5 @@
     "loginTimes": "登录次数",
     "todoToday": "今日待办",
     "notRead": "未读通知"
-  },
-  "dashboard": {
-    "menuName": "仪表盘",
-    "menuDescription": ""
   }
 }

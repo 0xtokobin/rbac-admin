@@ -67,10 +67,6 @@
       "stepThree": "Successful",
       "password": "Pay Password",
       "success": "Operate Successfully"
-    },
-    "pro": {
-      "menuName": "Advanced Form",
-      "menuDescription": ""
     }
   },
   "result": {

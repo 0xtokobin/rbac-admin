@@ -18,9 +18,5 @@
     "loginTimes": "Login Times",
     "todoToday": "Todo Today",
     "notRead": "Unread Notification"
-  },
-  "dashboard": {
-    "menuName": "Dashboard",
-    "menuDescription": ""
   }
 }

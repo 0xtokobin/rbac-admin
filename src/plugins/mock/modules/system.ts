@@ -202,21 +202,6 @@ export default {
               i18nKey: 'home.workbench',
             },
           },
-          {
-            path: '/home/dashboard',
-            name: 'home.dashboard',
-            component: '/home/dashboard',
-            meta: {
-              layout: 'admin',
-              isMenu: true,
-              requiresAuth: true,
-              iconType: IconTypeEnum.ELEMENT_PLUS,
-              icon: 'Odometer',
-              sort: 2,
-              isI18n: true,
-              i18nKey: 'home.dashboard',
-            },
-          },
         ],
       },
       {
