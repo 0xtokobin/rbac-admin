@@ -1,6 +1,6 @@
 {
   "name": "rbac-admin-web",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "中后台权限管理系统 - SPA 前端，基于 Vuejs + Element Plus 构建，集成国际化多语言、多主题多布局、状态管理、自动导入、接口 Mock 等功能，提供常用的静态页面模板",
   "main": "index.html",
   "repository": {
