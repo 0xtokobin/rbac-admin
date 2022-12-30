@@ -6,6 +6,17 @@ defineOptions({
 });
 
 const systemStore = useSystemStore();
+
+const reload = ref<boolean>(true);
+
+const reloadView = () => {
+  reload.value = false;
+  nextTick(() => {
+    reload.value = true;
+  });
+};
+
+provide('reloadView', { reload: reloadView });
 </script>
 
 <template>
@@ -15,7 +26,7 @@ const systemStore = useSystemStore();
         <Suspense>
           <transition name="wings-cloud-page" mode="out-in" appear>
             <keep-alive :include="systemStore.keepAliveNames">
-              <component :is="Component" :key="route.fullPath" />
+              <component :is="Component" :key="route.fullPath" v-if="reload" />
             </keep-alive>
           </transition>
           <template #fallback>

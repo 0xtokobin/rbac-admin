@@ -202,21 +202,6 @@ export default {
               i18nKey: 'home.workbench',
             },
           },
-          {
-            path: '/home/dashboard',
-            name: 'home.dashboard',
-            component: '/home/dashboard',
-            meta: {
-              layout: 'admin',
-              isMenu: true,
-              requiresAuth: true,
-              iconType: IconTypeEnum.ELEMENT_PLUS,
-              icon: 'Odometer',
-              sort: 2,
-              isI18n: true,
-              i18nKey: 'home.dashboard',
-            },
-          },
         ],
       },
       {
@@ -444,7 +429,7 @@ export default {
   /**
    * 获取个人消息列表
    */
-  getPersonalNotification: {
+  getUserlNotification: {
     url: '/system/user/notification',
     method: 'get',
     data: {
@@ -468,6 +453,24 @@ export default {
       ],
       total: 2,
     },
+  },
+
+  /**
+   * 获取个人未读消息列表
+   */
+  getUserNotificationByNotRead: {
+    url: '/system/user/notReadNotification',
+    method: 'get',
+    data: [
+      {
+        id: 0,
+        type: 1,
+        content: '修改密码成功！',
+        source: 1,
+        createTime: 1669084718194,
+        status: 0,
+      },
+    ],
   },
 
   /**

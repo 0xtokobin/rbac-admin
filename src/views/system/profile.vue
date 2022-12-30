@@ -10,7 +10,7 @@ const { t } = useI18n();
 const userStore = useUserStore();
 </script>
 <template>
-  <crud-card action>
+  <crud-card>
     <crud-page-form
       label-position="left"
       label-width="120px"
@@ -38,14 +38,16 @@ const userStore = useUserStore();
           :placeholder="t('crud.mobile.mobile')"
         ></el-input>
       </el-form-item>
+      <template #action>
+        <el-form-item>
+          <el-button type="primary">
+            {{ t('crud.btn.update') }}
+          </el-button>
+          <el-button>
+            {{ t('app.toolbar.avatar.signout') }}
+          </el-button>
+        </el-form-item>
+      </template>
     </crud-page-form>
-    <template #action>
-      <el-button type="primary">
-        {{ t('crud.btn.update') }}
-      </el-button>
-      <el-button>
-        {{ t('app.toolbar.avatar.signout') }}
-      </el-button>
-    </template>
   </crud-card>
 </template>

@@ -3,6 +3,7 @@ import Welcome from './components/welcome.vue';
 import Navigation from './components/navigation.vue';
 import Calendar from './components/calendar.vue';
 import Active from './components/active.vue';
+import Team from './components/team.vue';
 
 defineOptions({
   name: 'HomeWorkbench',
@@ -16,12 +17,12 @@ defineOptions({
       </el-col>
     </el-row>
     <el-row :gutter="20">
-      <el-col :xs="24" :sm="24" :md="16" :lg="16" :xl="16">
+      <el-col :xs="24" :sm="24" :md="18" :lg="18" :xl="18">
         <calendar mb="20px"></calendar>
       </el-col>
-      <el-col :xs="24" :sm="24" :md="8" :lg="8" :xl="8">
+      <el-col :xs="24" :sm="24" :md="6" :lg="6" :xl="6">
         <navigation mb="20px"></navigation>
-        <active mb="20px"></active>
+        <team mb="20px"></team>
       </el-col>
     </el-row>
   </div>
