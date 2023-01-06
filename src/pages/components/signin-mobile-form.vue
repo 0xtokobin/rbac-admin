@@ -2,7 +2,7 @@
 import type { FormRules, FormInstance } from 'element-plus';
 import type { LoginMobileForm } from '@/pages/sign.d';
 import { StorageEnum, MobileCodeTypeEnum } from '@/constants/enums';
-import { MOBILE } from '@/utils/reg-exp';
+import { MOBILE } from '@kaivanwong/utils';
 import { getStorage } from '@/utils/storage';
 import { useCountDown } from '@/hooks/use-crud/use-count-down';
 

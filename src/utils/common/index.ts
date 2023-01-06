@@ -1,5 +1,5 @@
 import type { IObject, IFunction } from '@/types/global.d';
-import type { Reg } from '@/utils/reg-exp/index.d';
+import type { Reg } from '@kaivanwong/utils';
 import { getStorage } from '@/utils/storage';
 import { StorageEnum } from '@/constants/enums';
 

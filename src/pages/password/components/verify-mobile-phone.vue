@@ -4,7 +4,7 @@ import type { MobileForm } from '@/pages/sign.d';
 import type { IObject } from '@/types/global.d';
 import { StorageEnum, MobileCodeTypeEnum } from '@/constants/enums';
 import { useCountDown } from '@/hooks/use-crud/use-count-down';
-import { MOBILE } from '@/utils/reg-exp';
+import { MOBILE } from '@kaivanwong/utils';
 import { getStorage } from '@/utils/storage';
 
 defineOptions({

@@ -6,7 +6,7 @@ import type { Routes } from '@/plugins/vue-router/index.d';
 import type { Languages } from '@/plugins/vue-i18n/index.d';
 import type { ViewComponents } from '@/types/global.d';
 import { RouteEnum } from '@/constants/enums';
-import { FILE_NAME } from '@/utils/reg-exp';
+import { FILE_NAME } from '@kaivanwong/utils';
 
 /**
  * @name autoImportRoutes
