@@ -5,7 +5,7 @@ import { InternalRuleItem, SyncValidateResult } from 'async-validator';
 import { StorageEnum, MobileCodeTypeEnum } from '@/constants/enums';
 import { useUserStore } from '@/hooks/use-store/use-user-store';
 import { useCountDown } from '@/hooks/use-crud/use-count-down';
-import { USERNAME, PASSWORD_NORMAL, MOBILE } from '@/utils/reg-exp';
+import { USERNAME, PASSWORD_NORMAL, MOBILE } from '@kaivanwong/utils';
 import { getStorage } from '@/utils/storage';
 
 defineOptions({

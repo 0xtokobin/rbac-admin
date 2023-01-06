@@ -3,7 +3,7 @@ import type { FormRules, FormInstance } from 'element-plus';
 import type { PasswordForm } from '@/pages/sign.d';
 import type { IObject } from '@/types/global.d';
 import { InternalRuleItem, SyncValidateResult } from 'async-validator';
-import { PASSWORD_NORMAL } from '@/utils/reg-exp';
+import { PASSWORD_NORMAL } from '@kaivanwong/utils';
 
 defineOptions({
   name: 'ChangePassword',
@@ -35,7 +35,9 @@ const validatePassword = (
     if (value !== changeForm.value.password) {
       callback(
         new Error(
-          t('crud.inconsistent', { label: t('crud.account.passwordText') })
+          t('crud.placeholder.inconsistent', {
+            label: t('crud.account.passwordText'),
+          })
         )
       );
     } else {

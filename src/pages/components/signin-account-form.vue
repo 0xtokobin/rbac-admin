@@ -4,7 +4,7 @@ import type { InternalRuleItem, SyncValidateResult } from 'async-validator';
 import type { LoginAccountForm } from '@/pages/sign.d';
 import type { ResponseData } from '@/utils/request/index.d';
 import { useUserStore } from '@/hooks/use-store/use-user-store';
-import { USERNAME, PASSWORD_NORMAL } from '@/utils/reg-exp';
+import { USERNAME, PASSWORD_NORMAL } from '@kaivanwong/utils';
 import { RouteEnum } from '@/constants/enums';
 import { validateUsername as _validateUsername } from '@/apis/system/user';
 
@@ -106,7 +106,9 @@ const login = async (formEl: FormInstance | undefined): Promise<void> => {
         :placeholder="t('crud.account.username')"
       >
         <template #prefix>
-          <el-icon><User /></el-icon>
+          <el-icon>
+            <User />
+          </el-icon>
         </template>
         <template #suffix>
           <el-checkbox
@@ -128,7 +130,9 @@ const login = async (formEl: FormInstance | undefined): Promise<void> => {
         :placeholder="t('crud.account.password')"
       >
         <template #prefix>
-          <el-icon><Lock /></el-icon>
+          <el-icon>
+            <Lock />
+          </el-icon>
         </template>
       </el-input>
     </el-form-item>
