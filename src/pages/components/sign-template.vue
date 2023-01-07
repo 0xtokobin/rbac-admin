@@ -14,7 +14,10 @@ const systemStore = useSystemStore();
     <div w-screen h-screen overflow-hidden v-if="systemStore.isMobile">
       <div w-full h-full box-border p-6 flex flex-wrap content-between>
         <div w-full flex items-center justify-between>
-          <layout-toolbar-language></layout-toolbar-language>
+          <div flex items-center>
+            <layout-toolbar-language only-icon mr-6></layout-toolbar-language>
+            <layout-toolbar-color-scheme></layout-toolbar-color-scheme>
+          </div>
           <slot name="top-right"></slot>
         </div>
         <div w-full flex flex-wrap items-center content-center box-border>
@@ -52,7 +55,8 @@ const systemStore = useSystemStore();
       </div>
       <div w="70%" h-full flex items-center justify-center relative>
         <div absolute top-8 left-10>
-          <layout-toolbar-language></layout-toolbar-language>
+          <layout-toolbar-language only-icon mr-6></layout-toolbar-language>
+          <layout-toolbar-color-scheme></layout-toolbar-color-scheme>
         </div>
         <div absolute top-8 right-10>
           <slot name="top-right"></slot>
