@@ -22,10 +22,6 @@ const { changeLanguage, currentLanguage, languages } = useLanguage();
 <template>
   <el-dropdown @command="changeLanguage">
     <div h-full flex items-center>
-      <span flex items-center cursor-pointer h-full v-if="!props.onlyIcon">
-        <span mr-2>{{ languages[currentLanguage].name }}</span>
-        <el-icon><ArrowDown /></el-icon>
-      </span>
       <svg-icon
         v-if="props.onlyIcon"
         cursor-pointer
@@ -33,6 +29,10 @@ const { changeLanguage, currentLanguage, languages } = useLanguage();
         name="base-international"
         :color="props.color"
       ></svg-icon>
+      <span flex items-center cursor-pointer h-full v-else>
+        <span mr-2>{{ languages[currentLanguage].name }}</span>
+        <el-icon><ArrowDown /></el-icon>
+      </span>
     </div>
     <template #dropdown>
       <el-dropdown-menu>
