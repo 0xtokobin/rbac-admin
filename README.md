@@ -1,16 +1,16 @@
-<p>
-<img width="60%" src="https://raw.githubusercontent.com/wingscloud/static/d94913c69c957913534336f02b9805c4a51ccfed/logos/banner.svg" />
-</p>
-
-# 👋 @wingscloud/template-admin
-
-<p>
+<div align="center">
+	<img width="60%" src="https://raw.githubusercontent.com/wingscloud/static/d94913c69c957913534336f02b9805c4a51ccfed/logos/banner.svg" />
+	<h1>@wingscloud/template-admin</h1>
+	<p>
 	<img src="https://img.shields.io/github/v/release/wingscloud/template-admin.svg?color=b90b0b&label=Release"/>
 	<img src="https://img.shields.io/github/downloads/wingscloud/template-admin/total.svg?color=b90b0b&label=Downloads"/>
 	<img src="https://img.shields.io/github/repo-size/wingscloud/template-admin.svg?color=b90b0b&label=Repository%20Size"/>
 	<img src="https://img.shields.io/github/license/wingscloud/template-admin.svg?color=b90b0b&label=License"/>
 	<img src="https://img.shields.io/badge/-Wings%20Cloud-b90b0b"/>
 </p>
+</div>
+
+
 
 权限管理系统 - 单页客户端渲染，使用 Vuejs + Element Plus 开发，提供系统、人员、工作台等14个页面模板
 
