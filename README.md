@@ -36,6 +36,31 @@
 
 🕹️ 接口模拟 - 提供模块化的接口模拟，支持 Mock 方法自动导入，接口与 [@wingscloud/core](https://github.com/wingscloud/core) 提供的服务一致；
 
+
+## 快速上手
+
+Wings Cloud 相关的项目持续维护。项目每次版本更新时，将发布到 Github 上。建议通过 [Github Release](https://github.com/wingscloud/template-admin/releases) 下载相应版本的源码压缩包。
+
+1.安装依赖。
+
+```sh
+# 建议使用 pnpm。
+pnpm install
+
+# 您也可以使用 Yarn 或者 Npm。
+npm install
+```
+
+2.该仓库演示地址部署在 [Neilify](https://app.netlify.com/)，需要移除 `netlify.toml` 文件、`/.netlify` 目录即可。
+
+3.项目提供了基于环境变量的启动命令，你可以在 `package.json` 中查看。例如，运行 `npm run serve` 将默认启动本地开发服务。您也可以搭配环境变量使用，如：`npm run serve:stag` 即本地启动测试环境的开发服务。
+
+> 注意：运行 `preview` 命令，需要先执行 `build` 相关命令进行本地构建包
+
+4.Vite 服务抽离到了 `/serve` 目录下，其中包含 Vite 相关的配置、环境变量等。你可以在 `/serve/proxy.ts` 中修改您的代理设置。
+
+这里只包含了快速上手精简内容，帮助在本地快速运行，更多使用方式请访问 [官网文档](https://wingscloud-docs.netlify.app)。
+
 ## 生态产品
 
 核心，使用 JavaScript / TypeScript 构建的企业级中后台权限微服务系统：
@@ -62,27 +87,18 @@
 
 ## 界面展示
 
-<tr>
-	<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/signin.png?raw=true"></td>
-</tr>
-<tr>
-	<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/workbench.png?raw=true"></td>
-</tr>
-<tr>
-	<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/layout.png?raw=true"></td>
-</tr>
-<tr>
-	<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/dark-mode.png?raw=true"></td>
-</tr>
-<tr>
-	<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/color-scheme.png?raw=true"></td>
-</tr>
-<tr>
-	<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/menu.png?raw=true"></td>
-</tr>
-<tr>
-	<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/step-form.png?raw=true"></td>
-</tr>
+<table>
+	<tr>
+		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/signin.png?raw=true" /></td>
+		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/workbench.png?raw=true" /></td>
+		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/layout.png?raw=true" /></td>
+	</tr>
+	<tr>
+		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/dark-mode.png?raw=true" /></td>
+		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/color-scheme.png?raw=true" /></td>
+		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/menu.png?raw=true" /></td>
+	</tr>
+</table>
 
 ## 开源协议
 
