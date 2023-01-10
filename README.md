@@ -14,17 +14,17 @@
 	<img src="https://img.shields.io/badge/-Wings%20Cloud-3DABF5"/>
 </p>
 
-💡 最新技术栈 - 基于 `Vue3.x`、`Vite4.x`、`TypeScript`、`Element Plus`、`Pinia`、`Unocss` 等，持续保持依赖更新；
+💡 最新技术栈 - 基于 `Vue3.x`、`Vite4.x`、`TypeScript`、`Element Plus`、`Pinia`、`Unocss` 等，持续更新依赖；
 
 🚀 工程化 - 抽离 `/serve` 服务，提供语义化的目录结构，17 种 NPM 命令，搭配环境变量实现工程化的开发环境；
 
-💪 协作开发 - 集成 `Eslint`、`Stylelint`、`Prettier` 进行格式化、语法检测，提供 Git Commit 拦截，保证代码质量；
+💪 协作开发 - 集成 `Eslint`、`Stylelint`、`Prettier` 格式化、语法检测，提供 Git Commit 拦截，保证代码质量；
 
 🎨 开箱即用 - 提供开箱即用的中后台权限系统页面模板和常用功能示例模板，包含部门、角色、菜单、工作台等；
 
 🌐 国际化 - 提供基于 `Vue-i18n` 的国际化多语言解决方案，自动化的翻译文本导入，提供菜单注入国际化多语言；
 
-🔑 鉴权 - 提供完整的、精确到按钮级的细颗粒度权限校验功能，搭配用户角色管理、菜单管理，适配 90% 的基础业务；
+🔑 鉴权 - 提供细颗粒度权限校验、根据角色的动态菜单，搭配用户角色管理、菜单管理，适配 90% 以上场景的 B 端业务；
 
 📦 增删改查 - `@/hooks/use-crud` 抽离了增删改查的业务逻辑，设计层面拒绝代码过度封装，提供可扩展的 API；
 
