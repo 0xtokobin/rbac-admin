@@ -1,5 +1,5 @@
 <p>
-	<img width="100%" src="https://raw.githubusercontent.com/wingscloud/static/d12961e3a1c2f49cc3c685e0f0553eb499893b70/logos/banner.svg" />
+	<img width="100%" src="https://github.com/wingscloud/static/blob/main/logos/banner.png?raw=true" />
 </p>
 
 # 👋 欢迎使用 @wingscloud/template-admin 前端模板
