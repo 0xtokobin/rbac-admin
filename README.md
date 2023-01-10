@@ -54,13 +54,15 @@ pnpm install
 npm install
 ```
 
-2.该仓库演示地址部署在 [Neilify](https://app.netlify.com/)，需要移除 `netlify.toml` 文件、`/.netlify` 目录即可。
+2.该仓库演示地址部署在 [Neilify](https://app.netlify.com/)，需要移除 `/netlify.toml` 文件、`/.netlify` 目录即可。
 
-3.项目提供了基于环境变量的启动命令，你可以在 `package.json` 中查看。例如，运行 `npm run serve` 将默认启动本地开发服务。您也可以搭配环境变量使用，如：`npm run serve:stag` 即本地启动测试环境的开发服务。
+3.项目提供了基于环境变量的启动命令，你可以在 `/package.json` 中查看。例如，运行 `npm run serve` 将默认启动本地开发服务。您也可以搭配环境变量使用，如：`npm run serve:stag` 即本地启动测试环境的开发服务。
 
 > 注意：运行 `preview` 命令，需要先执行 `build` 相关命令进行本地构建包
 
 4.Vite 服务抽离到了 `/serve` 目录下，其中包含 Vite 相关的配置、环境变量等。你可以在 `/serve/proxy.ts` 中修改您的代理设置。
+
+5.内置了 VsCode 相关插件配置，如果您不需要，移除 `/.vscode` 即可
 
 这里只包含了快速上手精简内容，帮助在本地快速运行，更多使用方式请访问 [官网文档](https://wingscloud-docs.netlify.app)。
 
