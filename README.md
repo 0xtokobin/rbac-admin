@@ -11,7 +11,7 @@
 	<img src="https://img.shields.io/github/downloads/wingscloud/template-admin/total.svg?color=3DABF5&label=Downloads"/>
 	<img src="https://img.shields.io/github/repo-size/wingscloud/template-admin.svg?color=3DABF5&label=Repository%20Size"/>
 	<img src="https://img.shields.io/github/license/wingscloud/template-admin.svg?color=3DABF5&label=License"/>
-	<img src="https://img.shields.io/badge/-Wings%20Cloud-3DABF5"/>
+	<img src="https://img.shields.io/badge/-Wings%20Cloud%20Support-3DABF5"/>
 </p>
 
 ## 功能特性
