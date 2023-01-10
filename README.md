@@ -1,122 +1,112 @@
-# 🚀 RBAC Admin Web
+<p>
+	<img width="100%" src="https://raw.githubusercontent.com/wingscloud/static/d12961e3a1c2f49cc3c685e0f0553eb499893b70/logos/banner.svg" />
+</p>
 
-中后台权限管理系统 - Web 前端，基于 Vuejs + Element Plus 构建，集成国际化多语言、多主题多布局、状态管理、自动导入、接口 Mock 等功能，提供常用的静态页面模板
+# 👋 欢迎使用 @wingscloud/template-admin 前端模板
 
-源码: [wingscloud/rbac-admin-web](https://github.com/wingscloud/rbac-admin-web)
+【前端模板】中后台权限管理系统，基于 Vue + Element Plus 开发。拒绝过度封装，减少学习成本，快速落地开发。提供国际化支持、多主题多布局、移动端适配、细颗粒度鉴权、动态路由等。
 
-演示地址: [https://rbac-admin.netlify.app](https://rbac-admin.netlify.app)
+<p>
+	<img src="https://img.shields.io/github/v/release/wingscloud/template-admin.svg?color=3DABF5&label=Release"/>
+	<img src="https://img.shields.io/github/repo-size/wingscloud/template-admin.svg?color=3DABF5&label=Repository%20Size"/>
+	<img src="https://img.shields.io/github/stars/wingscloud/template-admin.svg?color=3DABF5&label=Stars"/>
+	<img src="https://img.shields.io/github/forks/wingscloud/template-admin.svg?color=3DABF5&label=Forks"/>
+	<img src="https://img.shields.io/github/issues-pr-closed-raw/wingscloud/template-admin.svg?color=3DABF5&label=Closed%20PR"/>
+	<img src="https://img.shields.io/github/issues-closed-raw/wingscloud/template-admin.svg?color=3DABF5&label=Closed%20Issues"/>
+	<img src="https://img.shields.io/github/license/wingscloud/template-admin.svg?color=3DABF5&label=License"/>
+	<img src="https://img.shields.io/badge/Wings%20Cloud-Template-3DABF5"/>
+</p>
+
+## 功能特性
+
+💡 最新技术栈 - 基于 `Vue3.x`、`Vite4.x`、`TypeScript`、`Element Plus`、`Pinia`、`Unocss` 等，持续更新依赖；
+
+🚀 工程化 - 抽离 `/serve` 服务，提供语义化的目录结构，17 种 NPM 命令，搭配环境变量实现工程化的开发环境；
+
+💪 协作开发 - 集成 `Eslint`、`Stylelint`、`Prettier` 格式化、语法检测，提供 Git Commit 拦截，保证代码质量；
+
+🗃️ 开箱即用 - 提供开箱即用的中后台权限系统页面模板和常用功能示例模板，包含部门、角色、菜单、工作台等；
+
+🎨 主题布局 - 内置 6 种不同布局方式、4 种配色方案、12 种预置主题色，支持黑暗模式（可配置系统自适应）；
+
+🌐 国际化 - 提供基于 `Vue-i18n` 的国际化多语言解决方案，自动化的翻译文本导入，提供菜单注入国际化多语言；
+
+🔑 鉴权 - 提供细颗粒度权限、角色动态菜单，搭配用户角色管理、菜单管理，适配 90% 以上场景的 B 端业务；
+
+⚓ 增删改查 - `@/hooks/use-crud` 抽离了增删改查的业务逻辑，设计层面拒绝代码过度封装，提供可扩展的 API；
+
+✨ 动态路由 - 提供基于接口 + 静态的菜单路由及页面路由，支持菜单动态生成，提供灵活的路由参数、路由守卫；
+
+🕹️ 接口模拟 - 提供模块化的接口模拟，支持 Mock 方法自动导入，接口与 [@wingscloud/core](https://github.com/wingscloud/core) 提供的服务一致；
+
+
+## 快速上手
+
+Wings Cloud 相关的项目持续维护。项目每次版本更新时，将发布到 Github 上。建议通过 [Github Release](https://github.com/wingscloud/template-admin/releases) 下载相应版本的源码压缩包。
+
+1.安装依赖。
+
+```sh
+# 建议使用 pnpm。
+pnpm install
+
+# 您也可以使用 Yarn 或者 Npm。
+npm install
+```
+
+2.该仓库演示地址部署在 [Neilify](https://app.netlify.com/)，需要移除 `/netlify.toml` 文件、`/.netlify` 目录即可。
+
+3.项目提供了基于环境变量的启动命令，你可以在 `/package.json` 中查看。例如，运行 `npm run serve` 将默认启动本地开发服务。您也可以搭配环境变量使用，如：`npm run serve:stag` 即本地启动测试环境的开发服务。
+
+> 注意：运行 `preview` 命令，需要先执行 `build` 相关命令进行本地构建包
+
+4.Vite 服务抽离到了 `/serve` 目录下，其中包含 Vite 相关的配置、环境变量等。你可以在 `/serve/proxy.ts` 中修改您的代理设置。
+
+5.内置了 VsCode 相关插件配置，如果您不需要，移除 `/.vscode` 即可
+
+这里只包含了快速上手精简内容，帮助在本地快速运行，更多使用方式请访问 [官网文档](https://wingscloud-docs.netlify.app)。
+
+## 生态产品
+
+核心，使用 JavaScript / TypeScript 构建的企业级中后台权限微服务系统：
+
+- [✈️ @wingscloud/core 微服务应用](https://github.com/wingscloud/core)
+
+- [✈️ @wingscloud/ui 客户端应用](https://github.com/wingscloud/ui)
+
+为了方便开发使用，[Wings Cloud](https://github.com/wingscloud) 提供了配套的使用文档：
+
+- [📘 Wings Cloud 官方文档](https://wingscloud-docs.netlify.app)
+
+同时 [Wings Cloud](https://github.com/wingscloud) 提供了常规的开发模板：
+
+- [🔥 @wingscloud/template-admin 【前端模板】中后台权限管理系统](https://github.com/wingscloud/template-admin)
+
+- [🔥 @wingscloud/template-website 【前端模板】企业级门户网站](https://github.com/wingscloud/template-website)
+
+- [🔥 @wingscloud/template-shop 【前端模板】社区电商微信小程序](https://github.com/wingscloud/template-shop)
+
+- [🔥 @wingscloud/template-talks 【前端模板】即时通讯跨端 App](https://github.com/wingscloud/template-talks)
+
+- [🔥 @wingscloud/template-wash 【前端模板】自助洗车微信小程序](https://github.com/wingscloud/template-wash)
+
+## 界面展示
 
 <table>
 	<tr>
-    <td colspan="2"> <img width="100%" src="./.github/icons/banner.svg"></td>
-  </tr>
-  <tr>
-    <td><img width="100%" src="./.github/assets/signin.png"></td>
-  </tr>
-  <tr>
-    <td><img width="100%" src="./.github/assets/workbench.png"></td>
-  </tr>
-  <tr>
-    <td><img width="100%" src="./.github/assets/color-scheme.png"></td>
-  </tr>
-  <tr>
-    <td><img width="100%" src="./.github/assets/dark-mode.png"></td>
-  </tr>
-  <tr>
-    <td><img width="100%" src="./.github/assets/layout.png"></td>
-  </tr>
-  <tr>
-    <td><img width="100%" src="./.github/assets/i18n.png"></td>
-  </tr>
-  <tr>
-    <td><img width="100%" src="./.github/assets/menu.png"></td>
-  </tr>
-  <tr>
-    <td><img width="100%" src="./.github/assets/step-form.png"></td>
-  </tr>
+		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/signin.png?raw=true" /></td>
+		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/workbench.png?raw=true" /></td>
+		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/layout.png?raw=true" /></td>
+	</tr>
+	<tr>
+		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/dark-mode.png?raw=true" /></td>
+		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/color-scheme.png?raw=true" /></td>
+		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/menu.png?raw=true" /></td>
+	</tr>
 </table>
 
-## 特性
+## 开源协议
 
-**💡 最新技术栈** - 基于 Vue3、Vite、TypeScript、Element Plus、Axios、Pinia、Unocss 等最新技术栈构建；
-
-**🚀 工程化开发** - 集成 Eslint + Stylelint + Prettier，提供基于 Vite 的工程化配置，合理的代码目录及代码注释；
-
-**🎨 开箱即用** - 提供多种开箱即用的管理系统页面模板，支持丰富的布局与主题，同时保证多端的良好适配性；
-
-**🌐 国际化** - 基于 Vue-i18n 的国际化多语言解决方案，搭配 i18N Ally IDE 插件，实现多语言项目的高效开发；
-
-**🔑 权限验证** - 提供完整的、精确到按钮级的细颗粒度权限验证功能，搭配用户角色管理，适应多数业务场景；
-
-**📦 丰富的组件** - 二次封装了常用的三方组件，如：上传、富文本编辑器、地图、图表等，提供代码生成工具；
-
-**🕹️ 接口模拟** - 使用 Mockjs 作为接口数据的模拟，体验项目完整功能，根据预留接口快速对接服务应用程序；
-
-**🎯 内置函数** - 内置开发常用的工具函数及钩子函数，如：自动导入、网络请求、缓存、增删改查、状态管理等；
-
-## 开始
-
-通过 Github Clone 代码，或者 fork 该仓库
-
-```shell
-git clone https://github.com/wingscloud/rbac-admin-web.git
-```
-
-安装依赖包
-
-```shell
-npm install # 您也可以使用 yarn 或者 pnpm
-```
-
-开发模式
-
-```shell
-npm run serve # 支持搭配环境变量使用，如 npm run serve:stag
-```
-
-构建包
-
-```shell
-npm run build # 支持搭配环境变量使用，如 npm run build:stag
-```
-
-本地预览构建包
-
-```shell
-npm run build # 先进行本地构建
-
-npm run preview # 使用本地构建包运行 preview 命令，同样可搭配环境变量使用
-```
-
-其他命令
-
-```shell
-npm run format:prettier # 使用 Prettier 进行代码格式化
-
-npm run lint:stylelint # 使用 Stylelint 检查 style 规范
-
-npm run lint:eslint #  运行 Eslint 语法检测
-
-npm run lint:eslint:fix # 基于 Eslint 的语法自动修复
-```
-
-## IDE 插件
-
-为了使用本项目完整的功能，如 i18n Ally、Prettier 等，务必在您的 IDE 安装以下插件。
-
-如果你使用 VSCode 打开项目，只需要遵循工作空间的安装建议即可。您可用在项目的 `.vsocde/` 目录下看到插件的建议列表、插件配置 json，您可用根据需要进行调整。
-
-<table>
-  <tr>
-    <td><img width="90" src="./.github/assets/vscode-plugin-volar.png"></td>
-    <td><img width="90" src="./.github/assets/vscode-plugin-prettier.png"></td>
-    <td><img width="90" src="./.github/assets/vscode-plugin-eslint.png"></td>
-    <td><img width="90" src="./.github/assets/vscode-plugin-stylelint.png"></td>
-    <td><img width="90" src="./.github/assets/vscode-plugin-editor-config.png"></td>
-    <td><img width="90" src="./.github/assets/vscode-plugin-i18n-ally.png"></td>
-  </tr>
-</table>
-
-### 开源协议
+免费商用，您可以在不违反法律法规的前提下，应用到任意项目。
 
 [MIT licensed](./LICENSE) © 2022-PRESENT [Kaivan Wong](https://github.com/kaivanwong)
