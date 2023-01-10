@@ -14,23 +14,51 @@
 	<img src="https://img.shields.io/badge/-Wings%20Cloud-3DABF5"/>
 </p>
 
+## 功能特性
+
 💡 最新技术栈 - 基于 `Vue3.x`、`Vite4.x`、`TypeScript`、`Element Plus`、`Pinia`、`Unocss` 等，持续更新依赖；
 
 🚀 工程化 - 抽离 `/serve` 服务，提供语义化的目录结构，17 种 NPM 命令，搭配环境变量实现工程化的开发环境；
 
 💪 协作开发 - 集成 `Eslint`、`Stylelint`、`Prettier` 格式化、语法检测，提供 Git Commit 拦截，保证代码质量；
 
-🎨 开箱即用 - 提供开箱即用的中后台权限系统页面模板和常用功能示例模板，包含部门、角色、菜单、工作台等；
+🗃️ 开箱即用 - 提供开箱即用的中后台权限系统页面模板和常用功能示例模板，包含部门、角色、菜单、工作台等；
+
+🎨 主题布局 - 内置 6 种不同布局方式、4 种配色方案、12 种预置主题色，支持黑暗模式（可配置系统自适应）；
 
 🌐 国际化 - 提供基于 `Vue-i18n` 的国际化多语言解决方案，自动化的翻译文本导入，提供菜单注入国际化多语言；
 
 🔑 鉴权 - 提供细颗粒度权限、角色动态菜单，搭配用户角色管理、菜单管理，适配 90% 以上场景的 B 端业务；
 
-📦 增删改查 - `@/hooks/use-crud` 抽离了增删改查的业务逻辑，设计层面拒绝代码过度封装，提供可扩展的 API；
+⚓ 增删改查 - `@/hooks/use-crud` 抽离了增删改查的业务逻辑，设计层面拒绝代码过度封装，提供可扩展的 API；
 
 ✨ 动态路由 - 提供基于接口 + 静态的菜单路由及页面路由，支持菜单动态生成，提供灵活的路由参数、路由守卫；
 
 🕹️ 接口模拟 - 提供模块化的接口模拟，支持 Mock 方法自动导入，接口与 [@wingscloud/core](https://github.com/wingscloud/core) 提供的服务一致；
+
+## 生态产品
+
+核心，使用 JavaScript / TypeScript 构建的企业级中后台权限微服务系统：
+
+- [✈️ @wingscloud/core 微服务应用](https://github.com/wingscloud/core)
+
+- [✈️ @wingscloud/ui 客户端应用](https://github.com/wingscloud/ui)
+
+为了方便开发使用，[Wings Cloud](https://github.com/wingscloud) 提供了配套的使用文档：
+
+- [📘 Wings Cloud 官方文档](https://wingscloud-docs.netlify.app)
+
+同时 [Wings Cloud](https://github.com/wingscloud) 提供了常规的开发模板：
+
+- [🔥 @wingscloud/template-admin 【前端模板】中后台权限管理系统](https://github.com/wingscloud/template-admin)
+
+- [🔥 @wingscloud/template-website 【前端模板】企业级门户网站](https://github.com/wingscloud/template-website)
+
+- [🔥 @wingscloud/template-shop 【前端模板】社区电商微信小程序](https://github.com/wingscloud/template-shop)
+
+- [🔥 @wingscloud/template-talks 【前端模板】即时通讯跨端 App](https://github.com/wingscloud/template-talks)
+
+- [🔥 @wingscloud/template-wash 【前端模板】自助洗车微信小程序](https://github.com/wingscloud/template-wash)
 
 ## 界面展示
 
