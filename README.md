@@ -8,9 +8,10 @@
 
 <p>
 	<img src="https://img.shields.io/github/v/release/wingscloud/template-admin.svg?color=3DABF5&label=Release"/>
-	<img src="https://img.shields.io/github/stars/wingscloud/template-admin.svg?color=3DABF5&label=Stars"/>
-	<img src="https://img.shields.io/github/issues-pr-closed-raw/wingscloud/template-admin.svg?color=3DABF5&label=Closed%20PR"/>
 	<img src="https://img.shields.io/github/repo-size/wingscloud/template-admin.svg?color=3DABF5&label=Repository%20Size"/>
+	<img src="https://img.shields.io/github/stars/wingscloud/template-admin.svg?color=3DABF5&label=Stars"/>
+	<img src="https://img.shields.io/github/forks/wingscloud/template-admin.svg?color=3DABF5&label=Forks"/>
+	<img src="https://img.shields.io/github/issues-pr-closed-raw/wingscloud/template-admin.svg?color=3DABF5&label=Closed%20PR"/>
 	<img src="https://img.shields.io/github/license/wingscloud/template-admin.svg?color=3DABF5&label=License"/>
 	<img src="https://img.shields.io/badge/Wings%20Cloud-Template-3DABF5"/>
 </p>
