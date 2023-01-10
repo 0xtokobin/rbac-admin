@@ -1,7 +1,7 @@
 {
 	"name": "@wingscloud/template-admin",
 	"version": "1.1.3",
-	"description": "【前端模板】中后台权限管理系统，基于 Vue + Element Plus 开发。拒绝过度封装，减少学习成本，快速落地开发。提供国际化支持、多主题多布局、移动端适配、细颗粒度鉴权、动态路由等。",
+	"description": "【前端模板】后台管理系统，基于 Vue + Element Plus 开发。拒绝过度封装，减少学习成本，快速落地开发。提供国际化支持、多主题多布局、移动端适配、细颗粒度鉴权、动态路由等。",
 	"author": "Kaivan Wong <kaivanwong@outlook.com>",
 	"license": "MIT",
 	"homepage": "https://github.com/wingscloud/template-admin#readme",

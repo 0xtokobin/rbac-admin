@@ -4,7 +4,7 @@
 
 # 👋 欢迎使用 @wingscloud/template-admin 前端模板
 
-【前端模板】中后台权限管理系统，基于 Vue + Element Plus 开发。拒绝过度封装，减少学习成本，快速落地开发。提供国际化支持、多主题多布局、移动端适配、细颗粒度鉴权、动态路由等。
+【前端模板】后台管理系统，基于 Vue + Element Plus 开发。拒绝过度封装，减少学习成本，快速落地开发。提供国际化支持、多主题多布局、移动端适配、细颗粒度鉴权、动态路由等。
 
 <p>
 	<img src="https://img.shields.io/github/v/release/wingscloud/template-admin.svg?color=3DABF5&label=Release"/>
@@ -25,7 +25,7 @@
 
 💪 协作开发 - 集成 `Eslint`、`Stylelint`、`Prettier` 格式化、语法检测，提供 Git Commit 拦截，保证代码质量；
 
-🗃️ 开箱即用 - 提供开箱即用的中后台权限系统页面模板和常用功能示例模板，包含部门、角色、菜单、工作台等；
+🗃️ 开箱即用 - 提供多种开箱即用的后台管理系统页面模板和常用功能示例模板，包含部门、角色、菜单、工作台等；
 
 🎨 主题布局 - 内置 6 种不同布局方式、4 种配色方案、12 种预置主题色，支持黑暗模式（可配置系统自适应）；
 
@@ -68,21 +68,21 @@ npm install
 
 ## 生态产品
 
-核心，使用 JavaScript / TypeScript 构建的企业级中后台权限微服务系统：
+核心，使用 JavaScript / TypeScript 构建的中后台权限微服务系统：
 
 - [✈️ @wingscloud/core 微服务应用](https://github.com/wingscloud/core)
 
-- [✈️ @wingscloud/ui 客户端应用](https://github.com/wingscloud/ui)
+- [✈️ @wingscloud/ui 前端应用](https://github.com/wingscloud/ui)
 
 为了方便开发使用，[Wings Cloud](https://github.com/wingscloud) 提供了配套的使用文档：
 
 - [📘 Wings Cloud 官方文档](https://wingscloud-docs.netlify.app)
 
-同时 [Wings Cloud](https://github.com/wingscloud) 提供了常规的开发模板：
+同时 [Wings Cloud](https://github.com/wingscloud) 提供了常用的开发模板：
 
-- [🔥 @wingscloud/template-admin 【前端模板】中后台权限管理系统](https://github.com/wingscloud/template-admin)
+- [🔥 @wingscloud/template-admin 【前端模板】后台管理系统](https://github.com/wingscloud/template-admin)
 
-- [🔥 @wingscloud/template-website 【前端模板】企业级门户网站](https://github.com/wingscloud/template-website)
+- [🔥 @wingscloud/template-website 【前端模板】门户网站](https://github.com/wingscloud/template-website)
 
 - [🔥 @wingscloud/template-shop 【前端模板】社区电商微信小程序](https://github.com/wingscloud/template-shop)
 
