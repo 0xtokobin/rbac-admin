@@ -4,7 +4,7 @@
 
 # 👋 欢迎使用 @wingscloud/template-admin 前端模板
 
-【前端模板】后台管理系统，基于 Vue + Element Plus 开发。面向通用后台管理系统，提供国际化支持、多主题多布局、移动端适配、细颗粒度鉴权、动态路由等。
+【前端模板】SPA 单页后台管理系统，基于 Vue3 + Element Plus 开发。模板集成 Vue3 生态最新工具链，提供国际化多语言支持、多主题（支持黑暗模式及自适应）多布局、移动端适配、细颗粒度鉴权、动态路由等。拒绝过度封装，减少学习成本，快速落地开发。
 
 <p>
 	<img src="https://img.shields.io/github/v/release/wingscloud/template-admin.svg?color=3DABF5&label=Release"/>
