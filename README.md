@@ -95,13 +95,33 @@ npm install
 <table>
 	<tr>
 		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/signin.png?raw=true" /></td>
-		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/workbench.png?raw=true" /></td>
-		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/layout.png?raw=true" /></td>
+		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/signup.png?raw=true" /></td>
+		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/service.png?raw=true" /></td>
 	</tr>
 	<tr>
-		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/dark-mode.png?raw=true" /></td>
-		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/color-scheme.png?raw=true" /></td>
-		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/menu.png?raw=true" /></td>
+		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/layout-1.png?raw=true" /></td>
+		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/layout-2.png?raw=true" /></td>
+		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/layout-3.png?raw=true" /></td>
+	</tr>
+	<tr>
+		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/layout-4.png?raw=true" /></td>
+		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/layout-5.png?raw=true" /></td>
+		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/layout-6.png?raw=true" /></td>
+	</tr>
+	<tr>
+		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/theme-1.png?raw=true" /></td>
+		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/theme-2.png?raw=true" /></td>
+		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/theme-3.png?raw=true" /></td>
+	</tr>
+	<tr>
+		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/style-1.png?raw=true" /></td>
+		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/style-2.png?raw=true" /></td>
+		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/page-1.png?raw=true" /></td>
+	</tr>
+	<tr>
+		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/page-2.png?raw=true" /></td>
+		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/page-3.png?raw=true" /></td>
+		<td><img width="100%" src="https://github.com/wingscloud/static/blob/main/template-admin/page-4.png?raw=true" /></td>
 	</tr>
 </table>
 
