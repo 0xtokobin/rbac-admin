@@ -7,7 +7,7 @@ import { SettingsValueEnum, LanguageEnum, RouteEnum } from '@/constants/enums';
  */
 export const SettingsDefault: SystemSettings = {
   Layout: SettingsValueEnum.LAYOUT_TOP,
-  ThemeColor: '#b90b0b',
+  ThemeColor: '#3dabf5',
   ColorScheme: SettingsValueEnum.COLOR_SCHEME_AUTO,
   TabStyle: SettingsValueEnum.TAB_STYLE_SQUARE,
   MenuStyle: SettingsValueEnum.MENU_STYLE_ROUND,
