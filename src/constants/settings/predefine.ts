@@ -94,7 +94,7 @@ export const PredefineColorSchemes = [
  * @description 预置主题颜色
  */
 export const PredefineThemeColors = [
-  '#b90b0b',
+  '#3dabf5',
   '#0d6efd',
   '#42b983',
   '#ea3a72',
