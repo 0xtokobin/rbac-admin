@@ -78,7 +78,7 @@ npm install
 
 - [📘 Wings Cloud 官方文档](https://wingscloud-docs.netlify.app)
 
-同时 [Wings Cloud](https://github.com/wingscloud) 提供了常用的开发模板：
+同时 [Wings Cloud](https://github.com/wingscloud) 提供了常用的开发模板及空项目启动器：
 
 - [🔥 @wingscloud/template-admin 【前端模板】后台管理系统](https://github.com/wingscloud/template-admin)
 
@@ -89,6 +89,8 @@ npm install
 - [🔥 @wingscloud/template-talks 【前端模板】即时通讯跨端 App](https://github.com/wingscloud/template-talks)
 
 - [🔥 @wingscloud/template-wash 【前端模板】自助洗车微信小程序](https://github.com/wingscloud/template-wash)
+
+- [🔥 @wingscloud/starter-vue3 【启动器】Vue3 生态](https://github.com/wingscloud/starter-vue3)
 
 ## 界面展示
 
