@@ -90,7 +90,7 @@ npm install
 
 - [🔥 @wingscloud/template-wash 【前端模板】自助洗车微信小程序](https://github.com/wingscloud/template-wash)
 
-- [🔥 @wingscloud/starter-vue3 【启动器】Vue3 生态](https://github.com/wingscloud/starter-vue3)
+- [🔥 @wingscloud/starter-vue3 【启动器】Vue3 生态，集成相关插件](https://github.com/wingscloud/starter-vue3)
 
 ## 界面展示
 
