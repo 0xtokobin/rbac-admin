@@ -2,7 +2,6 @@
 import type { FormRules, FormInstance } from 'element-plus';
 import type { PasswordForm } from '@/pages/sign.d';
 import type { IObject } from '@/types/global.d';
-import type { InternalRuleItem, SyncValidateResult } from 'async-validator';
 import { PASSWORD_NORMAL } from '@kaivanwong/utils';
 
 defineOptions({
@@ -18,11 +17,7 @@ const changeForm = ref<PasswordForm>({
   passwordAgain: '',
 });
 
-const validatePassword = (
-  rule: InternalRuleItem,
-  value: string,
-  callback: (error?: string | Error | undefined) => void
-): void | SyncValidateResult => {
+const validatePassword = (rule: any, value: string, callback: any) => {
   if (value && !PASSWORD_NORMAL.test(value)) {
     callback(
       new Error(

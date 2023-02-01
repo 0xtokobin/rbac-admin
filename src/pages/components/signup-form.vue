@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import type { FormRules, FormInstance } from 'element-plus';
 import type { SignupAccountForm } from '@/pages/sign.d';
-import { InternalRuleItem, SyncValidateResult } from 'async-validator';
 import { StorageEnum, MobileCodeTypeEnum } from '@/constants/enums';
 import { useUserStore } from '@/hooks/use-store/use-user-store';
 import { useCountDown } from '@/hooks/use-crud/use-count-down';
@@ -31,10 +30,10 @@ const form = ref<SignupAccountForm>({
 });
 
 const validatePassword = (
-  rule: InternalRuleItem,
+  rule: any,
   value: string,
   callback: (error?: string | Error | undefined) => void
-): void | SyncValidateResult => {
+) => {
   if (value && !PASSWORD_NORMAL.test(value)) {
     callback(
       new Error(

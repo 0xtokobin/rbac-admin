@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import type { FormRules, FormInstance } from 'element-plus';
-import type { InternalRuleItem, SyncValidateResult } from 'async-validator';
 import type { LoginAccountForm } from '@/pages/sign.d';
 import type { ResponseData } from '@/utils/request/index.d';
 import { useUserStore } from '@/hooks/use-store/use-user-store';
@@ -27,11 +26,7 @@ const form = ref<LoginAccountForm>({
   type: 0,
 });
 
-const validateUsername = (
-  rule: InternalRuleItem,
-  value: string,
-  callback: (error?: string | Error | undefined) => void
-): void | SyncValidateResult => {
+const validateUsername = (rule: any, value: string, callback: any) => {
   if (value && !USERNAME.test(value)) {
     callback(
       new Error(

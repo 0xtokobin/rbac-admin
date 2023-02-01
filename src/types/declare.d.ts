@@ -8,6 +8,5 @@ declare module '*.tiff';
 declare module '*.gif';
 declare module 'qs';
 declare module 'mockjs';
-declare module 'async-validator';
 declare module 'element-plus/dist/locale/en.mjs';
 declare module 'element-plus/dist/locale/zh-cn.mjs';
