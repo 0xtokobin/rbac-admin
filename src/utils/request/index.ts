@@ -64,15 +64,17 @@ export const addInterceptorsRequest = (
   axios: Axios,
   options: RequestOptions
 ): number => {
-  return axios.interceptors.request.use((config: IObject) => {
+  return axios.interceptors.request.use((config) => {
     if (options.isTime) {
       config.params[RequestHeaderEnum.HEADER_TIME] = new Date().getTime();
     }
-    if (options.isToken) {
-      config[RequestHeaderEnum.HEADER_TOKEN] = getStorage(StorageEnum.TOKEN);
-    }
     if (options.headers) {
       config.headers = { ...config.headers, ...options.headers };
+      if (options.isToken) {
+        config.headers[RequestHeaderEnum.HEADER_TOKEN] = getStorage(
+          StorageEnum.TOKEN
+        );
+      }
     }
     if (
       Object.values(config.headers).includes(
