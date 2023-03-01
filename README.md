@@ -18,11 +18,13 @@
 
 - 提供基于接口 + 静态的菜单路由及页面路由，支持菜单动态生成，提供灵活的路由参数、路由守卫；
 
+<br/>
+
 ### 快速上手
 
 项目每次版本更新时，将发布到 Github 上。建议通过 [Github Release](https://github.com/wingscloud/template-admin/releases) 下载相应版本的源码压缩包。
 
-1.安装依赖。
+1. 安装依赖。
 
 ```sh
 # 建议使用 pnpm。
@@ -32,11 +34,13 @@ pnpm install
 npm install
 ```
 
-2.项目提供了基于环境变量的启动命令，你可以在 `/package.json` 中查看。例如，运行 `npm run serve` 将默认启动本地开发服务。您也可以搭配环境变量使用，如：`npm run serve:stag` 即本地启动测试环境的开发服务。
+2. 项目提供了基于环境变量的启动命令，你可以在 `/package.json` 中查看。例如，运行 `npm run serve` 将默认启动本地开发服务。您也可以搭配环境变量使用，如：`npm run serve:stag` 即本地启动测试环境的开发服务。
 
 > 注意：运行 `preview` 命令，需要先执行 `build` 相关命令进行本地构建包
 
-3.Vite 服务抽离到了 `/serve` 目录下，其中包含 Vite 相关的配置、环境变量等。你可以在 `/serve/proxy.ts` 中修改您的代理设置。
+3. Vite 服务抽离到了 `/serve` 目录下，其中包含 Vite 相关的配置、环境变量等。你可以在 `/serve/proxy.ts` 中修改您的代理设置。
+
+<br/>
 
 ### 界面展示
 
@@ -72,6 +76,8 @@ npm install
 		<td><img width="100%" src="https://github.com/wingscloud/assets/blob/main/template-admin/page-4.png?raw=true" /></td>
 	</tr>
 </table>
+
+<br/>
 
 ### 开源协议
 
