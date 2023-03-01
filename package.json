@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@amap/amap-jsapi-loader": "^1.0.1",
-    "@kaivanwong/utils": "^0.3.3",
+    "@kaivanwong/utils": "^0.3.4",
     "@vueuse/core": "^9.13.0",
     "@vueuse/integrations": "^9.13.0",
     "@wangeditor/editor": "^5.1.23",

@@ -3,7 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@amap/amap-jsapi-loader': ^1.0.1
   '@kaivanwong/eslint-config': ^0.13.14
-  '@kaivanwong/utils': ^0.3.3
+  '@kaivanwong/utils': ^0.3.4
   '@types/jsdom': ^21.1.0
   '@types/node': ^18.14.2
   '@vitejs/plugin-basic-ssl': ^1.0.1
@@ -47,7 +47,7 @@ specifiers:
 
 dependencies:
   '@amap/amap-jsapi-loader': 1.0.1
-  '@kaivanwong/utils': 0.3.3
+  '@kaivanwong/utils': 0.3.4
   '@vueuse/core': 9.13.0_vue@3.2.47
   '@vueuse/integrations': 9.13.0_tvbhak4dhyk6qwhumplgte6jji
   '@wangeditor/editor': 5.1.23
@@ -935,8 +935,8 @@ packages:
       - typescript
     dev: true
 
-  /@kaivanwong/utils/0.3.3:
-    resolution: {integrity: sha512-l5XD6Iw1v3Pi4ouMPdBNVr80A9cpwuoqWfKWUb88cAGnkKDxzwqpcLc03+zd/3KfMRdtIBq55bMPgh0ogferxw==}
+  /@kaivanwong/utils/0.3.4:
+    resolution: {integrity: sha512-zbfCUcxNxLDuCLZznHzM5PR9zJZEH4rL/Q7VnxYtgp1lupmqoG2APetH/gf6On+eiZXV+6qa9nsV+wQSI544CA==}
     dev: false
 
   /@nodelib/fs.scandir/2.1.5:
@@ -5113,8 +5113,8 @@ packages:
       brace-expansion: 2.0.1
     dev: true
 
-  /minimatch/7.3.0:
-    resolution: {integrity: sha512-WaMDuhKa7a6zKiwplR1AOz+zGvJba24k5VU1Cy6NhEguavT2YRlHxuINUgTas4wiS6fwBpYq4TcA1XIECSntyw==}
+  /minimatch/7.4.0:
+    resolution: {integrity: sha512-Co6cQqQPyou/311vxtcfit/RKf+MbRN6qa5K3Zfh2Fo9+Pvfg8C1LeaAXcoRfwhxfZIe8sBc/kLXdkR88xJGBg==}
     engines: {node: '>=10'}
     dependencies:
       brace-expansion: 2.0.1
@@ -6862,7 +6862,7 @@ packages:
       '@vueuse/core': 9.13.0_vue@3.2.47
       local-pkg: 0.4.3
       magic-string: 0.30.0
-      minimatch: 7.3.0
+      minimatch: 7.4.0
       unimport: 3.0.2
       unplugin: 1.1.0
     transitivePeerDependencies:

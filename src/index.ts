@@ -1,6 +1,7 @@
 import type { App } from 'vue'
 import { createApp } from 'vue'
 import 'virtual:svg-icons-register'
+import { useMock } from '../mock'
 import _App from './components/app/app.vue'
 
 import { useElementPlus, useElementPlusIcons } from './plugins/element-plus'
@@ -8,7 +9,6 @@ import { useVueDomPurifyHTML } from './plugins/vue-dompurify-html'
 import { useRouter } from './plugins/vue-router'
 import { useI18n } from './plugins/vue-i18n'
 import { usePinia } from './plugins/pinia'
-import { useMock } from './plugins/mock'
 
 import 'element-plus/theme-chalk/src/message.scss'
 import 'element-plus/theme-chalk/src/notification.scss'

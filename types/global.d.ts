@@ -1,5 +1,5 @@
 import type { Component } from 'vue';
-import { SettingsValueEnum } from '@/constants/enums';
+import { RouteRecordRaw } from 'vue-router'
 
 interface ViewComponents {
   [Key: string]: Component;
@@ -84,5 +84,9 @@ type I18nT = (key: string, params?: IObject | Array<string>) => string;
 type Routes = Array<RouteRecordRaw>;
 
 interface Files<T = any> {
+  [key: string]: T;
+}
+
+interface Mocks<T = any> {
   [key: string]: T;
 }
