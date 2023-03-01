@@ -53,9 +53,9 @@
 │  ├── views                  // 页面相关
 │  └── main.js                // 入口
 ├── ...
-├── index.html								// 根 html 
-├── package.json							// 配置
-└── tsconfig.json							// Ts 配置
+├── index.html                // 根 html 
+├── package.json              // 配置
+└── tsconfig.json	            // Ts 配置
 ```
 
 # 界面展示
