@@ -1,26 +1,25 @@
 <script lang="ts" setup>
-import { useSystemStore } from '@/hooks/use-store/use-system-store';
-import { PredefineThemeColors } from '@/constants/settings';
+import { useSystemStore } from '@/hooks/use-store/use-system-store'
+import { PredefineThemeColors } from '@/constants/settings'
 
-const { t } = useI18n();
+const emit = defineEmits(['change'])
 
-const systemStore = useSystemStore();
-
-const emit = defineEmits(['change']);
+const systemStore = useSystemStore()
 
 const changeThemeColor = (val: string | null): void => {
-  if (!val) return;
-  emit('change', val as string);
-};
+  if (!val)
+    return
+  emit('change', val as string)
+}
 </script>
 
 <template>
   <div flex flex-wrap>
     <div
-      mr-5
-      cursor-pointer
       v-for="(item, index) in PredefineThemeColors"
       :key="index"
+      mr-5
+      cursor-pointer
       @click="changeThemeColor(item)"
     >
       <div
@@ -39,37 +38,37 @@ const changeThemeColor = (val: string | null): void => {
           :style="{
             backgroundColor: item,
           }"
-        ></div>
+        />
       </div>
       <div w-full h-2 flex items-center justify-center p-y-2>
         <div
-          v-if="item == systemStore.settings.ThemeColor"
+          v-if="item === systemStore.settings.ThemeColor"
           w-2
           h-2
           style="background-color: var(--el-color-primary); border-radius: 50%"
-        ></div>
+        />
       </div>
     </div>
     <div w-8 ml-1>
       <div flex items-center justify-center>
         <el-color-picker
-          size="large"
           v-model="systemStore.settings.ThemeColor"
-          @change="changeThemeColor"
+          size="large"
           :predefine="PredefineThemeColors"
+          @change="changeThemeColor"
         />
       </div>
       <div w-full h-2 flex items-center justify-center p-y-2>
         <div
           v-if="
             PredefineThemeColors.filter(
-              (item) => item == systemStore.settings.ThemeColor
-            ).length == 0
+              (item) => item === systemStore.settings.ThemeColor,
+            ).length === 0
           "
           w-2
           h-2
           style="background-color: var(--el-color-primary); border-radius: 50%"
-        ></div>
+        />
       </div>
     </div>
   </div>

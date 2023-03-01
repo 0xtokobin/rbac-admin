@@ -1,11 +1,7 @@
 <script lang="ts" setup>
-import AMapLoader from '@amap/amap-jsapi-loader';
+import AMapLoader from '@amap/amap-jsapi-loader'
 
-defineOptions({
-  name: 'ExampleMap',
-});
-
-const map = shallowRef(null);
+const map = shallowRef(null)
 
 const initMap = () => {
   AMapLoader.load({
@@ -18,16 +14,17 @@ const initMap = () => {
       zoom: 5,
       zooms: [2, 22],
       center: [105.602725, 37.076636],
-    });
-  });
-};
+    })
+  })
+}
 
 onMounted(() => {
-  initMap();
-});
+  initMap()
+})
 </script>
+
 <template>
   <crud-card>
-    <div id="example-map" w-full h-xl></div>
+    <div id="example-map" w-full h-xl />
   </crud-card>
 </template>

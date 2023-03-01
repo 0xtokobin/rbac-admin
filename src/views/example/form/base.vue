@@ -1,9 +1,5 @@
 <script lang="ts" setup>
-defineOptions({
-  name: 'ExampleFormBase',
-});
-
-const { t } = useI18n();
+const { t } = useI18n()
 
 const form = reactive({
   name: '',
@@ -15,8 +11,9 @@ const form = reactive({
   type: '',
   tag: [],
   desc: '',
-});
+})
 </script>
+
 <template>
   <crud-card>
     <crud-page-form action :model="form" label-width="120px">

@@ -1,27 +1,25 @@
 <script lang="ts" setup>
-import { useRouteStore } from '@/hooks/use-store/use-route-store';
-import { useSystemStore } from '@/hooks/use-store/use-system-store';
-import { IconTypeEnum } from '@/constants/enums';
+import { useRouteStore } from '@/hooks/use-store/use-route-store'
+import { useSystemStore } from '@/hooks/use-store/use-system-store'
+import { IconTypeEnum } from '@/constants/enums'
 
-defineOptions({
-  name: 'SystemMenu',
-});
+const { t } = useI18n()
 
-const { t } = useI18n();
+const routeStore = useRouteStore()
 
-const routeStore = useRouteStore();
-
-const systemStore = useSystemStore();
+const systemStore = useSystemStore()
 
 const keepAliveChange = (val: string | number | boolean) => {
-  console.log(val);
-};
+}
 </script>
+
 <template>
   <crud-card>
     <crud-table-query :query="false" :reset="false">
       <template #action>
-        <el-button type="primary">{{ t('crud.btn.add') }}</el-button>
+        <el-button type="primary">
+          {{ t('crud.btn.add') }}
+        </el-button>
       </template>
     </crud-table-query>
     <crud-table :data="routeStore.menuRoutes" action-width="300" row-key="path">
@@ -32,12 +30,9 @@ const keepAliveChange = (val: string | number | boolean) => {
       </el-table-column>
       <el-table-column :label="t('system.menu.icon')" width="140">
         <template #default="scope">
-          <svg-icon
-            v-if="scope.row.meta.iconType === IconTypeEnum.APP"
-            :name="scope.row.meta.icon"
-          ></svg-icon>
+          <svg-icon v-if="scope.row.meta.iconType === IconTypeEnum.APP" :name="scope.row.meta.icon" />
           <el-icon v-if="scope.row.meta.iconType === IconTypeEnum.ELEMENT_PLUS">
-            <component :is="scope.row.meta.icon"></component>
+            <component :is="scope.row.meta.icon" />
           </el-icon>
         </template>
       </el-table-column>
@@ -63,10 +58,7 @@ const keepAliveChange = (val: string | number | boolean) => {
       </el-table-column>
       <el-table-column :label="t('system.menu.keepAlive')" width="140">
         <template #default="scope">
-          <el-switch
-            v-model="scope.row.meta.keepAlive"
-            @change="keepAliveChange"
-          />
+          <el-switch v-model="scope.row.meta.keepAlive" @change="keepAliveChange" />
         </template>
       </el-table-column>
       <el-table-column :label="t('crud.table.sort')" width="140">
@@ -79,16 +71,8 @@ const keepAliveChange = (val: string | number | boolean) => {
           {{ scope.row.path }}
         </template>
       </el-table-column>
-      <el-table-column
-        min-width="340"
-        prop="remark"
-        :label="t('crud.table.remark')"
-      ></el-table-column>
-      <el-table-column
-        :label="t('crud.btn.action')"
-        fixed="right"
-        :width="systemStore.isMobile ? '120' : '300'"
-      >
+      <el-table-column min-width="340" prop="remark" :label="t('crud.table.remark')" />
+      <el-table-column :label="t('crud.btn.action')" fixed="right" :width="systemStore.isMobile ? '120' : '300'">
         <template #default="scope">
           <el-button type="primary" link>
             {{ t('system.menu.subMenu') }}
@@ -99,11 +83,7 @@ const keepAliveChange = (val: string | number | boolean) => {
           <el-button type="primary" link>
             {{ t('crud.btn.edit') }}
           </el-button>
-          <el-button
-            type="primary"
-            link
-            v-if="!scope.row.children || scope.row.children.length === 0"
-          >
+          <el-button v-if="!scope.row.children || scope.row.children.length === 0" type="primary" link>
             {{ t('crud.btn.delete') }}
           </el-button>
         </template>

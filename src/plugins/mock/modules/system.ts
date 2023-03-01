@@ -1,7 +1,7 @@
-import type { ResponseData } from '@/utils/request/index.d';
-import type { IObject } from '@/types/global.d';
-import { interceptJointData } from '@/utils/common';
-import { IconTypeEnum } from '@/constants/enums';
+import type { ResponseData } from '@/utils/request/index.d'
+import type { IObject } from '#/global.d'
+import { interceptJointData } from '@/utils/common'
+import { IconTypeEnum } from '@/constants/enums'
 
 const dictData = [
   {
@@ -94,21 +94,15 @@ const dictData = [
       },
     ],
   },
-];
+]
 
 export default {
-  /**
-   * 注册
-   */
   signup: {
     url: '/system/user/signup',
     method: 'post',
     data: '',
   },
 
-  /**
-   * 账号密码登录
-   */
   loginByAccount: {
     url: '/system/user/login',
     method: 'post',
@@ -120,15 +114,12 @@ export default {
           code: 10039,
           msg: null,
           data: '',
-        };
+        }
       }
-      return res;
+      return res
     },
   },
 
-  /**
-   * 获取用户信息
-   */
   getUserProfile: {
     url: '/system/user/profile',
     method: 'get',
@@ -145,10 +136,6 @@ export default {
     },
   },
 
-  /**
-   * @name validateUsername
-   * @description 校验用户名称是否存在
-   */
   validateUsername: {
     url: '/system/user/validate',
     method: 'get',
@@ -160,16 +147,12 @@ export default {
           code: 10034,
           msg: null,
           data: { validateResult: false },
-        };
+        }
       }
-      return res;
+      return res
     },
   },
 
-  /**
-   * @name getRouteAsync
-   * @description 获取异步路由
-   */
   getRouteAsync: {
     url: '/system/route/async',
     method: 'get',
@@ -342,10 +325,6 @@ export default {
     ],
   },
 
-  /**
-   * @name getUserRoles
-   * @description 获取用户权限
-   */
   getUserRoles: {
     url: '/system/user/roles',
     method: 'get',
@@ -366,10 +345,7 @@ export default {
     ],
   },
 
-  /**
-   * 获取个人消息列表
-   */
-  getUserlNotification: {
+  getUserNotification: {
     url: '/system/user/notification',
     method: 'get',
     data: {
@@ -395,9 +371,6 @@ export default {
     },
   },
 
-  /**
-   * 获取个人未读消息列表
-   */
   getUserNotificationByNotRead: {
     url: '/system/user/notReadNotification',
     method: 'get',
@@ -413,9 +386,6 @@ export default {
     ],
   },
 
-  /**
-   * 获取角色列表
-   */
   getRoleList: {
     url: '/system/role/list',
     method: 'get',
@@ -440,9 +410,6 @@ export default {
     },
   },
 
-  /**
-   * 获取用户列表
-   */
   getUserList: {
     url: '/system/user/list',
     method: 'get',
@@ -464,18 +431,12 @@ export default {
     },
   },
 
-  /**
-   * 获取全部字典数据
-   */
   getDictionaryAll: {
     url: '/system/dictionary/all',
     method: 'get',
     data: dictData,
   },
 
-  /**
-   * 分页获取字典数据
-   */
   getDictionaryPage: {
     url: '/system/dictionary/list',
     method: 'get',
@@ -485,9 +446,6 @@ export default {
     },
   },
 
-  /**
-   * 分页查询参数
-   */
   getParamList: {
     url: '/system/param/list',
     method: 'get',
@@ -497,9 +455,6 @@ export default {
     },
   },
 
-  /**
-   * 分页查询日志
-   */
   getLogList: {
     url: '/system/log/list',
     method: 'get',
@@ -524,9 +479,6 @@ export default {
     },
   },
 
-  /**
-   * 分页查询部门
-   */
   getDepartmentList: {
     url: '/system/department/list',
     method: 'get',
@@ -555,9 +507,6 @@ export default {
     },
   },
 
-  /**
-   * 分页查询文件
-   */
   getFileList: {
     url: '/system/file/list',
     method: 'get',
@@ -566,4 +515,4 @@ export default {
       total: 0,
     },
   },
-};
+}

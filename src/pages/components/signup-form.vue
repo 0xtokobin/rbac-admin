@@ -1,23 +1,19 @@
 <script lang="ts" setup>
-import type { FormRules, FormInstance } from 'element-plus';
-import type { SignupAccountForm } from '@/pages/sign.d';
-import { StorageEnum, MobileCodeTypeEnum } from '@/constants/enums';
-import { useUserStore } from '@/hooks/use-store/use-user-store';
-import { useCountDown } from '@/hooks/use-crud/use-count-down';
-import { USERNAME, PASSWORD_NORMAL, MOBILE } from '@kaivanwong/utils';
-import { getStorage } from '@/utils/storage';
+import type { FormInstance, FormRules } from 'element-plus'
+import { MOBILE, PASSWORD_NORMAL, USERNAME } from '@kaivanwong/utils'
+import type { SignupAccountForm } from '@/pages/sign'
+import { MobileCodeTypeEnum, StorageEnum } from '@/constants/enums'
+import { useUserStore } from '@/hooks/use-store/use-user-store'
+import { useCountDown } from '@/hooks/use-crud/use-count-down'
+import { getStorage } from '@/utils/storage'
 
-defineOptions({
-  name: 'SigninForm',
-});
+const { t } = useI18n()
 
-const { t } = useI18n();
+const userStore = useUserStore()
 
-const userStore = useUserStore();
+const countDown = useCountDown()
 
-const countDown = useCountDown();
-
-const formRef = ref<FormInstance>();
+const formRef = ref<FormInstance>()
 
 const form = ref<SignupAccountForm>({
   nickname: '',
@@ -27,35 +23,37 @@ const form = ref<SignupAccountForm>({
   code: '',
   password: '',
   passwordAgain: '',
-});
+})
 
 const validatePassword = (
   rule: any,
   value: string,
-  callback: (error?: string | Error | undefined) => void
+  callback: (error?: string | Error | undefined) => void,
 ) => {
   if (value && !PASSWORD_NORMAL.test(value)) {
     callback(
       new Error(
         t('crud.placeholder.formatIncorrect', {
           label: t('crud.account.passwordText'),
-        })
-      )
-    );
-  } else if (value && PASSWORD_NORMAL.test(value)) {
+        }),
+      ),
+    )
+  }
+  else if (value && PASSWORD_NORMAL.test(value)) {
     if (value !== form.value.password) {
       callback(
         new Error(
           t('crud.placeholder.inconsistent', {
             label: t('crud.account.passwordText'),
-          })
-        )
-      );
-    } else {
-      callback();
+          }),
+        ),
+      )
+    }
+    else {
+      callback()
     }
   }
-};
+}
 
 const formRules = reactive<FormRules>({
   nickname: [
@@ -108,7 +106,7 @@ const formRules = reactive<FormRules>({
   ],
   code: [
     {
-      required: form.value.mobile ? true : false,
+      required: !!form.value.mobile,
       message: t('crud.placeholder.enter', { label: t('crud.mobile.code') }),
       trigger: 'change',
     },
@@ -149,22 +147,23 @@ const formRules = reactive<FormRules>({
       trigger: 'blur',
     },
   ],
-});
+})
 
-const mobileAreaCodeList = getStorage(StorageEnum.MOBILE_AREA_CODE);
+const mobileAreaCodeList = getStorage(StorageEnum.MOBILE_AREA_CODE)
 
-const signupLoading = ref<boolean>(false);
+const signupLoading = ref<boolean>(false)
 
 const signup = async (formEl: FormInstance | undefined): Promise<void> => {
-  if (!formEl) return;
+  if (!formEl)
+    return
   await formEl.validate(async (valid: boolean) => {
     if (valid) {
-      signupLoading.value = true;
-      await userStore.signup(form.value);
-      signupLoading.value = false;
+      signupLoading.value = true
+      await userStore.signup(form.value)
+      signupLoading.value = false
     }
-  });
-};
+  })
+}
 </script>
 
 <template>
@@ -204,8 +203,7 @@ const signup = async (formEl: FormInstance | undefined): Promise<void> => {
               :key="index"
               :label="item.code"
               :value="item.code"
-            >
-            </el-option>
+            />
           </el-select>
         </template>
         <template #prefix>
@@ -213,7 +211,7 @@ const signup = async (formEl: FormInstance | undefined): Promise<void> => {
         </template>
       </el-input>
     </el-form-item>
-    <el-form-item prop="code" v-show="form.mobile">
+    <el-form-item v-show="form.mobile" prop="code">
       <el-input
         v-model.number="form.code"
         autocomplete="off"
@@ -232,18 +230,18 @@ const signup = async (formEl: FormInstance | undefined): Promise<void> => {
             @click="
               countDown.getMobileCode(
                 form.mobile,
-                MobileCodeTypeEnum.FORGET_PASSWORDS
+                MobileCodeTypeEnum.FORGET_PASSWORDS,
               )
             "
           >
-            <span text-3 v-if="countDown.countDownForm.getting">
+            <span v-if="countDown.countDownForm.getting" text-3>
               {{
                 t('crud.mobile.retrieve', {
                   time: countDown.countDownForm.time,
                 })
               }}
             </span>
-            <span text-3 v-else>
+            <span v-else text-3>
               {{
                 countDown.countDownForm.send
                   ? t('crud.mobile.resend')

@@ -1,13 +1,9 @@
 <script lang="ts" setup>
-import { ElMessage } from 'element-plus';
-import { useClipboard } from '@vueuse/core';
-import { autoImportSvgs } from '@/utils/auto';
+import { ElMessage } from 'element-plus'
+import { useClipboard } from '@vueuse/core'
+import { autoImportSvgs } from '@/utils/auto'
 
-defineOptions({
-  name: 'ExampleIcon',
-});
-
-const { t } = useI18n();
+const { t } = useI18n()
 
 const svgs = [
   {
@@ -16,7 +12,7 @@ const svgs = [
       import.meta.glob('@/assets/svgs/base/*.svg', {
         import: 'default',
         eager: true,
-      })
+      }),
     ),
   },
   {
@@ -25,7 +21,7 @@ const svgs = [
       import.meta.glob('@/assets/svgs/emoji/*.svg', {
         import: 'default',
         eager: true,
-      })
+      }),
     ),
   },
   {
@@ -34,7 +30,7 @@ const svgs = [
       import.meta.glob('@/assets/svgs/social/*.svg', {
         import: 'default',
         eager: true,
-      })
+      }),
     ),
   },
   {
@@ -43,27 +39,30 @@ const svgs = [
       import.meta.glob('@/assets/svgs/color-scheme/*.svg', {
         import: 'default',
         eager: true,
-      })
+      }),
     ),
   },
-];
+]
 
 const copyIcon = (icon: string) => {
   const { copy } = useClipboard({
     source: `<svg-icon name="${icon}"/ >`,
-  });
-  copy();
-  ElMessage.success(t('example.icon.copySuccess'));
-};
+  })
+  copy()
+  ElMessage.success(t('example.icon.copySuccess'))
+}
 </script>
+
 <template>
   <crud-card>
-    <div p-y-4 v-for="(item, index) in svgs" :key="index">
+    <div v-for="(item, index) in svgs" :key="index" p-y-4>
       <div pb-4 text-4 style="color: var(--el-text-color-regular)">
         {{ item.title }}
       </div>
       <div flex items-start flex-wrap>
         <div
+          v-for="(icon, iconIndex) in item.icons"
+          :key="iconIndex"
           w-30
           p-t-6
           p-b-4
@@ -74,8 +73,6 @@ const copyIcon = (icon: string) => {
           justify-center
           flex-wrap
           class="svg"
-          v-for="(icon, iconIndex) in item.icons"
-          :key="iconIndex"
           @click="copyIcon(icon)"
         >
           <svg-icon :name="icon" size="2rem" />

@@ -1,14 +1,11 @@
 <script lang="ts" setup>
-import { useUserStore } from '@/hooks/use-store/use-user-store';
+import { useUserStore } from '@/hooks/use-store/use-user-store'
 
-defineOptions({
-  name: 'SystemProfile',
-});
+const { t } = useI18n()
 
-const { t } = useI18n();
-
-const userStore = useUserStore();
+const userStore = useUserStore()
 </script>
+
 <template>
   <crud-card>
     <crud-page-form
@@ -17,26 +14,26 @@ const userStore = useUserStore();
       style="max-width: 24rem"
     >
       <el-form-item :label="t('crud.account.avatar')">
-        <avatar-upload v-model="userStore.userProfile.avatar"></avatar-upload>
+        <avatar-upload v-model="userStore.userProfile.avatar" />
       </el-form-item>
       <el-form-item :label="t('crud.account.nickname')">
         <el-input
           v-model="userStore.userProfile.nickname"
           :placeholder="t('crud.account.nickname')"
-        ></el-input>
+        />
       </el-form-item>
       <el-form-item :label="t('crud.account.username')">
         <el-input
-          disabled
           v-model="userStore.userProfile.username"
+          disabled
           :placeholder="t('crud.account.username')"
-        ></el-input>
+        />
       </el-form-item>
       <el-form-item :label="t('crud.mobile.mobile')">
         <el-input
           v-model="userStore.userProfile.mobile"
           :placeholder="t('crud.mobile.mobile')"
-        ></el-input>
+        />
       </el-form-item>
       <template #action>
         <el-form-item>

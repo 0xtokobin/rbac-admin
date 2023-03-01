@@ -1,20 +1,17 @@
 <script lang="ts" setup>
-import { useDateFormat } from '@vueuse/core';
-import { useCrud } from '@/hooks/use-crud/use-crud';
-import { useDictionary } from '@/hooks/use-crud/use-dictionary';
+import { useDateFormat } from '@vueuse/core'
+import { useCrud } from '@/hooks/use-crud/use-crud'
+import { useDictionary } from '@/hooks/use-crud/use-dictionary'
 
-defineOptions({
-  name: 'SystemDictionary',
-});
+const { t } = useI18n()
 
-const { t } = useI18n();
-
-const { getDictionary, getDictionaryData } = useDictionary();
+const { getDictionary, getDictionaryData } = useDictionary()
 
 const { queryForm, tableData, query, reset } = useCrud({
   queryUrl: '/system/dictionary/list',
-});
+})
 </script>
+
 <template>
   <crud-card>
     <crud-table-query>
@@ -26,8 +23,8 @@ const { queryForm, tableData, query, reset } = useCrud({
       </el-form-item>
       <el-form-item>
         <el-select
-          clearable
           v-model="queryForm.type"
+          clearable
           :placeholder="t('system.dictionary.dictionaryType')"
         >
           <el-option
@@ -35,11 +32,13 @@ const { queryForm, tableData, query, reset } = useCrud({
             :key="index"
             :label="item.label"
             :value="item.value"
-          ></el-option>
+          />
         </el-select>
       </el-form-item>
       <template #action>
-        <el-button type="primary">{{ t('crud.btn.add') }}</el-button>
+        <el-button type="primary">
+          {{ t('crud.btn.add') }}
+        </el-button>
       </template>
     </crud-table-query>
     <crud-table :data="tableData">
@@ -47,12 +46,12 @@ const { queryForm, tableData, query, reset } = useCrud({
         type="index"
         width="60"
         :label="t('crud.table.no')"
-      ></el-table-column>
+      />
       <el-table-column
         prop="key"
         :label="t('system.dictionary.dictionaryName')"
         width="240"
-      ></el-table-column>
+      />
       <el-table-column
         prop="value"
         :label="t('system.dictionary.dictionaryType')"
@@ -78,7 +77,7 @@ const { queryForm, tableData, query, reset } = useCrud({
         prop="remark"
         min-width="340"
         :label="t('crud.table.remark')"
-      ></el-table-column>
+      />
       <el-table-column
         prop="createTime"
         :label="t('system.role.createTime')"

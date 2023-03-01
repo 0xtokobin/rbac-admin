@@ -1,18 +1,18 @@
-import type { Mocks } from './index.d';
-import type { ResponseData } from '../../utils/request/index.d';
-import Mock from 'mockjs';
-import { autoImportMocks } from '../../utils/auto';
+import Mock from 'mockjs'
+import type { ResponseData } from '../../utils/request/index.d'
+import { autoImportMocks } from '../../utils/auto'
+import type { Mocks } from './index.d'
 
 Mock.setup({
   timeout: '100-300',
-});
+})
 
 const mocks: Mocks = autoImportMocks(
   import.meta.glob('./modules/**/*.ts', {
     import: 'default',
     eager: true,
-  })
-);
+  }),
+)
 
 const useMock = (): void => {
   Object.keys(mocks).forEach((key: string) => {
@@ -24,14 +24,14 @@ const useMock = (): void => {
           code: 0,
           msg: 'success',
           data: mocks[key].data,
-        };
-        if (mocks[key].response) {
-          res = mocks[key].response(data, res);
         }
-        return res;
-      }
-    );
-  });
-};
+        if (mocks[key].response)
+          res = mocks[key].response(data, res)
 
-export { mocks, useMock };
+        return res
+      },
+    )
+  })
+}
+
+export { mocks, useMock }

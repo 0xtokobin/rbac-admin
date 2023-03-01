@@ -1,18 +1,10 @@
 export default {
-  /**
-   * @name getMobileSmscode
-   * @description 获取手机号验证码
-   */
   getMobileSmscode: {
     url: '/common/mobile/smscode',
     method: 'get',
     data: '',
   },
 
-  /**
-   * @name getMobileCodes
-   * @description 获取手机区号列表
-   */
   getMobileCodes: {
     url: '/common/mobile/codes',
     method: 'get',
@@ -868,13 +860,9 @@ export default {
     ],
   },
 
-  /**
-   * @name getServiceInfo
-   * @description 获取服务协议内容
-   */
   getServiceInfo: {
     url: '/common/service/info',
     method: 'get',
     data: { i18nKey: 'app.termsConditions' },
   },
-};
+}

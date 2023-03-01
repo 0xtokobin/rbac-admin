@@ -1,20 +1,20 @@
-import { defineConfig, loadEnv, ConfigEnv } from 'vite';
-import { usePreviewOptions } from './vite/preview';
-import { useResolveOptions } from './vite/resolve';
-import { useServerOptions } from './vite/server';
-import { usePluginOption } from './vite/plugins';
-import { useBuildOptions } from './vite/build';
-import { useCssOptions } from './vite/css';
+import type { ConfigEnv } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
+import { usePreviewOptions } from './options/preview'
+import { useResolveOptions } from './options/resolve'
+import { useServerOptions } from './options/server'
+import { usePluginOption } from './options/plugins'
+import { useBuildOptions } from './options/build'
+import { useCssOptions } from './options/css'
 
 export default ({ command, mode }: ConfigEnv) => {
   const ENV: Record<string, string> = loadEnv(mode, './serve/env/', [
     'VITE_',
-    'APP_',
-  ]);
+    'WINGSCLOUD_',
+  ])
   return defineConfig({
     base: ENV.VITE_BASE_URL,
     envDir: './serve/env/',
-    envPrefix: 'APP_',
     define: {
       'process.env': ENV,
     },
@@ -24,5 +24,5 @@ export default ({ command, mode }: ConfigEnv) => {
     server: useServerOptions(ENV),
     build: useBuildOptions(ENV),
     preview: usePreviewOptions(ENV),
-  });
-};
+  })
+}

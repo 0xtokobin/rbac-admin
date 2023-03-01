@@ -1,21 +1,19 @@
 <script lang="ts" setup>
-import type { FormRules, FormInstance } from 'element-plus';
-import type { PasswordForm } from '@/pages/sign.d';
-import type { IObject } from '@/types/global.d';
-import { PASSWORD_NORMAL } from '@kaivanwong/utils';
+import type { FormInstance, FormRules } from 'element-plus'
+import { PASSWORD_NORMAL } from '@kaivanwong/utils'
+import type { PasswordForm } from '@/pages/sign'
+import type { IObject } from '#/global.d'
 
-defineOptions({
-  name: 'ChangePassword',
-});
+const emit = defineEmits(['change'])
 
-const { t } = useI18n();
+const { t } = useI18n()
 
-const changeFormRef = ref<FormInstance>();
+const changeFormRef = ref<FormInstance>()
 
 const changeForm = ref<PasswordForm>({
   password: '',
   passwordAgain: '',
-});
+})
 
 const validatePassword = (rule: any, value: string, callback: any) => {
   if (value && !PASSWORD_NORMAL.test(value)) {
@@ -23,23 +21,25 @@ const validatePassword = (rule: any, value: string, callback: any) => {
       new Error(
         t('crud.placeholder.formatIncorrect', {
           label: t('crud.account.passwordText'),
-        })
-      )
-    );
-  } else if (value && PASSWORD_NORMAL.test(value)) {
+        }),
+      ),
+    )
+  }
+  else if (value && PASSWORD_NORMAL.test(value)) {
     if (value !== changeForm.value.password) {
       callback(
         new Error(
           t('crud.placeholder.inconsistent', {
             label: t('crud.account.passwordText'),
-          })
-        )
-      );
-    } else {
-      callback();
+          }),
+        ),
+      )
+    }
+    else {
+      callback()
     }
   }
-};
+}
 
 const changeFormRules = reactive<FormRules>({
   password: [
@@ -71,18 +71,16 @@ const changeFormRules = reactive<FormRules>({
       trigger: 'blur',
     },
   ],
-});
-
-const emit = defineEmits(['change']);
+})
 
 const change = async (formEl: FormInstance | undefined): Promise<void> => {
-  if (!formEl) return;
+  if (!formEl)
+    return
   await formEl.validate(async (valid: boolean) => {
-    if (valid) {
-      emit('change', { status: true } as IObject);
-    }
-  });
-};
+    if (valid)
+      emit('change', { status: true } as IObject)
+  })
+}
 </script>
 
 <template>

@@ -1,6 +1,0 @@
-/dist/*
-/public/*
-public/*
-/node_modules/*
-/src/assets/*
-**/*.md

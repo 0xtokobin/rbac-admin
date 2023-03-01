@@ -1,35 +1,31 @@
 <script lang="ts" setup>
-import { RouteEnum } from '@/constants/enums';
-import { useUserStore } from '@/hooks/use-store/use-user-store';
-import { UserFilled } from '@element-plus/icons-vue';
-
-defineOptions({
-  name: 'LayoutToolbarAvatar',
-});
+import { UserFilled } from '@element-plus/icons-vue'
+import { RouteEnum } from '@/constants/enums'
+import { useUserStore } from '@/hooks/use-store/use-user-store'
 
 const props = defineProps({
   avatarSize: {
     type: Number,
     default: 38,
   },
-});
+})
 
-const { t } = useI18n();
+const { t } = useI18n()
 
-const router = useRouter();
+const router = useRouter()
 
-const userStore = useUserStore();
+const userStore = useUserStore()
 
 const actionChange = (command: string): void => {
-  if (command.indexOf('/') !== -1) {
-    router.push({ path: command });
-  } else if (command === 'switchRoles') {
-    userStore.switchRoles();
-  } else if (command === 'signout') {
-    userStore.logout();
-  }
-};
+  if (command.includes('/'))
+    router.push({ path: command })
+  else if (command === 'switchRoles')
+    userStore.switchRoles()
+  else if (command === 'signout')
+    userStore.logout()
+}
 </script>
+
 <template>
   <el-dropdown @command="actionChange">
     <el-avatar
@@ -37,8 +33,7 @@ const actionChange = (command: string): void => {
       :size="props.avatarSize"
       :src="userStore.userProfile.avatar"
       :icon="UserFilled"
-    >
-    </el-avatar>
+    />
     <template #dropdown>
       <el-dropdown-menu>
         <el-dropdown-item command="swtichRoles">

@@ -1,26 +1,27 @@
 <script lang="ts" setup>
-import SignTemplate from './components/sign-template.vue';
-import SignupForm from './components/signup-form.vue';
-import TermsConditions from './components/terms-conditions.vue';
-import { useSystemStore } from '@/hooks/use-store/use-system-store';
-import { RouteEnum } from '@/constants/enums';
+import SignTemplate from './components/sign-template.vue'
+import SignupForm from './components/signup-form.vue'
+import TermsConditions from './components/terms-conditions.vue'
+import { useSystemStore } from '@/hooks/use-store/use-system-store'
+import { RouteEnum } from '@/constants/enums'
 
 defineOptions({
   name: 'Signup',
-});
+})
 
-const { t } = useI18n();
+const { t } = useI18n()
 
-const router = useRouter();
+const router = useRouter()
 
-const systemStore = useSystemStore();
+const systemStore = useSystemStore()
 
 const goSignin = (): void => {
-  router.replace({ path: RouteEnum.ROUTE_SIGNIN });
-};
+  router.replace({ path: RouteEnum.ROUTE_SIGNIN })
+}
 </script>
+
 <template>
-  <sign-template>
+  <SignTemplate>
     <template #top-right>
       <div flex items-center>
         <span
@@ -48,11 +49,11 @@ const goSignin = (): void => {
       </div>
     </template>
     <template #form>
-      <signup-form></signup-form>
+      <SignupForm />
     </template>
     <template #bottom-center>
       <div w-full>
-        <terms-conditions :label="t('signup.btn')"></terms-conditions>
+        <TermsConditions :label="t('signup.btn')" />
         <div
           v-if="systemStore.isMobile"
           text-center
@@ -63,5 +64,5 @@ const goSignin = (): void => {
         </div>
       </div>
     </template>
-  </sign-template>
+  </SignTemplate>
 </template>

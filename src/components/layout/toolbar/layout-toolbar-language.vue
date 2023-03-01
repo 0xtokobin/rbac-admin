@@ -1,9 +1,5 @@
 <script lang="ts" setup>
-import { useLanguage } from '@/hooks/use-language/use-language';
-
-defineOptions({
-  name: 'LayoutToolbarLanguage',
-});
+import { useLanguage } from '@/hooks/use-language/use-language'
 
 const props = defineProps({
   onlyIcon: {
@@ -12,11 +8,11 @@ const props = defineProps({
   },
   color: {
     type: String,
-    default: 'var(--wings-cloud-header-text-color)',
+    default: 'var(--wingscloud-admin-header-text-color)',
   },
-});
+})
 
-const { changeLanguage, currentLanguage, languages } = useLanguage();
+const { changeLanguage, currentLanguage, languages } = useLanguage()
 </script>
 
 <template>
@@ -28,8 +24,8 @@ const { changeLanguage, currentLanguage, languages } = useLanguage();
         size="1.2rem"
         name="base-international"
         :color="props.color"
-      ></svg-icon>
-      <span flex items-center cursor-pointer h-full v-else>
+      />
+      <span v-else flex items-center cursor-pointer h-full>
         <span mr-2>{{ languages[currentLanguage].name }}</span>
         <el-icon><ArrowDown /></el-icon>
       </span>

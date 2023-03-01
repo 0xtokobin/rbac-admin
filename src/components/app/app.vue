@@ -1,22 +1,18 @@
 <script setup lang="ts">
-import { useSystemStore } from '@/hooks/use-store/use-system-store';
+import { useSystemStore } from '@/hooks/use-store/use-system-store'
 
-defineOptions({
-  name: 'App',
-});
+const systemStore = useSystemStore()
 
-const systemStore = useSystemStore();
-
-const reload = ref<boolean>(true);
+const reload = ref<boolean>(true)
 
 const reloadView = () => {
-  reload.value = false;
+  reload.value = false
   nextTick(() => {
-    reload.value = true;
-  });
-};
+    reload.value = true
+  })
+}
 
-provide('reloadView', { reload: reloadView });
+provide('reloadView', { reload: reloadView })
 </script>
 
 <template>
@@ -24,13 +20,13 @@ provide('reloadView', { reload: reloadView });
     <template #app>
       <router-view v-slot="{ Component, route }">
         <Suspense>
-          <transition name="wings-cloud-page" mode="out-in" appear>
+          <transition name="wingscloud-admin-page" mode="out-in" appear>
             <keep-alive :include="systemStore.keepAliveNames">
-              <component :is="Component" :key="route.fullPath" v-if="reload" />
+              <component :is="Component" v-if="reload" :key="route.fullPath" />
             </keep-alive>
           </transition>
           <template #fallback>
-            <app-loading></app-loading>
+            <app-loading />
           </template>
         </Suspense>
       </router-view>
@@ -39,20 +35,20 @@ provide('reloadView', { reload: reloadView });
 </template>
 
 <style lang="scss" scoped>
-.wings-cloud-page-enter-active {
+.wingscloud-admin-page-enter-active {
   transition: 0.2s;
 }
 
-.wings-cloud-page-leave-active {
+.wingscloud-admin-page-leave-active {
   transition: 0.15s;
 }
 
-.wings-cloud-page-enter-from {
+.wingscloud-admin-page-enter-from {
   transform: translateX(-20px);
   opacity: 0;
 }
 
-.wings-cloud-page-leave-to {
+.wingscloud-admin-page-leave-to {
   transform: translateX(20px);
   opacity: 0;
 }

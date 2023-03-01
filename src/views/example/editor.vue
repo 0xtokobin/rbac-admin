@@ -1,38 +1,36 @@
 <script lang="ts" setup>
-import '@wangeditor/editor/dist/css/style.css';
-import { i18nChangeLanguage } from '@wangeditor/editor';
-import { Editor, Toolbar } from '@wangeditor/editor-for-vue';
-import { useSystemStore } from '@/hooks/use-store/use-system-store';
-import { LanguageEnum } from '@/constants/enums';
+import '@wangeditor/editor/dist/css/style.css'
+import { i18nChangeLanguage } from '@wangeditor/editor'
+import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
+import { useSystemStore } from '@/hooks/use-store/use-system-store'
+import { LanguageEnum } from '@/constants/enums'
 
-defineOptions({
-  name: 'ExampleEditor',
-});
+const mode = 'default'
 
-const mode = 'default';
+const editorRef = shallowRef()
 
-const editorRef = shallowRef();
+const valueHtml = ref('')
 
-const valueHtml = ref('');
+const toolbarConfig = {}
+const editorConfig = {}
 
-const toolbarConfig = {};
-const editorConfig = {};
-
-const systemStore = useSystemStore();
+const systemStore = useSystemStore()
 
 onBeforeUnmount(() => {
-  const editor = editorRef.value;
-  if (editor == null) return;
-  editor.destroy();
-});
+  const editor = editorRef.value
+  if (editor == null)
+    return
+  editor.destroy()
+})
 
 const handleCreated = (editor: any) => {
-  editorRef.value = editor;
+  editorRef.value = editor
   i18nChangeLanguage(
-    systemStore.language === LanguageEnum.EN_US_ALIAS ? 'en' : 'zh-CN'
-  );
-};
+    systemStore.language === LanguageEnum.EN_US_ALIAS ? 'en' : 'zh-CN',
+  )
+}
 </script>
+
 <template>
   <crud-card>
     <div style="border: 1px solid #ccc">
@@ -43,8 +41,8 @@ const handleCreated = (editor: any) => {
         :mode="mode"
       />
       <Editor
-        style="height: 500px; overflow-y: hidden"
         v-model="valueHtml"
+        style="height: 500px; overflow-y: hidden"
         :default-config="editorConfig"
         :mode="mode"
         @on-created="handleCreated"

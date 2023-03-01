@@ -1,7 +1,3 @@
-/**
- * @name RouteEnum
- * @description 页面地址路由
- */
 export enum RouteEnum {
   ROUTE_FIRST = '/signin',
   ROUTE_ADMIN_FIRST = '/home/workbench',
@@ -15,10 +11,6 @@ export enum RouteEnum {
   ROUTE_SYSTEM_SETTINGS = '/system/setting',
 }
 
-/**
- * @name LanguageEnum
- * @description 国际化多语言枚举
- */
 export enum LanguageEnum {
   EN_US_ALIAS = 'en-US',
   EN_US_NAME = 'English',
@@ -26,19 +18,11 @@ export enum LanguageEnum {
   ZH_CN_NAME = '简体中文',
 }
 
-/**
- * @name IconTypeEnum
- * @description 管理系统菜单图标类型枚举
- */
 export enum IconTypeEnum {
   ELEMENT_PLUS = 'ep',
   APP = 'app',
 }
 
-/**
- * @name RequestHeaderEnum
- * @description request 网络请求头枚举
- */
 export enum RequestHeaderEnum {
   HEADER_TOKEN = 'Authorization',
   HEADER_TIME = '_t',
@@ -47,10 +31,6 @@ export enum RequestHeaderEnum {
   CONTENT_TYPE_FORMDATA = 'multipart/form-data',
 }
 
-/**
- * @name MobileCodeTypeEnum
- * @description 获取手机号验证码用途枚举
- */
 export enum MobileCodeTypeEnum {
   LOGIN = 0,
   SIGNUP = 1,
@@ -58,10 +38,6 @@ export enum MobileCodeTypeEnum {
   UPDATE_PASSWORD = 3,
 }
 
-/**
- * @name StorageEnum
- * @description 缓存 key 枚举
- */
 export enum StorageEnum {
   KEY = 'wings-vue-storage',
   LANGUAGE = 'language',
@@ -90,10 +66,6 @@ export enum StorageEnum {
   DICTIONARY = 'dictionary',
 }
 
-/**
- * @name SettingsValueEnum
- * @description 系统设置参数值枚举
- */
 export enum SettingsValueEnum {
   LAYOUT_TOP = 'top',
   LAYOUT_TOP_LEAN = 'top-lean',

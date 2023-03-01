@@ -1,72 +1,62 @@
 <script lang="ts" setup>
-import { useSystemStore } from '@/hooks/use-store/use-system-store';
-import { useRouteStore } from '@/hooks/use-store/use-route-store';
-import { SettingsValueEnum } from '@/constants/enums';
-
-defineOptions({
-  name: 'LayoutAdminMenu',
-});
-
-const route = useRoute();
-
-const systemStore = useSystemStore();
-const routeStore = useRouteStore();
+import { useSystemStore } from '@/hooks/use-store/use-system-store'
+import { useRouteStore } from '@/hooks/use-store/use-route-store'
+import { SettingsValueEnum } from '@/constants/enums'
 
 const props = defineProps({
   mode: {
     type: String,
     default: 'vertical',
   },
-});
+})
+
+const route = useRoute()
+
+const systemStore = useSystemStore()
+const routeStore = useRouteStore()
 
 const wrapStyle = computed(() => {
-  if (props.mode == 'vertical') {
-    let _height = '100vh';
+  if (props.mode === 'vertical') {
+    let _height = '100vh'
     if (
-      systemStore.settings.Layout === SettingsValueEnum.LAYOUT_TOP ||
-      systemStore.settings.Layout === SettingsValueEnum.LAYOUT_TOP_LEAN
+      systemStore.settings.Layout === SettingsValueEnum.LAYOUT_TOP
+      || systemStore.settings.Layout === SettingsValueEnum.LAYOUT_TOP_LEAN
     ) {
-      _height =
-        'calc(100vh - var(--wings-cloud-header-height) - var(--wings-cloud-collapse-height))';
-    } else {
-      _height =
-        'calc(100vh - var(--wings-cloud-aside-logo-height) - var(--wings-cloud-collapse-height))';
+      _height
+        = 'calc(100vh - var(--wingscloud-admin-header-height) - var(--wingscloud-admin-collapse-height))'
     }
-    if (systemStore.isMobile) {
-      _height = 'calc(100vh - var(--wings-cloud-aside-logo-height)';
+    else {
+      _height
+        = 'calc(100vh - var(--wingscloud-admin-aside-logo-height) - var(--wingscloud-admin-collapse-height))'
     }
-    return 'height:' + _height + ';';
-  } else {
-    let _width =
-      'calc(100vw - var(--wings-cloud-header-toobar-width) - var(--wings-cloud-header-logo-width))';
-    return 'width:' + _width + ';height:100%;display:flex;align-items:center;';
+    if (systemStore.isMobile)
+      _height = 'calc(100vh - var(--wingscloud-admin-aside-logo-height)'
+
+    return `height:${_height};`
   }
-});
+  else {
+    const _width
+      = 'calc(100vw - var(--wingscloud-admin-header-toobar-width) - var(--wingscloud-admin-header-logo-width))'
+    return `width:${_width};height:100%;display:flex;align-items:center;`
+  }
+})
 </script>
 
 <template>
   <el-scrollbar :wrap-style="wrapStyle">
     <div
-      :class="[
-        'wings-cloud-' + systemStore.settings.MenuStyle,
-        'wings-cloud-' + systemStore.colorScheme,
-        'wings-cloud-' + systemStore.settings.Layout,
-        'wings-cloud-layout-admin-menu',
-      ]"
-      h-full
+      class="wingscloud-admin-layout-admin-menu" :class="[
+        `wingscloud-admin-${systemStore.settings.MenuStyle}`,
+        `wingscloud-admin-${systemStore.colorScheme}`,
+        `wingscloud-admin-${systemStore.settings.Layout}`,
+      ]" h-full
     >
       <el-menu
-        router
-        collapse-transition
-        :mode="(props.mode as any)"
-        :collapse="props.mode == 'vertical' ? systemStore.collapse : false"
-        :unique-opened="systemStore.settings.UniqueOpened"
-        :default-active="route.path"
-        important="h-full border-none"
+        router collapse-transition :mode="props.mode as any"
+        :collapse="props.mode === 'vertical' ? systemStore.collapse : false"
+        :unique-opened="systemStore.settings.UniqueOpened" :default-active="route.path" important="h-full border-none"
       >
-        <layout-admin-menu-item
-          :routes="routeStore.menuRoutes"
-        ></layout-admin-menu-item>
+        <layout-admin-menu-item :routes="routeStore.menuRoutes" />
       </el-menu>
     </div>
   </el-scrollbar>

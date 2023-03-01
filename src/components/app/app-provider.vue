@@ -1,64 +1,60 @@
 <script lang="ts" setup>
-import type { Language } from 'element-plus/es/locale';
-import { Settings } from '@/constants/settings';
-import { SettingsValueEnum } from '@/constants/enums';
-import { setEpThemeColor } from '@/utils/theme';
-import { useSystemStore } from '@/hooks/use-store/use-system-store';
-import { useMobileCodes } from '@/hooks/use-crud/use-mobile-codes';
-import { useDictionary } from '@/hooks/use-crud/use-dictionary';
+import type { Language } from 'element-plus/es/locale'
+import { Settings } from '@/constants/settings'
+import { SettingsValueEnum } from '@/constants/enums'
+import { setEpThemeColor } from '@/utils/theme'
+import { useSystemStore } from '@/hooks/use-store/use-system-store'
+import { useMobileCodes } from '@/hooks/use-crud/use-mobile-codes'
+import { useDictionary } from '@/hooks/use-crud/use-dictionary'
 
-defineOptions({
-  name: 'AppProvider',
-});
+const route = useRoute()
 
-const route = useRoute();
+const systemStore = useSystemStore()
 
-const systemStore = useSystemStore();
+const { getMobileCodes } = useMobileCodes()
 
-const { getMobileCodes } = useMobileCodes();
+const { getDictionaryAll } = useDictionary()
 
-const { getDictionaryAll } = useDictionary();
-
-const { t, messages } = useI18n();
+const { t, messages } = useI18n()
 
 const locale = messages.value[systemStore.language][
   Settings.ElementPlus.language
-] as Language;
+] as Language
 
 watch(
   () => systemStore.settings.ColorScheme,
   (newVal, oldVal) => {
     if (newVal === SettingsValueEnum.COLOR_SCHEME_AUTO) {
       systemStore.changeDarkOrLight(
-        window.matchMedia('(prefers-color-scheme: dark)').matches
-      );
+        window.matchMedia('(prefers-color-scheme: dark)').matches,
+      )
       window
         .matchMedia('(prefers-color-scheme: dark)')
         .addEventListener('change', (event) => {
-          systemStore.changeDarkOrLight(event.matches);
-        });
-    } else {
-      document.documentElement.classList.remove(systemStore.colorScheme);
-      document.documentElement.classList.add(newVal);
-      systemStore.colorScheme = newVal;
+          systemStore.changeDarkOrLight(event.matches)
+        })
+    }
+    else {
+      document.documentElement.classList.remove(systemStore.colorScheme)
+      document.documentElement.classList.add(newVal)
+      systemStore.colorScheme = newVal
     }
   },
   {
     immediate: true,
-  }
-);
+  },
+)
 
 watch(
   () => systemStore.settings.ThemeColor,
   (newVal, old) => {
-    if (newVal && (newVal !== old || !old)) {
-      setEpThemeColor(newVal as string);
-    }
+    if (newVal && (newVal !== old || !old))
+      setEpThemeColor(newVal as string)
   },
   {
     immediate: true,
-  }
-);
+  },
+)
 
 watch(
   () => systemStore.browserTitle,
@@ -66,27 +62,28 @@ watch(
     if (systemStore.browserTitle) {
       document.title = `${systemStore.browserTitle} - ${
         t('app.name') || import.meta.env.APP_NAME
-      }`;
-    } else {
-      document.title = t('app.name') || import.meta.env.APP_NAME;
+      }`
+    }
+    else {
+      document.title = t('app.name') || import.meta.env.APP_NAME
     }
   },
   {
     immediate: true,
-  }
-);
+  },
+)
 
 onBeforeMount(() => {
-  systemStore.changeMobile();
+  systemStore.changeMobile()
   window.onresize = () => {
-    systemStore.changeMobile();
-  };
-});
+    systemStore.changeMobile()
+  }
+})
 
 onBeforeMount(() => {
-  getMobileCodes();
-  getDictionaryAll();
-});
+  getMobileCodes()
+  getDictionaryAll()
+})
 </script>
 
 <template>
@@ -97,8 +94,9 @@ onBeforeMount(() => {
     :size="systemStore.settings.ElementPlus.size"
   >
     <div
-      class="global-loading"
+      v-if="systemStore.loading"
       v-loading="true"
+      class="global-loading"
       absolute
       top-0
       left-0
@@ -109,23 +107,22 @@ onBeforeMount(() => {
       :element-loading-lock="true"
       :element-loading-text="t('app.loading')"
       element-loading-background="rgba(0, 0, 0, 0.8)"
-      v-if="systemStore.loading"
-    ></div>
+    />
     <template v-else>
       <layout-page
         v-if="
-          !route.meta.layout ||
-          route.meta?.layout === '' ||
-          route.meta?.layout === 'page'
+          !route.meta.layout
+            || route.meta?.layout === ''
+            || route.meta?.layout === 'page'
         "
       >
         <template #router-view>
-          <slot name="app"></slot>
+          <slot name="app" />
         </template>
       </layout-page>
       <layout-admin v-if="route.meta?.layout === 'admin'">
         <template #router-view>
-          <slot name="app"></slot>
+          <slot name="app" />
         </template>
       </layout-admin>
     </template>

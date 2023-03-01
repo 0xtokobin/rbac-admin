@@ -1,19 +1,28 @@
-import type { IObject } from '@/types/global.d';
-import type { Options, QueryOptions, Pagination } from './use-crud.d';
-import type { ResponseData } from '@/utils/request/index.d';
-import { mergeValueByKey } from '@/utils/common';
-import { GET } from '@/utils/request';
+import type { IObject } from '#/global.d'
+import type { ResponseData } from '@/utils/request/index.d'
+import { mergeValueByKey } from '@/utils/common'
+import { GET } from '@/utils/request'
 
-/**
- * @name useCrud
- * @description 通用业务处理及增删改查钩子函数
- * @return queryForm 查询表单
- * @return pageForm 分页表单
- * @return tableData 表格数据
- * @return loading 加载状态
- * @return query 查询方法
- * @return reset 重置查询方法
- */
+export interface Options extends QueryOptions, Pagination { }
+
+export interface QueryOptions {
+  queryOnSetup?: boolean
+  queryOnActivated?: boolean
+  queryOnMounted?: boolean
+  queryUrl?: string
+  deleteUrl?: string
+  deleteKey?: string
+  exportUrl?: string
+  importUrl?: string
+  downloadImportTemplateUrl?: string
+}
+
+export interface Pagination {
+  page?: number
+  limit?: number
+  total?: number
+}
+
 export const useCrud = (options?: Options) => {
   const queryOptions: QueryOptions = mergeValueByKey(
     {
@@ -26,8 +35,8 @@ export const useCrud = (options?: Options) => {
       exportUrl: '',
       importUrl: '',
     },
-    options ? options : {}
-  );
+    options || {},
+  )
 
   const pageOptions: Pagination = mergeValueByKey(
     {
@@ -35,67 +44,66 @@ export const useCrud = (options?: Options) => {
       limit: 10,
       total: 0,
     },
-    options ? options : {}
-  );
+    options || {},
+  )
 
-  const loading = ref<boolean>(false);
+  const loading = ref<boolean>(false)
 
-  const queryForm = ref<IObject | any>({});
+  const queryForm = ref<IObject | any>({})
 
-  const pageForm = ref<Pagination>(pageOptions);
+  const pageForm = ref<Pagination>(pageOptions)
 
-  const tableData = ref<Array<any>>([]);
-
-  const reset = () => {
-    queryForm.value = {};
-    pageForm.value = pageOptions;
-    query();
-  };
+  const tableData = ref<Array<any>>([])
 
   const query = async <T>(): Promise<any | ResponseData<T> | undefined> => {
-    if (!queryOptions.queryUrl) return;
-    loading.value = true;
+    if (!queryOptions.queryUrl)
+      return
+    loading.value = true
     const res = await GET(
       queryOptions.queryUrl,
-      Object.assign(queryForm.value, pageForm.value)
-    );
-    loading.value = false;
+      Object.assign(queryForm.value, pageForm.value),
+    )
+    loading.value = false
     if (res.code === 0) {
-      tableData.value = res.data.list;
-      pageOptions.total = res.data.total;
-    } else {
-      tableData.value = [];
-      pageOptions.total = 0;
+      tableData.value = res.data.list
+      pageOptions.total = res.data.total
     }
-  };
+    else {
+      tableData.value = []
+      pageOptions.total = 0
+    }
+  }
 
   if (
-    queryOptions.queryOnSetup &&
-    !queryOptions.queryOnActivated &&
-    !queryOptions.queryOnMounted
-  ) {
-    query();
+    queryOptions.queryOnSetup
+    && !queryOptions.queryOnActivated
+    && !queryOptions.queryOnMounted
+  )
+    query()
+
+  const reset = () => {
+    queryForm.value = {}
+    pageForm.value = pageOptions
+    query()
   }
 
   onMounted(() => {
     if (
-      !queryOptions.queryOnSetup &&
-      !queryOptions.queryOnActivated &&
-      queryOptions.queryOnMounted
-    ) {
-      query();
-    }
-  });
+      !queryOptions.queryOnSetup
+      && !queryOptions.queryOnActivated
+      && queryOptions.queryOnMounted
+    )
+      query()
+  })
 
   onActivated(() => {
     if (
-      !queryOptions.queryOnSetup &&
-      queryOptions.queryOnActivated &&
-      !queryOptions.queryOnMounted
-    ) {
-      query();
-    }
-  });
+      !queryOptions.queryOnSetup
+      && queryOptions.queryOnActivated
+      && !queryOptions.queryOnMounted
+    )
+      query()
+  })
 
   return {
     queryForm,
@@ -104,5 +112,5 @@ export const useCrud = (options?: Options) => {
     loading,
     query,
     reset,
-  };
-};
+  }
+}

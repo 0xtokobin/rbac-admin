@@ -1,28 +1,21 @@
 <script lang="ts" setup>
-import { useFullscreen } from '@vueuse/core';
-
-defineOptions({
-  name: 'LayoutToolbarFullscreen',
-});
-
-const { isFullscreen, toggle } = useFullscreen();
+import { useFullscreen } from '@vueuse/core'
 
 const props = defineProps({
   color: {
     type: String,
-    default: 'var(--wings-cloud-header-text-color)',
+    default: 'var(--wingscloud-admin-header-text-color)',
   },
-});
+})
+
+const { isFullscreen, toggle } = useFullscreen()
 </script>
 
 <template>
   <div flex items-center justify-center>
     <svg-icon
-      @click="toggle"
-      size="1.22rem"
-      cursor-pointer
-      :color="props.color"
-      :name="isFullscreen ? 'base-exit-fullscreen' : 'base-fullscreen'"
-    ></svg-icon>
+      size="1.22rem" cursor-pointer :color="props.color"
+      :name="isFullscreen ? 'base-exit-fullscreen' : 'base-fullscreen'" @click="toggle"
+    />
   </div>
 </template>

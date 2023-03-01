@@ -1,27 +1,25 @@
 <script lang="ts" setup>
-import type { FormRules, FormInstance } from 'element-plus';
-import type { MobileForm } from '@/pages/sign.d';
-import type { IObject } from '@/types/global.d';
-import { StorageEnum, MobileCodeTypeEnum } from '@/constants/enums';
-import { useCountDown } from '@/hooks/use-crud/use-count-down';
-import { MOBILE } from '@kaivanwong/utils';
-import { getStorage } from '@/utils/storage';
+import type { FormInstance, FormRules } from 'element-plus'
+import { MOBILE } from '@kaivanwong/utils'
+import type { MobileForm } from '@/pages/sign'
+import type { IObject } from '#/global.d'
+import { MobileCodeTypeEnum, StorageEnum } from '@/constants/enums'
+import { useCountDown } from '@/hooks/use-crud/use-count-down'
+import { getStorage } from '@/utils/storage'
 
-defineOptions({
-  name: 'VerifyMobilePhone',
-});
+const emit = defineEmits(['verify'])
 
-const { t } = useI18n();
+const { t } = useI18n()
 
-const countDown = useCountDown();
+const countDown = useCountDown()
 
-const verifyFormRef = ref<FormInstance>();
+const verifyFormRef = ref<FormInstance>()
 
 const verifyForm = ref<MobileForm>({
   areaCode: '+86',
   mobile: '',
   code: '',
-});
+})
 
 const verifyFormRules = reactive<FormRules>({
   mobile: [
@@ -42,7 +40,7 @@ const verifyFormRules = reactive<FormRules>({
   ],
   code: [
     {
-      required: verifyForm.value.mobile ? true : false,
+      required: !!verifyForm.value.mobile,
       message: t('crud.placeholder.enter', { label: t('crud.mobile.code') }),
       trigger: 'change',
     },
@@ -54,22 +52,21 @@ const verifyFormRules = reactive<FormRules>({
       trigger: 'blur',
     },
   ],
-});
+})
 
-const mobileAreaCodeList = getStorage(StorageEnum.MOBILE_AREA_CODE);
-
-const emit = defineEmits(['verify']);
+const mobileAreaCodeList = getStorage(StorageEnum.MOBILE_AREA_CODE)
 
 const verify = async (formEl: FormInstance | undefined): Promise<void> => {
-  if (!formEl) return;
+  if (!formEl)
+    return
   await formEl.validate(async (valid: boolean) => {
-    if (valid) {
-      emit('verify', { status: true } as IObject);
-    } else {
-      emit('verify', { status: false } as IObject);
-    }
-  });
-};
+    if (valid)
+      emit('verify', { status: true } as IObject)
+
+    else
+      emit('verify', { status: false } as IObject)
+  })
+}
 </script>
 
 <template>
@@ -92,8 +89,7 @@ const verify = async (formEl: FormInstance | undefined): Promise<void> => {
               :key="index"
               :label="item.code"
               :value="item.code"
-            >
-            </el-option>
+            />
           </el-select>
         </template>
         <template #prefix>
@@ -101,7 +97,7 @@ const verify = async (formEl: FormInstance | undefined): Promise<void> => {
         </template>
       </el-input>
     </el-form-item>
-    <el-form-item prop="code" v-show="verifyForm.mobile">
+    <el-form-item v-show="verifyForm.mobile" prop="code">
       <el-input
         v-model.number="verifyForm.code"
         autocomplete="off"
@@ -120,18 +116,18 @@ const verify = async (formEl: FormInstance | undefined): Promise<void> => {
             @click="
               countDown.getMobileCode(
                 verifyForm.mobile,
-                MobileCodeTypeEnum.FORGET_PASSWORDS
+                MobileCodeTypeEnum.FORGET_PASSWORDS,
               )
             "
           >
-            <span text-3 v-if="countDown.countDownForm.getting">
+            <span v-if="countDown.countDownForm.getting" text-3>
               {{
                 t('crud.mobile.retrieve', {
                   time: countDown.countDownForm.time,
                 })
               }}
             </span>
-            <span text-3 v-else>
+            <span v-else text-3>
               {{
                 countDown.countDownForm.send
                   ? t('crud.mobile.resend')

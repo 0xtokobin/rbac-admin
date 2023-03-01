@@ -1,30 +1,26 @@
 <script lang="ts" setup>
-import type { FormRules, FormInstance } from 'element-plus';
-import type { LoginAccountForm } from '@/pages/sign.d';
-import type { ResponseData } from '@/utils/request/index.d';
-import { useUserStore } from '@/hooks/use-store/use-user-store';
-import { USERNAME, PASSWORD_NORMAL } from '@kaivanwong/utils';
-import { RouteEnum } from '@/constants/enums';
-import { validateUsername as _validateUsername } from '@/apis/system/user';
+import type { FormInstance, FormRules } from 'element-plus'
+import { PASSWORD_NORMAL, USERNAME } from '@kaivanwong/utils'
+import type { LoginAccountForm } from '@/pages/sign'
+import type { ResponseData } from '@/utils/request/index.d'
+import { useUserStore } from '@/hooks/use-store/use-user-store'
+import { RouteEnum } from '@/constants/enums'
+import { validateUsername as _validateUsername } from '@/apis/system/user'
 
-defineOptions({
-  name: 'SigninAccountForm',
-});
+const { t } = useI18n()
 
-const { t } = useI18n();
+const router = useRouter()
 
-const router = useRouter();
+const userStore = useUserStore()
 
-const userStore = useUserStore();
-
-const formRef = ref<FormInstance>();
+const formRef = ref<FormInstance>()
 
 const form = ref<LoginAccountForm>({
   username: '',
   password: '',
   remember: false,
   type: 0,
-});
+})
 
 const validateUsername = (rule: any, value: string, callback: any) => {
   if (value && !USERNAME.test(value)) {
@@ -32,19 +28,19 @@ const validateUsername = (rule: any, value: string, callback: any) => {
       new Error(
         t('crud.placeholder.formatIncorrect', {
           label: t('crud.account.usernameText'),
-        })
-      )
-    );
-  } else if (value && USERNAME.test(value)) {
-    _validateUsername({ username: value }).then(({ data }: ResponseData) => {
-      if (data.validateResult) {
-        callback();
-      } else {
-        callback(new Error(t('app.authentication.signup')));
-      }
-    });
+        }),
+      ),
+    )
   }
-};
+  else if (value && USERNAME.test(value)) {
+    _validateUsername({ username: value }).then(({ data }: ResponseData) => {
+      if (data.validateResult)
+        callback()
+      else
+        callback(new Error(t('app.authentication.signup')))
+    })
+  }
+}
 
 const formRules = reactive<FormRules>({
   username: [
@@ -73,25 +69,27 @@ const formRules = reactive<FormRules>({
       trigger: 'blur',
     },
   ],
-});
+})
 
 const goPasswordPageByForget = (): void => {
-  router.push({ path: RouteEnum.ROUTE_PASSWORD_FORGET });
-};
+  router.push({ path: RouteEnum.ROUTE_PASSWORD_FORGET })
+}
 
-const loginLoading = ref<boolean>(false);
+const loginLoading = ref<boolean>(false)
 
 const login = async (formEl: FormInstance | undefined): Promise<void> => {
-  if (!formEl) return;
+  if (!formEl)
+    return
   await formEl.validate(async (valid: boolean) => {
     if (valid) {
-      loginLoading.value = true;
-      await userStore.loginByAccount(form.value);
-      loginLoading.value = false;
+      loginLoading.value = true
+      await userStore.loginByAccount(form.value)
+      loginLoading.value = false
     }
-  });
-};
+  })
+}
 </script>
+
 <template>
   <el-form ref="formRef" :model="form" :rules="formRules" size="large">
     <el-form-item prop="username">
@@ -107,12 +105,12 @@ const login = async (formEl: FormInstance | undefined): Promise<void> => {
         </template>
         <template #suffix>
           <el-checkbox
+            v-model="form.remember"
             inline-block
             text-4
             style="color: var(--el-color-info-light-3)"
-            v-model="form.remember"
             :label="t('signin.keep')"
-          ></el-checkbox>
+          />
         </template>
       </el-input>
     </el-form-item>

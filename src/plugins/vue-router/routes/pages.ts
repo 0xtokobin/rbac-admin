@@ -1,5 +1,5 @@
-import Index from '@/pages/index.vue';
-import { Settings } from '@/constants/settings';
+import Index from '@/pages/index.vue'
+import { Settings } from '@/constants/settings'
 
 export default [
   {
@@ -38,4 +38,4 @@ export default [
     component: () => import('@/pages/password/forget.vue'),
     meta: { layout: '' },
   },
-];
+]

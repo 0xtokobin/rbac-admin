@@ -1,23 +1,19 @@
 <script lang="ts" setup>
-import { SettingsValueEnum } from '@/constants/enums';
-import { useSystemStore } from '@/hooks/use-store/use-system-store';
-
-defineOptions({
-  name: 'LayoutToolbarMobileMenu',
-});
+import { SettingsValueEnum } from '@/constants/enums'
+import { useSystemStore } from '@/hooks/use-store/use-system-store'
 
 const props = defineProps({
   fixed: {
     type: Boolean,
     default: false,
   },
-});
+})
 
-const systemStore = useSystemStore();
+const systemStore = useSystemStore()
 
 const changeMobileMenu = () => {
-  systemStore.mobileMenu = !systemStore.mobileMenu;
-};
+  systemStore.mobileMenu = !systemStore.mobileMenu
+}
 </script>
 
 <template>
@@ -26,29 +22,29 @@ const changeMobileMenu = () => {
     flex
     items-center
     :class="[
-      props.fixed ? 'wings-cloud-fixed' : '',
+      props.fixed ? 'wingscloud-admin-fixed' : '',
       systemStore.colorScheme === SettingsValueEnum.COLOR_SCHEME_DARK
-        ? 'wings-cloud-dark'
+        ? 'wingscloud-admin-dark'
         : '',
     ]"
   >
     <svg-icon
+      v-if="systemStore.isMobile"
       name="base-app"
       cursor-pointer
-      v-if="systemStore.isMobile"
-      @click="changeMobileMenu()"
       :size="props.fixed ? '1.4rem' : '1.6rem'"
       :color="
         props.fixed
           ? 'var(--el-color-white)'
-          : 'var(--wings-cloud-header-text-color)'
+          : 'var(--wingscloud-admin-header-text-color)'
       "
-    ></svg-icon>
+      @click="changeMobileMenu()"
+    />
   </div>
 </template>
 
 <style lang="scss" scoped>
-.wings-cloud-fixed {
+.wingscloud-admin-fixed {
   position: fixed;
   bottom: 20%;
   left: 0;
@@ -58,7 +54,7 @@ const changeMobileMenu = () => {
   box-shadow: var(--el-box-shadow);
   transform: translateY(-50%);
 
-  &.wings-cloud-dark {
+  &.wingscloud-admin-dark {
     background-color: var(--el-color-primary);
   }
 }

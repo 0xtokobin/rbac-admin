@@ -1,49 +1,44 @@
 <script lang="ts" setup>
-import type { IObject } from '@/types/global.d';
-import { ElMessage } from 'element-plus';
-import { RouteEnum } from '@/constants/enums';
-import { useSystemStore } from '@/hooks/use-store/use-system-store';
-import SignTemplate from '../components/sign-template.vue';
-import ChangePassword from './components/change-password.vue';
-import VerifyMobilePhone from './components/verify-mobile-phone.vue';
+import { ElMessage } from 'element-plus'
+import SignTemplate from '../components/sign-template.vue'
+import ChangePassword from './components/change-password.vue'
+import VerifyMobilePhone from './components/verify-mobile-phone.vue'
+import { useSystemStore } from '@/hooks/use-store/use-system-store'
+import { RouteEnum } from '@/constants/enums'
+import type { IObject } from '#/global.d'
 
-defineOptions({
-  name: 'PasswordForget',
-});
+const { t } = useI18n()
 
-const { t } = useI18n();
+const router = useRouter()
 
-const router = useRouter();
+const systemStore = useSystemStore()
 
-const systemStore = useSystemStore();
-
-const forgetType = ref<string>('verify');
+const forgetType = ref<string>('verify')
 onBeforeMount(() => {
-  forgetType.value = 'verify';
-});
+  forgetType.value = 'verify'
+})
 
 const verifyHandle = (e: IObject): void => {
-  if (e.status) {
-    changeResetType('change');
-  }
-};
+  if (e.status)
+    changeResetType('change')
+}
 
 const changeHandle = (e: IObject): void => {
-  if (e.status) {
-    ElMessage.success(t('password.success'));
-  }
-};
+  if (e.status)
+    ElMessage.success(t('password.success'))
+}
 
 const changeResetType = (type: string): void => {
-  forgetType.value = type;
-};
+  forgetType.value = type
+}
 
 const goSignin = (): void => {
-  router.replace({ path: RouteEnum.ROUTE_SIGNIN });
-};
+  router.replace({ path: RouteEnum.ROUTE_SIGNIN })
+}
 </script>
+
 <template>
-  <sign-template>
+  <SignTemplate>
     <template #title>
       <div v-if="forgetType === 'verify'">
         <div mb-4 text-6 font-600 style="color: var(--el-color-info-light)">
@@ -69,14 +64,14 @@ const goSignin = (): void => {
       </div>
     </template>
     <template #form>
-      <verify-mobile-phone
+      <VerifyMobilePhone
         v-if="forgetType === 'verify'"
         @verify="verifyHandle"
-      ></verify-mobile-phone>
-      <change-password
+      />
+      <ChangePassword
         v-if="forgetType === 'change'"
         @change="changeHandle"
-      ></change-password>
+      />
       <div p-t-20 flex items-center justify-center>
         <span
           text-4
@@ -97,7 +92,7 @@ const goSignin = (): void => {
         </el-button>
       </div>
     </template>
-    <template #bottom-center v-if="systemStore.isMobile">
+    <template v-if="systemStore.isMobile" #bottom-center>
       <div
         w-full
         text-center
@@ -107,5 +102,5 @@ const goSignin = (): void => {
         {{ t('app.copyright') }}
       </div>
     </template>
-  </sign-template>
+  </SignTemplate>
 </template>

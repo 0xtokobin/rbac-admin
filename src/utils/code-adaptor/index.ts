@@ -1,70 +1,62 @@
-import type { Callback, IObject } from '@/types/global.d';
-import type { I18nT } from '@/plugins/vue-i18n/index.d';
+import type { Callback, IObject } from '#/global.d'
+import type { I18nT } from '@/plugins/vue-i18n/index.d'
 
-/**
- * @name networkCodeAdaptor
- * @description 网络状态码适配器
- * @param code 状态码
- * @param t 国际化翻译函数
- * @param callback 回调函数
- * @return code
- */
 export const networkCodeAdaptor = (
   code: number,
   t: I18nT,
-  callback?: Callback
+  callback?: Callback,
 ): any => {
-  let message = '';
+  let message = ''
   if (code) {
     switch (code) {
       case 200:
-        message = '';
-        break;
+        message = ''
+        break
       case 400:
-        message = t('app.request.wrong');
-        break;
+        message = t('app.request.wrong')
+        break
       case 401:
-        message = t('app.authentication.not');
-        break;
+        message = t('app.authentication.not')
+        break
       case 403:
-        message = t('app.authentication.denied');
-        break;
+        message = t('app.authentication.denied')
+        break
       case 404:
-        message = t('app.request.resource');
-        break;
+        message = t('app.request.resource')
+        break
       case 405:
-        message = t('app.request.method');
-        break;
+        message = t('app.request.method')
+        break
       case 408:
-        message = t('app.request.timeout');
-        break;
+        message = t('app.request.timeout')
+        break
       case 500:
-        message = t('app.server.error');
-        break;
+        message = t('app.server.error')
+        break
       case 501:
-        message = t('app.network.implemented');
-        break;
+        message = t('app.network.implemented')
+        break
       case 502:
-        message = t('app.network.error');
-        break;
+        message = t('app.network.error')
+        break
       case 503:
-        message = t('app.server.down');
-        break;
+        message = t('app.server.down')
+        break
       case 504:
-        message = t('app.network.timeout');
-        break;
+        message = t('app.network.timeout')
+        break
       case 505:
-        message = t('app.request.http');
-        break;
+        message = t('app.request.http')
+        break
       default:
-        message = t('app.unkown.code', { code });
+        message = t('app.unkown.code', { code })
     }
   }
-  if (code && message && callback) {
-    callback({ code, message });
-  }
-  return code;
-};
+  if (code && message && callback)
+    callback({ code, message })
+
+  return code
+}
 
 /**
  * @name apiCodeAdaptor
@@ -77,27 +69,27 @@ export const networkCodeAdaptor = (
 export const apiCodeAdaptor = (
   data: IObject,
   t: I18nT,
-  callback?: Callback
+  callback?: Callback,
 ): any => {
-  let message = '';
+  let message = ''
   if (data.code) {
     switch (data.code) {
       case 0:
-        message = '';
-        break;
+        message = ''
+        break
       case 500:
-        message = t('app.unkown.error', { message: data.msg });
-        break;
+        message = t('app.unkown.error', { message: data.msg })
+        break
       case 50001:
-        message = t('app.api.noParams');
-        break;
+        message = t('app.api.noParams')
+        break
     }
   }
-  if (data.code && message && callback) {
-    callback({ code: data.code, message });
-  }
-  return data.code;
-};
+  if (data.code && message && callback)
+    callback({ code: data.code, message })
+
+  return data.code
+}
 
 /**
  * @name authCodeAdaptor
@@ -110,42 +102,42 @@ export const apiCodeAdaptor = (
 export const authCodeAdaptor = (
   data: IObject,
   t: I18nT,
-  callback?: Callback
+  callback?: Callback,
 ): any => {
-  let message = '';
+  let message = ''
   if (data.code) {
     switch (data.code) {
       case 10031:
-        message = t('app.authentication.overtime');
-        break;
+        message = t('app.authentication.overtime')
+        break
       case 10032:
-        message = t('app.authentication.longer');
-        break;
+        message = t('app.authentication.longer')
+        break
       case 10033:
-        message = t('app.authentication.bind');
-        break;
+        message = t('app.authentication.bind')
+        break
       case 10034:
-        message = t('app.authentication.signup');
-        break;
+        message = t('app.authentication.signup')
+        break
       case 10035:
-        message = t('app.authentication.inconformity');
-        break;
+        message = t('app.authentication.inconformity')
+        break
       case 10036:
-        message = t('app.authentication.noEmployee');
-        break;
+        message = t('app.authentication.noEmployee')
+        break
       case 10037:
-        message = t('app.authentication.failure');
-        break;
+        message = t('app.authentication.failure')
+        break
       case 10038:
-        message = t('app.authentication.notFound');
-        break;
+        message = t('app.authentication.notFound')
+        break
       case 10039:
-        message = t('app.authentication.password');
-        break;
+        message = t('app.authentication.password')
+        break
     }
   }
-  if (data.code && message && callback) {
-    callback({ code: data.code, message });
-  }
-  return data.code;
-};
+  if (data.code && message && callback)
+    callback({ code: data.code, message })
+
+  return data.code
+}

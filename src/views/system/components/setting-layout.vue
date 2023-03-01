@@ -1,8 +1,6 @@
 <script lang="ts" setup name="setting-layout">
-import { useSystemStore } from '@/hooks/use-store/use-system-store';
-import { SettingsValueEnum } from '@/constants/enums';
-
-const systemStore = useSystemStore();
+import { useSystemStore } from '@/hooks/use-store/use-system-store'
+import { SettingsValueEnum } from '@/constants/enums'
 
 const props = defineProps({
   mode: {
@@ -17,12 +15,15 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-});
+})
+
+const systemStore = useSystemStore()
 </script>
+
 <template>
   <div mr-7 mb-4 class="animation">
     <div h-18 w-18 overflow-hidden cursor-pointer>
-      <div w-full h-full v-if="props.mode === SettingsValueEnum.LAYOUT_TOP">
+      <div v-if="props.mode === SettingsValueEnum.LAYOUT_TOP" w-full h-full>
         <div
           w-full
           flex
@@ -31,128 +32,125 @@ const props = defineProps({
           h-4
           style="
             box-sizing: border-box;
-            background-color: var(--wings-cloud-header-bg-color);
-            border: 1px solid var(--wings-cloud-header-border-color);
+            background-color: var(--wingscloud-admin-header-bg-color);
+            border: 1px solid var(--wingscloud-admin-header-border-color);
             border-radius: 4px 4px 0 0;
           "
           :style="
             systemStore.colorScheme === SettingsValueEnum.COLOR_SCHEME_DARK
               ? 'border-color:var(--el-border-color)'
-              : 'border-color: var(--wings-cloud-header-border-color)'
+              : 'border-color: var(--wingscloud-admin-header-border-color)'
           "
-        >
-        </div>
+        />
         <div flex h-14 w-full>
           <div
             h-full
             w-6
             style="
               box-sizing: border-box;
-              background-color: var(--wings-cloud-menu-bg-color);
+              background-color: var(--wingscloud-admin-menu-bg-color);
               border: 1px solid var(--el-border-color);
               border-top: 0;
               border-radius: 0 0 0 4px;
             "
-          >
-          </div>
+          />
           <div
             h-full
             w-14
             style="
               box-sizing: border-box;
-              background-color: var(--wings-cloud-main-fill);
+              background-color: var(--wingscloud-admin-main-fill);
               border: 1px solid var(--el-border-color);
               border-top: 0;
               border-left: 0;
               border-radius: 0 0 4px;
             "
-          ></div>
+          />
         </div>
       </div>
       <div
+        v-if="props.mode === SettingsValueEnum.LAYOUT_TOP_LEAN"
         w-full
         h-full
-        v-if="props.mode === SettingsValueEnum.LAYOUT_TOP_LEAN"
       >
         <div
           w-full
           h-4
           style="
             box-sizing: border-box;
-            background-color: var(--wings-cloud-header-bg-color);
+            background-color: var(--wingscloud-admin-header-bg-color);
             border: 1px solid;
             border-radius: 4px 4px 0 0;
           "
           :style="
             systemStore.colorScheme === SettingsValueEnum.COLOR_SCHEME_DARK
               ? 'border-color:var(--el-border-color)'
-              : 'border-color: var(--wings-cloud-header-border-color)'
+              : 'border-color: var(--wingscloud-admin-header-border-color)'
           "
-        >
-        </div>
+        />
         <div
           w-full
           h-14
           style="
             box-sizing: border-box;
-            background-color: var(--wings-cloud-main-fill);
+            background-color: var(--wingscloud-admin-main-fill);
             border: 1px solid var(--el-border-color);
             border-top: 0;
             border-radius: 0 0 4px 4px;
           "
-        ></div>
+        />
       </div>
       <div
-        w-full
-        h-full
-        flex
         v-if="props.mode === SettingsValueEnum.LAYOUT_ASIDE"
+        w-full
+        h-full
+        flex
       >
         <div
           h-full
           w-6
           style="
             box-sizing: border-box;
-            background-color: var(--wings-cloud-menu-bg-color);
+            background-color: var(--wingscloud-admin-menu-bg-color);
             border: 1px solid var(--el-border-color);
             border-right: 0;
             border-radius: 4px 0 0 4px;
           "
-        ></div>
+        />
         <div h-full w-14>
           <div
             w-full
             h-4
             style="
               box-sizing: border-box;
-              background-color: var(--wings-cloud-header-bg-color);
+              background-color: var(--wingscloud-admin-header-bg-color);
               border: 1px solid;
               border-radius: 0 4px 0 0;
             "
             :style="
               systemStore.colorScheme === SettingsValueEnum.COLOR_SCHEME_DARK
                 ? 'border-color:var(--el-border-color)'
-                : 'border-color: var(--wings-cloud-header-border-color)'
+                : 'border-color: var(--wingscloud-admin-header-border-color)'
             "
-          ></div>
+          />
           <div
             h-14
             w-full
             style="
               box-sizing: border-box;
-              background-color: var(--wings-cloud-main-fill);
+              background-color: var(--wingscloud-admin-main-fill);
               border: 1px solid var(--el-border-color);
               border-top: 0;
               border-radius: 0 0 4px;
             "
-          ></div>
+          />
         </div>
       </div>
       <div
-        w-full
-        h-full
-        flex
         v-if="props.mode === SettingsValueEnum.LAYOUT_ASIDE_DARK"
+        w-full
+        h-full
+        flex
       >
         <div
           h-full
@@ -169,69 +167,69 @@ const props = defineProps({
               ? 'border-color: var(--el-border-color)'
               : 'border-color: #262a3c'
           "
-        ></div>
+        />
         <div h-full w-14>
           <div
             w-full
             h-4
             style="
               box-sizing: border-box;
-              background-color: var(--wings-cloud-header-bg-color);
+              background-color: var(--wingscloud-admin-header-bg-color);
               border: 1px solid;
               border-radius: 0 4px 0 0;
             "
             :style="
               systemStore.colorScheme === SettingsValueEnum.COLOR_SCHEME_DARK
                 ? 'border-color:var(--el-border-color)'
-                : 'border-color: var(--wings-cloud-header-border-color)'
+                : 'border-color: var(--wingscloud-admin-header-border-color)'
             "
-          ></div>
+          />
           <div
             h-14
             w-full
             style="
               box-sizing: border-box;
-              background-color: var(--wings-cloud-main-fill);
+              background-color: var(--wingscloud-admin-main-fill);
               border: 1px solid var(--el-border-color);
               border-top: 0;
               border-radius: 0 0 4px;
             "
-          ></div>
+          />
         </div>
       </div>
       <div
+        v-if="props.mode === SettingsValueEnum.LAYOUT_ASIDE_LEAN"
         w-full
         h-full
         flex
-        v-if="props.mode === SettingsValueEnum.LAYOUT_ASIDE_LEAN"
       >
         <div
           h-full
           w-6
           style="
             box-sizing: border-box;
-            background-color: var(--wings-cloud-menu-bg-color);
+            background-color: var(--wingscloud-admin-menu-bg-color);
             border: 1px solid var(--el-border-color);
             border-radius: 4px 0 0 4px;
           "
-        ></div>
+        />
         <div
           h-full
           w-12
           style="
             box-sizing: border-box;
-            background-color: var(--wings-cloud-main-fill);
+            background-color: var(--wingscloud-admin-main-fill);
             border: 1px solid var(--el-border-color);
             border-left: 0;
             border-radius: 0 4px 4px 0;
           "
-        ></div>
+        />
       </div>
       <div
+        v-if="props.mode === SettingsValueEnum.LAYOUT_ASIDE_LEAN_DARK"
         w-full
         h-full
         flex
-        v-if="props.mode === SettingsValueEnum.LAYOUT_ASIDE_LEAN_DARK"
       >
         <div
           h-full
@@ -247,18 +245,18 @@ const props = defineProps({
               ? 'border-color: var(--el-border-color)'
               : 'border-color: #262a3c'
           "
-        ></div>
+        />
         <div
           h-full
           w-12
           style="
             box-sizing: border-box;
-            background-color: var(--wings-cloud-main-fill);
+            background-color: var(--wingscloud-admin-main-fill);
             border: 1px solid var(--el-border-color);
             border-left: 0;
             border-radius: 0 4px 4px 0;
           "
-        ></div>
+        />
       </div>
     </div>
     <div w-full h-2 flex items-center justify-center p-y-2>
@@ -267,10 +265,11 @@ const props = defineProps({
         w-2
         h-2
         style="background-color: var(--el-color-primary); border-radius: 50%"
-      ></div>
+      />
     </div>
   </div>
 </template>
+
 <style lang="scss" scoped>
 .animation > *div {
   transition: all var(--el-transition-duration)

@@ -1,4 +1,4 @@
-import { IconTypeEnum } from '@/constants/enums';
+import { IconTypeEnum } from '@/constants/enums'
 
 export default [
   {
@@ -273,4 +273,4 @@ export default [
       },
     ],
   },
-];
+]

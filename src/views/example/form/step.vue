@@ -1,9 +1,5 @@
 <script lang="ts" setup>
-defineOptions({
-  name: 'ExampleFormStep',
-});
-
-const { t } = useI18n();
+const { t } = useI18n()
 
 const form = reactive({
   payAccount: '',
@@ -11,10 +7,11 @@ const form = reactive({
   getName: '',
   price: 0,
   password: '',
-});
+})
 
-const step = ref<number>(1);
+const step = ref<number>(1)
 </script>
+
 <template>
   <crud-card>
     <el-steps
@@ -31,11 +28,11 @@ const step = ref<number>(1);
       <el-step :title="t('example.form.step.stepThree')" />
     </el-steps>
     <crud-page-form
+      v-if="step === 1"
       action
       :model="form"
       label-width="180px"
       :submit-label="t('example.form.step.next')"
-      v-if="step == 1"
       @submit="step = 2"
     >
       <el-form-item :label="t('example.form.step.payAccount')">
@@ -70,24 +67,26 @@ const step = ref<number>(1);
       </el-form-item>
       <el-form-item :label="t('example.form.step.price')">
         <el-input
-          type="number"
           v-model="form.price"
+          type="number"
           :placeholder="
             t('crud.placeholder.enter', {
               label: t('example.form.step.price'),
             })
           "
         >
-          <template #append>{{ t('example.form.step.unit') }}</template>
+          <template #append>
+            {{ t('example.form.step.unit') }}
+          </template>
         </el-input>
       </el-form-item>
     </crud-page-form>
     <crud-page-form
+      v-if="step === 2"
       action
       :model="form"
       label-width="180px"
       :submit-label="t('example.form.step.next')"
-      v-if="step == 2"
       :cancel-label="t('example.form.step.pre')"
       @submit="step = 3"
       @cancel="step = 1"
@@ -112,14 +111,13 @@ const step = ref<number>(1);
               label: t('example.form.step.password'),
             })
           "
-        >
-        </el-input>
+        />
       </el-form-item>
     </crud-page-form>
     <el-result
+      v-if="step === 3"
       icon="success"
       :title="t('example.form.step.success')"
-      v-if="step == 3"
     >
       <template #extra>
         <el-button type="primary" @click="step = 1">

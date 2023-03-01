@@ -1,16 +1,10 @@
 <script lang="ts" setup>
-import { useSystemStore } from '@/hooks/use-store/use-system-store';
-import { SettingsValueEnum } from '@/constants/enums';
+import { useSystemStore } from '@/hooks/use-store/use-system-store'
+import { SettingsValueEnum } from '@/constants/enums'
 
-defineOptions({
-  name: 'LayoutAdminBreadcrumb',
-});
+const systemStore = useSystemStore()
 
-const systemStore = useSystemStore();
-
-const route = useRoute();
-
-const { t } = useI18n();
+const route = useRoute()
 </script>
 
 <template>
@@ -19,8 +13,8 @@ const { t } = useI18n();
     items-center
     justify-start
     :style="
-      systemStore.settings.Breadcrumb == SettingsValueEnum.BREADCRUMB_VIEW_TOP
-        ? 'padding-bottom: var(--wings-cloud-main-padding)'
+      systemStore.settings.Breadcrumb === SettingsValueEnum.BREADCRUMB_VIEW_TOP
+        ? 'padding-bottom: var(--wingscloud-admin-main-padding)'
         : ''
     "
   >

@@ -1,15 +1,11 @@
 <script lang="ts" setup>
-import * as echarts from 'echarts';
-
-defineOptions({
-  name: 'ExampleCharts',
-});
+import * as echarts from 'echarts'
 
 onMounted(() => {
-  const chartDom = document.getElementById('main');
-  let myChart = null;
+  const chartDom = document.getElementById('main')
+  let myChart = null
   if (chartDom) {
-    myChart = echarts.init(chartDom);
+    myChart = echarts.init(chartDom)
     const option = {
       xAxis: {
         type: 'category',
@@ -24,13 +20,14 @@ onMounted(() => {
           type: 'line',
         },
       ],
-    };
-    option && myChart.setOption(option);
+    }
+    option && myChart.setOption(option)
   }
-});
+})
 </script>
+
 <template>
   <crud-card>
-    <div id="main" w-full h-xl></div>
+    <div id="main" w-full h-xl />
   </crud-card>
 </template>

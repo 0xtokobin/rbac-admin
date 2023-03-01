@@ -1,30 +1,26 @@
 <script lang="ts" setup>
-import type { ResponseData } from '@/utils/request/index.d';
-import { getServiceInfo } from '@/apis/common/service';
-
-defineOptions({
-  name: 'termsConditions',
-});
-
-const { t } = useI18n();
+import type { ResponseData } from '@/utils/request/index.d'
+import { getServiceInfo } from '@/apis/common/service'
 
 const props = defineProps({
   label: {
     type: String,
     default: '',
   },
-});
+})
 
-const dialogVisible = ref<boolean>(false);
+const { t } = useI18n()
 
-const termsConditionsData = ref<string>('');
+const dialogVisible = ref<boolean>(false)
+
+const termsConditionsData = ref<string>('')
 
 const openDialog = (): void => {
-  dialogVisible.value = true;
+  dialogVisible.value = true
   getServiceInfo().then(({ data }: ResponseData) => {
-    termsConditionsData.value = data.i18nKey ? t(data.i18nKey) : '';
-  });
-};
+    termsConditionsData.value = data.i18nKey ? t(data.i18nKey) : ''
+  })
+}
 </script>
 
 <template>
@@ -37,6 +33,6 @@ const openDialog = (): void => {
     </el-button>
   </div>
   <crud-dialog v-model="dialogVisible" :title="t('signin.termsConditions')">
-    <div v-dompurify-html="termsConditionsData"></div>
+    <div v-dompurify-html="termsConditionsData" />
   </crud-dialog>
 </template>

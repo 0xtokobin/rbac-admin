@@ -1,22 +1,21 @@
 <script lang="ts" setup name="my-notifications">
-import { useDateFormat } from '@vueuse/core';
-import { useCrud } from '@/hooks/use-crud/use-crud';
+import { useDateFormat } from '@vueuse/core'
+import { useCrud } from '@/hooks/use-crud/use-crud'
 
-defineOptions({
-  name: 'SystemFile',
-});
-
-const { t } = useI18n();
+const { t } = useI18n()
 
 const { tableData } = useCrud({
   queryUrl: '/system/file/list',
-});
+})
 </script>
+
 <template>
   <crud-card>
     <crud-table-query :query="false" :reset="false">
       <template #action>
-        <el-button type="primary">{{ t('crud.btn.upload') }}</el-button>
+        <el-button type="primary">
+          {{ t('crud.btn.upload') }}
+        </el-button>
       </template>
     </crud-table-query>
     <crud-table :data="tableData">
@@ -24,12 +23,12 @@ const { tableData } = useCrud({
         type="index"
         width="60"
         :label="t('crud.table.no')"
-      ></el-table-column>
+      />
       <el-table-column
         prop="username"
         :label="t('system.file.fileUrl')"
         min-width="340"
-      ></el-table-column>
+      />
       <el-table-column
         prop="createTime"
         :label="t('crud.table.uploadTime')"

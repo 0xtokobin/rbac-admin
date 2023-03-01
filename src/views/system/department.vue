@@ -1,24 +1,23 @@
 <script lang="ts" setup>
-import { useCrud } from '@/hooks/use-crud/use-crud';
-import { useSystemStore } from '@/hooks/use-store/use-system-store';
+import { useCrud } from '@/hooks/use-crud/use-crud'
+import { useSystemStore } from '@/hooks/use-store/use-system-store'
 
-defineOptions({
-  name: 'SystemDepartment',
-});
-
-const { t } = useI18n();
+const { t } = useI18n()
 
 const { tableData } = useCrud({
   queryUrl: '/system/department/list',
-});
+})
 
-const systemStore = useSystemStore();
+const systemStore = useSystemStore()
 </script>
+
 <template>
   <crud-card>
     <crud-table-query :query="false" :reset="false">
       <template #action>
-        <el-button type="primary">{{ t('crud.btn.add') }}</el-button>
+        <el-button type="primary">
+          {{ t('crud.btn.add') }}
+        </el-button>
       </template>
     </crud-table-query>
     <crud-table :data="tableData" action-width="300" row-key="id">
@@ -26,21 +25,18 @@ const systemStore = useSystemStore();
         :label="t('system.department.departmentName')"
         width="240"
         prop="name"
-      >
-      </el-table-column>
+      />
       <el-table-column
         :label="t('system.department.parentDepartmentName')"
         width="240"
         prop="parentName"
-      >
-      </el-table-column>
-      <el-table-column prop="sort" :label="t('crud.table.sort')" width="140">
-      </el-table-column>
+      />
+      <el-table-column prop="sort" :label="t('crud.table.sort')" width="140" />
       <el-table-column
         min-width="340"
         prop="remark"
         :label="t('crud.table.remark')"
-      ></el-table-column>
+      />
       <el-table-column
         :label="t('crud.btn.action')"
         fixed="right"
@@ -54,9 +50,9 @@ const systemStore = useSystemStore();
             {{ t('crud.btn.edit') }}
           </el-button>
           <el-button
+            v-if="!scope.row.children || scope.row.children.length === 0"
             type="primary"
             link
-            v-if="!scope.row.children || scope.row.children.length === 0"
           >
             {{ t('crud.btn.delete') }}
           </el-button>

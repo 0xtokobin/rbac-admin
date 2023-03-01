@@ -1,9 +1,5 @@
 <script lang="ts" setup>
-import type { PropType, Component } from 'vue';
-
-defineOptions({
-  name: 'SvgIcon',
-});
+import type { Component, PropType } from 'vue'
 
 const props = defineProps({
   prefix: {
@@ -26,7 +22,7 @@ const props = defineProps({
   customStyle: {
     type: Object,
     default: () => {
-      return {};
+      return {}
     },
   },
   showElWidth: {
@@ -36,14 +32,14 @@ const props = defineProps({
   component: {
     type: Object as PropType<Component>,
     default: () => {
-      return {};
+      return {}
     },
   },
-});
+})
 
 const symbolId = computed(
-  () => `#${props.prefix}-${props.name.replace('icon-', '')}`
-);
+  () => `#${props.prefix}-${props.name.replace('icon-', '')}`,
+)
 </script>
 
 <template>
@@ -62,11 +58,11 @@ const symbolId = computed(
     <svg
       v-if="props.name"
       aria-hidden="true"
-      :class="`wings-cloud-icon ${props.className}`"
+      :class="`wingscloud-admin-icon ${props.className}`"
       :style="`width:1em;height:1em;line-height:1em;color:${props.color};`"
     >
       <use :xlink:href="symbolId" />
     </svg>
-    <component v-else :is="props.component"></component>
+    <component :is="props.component" v-else />
   </i>
 </template>

@@ -1,36 +1,37 @@
 <script lang="ts" setup>
-import { RouteEnum } from '@/constants/enums';
-import { useSystemStore } from '@/hooks/use-store/use-system-store';
-import SignTemplate from './components/sign-template.vue';
-import SigninAccountForm from './components/signin-account-form.vue';
-import SigninMobileForm from './components/signin-mobile-form.vue';
-import TermsConditions from './components/terms-conditions.vue';
+import SignTemplate from './components/sign-template.vue'
+import SigninAccountForm from './components/signin-account-form.vue'
+import SigninMobileForm from './components/signin-mobile-form.vue'
+import TermsConditions from './components/terms-conditions.vue'
+import { useSystemStore } from '@/hooks/use-store/use-system-store'
+import { RouteEnum } from '@/constants/enums'
 
 defineOptions({
   name: 'Signin',
-});
+})
 
-const systemStore = useSystemStore();
+const systemStore = useSystemStore()
 
-const { t } = useI18n();
+const { t } = useI18n()
 
-const route = useRoute();
-const router = useRouter();
+const route = useRoute()
+const router = useRouter()
 
 const loginType = ref<string>(
-  route.params.type ? (route.params.type as string) : 'account'
-);
+  route.params.type ? (route.params.type as string) : 'account',
+)
 
 const changeLoginType = (type: string): void => {
-  loginType.value = type;
-};
+  loginType.value = type
+}
 
 const goSignup = (): void => {
-  router.push({ path: RouteEnum.ROUTE_SIGNUP });
-};
+  router.push({ path: RouteEnum.ROUTE_SIGNUP })
+}
 </script>
+
 <template>
-  <sign-template>
+  <SignTemplate>
     <template #top-right>
       <div flex items-center>
         <span
@@ -64,10 +65,10 @@ const goSignup = (): void => {
       </div>
     </template>
     <template #form>
-      <signin-account-form
+      <SigninAccountForm
         v-if="loginType === 'account' || !loginType"
-      ></signin-account-form>
-      <signin-mobile-form v-if="loginType === 'mobile'"></signin-mobile-form>
+      />
+      <SigninMobileForm v-if="loginType === 'mobile'" />
       <el-divider mt-10>
         <span text-2 style="color: var(--el-text-color-primary)">
           {{ t('signin.or') }}
@@ -75,37 +76,37 @@ const goSignup = (): void => {
       </el-divider>
       <div mt-10 w="100%" flex justify-between items-center>
         <el-button
+          v-if="loginType !== 'account'"
           w="45%"
           size="large"
-          v-if="loginType !== 'account'"
           @click="changeLoginType('account')"
         >
           <span font-600>{{ t('signin.account') }}</span>
         </el-button>
         <el-button
+          v-if="loginType !== 'mobile'"
           w="46%"
           size="large"
-          v-if="loginType !== 'mobile'"
           @click="changeLoginType('mobile')"
         >
           <span font-600> {{ t('signin.mobile') }}</span>
         </el-button>
         <el-button
+          v-if="loginType === 'account' || loginType === 'mobile'"
           w="46%"
           size="large"
-          v-if="loginType === 'account' || loginType === 'mobile'"
         >
-          <svg-icon show-el-width name="social-wechat" size="1rem"></svg-icon>
+          <svg-icon show-el-width name="social-wechat" size="1rem" />
           <span font-600> {{ t('signin.wechat') }}</span>
         </el-button>
       </div>
     </template>
     <template
-      #bottom-center
       v-if="loginType === 'account' || loginType === 'mobile'"
+      #bottom-center
     >
       <div w-full>
-        <terms-conditions :label="t('signin.btn')"></terms-conditions>
+        <TermsConditions :label="t('signin.btn')" />
         <div
           v-if="systemStore.isMobile"
           text-center
@@ -116,5 +117,5 @@ const goSignup = (): void => {
         </div>
       </div>
     </template>
-  </sign-template>
+  </SignTemplate>
 </template>

@@ -1,20 +1,17 @@
 <script lang="ts" setup name="my-notifications">
-import { useDateFormat } from '@vueuse/core';
-import { useCrud } from '@/hooks/use-crud/use-crud';
-import { useDictionary } from '@/hooks/use-crud/use-dictionary';
+import { useDateFormat } from '@vueuse/core'
+import { useCrud } from '@/hooks/use-crud/use-crud'
+import { useDictionary } from '@/hooks/use-crud/use-dictionary'
 
-defineOptions({
-  name: 'SystemLog',
-});
+const { t } = useI18n()
 
-const { t } = useI18n();
-
-const { getDictionary, getDictionaryData } = useDictionary();
+const { getDictionary, getDictionaryData } = useDictionary()
 
 const { queryForm, tableData, query, reset } = useCrud({
   queryUrl: '/system/log/list',
-});
+})
 </script>
+
 <template>
   <crud-card>
     <crud-table-query>
@@ -26,8 +23,8 @@ const { queryForm, tableData, query, reset } = useCrud({
       </el-form-item>
       <el-form-item>
         <el-select
-          clearable
           v-model="queryForm.type"
+          clearable
           :placeholder="t('system.log.status')"
         >
           <el-option
@@ -35,11 +32,13 @@ const { queryForm, tableData, query, reset } = useCrud({
             :key="index"
             :label="item.label"
             :value="item.value"
-          ></el-option>
+          />
         </el-select>
       </el-form-item>
       <template #action>
-        <el-button type="primary">{{ t('crud.btn.add') }}</el-button>
+        <el-button type="primary">
+          {{ t('crud.btn.add') }}
+        </el-button>
       </template>
     </crud-table-query>
     <crud-table :data="tableData">
@@ -47,22 +46,22 @@ const { queryForm, tableData, query, reset } = useCrud({
         type="index"
         width="60"
         :label="t('crud.table.no')"
-      ></el-table-column>
+      />
       <el-table-column
         prop="username"
         :label="t('system.user.username')"
         width="240"
-      ></el-table-column>
+      />
       <el-table-column
         prop="action"
         :label="t('system.log.action')"
         width="240"
-      ></el-table-column>
+      />
       <el-table-column
         prop="ip"
         :label="t('system.log.ip')"
         width="240"
-      ></el-table-column>
+      />
       <el-table-column
         prop="status"
         :label="t('system.log.status')"

@@ -1,30 +1,27 @@
 <script lang="ts" setup>
-import { SettingsValueEnum } from '@/constants/enums';
-import { useSystemStore } from '@/hooks/use-store/use-system-store';
-
-defineOptions({
-  name: 'LayoutToolbar',
-});
+import { SettingsValueEnum } from '@/constants/enums'
+import { useSystemStore } from '@/hooks/use-store/use-system-store'
 
 const props = defineProps({
   fixed: {
     type: Boolean,
     default: false,
   },
-});
+})
 
-const systemStore = useSystemStore();
+const systemStore = useSystemStore()
 
 const iconColor = () => {
-  return props.fixed ? '#fff' : 'var(--wings-cloud-header-text-color)';
-};
+  return props.fixed ? '#fff' : 'var(--wingscloud-admin-header-text-color)'
+}
 
-const collapse = ref<boolean>(true);
+const collapse = ref<boolean>(true)
 
 const changeToolbar = () => {
-  if (!props.fixed) return;
-  collapse.value = !collapse.value;
-};
+  if (!props.fixed)
+    return
+  collapse.value = !collapse.value
+}
 </script>
 
 <template>
@@ -35,22 +32,22 @@ const changeToolbar = () => {
     justify-end
     p-x-6
     box-border
-    style="width: var(--wings-cloud-header-toobar-width)"
+    style="width: var(--wingscloud-admin-header-toobar-width)"
     :class="[
-      props.fixed ? 'wings-cloud-fixed' : '',
-      systemStore.isMobile ? 'wings-cloud-small' : 'wings-cloud-normal',
+      props.fixed ? 'wingscloud-admin-fixed' : '',
+      systemStore.isMobile ? 'wingscloud-admin-small' : 'wingscloud-admin-normal',
       systemStore.colorScheme === SettingsValueEnum.COLOR_SCHEME_DARK
-        ? 'wings-cloud-dark'
+        ? 'wingscloud-admin-dark'
         : '',
     ]"
   >
     <el-icon
-      cursor-pointer
       v-if="props.fixed"
-      @click="changeToolbar()"
+      cursor-pointer
       color="#fff"
       m-r-4
       :style="collapse ? 'transform:rotate(180deg)' : 'transform:rotate(0deg)'"
+      @click="changeToolbar()"
     >
       <ArrowRight />
     </el-icon>
@@ -59,60 +56,60 @@ const changeToolbar = () => {
       flex
       items-center
       justify-end
-      :class="systemStore.isMobile ? 'wings-cloud-mobile' : 'wings-cloud-pc'"
+      :class="systemStore.isMobile ? 'wingscloud-admin-mobile' : 'wingscloud-admin-pc'"
       :style="collapse ? 'width:0' : 'width:auto'"
     >
       <layout-toolbar-color-scheme
-        class="wings-cloud-toolbar"
-        :color="iconColor()"
         v-if="systemStore.settings.Toolbar.Dark"
-      ></layout-toolbar-color-scheme>
+        class="wingscloud-admin-toolbar"
+        :color="iconColor()"
+      />
       <layout-toolbar-language
-        only-icon
-        class="wings-cloud-toolbar"
-        :color="iconColor()"
         v-if="systemStore.settings.Toolbar.Language"
-      ></layout-toolbar-language>
+        only-icon
+        class="wingscloud-admin-toolbar"
+        :color="iconColor()"
+      />
       <layout-toolbar-refresh
-        class="wings-cloud-toolbar"
-        :color="iconColor()"
         v-if="systemStore.settings.Toolbar.Refresh"
-      ></layout-toolbar-refresh>
+        class="wingscloud-admin-toolbar"
+        :color="iconColor()"
+      />
       <layout-toolbar-notification
-        class="wings-cloud-toolbar"
-        :color="iconColor()"
         v-if="systemStore.settings.Toolbar.Notification"
-      ></layout-toolbar-notification>
+        class="wingscloud-admin-toolbar"
+        :color="iconColor()"
+      />
       <layout-toolbar-fullscreen
-        class="wings-cloud-toolbar"
-        :color="iconColor()"
         v-if="systemStore.settings.Toolbar.Fullscreen && !systemStore.isMobile"
-      ></layout-toolbar-fullscreen>
-      <layout-toolbar-setting
-        class="wings-cloud-toolbar"
+        class="wingscloud-admin-toolbar"
         :color="iconColor()"
+      />
+      <layout-toolbar-setting
         v-if="systemStore.settings.Toolbar.Setting"
-      ></layout-toolbar-setting>
+        class="wingscloud-admin-toolbar"
+        :color="iconColor()"
+      />
     </div>
     <layout-toolbar-avatar
-      @click="changeToolbar"
+      v-if="systemStore.settings.Toolbar.Avatar"
       :color="iconColor()"
       :avatar-size="systemStore.isMobile ? 28 : 38"
-      v-if="systemStore.settings.Toolbar.Avatar"
-    ></layout-toolbar-avatar>
+      @click="changeToolbar"
+    />
   </div>
 </template>
 
 <style lang="scss" scoped>
-.wings-cloud-mobile .wings-cloud-toolbar {
+.wingscloud-admin-mobile .wingscloud-admin-toolbar {
   margin-right: 1.4rem;
 }
 
-.wings-cloud-pc .wings-cloud-toolbar {
+.wingscloud-admin-pc .wingscloud-admin-toolbar {
   margin-right: 2rem;
 }
 
-.wings-cloud-fixed {
+.wingscloud-admin-fixed {
   position: fixed;
   top: 20%;
   right: 0;
@@ -122,22 +119,22 @@ const changeToolbar = () => {
   box-shadow: var(--el-box-shadow);
   transform: translateY(-50%);
 
-  &.wings-cloud-dark {
+  &.wingscloud-admin-dark {
     background-color: var(--el-color-primary);
   }
 
-  &.wings-cloud-normal {
+  &.wingscloud-admin-normal {
     height: 4rem;
     padding: 0.8rem;
   }
 
-  &.wings-cloud-small {
+  &.wingscloud-admin-small {
     height: 2.8rem;
     padding: 0 0.8rem 0 0.4rem;
   }
 
-  .wings-cloud-mobile,
-  .wings-cloud-pc {
+  .wingscloud-admin-mobile,
+  .wingscloud-admin-pc {
     overflow: hidden;
   }
 }

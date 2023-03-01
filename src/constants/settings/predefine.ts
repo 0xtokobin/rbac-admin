@@ -1,9 +1,5 @@
-import { SettingsValueEnum } from '@/constants/enums';
+import { SettingsValueEnum } from '@/constants/enums'
 
-/**
- * @name PredefineToolbar
- * @description 管理系统工具栏预置按钮
- */
 export const PredefineToolbar = [
   {
     label: 'system.setting.toolbarDark',
@@ -33,12 +29,8 @@ export const PredefineToolbar = [
     label: 'system.setting.toolbarAvatar',
     value: 'Avatar',
   },
-];
+]
 
-/**
- * @name PredefineLayouts
- * @description 管理系统预置布局方式
- */
 export const PredefineLayouts = [
   {
     label: 'system.setting.layoutTop',
@@ -64,12 +56,8 @@ export const PredefineLayouts = [
     label: 'system.setting.layoutAsideLeanDark',
     value: SettingsValueEnum.LAYOUT_ASIDE_LEAN_DARK,
   },
-];
+]
 
-/**
- * @name PredefineColorSchemes
- * @description 预置配色方案
- */
 export const PredefineColorSchemes = [
   {
     label: 'system.setting.colorSchemeAuto',
@@ -87,12 +75,8 @@ export const PredefineColorSchemes = [
     label: 'system.setting.colorSchemeDark',
     value: SettingsValueEnum.COLOR_SCHEME_DARK,
   },
-];
+]
 
-/**
- * @name PredefineThemeColors
- * @description 预置主题颜色
- */
 export const PredefineThemeColors = [
   '#3dabf5',
   '#0d6efd',
@@ -102,12 +86,8 @@ export const PredefineThemeColors = [
   '#1C9399',
   '#F56C6C',
   '#839aff',
-];
+]
 
-/**
- * @name PredefineTabStyle
- * @description 预置标签风格
- */
 export const PredefineTabStyle = [
   {
     label: 'system.setting.tabStyleSquare',
@@ -117,12 +97,8 @@ export const PredefineTabStyle = [
     label: 'system.setting.tabStyleRound',
     value: SettingsValueEnum.TAB_STYLE_ROUND,
   },
-];
+]
 
-/**
- * @name PredefineMenuStyle
- * @description 预置管理菜单风格
- */
 export const PredefineMenuStyle = [
   {
     label: 'system.setting.menuStyleSquare',
@@ -132,12 +108,8 @@ export const PredefineMenuStyle = [
     label: 'system.setting.menuStyleRound',
     value: SettingsValueEnum.MENU_STYLE_ROUND,
   },
-];
+]
 
-/**
- * @name PredefineBreadcrumbPosition
- * @description 预置面包屑位置
- */
 export const PredefineBreadcrumbPosition = [
   {
     label: 'system.setting.breadcrumbViewTop',
@@ -147,12 +119,8 @@ export const PredefineBreadcrumbPosition = [
     label: 'system.setting.breadcrumbHidden',
     value: SettingsValueEnum.BREADCRUMB_HIDDEN,
   },
-];
+]
 
-/**
- * @name PredefineCopyrightPosition
- * @description 预置版权信息位置
- */
 export const PredefineCopyrightPosition = [
   {
     label: 'system.setting.copyrightBottom',
@@ -162,4 +130,4 @@ export const PredefineCopyrightPosition = [
     label: 'system.setting.copyrightHidden',
     value: SettingsValueEnum.COPYRIGHT_HIDDEN,
   },
-];
+]

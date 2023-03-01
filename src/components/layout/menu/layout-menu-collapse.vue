@@ -1,16 +1,12 @@
 <script lang="ts" setup>
-import { DArrowLeft, DArrowRight } from '@element-plus/icons-vue';
-import { useSystemStore } from '@/hooks/use-store/use-system-store';
+import { DArrowLeft, DArrowRight } from '@element-plus/icons-vue'
+import { useSystemStore } from '@/hooks/use-store/use-system-store'
 
-defineOptions({
-  name: 'LayoutAdminCollapse',
-});
-
-const systemStore = useSystemStore();
+const systemStore = useSystemStore()
 
 const changeCollapse = (): void => {
-  systemStore.collapse = !systemStore.collapse;
-};
+  systemStore.collapse = !systemStore.collapse
+}
 </script>
 
 <template>
@@ -19,13 +15,12 @@ const changeCollapse = (): void => {
     items-center
     justify-center
     cursor-pointer
-    style="height: var(--wings-cloud-collapse-height)"
-    @click="changeCollapse()"
-    :class="[
-      'wings-cloud-' + systemStore.colorScheme,
-      'wings-cloud-' + systemStore.settings.Layout,
-      'wings-cloud-layout-aside-menu-collapse',
+    style="height: var(--wingscloud-admin-collapse-height)"
+    class="wingscloud-admin-layout-aside-menu-collapse" :class="[
+      `wingscloud-admin-${systemStore.colorScheme}`,
+      `wingscloud-admin-${systemStore.settings.Layout}`,
     ]"
+    @click="changeCollapse()"
   >
     <el-button
       v-if="systemStore.collapse"
@@ -33,7 +28,7 @@ const changeCollapse = (): void => {
       text
       circle
       :icon="DArrowRight"
-    ></el-button>
-    <el-button v-else bg text circle :icon="DArrowLeft"></el-button>
+    />
+    <el-button v-else bg text circle :icon="DArrowLeft" />
   </div>
 </template>

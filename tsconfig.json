@@ -1,45 +1,14 @@
 {
-	"compilerOptions": {
-		"target": "esnext",
-		"useDefineForClassFields": true,
-		"module": "esnext",
-		"moduleResolution": "node",
-		"strict": true,
-		"removeComments": true,
-		"sourceMap": true,
-		"resolveJsonModule": true,
-		"esModuleInterop": true,
-		"skipLibCheck": true,
-		"lib": [
-			"esnext",
-			"dom"
-		],
-		"types": [
-			"vite/client",
-			"node",
-			"unplugin-vue-define-options/macros-global"
-		],
-		"baseUrl": "./",
-		"paths": {
-			"@/*": [
-				"src/*"
-			]
-		}
-	},
-	"typeRoots": [
-		"node_modules/@types/",
-		"src/types/"
-	],
-	"include": [
-		"src/**/*.ts",
-		"src/types/**/*.d.ts",
-		"src/**/*.d.ts",
-		"src/**/*.vue",
-		"serve/**/*.ts",
-		"*.ts"
-	],
-	"exclude": [
-		"node_modules",
-		"dist"
-	]
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    },
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.vitest.json"
+    }
+  ]
 }

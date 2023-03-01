@@ -1,43 +1,40 @@
 <script lang="ts" setup>
-import { useSystemStore } from '@/hooks/use-store/use-system-store';
-import { SettingsValueEnum } from '@/constants/enums';
+import { useSystemStore } from '@/hooks/use-store/use-system-store'
+import { SettingsValueEnum } from '@/constants/enums'
 
-defineOptions({
-  name: 'LayoutToolbarColorScheme',
-});
+const props = defineProps({
+  color: {
+    type: String,
+    default: 'var(--wingscloud-admin-header-text-color)',
+  },
+})
 
-const systemStore = useSystemStore();
+const systemStore = useSystemStore()
 
 const changeColorScheme = () => {
   if (
     systemStore.settings.ColorScheme === SettingsValueEnum.COLOR_SCHEME_AUTO
   ) {
     systemStore.changeDarkOrLight(
-      systemStore.colorScheme === SettingsValueEnum.COLOR_SCHEME_LIGHT
-    );
-  } else {
-    systemStore.settings.ColorScheme =
-      systemStore.colorScheme === SettingsValueEnum.COLOR_SCHEME_DARK
-        ? SettingsValueEnum.COLOR_SCHEME_LIGHT
-        : SettingsValueEnum.COLOR_SCHEME_DARK;
+      systemStore.colorScheme === SettingsValueEnum.COLOR_SCHEME_LIGHT,
+    )
   }
-};
-
-const props = defineProps({
-  color: {
-    type: String,
-    default: 'var(--wings-cloud-header-text-color)',
-  },
-});
+  else {
+    systemStore.settings.ColorScheme
+      = systemStore.colorScheme === SettingsValueEnum.COLOR_SCHEME_DARK
+        ? SettingsValueEnum.COLOR_SCHEME_LIGHT
+        : SettingsValueEnum.COLOR_SCHEME_DARK
+  }
+}
 </script>
 
 <template>
   <el-icon
     cursor-pointer
-    @click="changeColorScheme()"
     :style="{ color: props.color }"
     size="1.2rem"
     inline-flex
+    @click="changeColorScheme()"
   >
     <Moon
       v-if="systemStore.colorScheme === SettingsValueEnum.COLOR_SCHEME_DARK"

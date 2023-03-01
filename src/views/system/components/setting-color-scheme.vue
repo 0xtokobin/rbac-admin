@@ -12,22 +12,23 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-});
+})
 </script>
+
 <template>
   <div mr-7 mb-4>
     <div w-18 h-18 overflow-hidden cursor-pointer>
-      <div class="bg" v-if="props.mode === 'auto'">
-        <svg-icon name="color-scheme-auto" size="2rem"></svg-icon>
+      <div v-if="props.mode === 'auto'" class="bg">
+        <svg-icon name="color-scheme-auto" size="2rem" />
       </div>
-      <div class="bg" v-if="props.mode === 'theme'">
-        <svg-icon name="color-scheme-theme" size="2rem"></svg-icon>
+      <div v-if="props.mode === 'theme'" class="bg">
+        <svg-icon name="color-scheme-theme" size="2rem" />
       </div>
-      <div class="bg" v-if="props.mode === 'light'">
-        <svg-icon name="color-scheme-light" size="2rem"></svg-icon>
+      <div v-if="props.mode === 'light'" class="bg">
+        <svg-icon name="color-scheme-light" size="2rem" />
       </div>
-      <div class="bg" v-if="props.mode === 'dark'">
-        <svg-icon name="color-scheme-dark" size="2rem"></svg-icon>
+      <div v-if="props.mode === 'dark'" class="bg">
+        <svg-icon name="color-scheme-dark" size="2rem" />
       </div>
     </div>
     <div w-full h-2 flex items-center justify-center p-y-2>
@@ -36,7 +37,7 @@ const props = defineProps({
         w-2
         h-2
         style="background-color: var(--el-color-primary); border-radius: 50%"
-      ></div>
+      />
     </div>
   </div>
 </template>

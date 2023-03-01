@@ -1,52 +1,47 @@
 <script lang="ts" setup>
-import type { IObject } from '@/types/global';
-import { Check } from '@element-plus/icons-vue';
-import { useDateFormat } from '@vueuse/core';
-import { useUserStore } from '@/hooks/use-store/use-user-store';
-import { RouteEnum } from '@/constants/enums';
-import { getUserNotificationByNotRead } from '@/apis/system/user';
-
-defineOptions({
-  name: 'LayoutToolbarNotification',
-});
-
-const { t } = useI18n();
-
-const router = useRouter();
-
-const userStore = useUserStore();
+import { Check } from '@element-plus/icons-vue'
+import { useDateFormat } from '@vueuse/core'
+import type { IObject } from '#/global'
+import { useUserStore } from '@/hooks/use-store/use-user-store'
+import { RouteEnum } from '@/constants/enums'
+import { getUserNotificationByNotRead } from '@/apis/system/user'
 
 const props = defineProps({
   color: {
     type: String,
-    default: 'var(--wings-cloud-header-text-color)',
+    default: 'var(--wingscloud-admin-header-text-color)',
   },
-});
+})
+
+const { t } = useI18n()
+
+const router = useRouter()
+
+const userStore = useUserStore()
 
 const goPersonalNotification = () => {
-  router.push(RouteEnum.ROUTE_SYSTEM_NOTIFICATION);
-};
+  router.push(RouteEnum.ROUTE_SYSTEM_NOTIFICATION)
+}
 
-const list = ref<Array<any>>([]);
+const list = ref<Array<any>>([])
 
 onBeforeMount(async () => {
-  const res = await getUserNotificationByNotRead();
-  list.value = res.data;
-});
+  const res = await getUserNotificationByNotRead()
+  list.value = res.data
+})
 
 const read = (item: IObject) => {
-  const _list: Array<any> = [];
+  const _list: Array<any> = []
   list.value.map((listItem) => {
-    if (listItem.id !== item.id) {
-      _list.push(listItem);
-    }
-  });
-  list.value = _list;
-};
+    if (listItem.id !== item.id)
+      _list.push(listItem)
+  })
+  list.value = _list
+}
 </script>
 
 <template>
-  <div flex items-center cursor-pointer v-if="userStore.isLogin">
+  <div v-if="userStore.isLogin" flex items-center cursor-pointer>
     <el-popover :width="320" trigger="hover">
       <template #reference>
         <el-badge :is-dot="list.length > 0" flex items-center>
@@ -54,7 +49,7 @@ const read = (item: IObject) => {
             name="base-bell"
             size="1.2rem"
             :color="props.color"
-          ></svg-icon>
+          />
         </el-badge>
       </template>
       <template #default>
@@ -64,9 +59,9 @@ const read = (item: IObject) => {
           </span>
           <div>
             <el-button
+              v-if="list.length > 0"
               text
               type="primary"
-              v-if="list.length > 0"
               @click="list = []"
             >
               {{ t('app.toolbar.notifications.clear') }}
@@ -78,22 +73,24 @@ const read = (item: IObject) => {
         </div>
         <div v-if="list.length > 0">
           <div
-            m-t-4
             v-for="(item, index) in list"
             :key="index"
+            m-t-4
             flex
             items-center
             justify-between
           >
             <div>
-              <div pb-2 text="3.4">{{ item.content }}</div>
+              <div pb-2 text="3.4">
+                {{ item.content }}
+              </div>
               <div text="3">
                 {{
                   useDateFormat(item.createTime, 'YYYY-MM-DD HH:mm:ss').value
                 }}
               </div>
             </div>
-            <el-button @click="read(item)" size="small" :icon="Check" circle />
+            <el-button size="small" :icon="Check" circle @click="read(item)" />
           </div>
         </div>
         <div v-if="list.length === 0">

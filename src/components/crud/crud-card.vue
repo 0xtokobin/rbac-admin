@@ -1,13 +1,5 @@
 <script lang="ts" setup>
-import type { ComponentInternalInstance } from 'vue';
-
-defineOptions({
-  name: 'CrudCard',
-});
-
-const { slots } = getCurrentInstance() as ComponentInternalInstance;
-
-const { t } = useI18n();
+import type { ComponentInternalInstance } from 'vue'
 
 const props = defineProps({
   header: {
@@ -34,36 +26,41 @@ const props = defineProps({
     type: String,
     default: '',
   },
-});
+})
 
-const route = useRoute();
+const emit = defineEmits(['submit', 'cancel'])
 
-const emit = defineEmits(['submit', 'cancel']);
+const { slots } = getCurrentInstance() as ComponentInternalInstance
+
+const { t } = useI18n()
+
+const route = useRoute()
 
 const submit = () => {
-  emit('submit', null);
-};
+  emit('submit', null)
+}
 
 const cancel = () => {
-  emit('cancel', null);
-};
+  emit('cancel', null)
+}
 </script>
+
 <template>
   <el-card shadow="never" important="border-none">
-    <template #header v-if="slots.header || props.header">
-      <slot name="header"></slot>
+    <template v-if="slots.header || props.header" #header>
+      <slot name="header" />
       <div v-if="!slots.header && props.header">
         <div
+          v-if="props.title || route.meta.menuName"
           text-5
           style="color: var(--el-text-color-primary)"
-          v-if="props.title || route.meta.menuName"
         >
           {{ props.title || route.meta.menuName }}
         </div>
         <div
+          v-if="props.subTitle || route.meta.menuDescription"
           text-4
           mt-2
-          v-if="props.subTitle || route.meta.menuDescription"
           style="color: var(--el-text-color-secondary)"
         >
           {{ props.subTitle || route.meta.menuDescription }}
@@ -71,12 +68,12 @@ const cancel = () => {
       </div>
     </template>
     <div class="padding">
-      <slot></slot>
+      <slot />
     </div>
     <template v-if="props.action">
-      <el-divider important="m-0"></el-divider>
+      <el-divider important="m-0" />
       <div class="padding">
-        <slot name="action"></slot>
+        <slot name="action" />
         <template v-if="!slots.action">
           <el-button type="primary" @click="submit">
             {{ props.submitLabel || t('crud.btn.submit') }}

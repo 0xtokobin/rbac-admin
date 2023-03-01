@@ -1,17 +1,13 @@
 <script lang="ts" setup>
-import { Settings } from '@/constants/settings';
+import { Settings } from '@/constants/settings'
 
-defineOptions({
-  name: 'Error404',
-});
+const { t } = useI18n()
 
-const { t } = useI18n();
-
-const router = useRouter();
+const router = useRouter()
 
 const goHome = () => {
-  router.replace({ path: Settings.AdminFirstRoute });
-};
+  router.replace({ path: Settings.AdminFirstRoute })
+}
 </script>
 
 <template>
@@ -22,7 +18,7 @@ const goHome = () => {
         background:
           'linear-gradient(180deg,rgba(148, 153, 221, 0.1) 0%,rgba(0, 16, 255, 0.1) 100%)',
       }"
-    ></div>
+    />
     <div
       fixed
       top="48%"
@@ -32,7 +28,7 @@ const goHome = () => {
       w-7xl
       text-center
     >
-      <img cursor-pointer h-22 my-10 src="@/assets/logo.svg" />
+      <img cursor-pointer h-22 my-10 src="@/assets/logo.svg">
       <div text-12 mb-6 font-600 style="color: var(--el-color-info-dark)">
         {{ t('404.title') }}
       </div>
@@ -44,8 +40,9 @@ const goHome = () => {
           important="h-12 p-x-6 text-4 font-600"
           type="primary"
           @click="goHome"
-          >{{ t('404.btn') }}</el-button
         >
+          {{ t('404.btn') }}
+        </el-button>
       </div>
     </div>
   </div>

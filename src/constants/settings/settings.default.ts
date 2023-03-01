@@ -1,10 +1,6 @@
-import type { SystemSettings } from '@/types/global.d';
-import { SettingsValueEnum, LanguageEnum, RouteEnum } from '@/constants/enums';
+import type { SystemSettings } from '#/global.d'
+import { LanguageEnum, RouteEnum, SettingsValueEnum } from '@/constants/enums'
 
-/**
- * @name SettingsDefault
- * @description 默认设置
- */
 export const SettingsDefault: SystemSettings = {
   Layout: SettingsValueEnum.LAYOUT_TOP,
   ThemeColor: '#3dabf5',
@@ -39,4 +35,4 @@ export const SettingsDefault: SystemSettings = {
   FirstRoute: RouteEnum.ROUTE_FIRST,
   AdminFirstRoute: RouteEnum.ROUTE_ADMIN_FIRST,
   NetworkTimeout: 30000,
-};
+}

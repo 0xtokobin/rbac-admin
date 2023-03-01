@@ -1,17 +1,14 @@
 <script lang="ts" setup>
-import { useDateFormat } from '@vueuse/core';
-import { useCrud } from '@/hooks/use-crud/use-crud';
+import { useDateFormat } from '@vueuse/core'
+import { useCrud } from '@/hooks/use-crud/use-crud'
 
-defineOptions({
-  name: 'SystemUser',
-});
-
-const { t } = useI18n();
+const { t } = useI18n()
 
 const { queryForm, tableData, query, reset } = useCrud({
   queryUrl: '/system/user/list',
-});
+})
 </script>
+
 <template>
   <crud-card>
     <crud-table-query>
@@ -40,7 +37,9 @@ const { queryForm, tableData, query, reset } = useCrud({
         />
       </el-form-item>
       <template #action>
-        <el-button type="primary">{{ t('crud.btn.add') }}</el-button>
+        <el-button type="primary">
+          {{ t('crud.btn.add') }}
+        </el-button>
       </template>
     </crud-table-query>
     <crud-table :data="tableData">
@@ -48,27 +47,27 @@ const { queryForm, tableData, query, reset } = useCrud({
         type="index"
         width="60"
         :label="t('crud.table.no')"
-      ></el-table-column>
+      />
       <el-table-column
         prop="avatar"
         :label="t('system.user.avatar')"
         width="140"
-      ></el-table-column>
+      />
       <el-table-column
         prop="nickname"
         :label="t('system.user.nickname')"
         width="140"
-      ></el-table-column>
+      />
       <el-table-column
         prop="username"
         :label="t('system.user.username')"
         width="140"
-      ></el-table-column>
+      />
       <el-table-column
         prop="mobile"
         :label="t('system.user.mobile')"
         width="140"
-      ></el-table-column>
+      />
       <el-table-column
         prop="roleName"
         :label="t('system.role.role')"

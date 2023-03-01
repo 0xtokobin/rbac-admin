@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { t } = useI18n();
+const { t } = useI18n()
 
 const shortCuts = ref<Array<any>>([
   {
@@ -32,8 +32,9 @@ const shortCuts = ref<Array<any>>([
     icon: '',
     i18nKey: 'home.workbench.shortcutsMenu',
   },
-]);
+])
 </script>
+
 <template>
   <crud-card :title="t('home.workbench.shortcuts')">
     <div>

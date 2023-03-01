@@ -1,13 +1,9 @@
 <script lang="ts" setup>
-import { useSystemStore } from '@/hooks/use-store/use-system-store';
+import { useSystemStore } from '@/hooks/use-store/use-system-store'
 
-defineOptions({
-  name: 'LayoutAdminCopyright',
-});
+const { t } = useI18n()
 
-const { t } = useI18n();
-
-const systemStore = useSystemStore();
+const systemStore = useSystemStore()
 </script>
 
 <template>
@@ -15,7 +11,7 @@ const systemStore = useSystemStore();
     flex
     items-center
     justify-center
-    style="padding: var(--wings-cloud-main-padding) 0"
+    style="padding: var(--wingscloud-admin-main-padding) 0"
   >
     <div
       :class="systemStore.isMobile ? 'text-2' : 'text-4'"

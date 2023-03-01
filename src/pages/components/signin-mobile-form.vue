@@ -1,20 +1,16 @@
 <script lang="ts" setup>
-import type { FormRules, FormInstance } from 'element-plus';
-import type { LoginMobileForm } from '@/pages/sign.d';
-import { StorageEnum, MobileCodeTypeEnum } from '@/constants/enums';
-import { MOBILE } from '@kaivanwong/utils';
-import { getStorage } from '@/utils/storage';
-import { useCountDown } from '@/hooks/use-crud/use-count-down';
+import type { FormInstance, FormRules } from 'element-plus'
+import { MOBILE } from '@kaivanwong/utils'
+import type { LoginMobileForm } from '@/pages/sign'
+import { MobileCodeTypeEnum, StorageEnum } from '@/constants/enums'
+import { getStorage } from '@/utils/storage'
+import { useCountDown } from '@/hooks/use-crud/use-count-down'
 
-defineOptions({
-  name: 'SignMobileForm',
-});
+const { t } = useI18n()
 
-const { t } = useI18n();
+const countDown = useCountDown()
 
-const countDown = useCountDown();
-
-const formRef = ref<FormInstance>();
+const formRef = ref<FormInstance>()
 
 const form = ref<LoginMobileForm>({
   areaCode: '+86',
@@ -22,7 +18,7 @@ const form = ref<LoginMobileForm>({
   code: '',
   remember: false,
   type: 1,
-});
+})
 
 const formRules = reactive<FormRules>({
   mobile: [
@@ -59,10 +55,11 @@ const formRules = reactive<FormRules>({
       trigger: 'blur',
     },
   ],
-});
+})
 
-const mobileAreaCodeList = getStorage(StorageEnum.MOBILE_AREA_CODE);
+const mobileAreaCodeList = getStorage(StorageEnum.MOBILE_AREA_CODE)
 </script>
+
 <template>
   <el-form ref="formRef" :model="form" :rules="formRules" size="large">
     <el-form-item prop="mobile">
@@ -78,8 +75,7 @@ const mobileAreaCodeList = getStorage(StorageEnum.MOBILE_AREA_CODE);
               :key="index"
               :label="item.code"
               :value="item.code"
-            >
-            </el-option>
+            />
           </el-select>
         </template>
         <template #prefix>
@@ -106,18 +102,18 @@ const mobileAreaCodeList = getStorage(StorageEnum.MOBILE_AREA_CODE);
             @click="
               countDown.getMobileCode(
                 form.mobile,
-                MobileCodeTypeEnum.FORGET_PASSWORDS
+                MobileCodeTypeEnum.FORGET_PASSWORDS,
               )
             "
           >
-            <span text-3 v-if="countDown.countDownForm.getting">
+            <span v-if="countDown.countDownForm.getting" text-3>
               {{
                 t('crud.mobile.retrieve', {
                   time: countDown.countDownForm.time,
                 })
               }}
             </span>
-            <span text-3 v-else>
+            <span v-else text-3>
               {{
                 countDown.countDownForm.send
                   ? t('crud.mobile.resend')

@@ -1,15 +1,11 @@
 <script lang="ts" setup>
-defineOptions({
-  name: 'Error403',
-});
+const { t } = useI18n()
 
-const { t } = useI18n();
-
-const router = useRouter();
+const router = useRouter()
 
 const goBack = () => {
-  router.go(-1);
-};
+  router.go(-1)
+}
 </script>
 
 <template>
@@ -20,7 +16,7 @@ const goBack = () => {
         background:
           'linear-gradient(180deg,rgba(148, 153, 221, 0.1) 0%,rgba(0, 16, 255, 0.1) 100%)',
       }"
-    ></div>
+    />
     <div
       fixed
       top="48%"
@@ -30,7 +26,7 @@ const goBack = () => {
       w-7xl
       text-center
     >
-      <img cursor-pointer h-22 my-10 src="@/assets/logo.svg" />
+      <img cursor-pointer h-22 my-10 src="@/assets/logo.svg">
       <div text-12 mb-6 font-600 style="color: var(--el-color-info-dark)">
         {{ t('403.title') }}
       </div>
@@ -42,8 +38,9 @@ const goBack = () => {
           important="h-12 p-x-6 text-4 font-600"
           type="primary"
           @click="goBack"
-          >{{ t('403.btn') }}</el-button
         >
+          {{ t('403.btn') }}
+        </el-button>
       </div>
     </div>
   </div>
