@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import type { IObject, SystemSettings } from '#/global.d'
+import type { IObject, SystemSettings } from '#/global'
 import { SettingsValueEnum, StorageEnum } from '@/constants/enums'
 import { getStorage, setStorage } from '@/utils/storage'
 import { Settings } from '@/constants/settings'

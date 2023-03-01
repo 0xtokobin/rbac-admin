@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import type { Routes } from '@/plugins/vue-router/index.d'
-import type { ViewComponents } from '#/global.d'
+import type { ViewComponents } from '#/global'
 import {
   mergeAsyncRoutes,
   mergeMenuRoutes,

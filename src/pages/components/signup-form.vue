@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { FormInstance, FormRules } from 'element-plus'
 import { MOBILE, PASSWORD_NORMAL, USERNAME } from '@kaivanwong/utils'
-import type { SignupAccountForm } from '@/pages/sign'
+import type { SignupAccountForm } from '#/login'
 import { MobileCodeTypeEnum, StorageEnum } from '@/constants/enums'
 import { useUserStore } from '@/hooks/use-store/use-user-store'
 import { useCountDown } from '@/hooks/use-crud/use-count-down'

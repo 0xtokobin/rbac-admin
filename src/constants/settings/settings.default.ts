@@ -1,4 +1,4 @@
-import type { SystemSettings } from '#/global.d'
+import type { SystemSettings } from '#/global'
 import { LanguageEnum, RouteEnum, SettingsValueEnum } from '@/constants/enums'
 
 export const SettingsDefault: SystemSettings = {

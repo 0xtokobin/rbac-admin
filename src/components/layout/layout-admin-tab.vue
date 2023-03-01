@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { IObject } from '#/global.d'
+import type { IObject } from '#/global'
 import { useSystemStore } from '@/hooks/use-store/use-system-store'
 import { useRouteStore } from '@/hooks/use-store/use-route-store'
 import { Settings } from '@/constants/settings'

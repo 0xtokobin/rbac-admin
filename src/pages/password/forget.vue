@@ -5,7 +5,7 @@ import ChangePassword from './components/change-password.vue'
 import VerifyMobilePhone from './components/verify-mobile-phone.vue'
 import { useSystemStore } from '@/hooks/use-store/use-system-store'
 import { RouteEnum } from '@/constants/enums'
-import type { IObject } from '#/global.d'
+import type { IObject } from '#/global'
 
 const { t } = useI18n()
 

@@ -8,7 +8,7 @@ import {
   authCodeAdaptor,
   networkCodeAdaptor,
 } from '../code-adaptor'
-import type { IObject } from '#/global.d'
+import type { IObject } from '#/global'
 import { RequestHeaderEnum, StorageEnum } from '@/constants/enums'
 import { Settings } from '@/constants/settings'
 import { _t } from '@/plugins/vue-i18n'

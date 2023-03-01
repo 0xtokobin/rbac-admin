@@ -7,7 +7,7 @@ import SettingLayout from './components/setting-layout.vue'
 import {
   SystemSettingsColorScheme,
   SystemSettingsLayout,
-} from '#/global.d'
+} from '#/global'
 import { useLanguage } from '@/hooks/use-language/use-language'
 import { useSystemStore } from '@/hooks/use-store/use-system-store'
 import {

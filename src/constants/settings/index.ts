@@ -1,6 +1,6 @@
 import { SettingsDefault } from './settings.default'
 import { SettingsReplace } from './settings.replace'
-import type { SystemSettings } from '#/global.d'
+import type { SystemSettings } from '#/global'
 export * from './predefine'
 
 export const Settings: SystemSettings = Object.assign(

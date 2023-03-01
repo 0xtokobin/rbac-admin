@@ -1,5 +1,5 @@
 import { ElMessage } from 'element-plus'
-import type { Callback } from '#/global.d'
+import type { Callback } from '#/global'
 import { getMobileSmscode } from '@/apis/common/mobile'
 
 export interface Form {

@@ -1,4 +1,4 @@
-import type { IFunction, IObject } from '#/global.d'
+import type { IFunction, IObject } from '#/global'
 import { getStorage } from '@/utils/storage'
 import { StorageEnum } from '@/constants/enums'
 

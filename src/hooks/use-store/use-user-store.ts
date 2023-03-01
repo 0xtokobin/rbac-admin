@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { ElNotification } from 'element-plus'
 import { useRouteStore } from './use-route-store'
-import type { IObject } from '#/global.d'
+import type { IObject } from '#/global'
 import type { ResponseData } from '@/utils/request'
 import type { LoginAccountData } from '@/apis/system/user'
 import { Settings } from '@/constants/settings'

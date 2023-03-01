@@ -53,7 +53,7 @@ export const usePluginOption = (
         }),
       ],
       dirs: ['src/components'],
-      dts: 'types/auto-imports.d.ts',
+      dts: 'types/auto-imports.ts',
       eslintrc: {
         enabled: true,
         filepath: '.eslintrc-auto-import.json',
@@ -68,7 +68,7 @@ export const usePluginOption = (
       ],
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/, /\.tsx$/, /\.jsx$/],
       dirs: ['src/components'],
-      dts: 'types/components.d.ts',
+      dts: 'types/components.ts',
       types: [
         {
           from: 'vue-router',

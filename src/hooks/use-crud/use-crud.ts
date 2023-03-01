@@ -1,4 +1,4 @@
-import type { IObject } from '#/global.d'
+import type { IObject } from '#/global'
 import type { ResponseData } from '@/utils/request/index.d'
 import { mergeValueByKey } from '@/utils/common'
 import { GET } from '@/utils/request'

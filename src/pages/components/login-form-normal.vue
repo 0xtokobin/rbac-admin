@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { FormInstance, FormRules } from 'element-plus'
 import { PASSWORD_NORMAL, USERNAME } from '@kaivanwong/utils'
-import type { LoginAccountForm } from '@/pages/sign'
+import type { LoginAccountForm } from '#/login'
 import type { ResponseData } from '@/utils/request'
 import { useUserStore } from '@/hooks/use-store/use-user-store'
 import { RouteEnum } from '@/constants/enums'

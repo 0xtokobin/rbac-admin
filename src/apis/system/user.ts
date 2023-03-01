@@ -1,6 +1,6 @@
 import type { ResponseData } from '@/utils/request/index.d'
 import { GET, POST } from '@/utils/request'
-import type { LoginForm, PhoneForm } from '@/pages/sign'
+import type { LoginForm, PhoneForm } from '#/login'
 
 export interface LoginAccountData extends LoginForm {
   username: string

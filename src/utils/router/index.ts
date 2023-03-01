@@ -1,6 +1,6 @@
 import type { RouteRecordName, RouteRecordRaw, Router } from 'vue-router'
 import { useCloned } from '@vueuse/core'
-import type { I18nT, IObject, Routes, ViewComponents } from '#/global.d'
+import type { I18nT, IObject, Routes, ViewComponents } from '#/global'
 
 export const registerRouter = (routes: Routes, router: Router) => {
   routes.forEach((route: RouteRecordRaw) => {

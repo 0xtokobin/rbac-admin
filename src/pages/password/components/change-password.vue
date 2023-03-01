@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import type { FormInstance, FormRules } from 'element-plus'
 import { PASSWORD_NORMAL } from '@kaivanwong/utils'
-import type { PasswordForm } from '@/pages/sign'
-import type { IObject } from '#/global.d'
+import type { PasswordForm } from '#/login'
+import type { IObject } from '#/global'
 
 const emit = defineEmits(['change'])
 
