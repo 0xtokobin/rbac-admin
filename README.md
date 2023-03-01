@@ -31,7 +31,7 @@
 
 # 源码目录结构
 
-```
+```sh
 ├── .husky                    // Git 拦截
 ├── .vscode                   // VSCode IDE 配置
 ├── public                    // 公共静态资源
