@@ -23,7 +23,7 @@ const locale = messages.value[systemStore.language][
 
 watch(
   () => systemStore.settings.ColorScheme,
-  (newVal, oldVal) => {
+  (newVal) => {
     if (newVal === SettingsValueEnum.COLOR_SCHEME_AUTO) {
       systemStore.changeDarkOrLight(
         window.matchMedia('(prefers-color-scheme: dark)').matches,

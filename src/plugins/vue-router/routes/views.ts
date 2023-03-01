@@ -63,45 +63,6 @@ export default [
         },
       },
       {
-        path: '/example/editor',
-        name: 'example.editor',
-        component: () => import('@/views/example/editor.vue'),
-        meta: {
-          layout: 'admin',
-          isMenu: true,
-          iconType: IconTypeEnum.ELEMENT_PLUS,
-          icon: 'Document',
-          sort: 2,
-          i18nKey: 'example.editor',
-        },
-      },
-      {
-        path: '/example/charts',
-        name: 'example.charts',
-        component: () => import('@/views/example/charts.vue'),
-        meta: {
-          layout: 'admin',
-          isMenu: true,
-          iconType: IconTypeEnum.ELEMENT_PLUS,
-          icon: 'DataLine',
-          sort: 3,
-          i18nKey: 'example.charts',
-        },
-      },
-      {
-        path: '/example/map',
-        name: 'example.map',
-        component: () => import('@/views/example/map.vue'),
-        meta: {
-          layout: 'admin',
-          isMenu: true,
-          iconType: IconTypeEnum.ELEMENT_PLUS,
-          icon: 'MapLocation',
-          sort: 4,
-          i18nKey: 'example.map',
-        },
-      },
-      {
         path: '/example/form',
         name: 'example.form',
         meta: {

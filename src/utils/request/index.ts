@@ -44,7 +44,7 @@ export const addInterceptorsRequest = (
       config.params[RequestHeaderEnum.HEADER_TIME] = new Date().getTime()
 
     if (options.headers) {
-      config.headers = { ...config.headers, ...options.headers }
+      config.headers = { ...config.headers, ...options.headers } as AxiosRequestHeaders
       if (options.isToken) {
         config.headers[RequestHeaderEnum.HEADER_TOKEN] = getStorage(
           StorageEnum.TOKEN,
@@ -62,7 +62,7 @@ export const addInterceptorsRequest = (
   })
 }
 
-export const addInterceptorsResponse = <T>(
+export const addInterceptorsResponse = (
   axios: Axios,
   options: RequestOptions,
 ): number => {
@@ -143,7 +143,7 @@ export const GET = <T>(
     headers: {
       'Content-Type': RequestHeaderEnum.CONTENT_TYPE_JSON,
       ...options?.headers,
-    },
+    } as AxiosRequestHeaders,
     networkCodeAdaptor: true,
     apiCodeAdaptor: true,
     authCodeAdaptor: true,
@@ -163,7 +163,7 @@ export const POST = <T>(
     headers: {
       'Content-Type': RequestHeaderEnum.CONTENT_TYPE_BODY,
       ...options?.headers,
-    },
+    } as AxiosRequestHeaders,
     networkCodeAdaptor: true,
     apiCodeAdaptor: true,
     authCodeAdaptor: true,
@@ -183,7 +183,7 @@ export const PUT = <T>(
     headers: {
       'Content-Type': RequestHeaderEnum.CONTENT_TYPE_BODY,
       ...options?.headers,
-    },
+    } as AxiosRequestHeaders,
     networkCodeAdaptor: true,
     apiCodeAdaptor: true,
     authCodeAdaptor: true,
@@ -203,7 +203,7 @@ export const DELETE = <T>(
     headers: {
       'Content-Type': RequestHeaderEnum.CONTENT_TYPE_BODY,
       ...options?.headers,
-    },
+    } as AxiosRequestHeaders,
     networkCodeAdaptor: true,
     apiCodeAdaptor: true,
     authCodeAdaptor: true,
@@ -223,7 +223,7 @@ export const UPLOAD = <T>(
     headers: {
       'Content-Type': RequestHeaderEnum.CONTENT_TYPE_FORMDATA,
       ...options?.headers,
-    },
+    } as AxiosRequestHeaders,
     networkCodeAdaptor: true,
     apiCodeAdaptor: true,
     authCodeAdaptor: true,
@@ -243,7 +243,7 @@ export const DOWNLOAD = <T>(
     headers: {
       'Content-Type': RequestHeaderEnum.CONTENT_TYPE_JSON,
       ...options?.headers,
-    },
+    } as AxiosRequestHeaders,
     responseType: 'blob',
     networkCodeAdaptor: true,
     apiCodeAdaptor: true,

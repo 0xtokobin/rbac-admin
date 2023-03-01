@@ -1,4 +1,3 @@
-import type { Reg } from '@kaivanwong/utils'
 import type { IFunction, IObject } from '#/global.d'
 import { getStorage } from '@/utils/storage'
 import { StorageEnum } from '@/constants/enums'
@@ -52,7 +51,7 @@ export const arrayRecursion = (
 ): any => {
   childrenKey = childrenKey || 'children'
   for (let i = 0; i < array.length; i++) {
-    if (array[i][key] && array[i][key] == validateKey)
+    if (array[i][key] && array[i][key] === validateKey)
       return array[i]
     if (array[i][childrenKey]) {
       const res = arrayRecursion(key, array[i][childrenKey], validateKey)
@@ -60,10 +59,6 @@ export const arrayRecursion = (
         return res
     }
   }
-}
-
-export const checkFloat = (n: string): Reg => {
-  return /^([1-9]+[\d]*(.[0-9]{1,${n}})?)/
 }
 
 export const getLoginStorageType = (): string => {

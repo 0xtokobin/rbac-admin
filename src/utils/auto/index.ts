@@ -1,7 +1,7 @@
 import type { App, FunctionalComponent, Plugin } from 'vue'
 import { FILE_NAME } from '@kaivanwong/utils'
-import type { Mocks } from '@/plugins/mock/index.d'
-import type { Files, Languages, Routes, Stores, ViewComponents } from '#/global'
+import type { Files, Languages, Mocks, Routes, Stores, ViewComponents } from '#/global'
+
 import { RouteEnum } from '@/constants/enums'
 
 export const autoImportRoutes = (files: Files): Routes => {
@@ -99,7 +99,7 @@ export const installComponents = (
   app: App,
   components: Record<string, any>,
 ): void => {
-  Object.entries(components).map(([, component]) => {
+  Object.entries(components).forEach(([, component]) => {
     if (component.install) {
       component.install(app)
     }

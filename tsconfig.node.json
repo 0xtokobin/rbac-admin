@@ -4,6 +4,10 @@
     "./serve/index.ts",
     "./test/index.ts"
   ],
+  "exclude": [
+    "node_modules",
+    "build"
+  ],
   "compilerOptions": {
     "composite": true,
     "types": [

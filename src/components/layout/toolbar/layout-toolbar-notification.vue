@@ -32,7 +32,7 @@ onBeforeMount(async () => {
 
 const read = (item: IObject) => {
   const _list: Array<any> = []
-  list.value.map((listItem) => {
+  list.value.forEach((listItem) => {
     if (listItem.id !== item.id)
       _list.push(listItem)
   })

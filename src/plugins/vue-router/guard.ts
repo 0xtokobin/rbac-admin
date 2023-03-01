@@ -10,7 +10,7 @@ import { useRouteStore } from '@/hooks/use-store/use-route-store'
 import { useUserStore } from '@/hooks/use-store/use-user-store'
 import { getStorage } from '@/utils/storage'
 import { getLoginStorageType } from '@/utils/common'
-import '@/assets/styles/nprogress.scss'
+import '@/assets/style/nprogress.scss'
 
 const { isLoading } = useNProgress()
 
@@ -77,8 +77,6 @@ export const addRouterGuard = (router: Router): Router => {
       next()
     },
   )
-
-  router.beforeResolve(async (to: RouteLocationNormalized) => {})
 
   router.afterEach(
     (to: RouteLocationNormalized, from: RouteLocationNormalized) => {

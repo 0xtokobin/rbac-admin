@@ -2,8 +2,8 @@ import { defineStore } from 'pinia'
 import { ElNotification } from 'element-plus'
 import { useRouteStore } from './use-route-store'
 import type { IObject } from '#/global.d'
-import type { ResponseData } from '@/utils/request/index.d'
-import type { LoginAccountData, SignupData } from '@/apis/system/user'
+import type { ResponseData } from '@/utils/request'
+import type { LoginAccountData } from '@/apis/system/user'
 import { Settings } from '@/constants/settings'
 import { getStorage, setStorage } from '@/utils/storage'
 import { getLoginStorageType } from '@/utils/common'
@@ -14,7 +14,6 @@ import {
   getUserProfile as _getUserProfile,
   getUserRoles as _getUserRoles,
   loginByAccount as _loginByAccount,
-  signup as _signup,
 } from '@/apis/system/user'
 
 export const useUserStore = defineStore('user', () => {
@@ -117,10 +116,6 @@ export const useUserStore = defineStore('user', () => {
 
   const constloginByEmail = (): void => { }
 
-  const signup = async <T>(data: SignupData): Promise<void> => {
-    const res: ResponseData<T> = await _signup(data)
-  }
-
   const switchRoles = (): void => { }
 
   const logout = (): void => {
@@ -150,7 +145,6 @@ export const useUserStore = defineStore('user', () => {
     loginByAccount,
     loginByMobile,
     constloginByEmail,
-    signup,
     switchRoles,
     logout,
   }

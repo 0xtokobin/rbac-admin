@@ -11,3 +11,4 @@ declare module 'mockjs';
 declare module 'unplugin-vue-define-options/vite';
 declare module 'element-plus/dist/locale/en.mjs';
 declare module 'element-plus/dist/locale/zh-cn.mjs';
+declare module '@element-plus/icons-vue'

@@ -6,6 +6,10 @@
     "serve/**/*",
     "test/**/*"
   ],
+  "exclude": [
+    "node_modules",
+    "build"
+  ],
   "compilerOptions": {
     "composite": true,
     "module": "ESNext",
