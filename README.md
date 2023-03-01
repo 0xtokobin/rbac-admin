@@ -1,4 +1,4 @@
-### 特点
+# 特点
 
 - 基于 `Vue3.x`、`Vite4.x`、`TypeScript`、`Element Plus`、`Pinia`、`Unocss` 等最新技术栈；
 
@@ -18,9 +18,7 @@
 
 - 提供基于接口 + 静态的菜单路由及页面路由，支持菜单动态生成，提供灵活的路由参数、路由守卫；
 
-<br/>
-
-### 快速上手
+# 快速上手
 
 项目每次版本更新时，将发布到 Github 上。建议通过 [Github Release](https://github.com/wingscloud/template-admin/releases) 下载相应版本的源码压缩包。
 
@@ -40,9 +38,7 @@ npm install
 
 3. Vite 服务抽离到了 `/serve` 目录下，其中包含 Vite 相关的配置、环境变量等。你可以在 `/serve/proxy.ts` 中修改您的代理设置。
 
-<br/>
-
-### 界面展示
+# 界面展示
 
 <table>
 	<tr>
@@ -77,8 +73,10 @@ npm install
 	</tr>
 </table>
 
-<br/>
+# 参与共建
 
-### 开源协议
+欢迎提交 PR
+
+# 开源协议
 
 Wings Cloud 相关开源软件遵循 [Apache 2.0 协议](https://www.apache.org/licenses/LICENSE-2.0.html)，允许商业使用，但务必保留 LICENSE 信息。
