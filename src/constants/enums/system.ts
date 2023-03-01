@@ -1,9 +1,9 @@
 export enum RouteEnum {
-  ROUTE_FIRST = '/signin',
+  ROUTE_FIRST = '/login',
   ROUTE_ADMIN_FIRST = '/home/workbench',
   ROUTE_NO_PERMISSION = '/403',
   ROUTE_NO_FOUND = '/404',
-  ROUTE_SIGNIN = '/signin',
+  ROUTE_LOGIN = '/login',
   ROUTE_SIGNUP = '/signup',
   ROUTE_PASSWORD_FORGET = '/password/forget',
   ROUTE_SYSTEM_PROFILE = '/system/profile',

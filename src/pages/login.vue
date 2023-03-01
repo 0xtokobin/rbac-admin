@@ -1,21 +1,10 @@
 <script lang="ts" setup>
-import SignTemplate from './components/sign-template.vue'
-import SigninAccountForm from './components/signin-account-form.vue'
-import SigninMobileForm from './components/signin-mobile-form.vue'
-import TermsConditions from './components/terms-conditions.vue'
-import { useSystemStore } from '@/hooks/use-store/use-system-store'
-import { RouteEnum } from '@/constants/enums'
-
-defineOptions({
-  name: 'Signin',
-})
-
-const systemStore = useSystemStore()
+import LoginFormNormal from './components/login-form-normal.vue'
+import LoginFormSms from './components/login-form-sms.vue'
 
 const { t } = useI18n()
 
 const route = useRoute()
-const router = useRouter()
 
 const loginType = ref<string>(
   route.params.type ? (route.params.type as string) : 'account',
@@ -24,15 +13,37 @@ const loginType = ref<string>(
 const changeLoginType = (type: string): void => {
   loginType.value = type
 }
-
-const goSignup = (): void => {
-  router.push({ path: RouteEnum.ROUTE_SIGNUP })
-}
 </script>
 
 <template>
+  <el-card box-border w-xs m-auto my-20 shadow="never" important="border-none">
+    <div mt-4 mb-8 text-6 font-600 style="color: var(--el-color-info-light)">
+      {{ t('login.login') }}
+    </div>
+    <LoginFormNormal v-if="loginType === 'account' || !loginType" />
+    <LoginFormSms v-if="loginType === 'mobile'" />
+    <el-divider>
+      <span text-3 style="color: var(--el-text-color-primary)">
+        {{ t('login.or') }}
+      </span>
+    </el-divider>
+    <div w="100%" flex justify-between items-center>
+      <el-button v-if="loginType !== 'account'" w="45%" size="large" @click="changeLoginType('account')">
+        <span text-3 font-600>{{ t('login.normal') }}</span>
+      </el-button>
+      <el-button v-if="loginType !== 'mobile'" w="46%" size="large" @click="changeLoginType('mobile')">
+        <span text-3 font-600> {{ t('login.sms') }}</span>
+      </el-button>
+      <el-button v-if="loginType === 'account' || loginType === 'mobile'" w="46%" size="large">
+        <span text-3 font-600> {{ t('login.scan') }}</span>
+      </el-button>
+    </div>
+  </el-card>
+</template>
+
+<!-- <template>
   <SignTemplate>
-    <template #top-right>
+    <template #top-left>
       <div flex items-center>
         <span
           text-4
@@ -118,4 +129,4 @@ const goSignup = (): void => {
       </div>
     </template>
   </SignTemplate>
-</template>
+</template> -->

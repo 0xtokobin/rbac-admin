@@ -33,6 +33,7 @@
 
 ```sh
 ├── .vscode                   // VSCode IDE 配置
+├── /mock                     // 模拟接口
 ├── /public                   // 公共静态资源
 ├── /serve                    // Vite 开发服务配置                
 │  ├── env                    // 环境变量

@@ -18,6 +18,10 @@ onBeforeMount(() => {
   forgetType.value = 'verify'
 })
 
+const changeResetType = (type: string): void => {
+  forgetType.value = type
+}
+
 const verifyHandle = (e: IObject): void => {
   if (e.status)
     changeResetType('change')
@@ -28,12 +32,8 @@ const changeHandle = (e: IObject): void => {
     ElMessage.success(t('password.success'))
 }
 
-const changeResetType = (type: string): void => {
-  forgetType.value = type
-}
-
 const goSignin = (): void => {
-  router.replace({ path: RouteEnum.ROUTE_SIGNIN })
+  router.replace({ path: RouteEnum.ROUTE_LOGIN })
 }
 </script>
 

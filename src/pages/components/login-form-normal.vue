@@ -2,7 +2,7 @@
 import type { FormInstance, FormRules } from 'element-plus'
 import { PASSWORD_NORMAL, USERNAME } from '@kaivanwong/utils'
 import type { LoginAccountForm } from '@/pages/sign'
-import type { ResponseData } from '@/utils/request/index.d'
+import type { ResponseData } from '@/utils/request'
 import { useUserStore } from '@/hooks/use-store/use-user-store'
 import { RouteEnum } from '@/constants/enums'
 import { validateUsername as _validateUsername } from '@/apis/system/user'
@@ -93,33 +93,17 @@ const login = async (formEl: FormInstance | undefined): Promise<void> => {
 <template>
   <el-form ref="formRef" :model="form" :rules="formRules" size="large">
     <el-form-item prop="username">
-      <el-input
-        v-model="form.username"
-        autocomplete="off"
-        :placeholder="t('crud.account.username')"
-      >
+      <el-input v-model="form.username" autocomplete="off" :placeholder="t('crud.account.username')">
         <template #prefix>
           <el-icon>
             <User />
           </el-icon>
         </template>
-        <template #suffix>
-          <el-checkbox
-            v-model="form.remember"
-            inline-block
-            text-4
-            style="color: var(--el-color-info-light-3)"
-            :label="t('signin.keep')"
-          />
-        </template>
       </el-input>
     </el-form-item>
     <el-form-item prop="password">
       <el-input
-        v-model="form.password"
-        type="password"
-        autocomplete="off"
-        show-password
+        v-model="form.password" type="password" autocomplete="off" show-password
         :placeholder="t('crud.account.password')"
       >
         <template #prefix>
@@ -131,26 +115,21 @@ const login = async (formEl: FormInstance | undefined): Promise<void> => {
     </el-form-item>
     <el-form-item>
       <div w-full flex items-center justify-between>
-        <el-button
-          inline-block
-          p-0
-          link
-          type="info"
-          @click="goPasswordPageByForget"
-        >
-          <span text-4 style="color: var(--el-text-color-regular)">
+        <el-checkbox
+          v-model="form.remember" inline-block text-3 style="color: var(--el-color-info-light-3)"
+          :label="t('login.keep')"
+        />
+        <el-button inline-block p-0 link type="info" @click="goPasswordPageByForget">
+          <span text-3 style="color: var(--el-text-color-regular)">
             {{ t('password.forget') }}
           </span>
         </el-button>
-        <el-button
-          type="primary"
-          w="46%"
-          :loading="loginLoading"
-          @click="login(formRef)"
-        >
-          <span font-600>{{ t('signin.btn') }}</span>
-        </el-button>
       </div>
+    </el-form-item>
+    <el-form-item>
+      <el-button type="primary" w-full :loading="loginLoading" @click="login(formRef)">
+        <span font-600>{{ t('login.login') }}</span>
+      </el-button>
     </el-form-item>
   </el-form>
 </template>

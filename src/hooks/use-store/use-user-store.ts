@@ -127,7 +127,7 @@ export const useUserStore = defineStore('user', () => {
       type: 'success',
     })
     router.replace({
-      path: RouteEnum.ROUTE_SIGNIN,
+      path: RouteEnum.ROUTE_LOGIN,
     })
   }
 

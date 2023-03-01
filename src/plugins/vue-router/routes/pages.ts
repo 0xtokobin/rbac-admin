@@ -21,9 +21,9 @@ export default [
     meta: { layout: '' },
   },
   {
-    path: '/signin',
-    name: 'signin',
-    component: () => import('@/pages/signin.vue'),
+    path: '/login',
+    name: 'login',
+    component: () => import('@/pages/login.vue'),
     meta: { layout: '' },
   },
   {
