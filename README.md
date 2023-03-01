@@ -60,16 +60,17 @@
 
 # 界面展示
 
-<table>
-	<tr>
-		<td><img width="100%" src="https://github.com/wingscloud/assets/blob/main/template-admin/signin.png?raw=true" /></td>
-		<td><img width="100%" src="https://github.com/wingscloud/assets/blob/main/template-admin/service.png?raw=true" /></td>
-	</tr>
-	<tr>
-		<td><img width="100%" src="https://github.com/wingscloud/assets/blob/main/template-admin/layout-1.png?raw=true" /></td>
-		<td><img width="100%" src="https://github.com/wingscloud/assets/blob/main/template-admin/layout-6.png?raw=true" /></td>
-	</tr>
-</table>
+<p>
+	<img width="100%" src="https://github.com/wingscloud/assets/blob/main/template-admin/signin.png?raw=true" />
+</p>
+
+<p>
+	<img width="100%" src="https://github.com/wingscloud/assets/blob/main/template-admin/layout-1.png?raw=true" />
+</p>
+
+<p>
+	<img width="100%" src="https://github.com/wingscloud/assets/blob/main/template-admin/layout-6.png?raw=true" />
+</p>
 
 # 参与共建
 
