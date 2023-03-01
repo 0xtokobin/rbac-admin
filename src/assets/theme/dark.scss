@@ -1,0 +1,17 @@
+:root.dark {
+  --wingscloud-admin-header-bg-color: var(--el-bg-color) !important;
+  --wingscloud-admin-header-text-color: var(--el-color-white) !important;
+  --wingscloud-admin-header-border-color: var(--el-bg-color) !important;
+  --wingscloud-admin-aside-border-color: var(--el-bg-color-fill);
+  --wingscloud-admin-menu-bg-color: var(--el-bg-color-page);
+  --wingscloud-admin-menu-bg-color-active: var(--el-color-primary-light-3);
+  --wingscloud-admin-menu-bg-color-hover: var(--el-color-primary-light-3);
+  --wingscloud-admin-menu-text-color: var(--el-text-color-secondary);
+  --wingscloud-admin-menu-text-color-active: var(--el-text-color-primary);
+  --wingscloud-admin-menu-text-color-hover: var(--el-text-color-primary);
+  --wingscloud-admin-menu-sub-bg-color: none;
+  --wingscloud-admin-menu-inline-bg-color: var(--el-bg-color);
+  --wingscloud-admin-tab-bg-color: var(--el-bg-color-fill);
+  --wingscloud-admin-tab-border-color: var(--el-bg-color-fill);
+  --wingscloud-admin-main-fill: var(--el-bg-color-fill);
+}

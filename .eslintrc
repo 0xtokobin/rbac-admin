@@ -1,0 +1,9 @@
+{
+  "extends": [
+    "@kaivanwong",
+    "./.eslintrc-auto-import"
+  ],
+  "globals": {
+    "defineOptions": "readonly"
+  }
+}
