@@ -1,3 +1,7 @@
+<p>	
+	<img width="100%" src="https://github.com/wingscloud/assets/blob/main/logos/banner.svg" />
+</p>
+
 # 项目特点
 
 - 基于 Vue3 生态最新技术栈，集成了 VueUse、Pinia、UnoCss 等；
