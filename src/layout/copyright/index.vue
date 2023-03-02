@@ -14,7 +14,7 @@ const systemStore = useSystemStore()
     style="padding: var(--wingscloud-admin-main-padding) 0"
   >
     <div
-      :class="systemStore.isMobile ? 'text-2' : 'text-4'"
+      text-3
       style="color: var(--el-text-color-secondary)"
     >
       {{ t('app.copyright') }}
