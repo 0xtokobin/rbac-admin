@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import LoginFormNormal from './components/login-form-normal.vue'
 import LoginFormSms from './components/login-form-sms.vue'
-import { useSystemStore } from '@/hooks/use-store/use-system-store'
 import type { ResponseData } from '@/utils/request'
+import { useSystemStore } from '@/hooks/use-store/use-system-store'
 import { getServiceInfo } from '@/apis/common/service'
 
 const { t } = useI18n()
@@ -74,23 +74,3 @@ const openDialog = (): void => {
     </div>
   </div>
 </template>
-
-<!-- <template>
-    <template
-      v-if="loginType === 'account' || loginType === 'mobile'"
-      #bottom-center
-    >
-      <div w-full>
-        <TermsConditions :label="t('signin.btn')" />
-        <div
-          v-if="systemStore.isMobile"
-          text-center
-          text-2
-          style="color: var(--el-color-info-light-3)"
-        >
-          {{ t('app.copyright') }}
-        </div>
-      </div>
-    </template>
-  </SignTemplate>
-</template> -->

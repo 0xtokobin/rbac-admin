@@ -1,7 +1,7 @@
 {
   "extends": [
     "@kaivanwong",
-    "./.eslintrc-auto-import"
+    "./.eslintrc-auto-import.json"
   ],
   "globals": {
     "defineOptions": "readonly"
