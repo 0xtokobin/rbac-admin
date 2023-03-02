@@ -1,114 +1,20 @@
-import type { ResponseData } from '@/utils/request/index.d'
-import type { IObject } from '#/global.d'
-import { interceptJointData } from '@/utils/common'
-import { IconTypeEnum } from '@/constants/enums'
-
-const dictData = [
-  {
-    key: 'notificationType',
-    type: 0,
-    remark: '消息类型',
-    values: [
-      {
-        label: '消息',
-        value: 0,
-      },
-      {
-        label: '通知',
-        value: 1,
-      },
-    ],
-  },
-  {
-    key: 'notificationSource',
-    type: 0,
-    remark: '消息来源',
-    values: [
-      {
-        label: '用户',
-        value: 0,
-      },
-      {
-        label: '系统',
-        value: 1,
-      },
-    ],
-  },
-  {
-    key: 'notificationIsRead',
-    type: 0,
-    remark: '消息是否已读',
-    values: [
-      {
-        label: '未读',
-        value: 0,
-      },
-      {
-        label: '已读',
-        value: 1,
-      },
-    ],
-  },
-  {
-    key: 'logStatus',
-    type: 0,
-    remark: '日志操作状态',
-    values: [
-      {
-        label: '成功',
-        value: 0,
-      },
-      {
-        label: '失败',
-        value: 500,
-      },
-    ],
-  },
-  {
-    key: 'paramType',
-    type: 0,
-    remark: '参数类型',
-    values: [
-      {
-        label: '系统',
-        value: 0,
-      },
-      {
-        label: '业务',
-        value: 500,
-      },
-    ],
-  },
-  {
-    key: 'dictionaryType',
-    type: 0,
-    remark: '字典类型',
-    values: [
-      {
-        label: '系统',
-        value: 0,
-      },
-      {
-        label: '业务',
-        value: 500,
-      },
-    ],
-  },
-]
+import { dict } from '../data/dict'
+import type { ResponseData } from '../../src/utils/request'
+import type { IObject } from '../../types/global'
+import { interceptJointData } from '../../src/utils/common'
+import { IconTypeEnum } from '../../src/constants/enums'
 
 export default {
-  signup: {
-    url: '/system/user/signup',
-    method: 'post',
-    data: '',
-  },
-
-  loginByAccount: {
+  /**
+   * @name systemUserLogin
+   * @description 普通登录接口模拟，接收账号 + 密码，返回临时 token。
+   */
+  systemUserLogin: {
     url: '/system/user/login',
     method: 'post',
     data: 'E7UJ0aubyQm32NWlJ0iNionQkv0Ltn2dVf10',
     response: <T>(data: IObject, res: ResponseData<T>) => {
-      if (interceptJointData(data.body).password !== 'admin123') {
+      if (interceptJointData(data.body).password !== '123456') {
         return {
           ...res,
           code: 10039,
@@ -120,28 +26,37 @@ export default {
     },
   },
 
-  getUserProfile: {
+  /**
+   * @name getSystemUserProfile
+   * @description 查询用户资料，默认返回系统管理员账号信息
+   */
+  getSystemUserProfile: {
     url: '/system/user/profile',
     method: 'get',
     data: {
       id: '0',
-      username: 'Administrator',
+      username: 'admin',
       nickname: '系统管理员',
       avatar: '',
-      mobile: '18877776666',
+      mobile: '',
       roleId: '0',
       roleName: '管理员',
       departmentId: '0',
       departmentName: '总公司',
-    },
+    }
+    ,
   },
 
-  validateUsername: {
+  /**
+   * @name systemUserValidate
+   * @description 检查用户，接收 value + type 进行校验
+   */
+  systemUserValidate: {
     url: '/system/user/validate',
     method: 'get',
     data: { validateResult: true },
     response: <T>(param: IObject, res: ResponseData<T>) => {
-      if (interceptJointData(param.url).username !== 'Administrator') {
+      if (interceptJointData(param.url).type === 0 && interceptJointData(param.url).username !== 'admin') {
         return {
           ...res,
           code: 10034,
@@ -153,8 +68,12 @@ export default {
     },
   },
 
-  getRouteAsync: {
-    url: '/system/route/async',
+  /**
+   * @name getSystemUserRoute
+   * @description 获取系统用户路由
+   */
+  getSystemUserRoute: {
+    url: '/system/user/route',
     method: 'get',
     data: [
       {
@@ -325,8 +244,12 @@ export default {
     ],
   },
 
-  getUserRoles: {
-    url: '/system/user/roles',
+  /**
+   * @name getSystemUserRole
+   * @description 获取用户权限列表
+   */
+  getSystemUserRole: {
+    url: '/system/user/role',
     method: 'get',
     data: [
       '/home/workbench',
@@ -342,10 +265,15 @@ export default {
       '/development/options',
       '/development/code',
       '/development/form',
-    ],
+    ]
+    ,
   },
 
-  getUserNotification: {
+  /**
+   * @name getSystemUserNotification
+   * @description 获取用户消息通知
+   */
+  getSystemUserNotification: {
     url: '/system/user/notification',
     method: 'get',
     data: {
@@ -371,22 +299,11 @@ export default {
     },
   },
 
-  getUserNotificationByNotRead: {
-    url: '/system/user/notReadNotification',
-    method: 'get',
-    data: [
-      {
-        id: 0,
-        type: 1,
-        content: '修改密码成功！',
-        source: 1,
-        createTime: 1669084718194,
-        status: 0,
-      },
-    ],
-  },
-
-  getRoleList: {
+  /**
+   * @name getSystemRoleList
+   * @description 获取系统角色列表
+   */
+  getSystemRoleList: {
     url: '/system/role/list',
     method: 'get',
     data: {
@@ -410,7 +327,11 @@ export default {
     },
   },
 
-  getUserList: {
+  /**
+   * @name getSystemUserList
+   * @description 获取系统人员列表
+   */
+  getSystemUserList: {
     url: '/system/user/list',
     method: 'get',
     data: {
@@ -431,22 +352,34 @@ export default {
     },
   },
 
-  getDictionaryAll: {
-    url: '/system/dictionary/all',
+  /**
+   * @name getSystemDictList
+   * @description 获取系统字典列表
+   */
+  getSystemDictList: {
+    url: '/system/dict/list',
     method: 'get',
-    data: dictData,
+    data: dict,
   },
 
-  getDictionaryPage: {
-    url: '/system/dictionary/list',
+  /**
+   * @name getSystemDictPage
+   * @description 分页获取系统字典列表
+   */
+  getSystemDictPage: {
+    url: '/system/dict/page',
     method: 'get',
     data: {
-      list: dictData,
-      total: dictData.length,
+      list: dict,
+      total: dict.length,
     },
   },
 
-  getParamList: {
+  /**
+   * @name getSystemParamList
+   * @description 分页获取系统参数列表
+   */
+  getSystemParamList: {
     url: '/system/param/list',
     method: 'get',
     data: {
@@ -455,8 +388,12 @@ export default {
     },
   },
 
-  getLogList: {
-    url: '/system/log/list',
+  /**
+   * @name getSystemLogList
+   * @description 分页获取系统日志列表
+   */
+  getSystemLogList: {
+    url: '/system/log/page',
     method: 'get',
     data: {
       list: [
@@ -479,8 +416,12 @@ export default {
     },
   },
 
-  getDepartmentList: {
-    url: '/system/department/list',
+  /**
+   * @name getSystemDeptList
+   * @description 分页获取系统部门列表
+   */
+  getSystemDeptList: {
+    url: '/system/dept/list',
     method: 'get',
     data: {
       list: [
@@ -507,8 +448,12 @@ export default {
     },
   },
 
-  getFileList: {
-    url: '/system/file/list',
+  /**
+   * @name getSystemFileList
+   * @description 分页获取系统文件列表
+   */
+  getSystemFileList: {
+    url: '/system/file/page',
     method: 'get',
     data: {
       list: [],

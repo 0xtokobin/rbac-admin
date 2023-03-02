@@ -1,11 +1,9 @@
 <script lang="ts" setup>
 import type { FormInstance, FormRules } from 'element-plus'
 import { PASSWORD_NORMAL, USERNAME } from '@kaivanwong/utils'
-import type { LoginAccountForm } from '#/login'
-import type { ResponseData } from '@/utils/request'
+import { GET, type ResponseData } from '@/utils/request'
 import { useUserStore } from '@/hooks/use-store/use-user-store'
 import { RouteEnum } from '@/constants/enums'
-import { validateUsername as _validateUsername } from '@/apis/system/user'
 
 const { t } = useI18n()
 
@@ -15,12 +13,21 @@ const userStore = useUserStore()
 
 const formRef = ref<FormInstance>()
 
-const form = ref<LoginAccountForm>({
+interface Form {
+  username: string
+  password: string
+  remember: boolean
+  type: number
+}
+
+const form = ref<Form>({
   username: '',
   password: '',
   remember: false,
   type: 0,
 })
+
+const loading = ref<boolean>(false)
 
 const validateUsername = (rule: any, value: string, callback: any) => {
   if (value && !USERNAME.test(value)) {
@@ -33,11 +40,11 @@ const validateUsername = (rule: any, value: string, callback: any) => {
     )
   }
   else if (value && USERNAME.test(value)) {
-    _validateUsername({ username: value }).then(({ data }: ResponseData) => {
+    GET('/system/user/validate', { value, type: 0 }).then(({ data }: ResponseData) => {
       if (data.validateResult)
         callback()
       else
-        callback(new Error(t('app.authentication.signup')))
+        callback(new Error(t('app.authentication.notFound')))
     })
   }
 }
@@ -71,20 +78,18 @@ const formRules = reactive<FormRules>({
   ],
 })
 
-const goPasswordPageByForget = (): void => {
+const password = (): void => {
   router.push({ path: RouteEnum.ROUTE_PASSWORD_FORGET })
 }
-
-const loginLoading = ref<boolean>(false)
 
 const login = async (formEl: FormInstance | undefined): Promise<void> => {
   if (!formEl)
     return
   await formEl.validate(async (valid: boolean) => {
     if (valid) {
-      loginLoading.value = true
-      await userStore.loginByAccount(form.value)
-      loginLoading.value = false
+      loading.value = true
+      await userStore.userLogin(form.value)
+      loading.value = false
     }
   })
 }
@@ -117,18 +122,18 @@ const login = async (formEl: FormInstance | undefined): Promise<void> => {
       <div w-full flex items-center justify-between>
         <el-checkbox
           v-model="form.remember" inline-block text-3 style="color: var(--el-color-info-light-3)"
-          :label="t('login.keep')"
+          :label="t('app.login.keep')"
         />
-        <el-button inline-block p-0 link type="info" @click="goPasswordPageByForget">
+        <el-button inline-block p-0 link type="info" @click="password">
           <span text-3 style="color: var(--el-text-color-regular)">
-            {{ t('password.forget') }}
+            {{ t('app.password.forget') }}
           </span>
         </el-button>
       </div>
     </el-form-item>
     <el-form-item>
-      <el-button type="primary" w-full :loading="loginLoading" @click="login(formRef)">
-        <span font-600>{{ t('login.login') }}</span>
+      <el-button type="primary" w-full :loading="loading" @click="login(formRef)">
+        <span font-600>{{ t('app.login.login') }}</span>
       </el-button>
     </el-form-item>
   </el-form>

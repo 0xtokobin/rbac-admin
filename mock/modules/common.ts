@@ -6,7 +6,7 @@ export default {
   },
 
   getMobileCodes: {
-    url: '/common/mobile/codes',
+    url: '/common/mobile/areacode',
     method: 'get',
     data: [
       {
@@ -860,9 +860,4 @@ export default {
     ],
   },
 
-  getServiceInfo: {
-    url: '/common/service/info',
-    method: 'get',
-    data: { i18nKey: 'app.termsConditions' },
-  },
 }

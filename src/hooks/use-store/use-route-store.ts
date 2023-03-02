@@ -1,6 +1,5 @@
 import { defineStore } from 'pinia'
-import type { Routes } from '@/plugins/vue-router/index.d'
-import type { ViewComponents } from '#/global'
+import type { Routes, ViewComponents } from '#/global'
 import {
   mergeAsyncRoutes,
   mergeMenuRoutes,
@@ -10,25 +9,30 @@ import {
 import { autoImportViewComponents } from '@/utils/auto'
 import { router, routes } from '@/plugins/vue-router'
 import { _t } from '@/plugins/vue-i18n'
-import { getRouteAsync } from '@/apis/system/user'
+import { GET } from '@/utils/request'
 
 export const useRouteStore = defineStore('route', () => {
+  // 异步路由
   const asyncRoutes = ref<Routes>([])
 
+  // 菜单路由
   const menuRoutes = ref<Routes>([])
 
+  // 缓存异步路由
   const setAsyncRoutes = (data: Routes): void => {
     asyncRoutes.value = data
     registerRouter(data, router)
   }
 
+  // 缓存菜单路由
   const setMenuRoutes = (data: Routes): void => {
     menuRoutes.value = data
     registerRouter(data, router)
   }
 
+  // 获取异步路由
   const getAsyncRoutes = async (): Promise<Routes> => {
-    const { code, data } = await getRouteAsync()
+    const { code, data } = await GET('/system/user/route')
     if (code === 0) {
       const viewComponents: ViewComponents = autoImportViewComponents(
         import.meta.glob('/src/views/**/*.vue'),

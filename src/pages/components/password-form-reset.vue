@@ -118,7 +118,7 @@ const change = async (formEl: FormInstance | undefined): Promise<void> => {
     </el-form-item>
     <el-form-item>
       <el-button type="primary" w="100%" @click="change(changeFormRef)">
-        <span font-600>{{ t('password.btn') }}</span>
+        <span font-600>{{ t('app.password.reset') }}</span>
       </el-button>
     </el-form-item>
   </el-form>

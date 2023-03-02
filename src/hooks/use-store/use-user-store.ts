@@ -2,45 +2,45 @@ import { defineStore } from 'pinia'
 import { ElNotification } from 'element-plus'
 import { useRouteStore } from './use-route-store'
 import type { IObject } from '#/global'
-import type { ResponseData } from '@/utils/request'
-import type { LoginAccountData } from '@/apis/system/user'
 import { Settings } from '@/constants/settings'
 import { getStorage, setStorage } from '@/utils/storage'
 import { getLoginStorageType } from '@/utils/common'
 import { RouteEnum, StorageEnum } from '@/constants/enums'
 import { router } from '@/plugins/vue-router'
 import { _t } from '@/plugins/vue-i18n'
-import {
-  getUserProfile as _getUserProfile,
-  getUserRoles as _getUserRoles,
-  loginByAccount as _loginByAccount,
-} from '@/apis/system/user'
+import { GET, POST } from '@/utils/request'
 
 export const useUserStore = defineStore('user', () => {
+  // 保持登录状态
   const stayLogin = ref<boolean>(
     getStorage(StorageEnum.STAY_LOGIN, { type: 'local' }) || false,
   )
 
+  // Token
   const token = ref<string | null>(
     getStorage(StorageEnum.TOKEN, {
       type: getLoginStorageType(),
     }) || '',
   )
 
+  // 系统用户资料
   const userProfile = ref<IObject>(
     getStorage(StorageEnum.USER_INFO, {
       type: getLoginStorageType(),
     }) || {},
   )
 
+  // 系统用户权限
   const userRoles = ref<Array<string>>(
     getStorage(StorageEnum.USER_ROLES, {
       type: getLoginStorageType(),
     }) || [],
   )
 
+  // 登录状态标记
   const isLogin = computed(() => (!!token.value))
 
+  // 缓存是否保持登录状态
   const setStayLogin = (state: boolean): void => {
     stayLogin.value = state
     setStorage(StorageEnum.STAY_LOGIN, state, {
@@ -48,11 +48,13 @@ export const useUserStore = defineStore('user', () => {
     })
   }
 
+  // 缓存系统用户 Token
   const setToken = (_token: string): void => {
     token.value = _token
     setStorage(StorageEnum.TOKEN, _token, { type: getLoginStorageType() })
   }
 
+  // 缓存系统用户资料
   const setUserProfile = (data: IObject): void => {
     userProfile.value = data
     setStorage(StorageEnum.USER_INFO, data, {
@@ -60,6 +62,7 @@ export const useUserStore = defineStore('user', () => {
     })
   }
 
+  // 缓存系统用户权限
   const setUserRoles = (data: Array<string>): void => {
     userRoles.value = data
     setStorage(StorageEnum.USER_ROLES, data, {
@@ -67,8 +70,9 @@ export const useUserStore = defineStore('user', () => {
     })
   }
 
+  // 获取系统用户资料
   const getUserProfile = async (): Promise<IObject> => {
-    const { code, data } = await _getUserProfile()
+    const { code, data } = await GET('/system/user/profile')
     if (code === 0) {
       setUserProfile(data)
       return data
@@ -78,8 +82,9 @@ export const useUserStore = defineStore('user', () => {
     }
   }
 
-  const getUserRoles = async (): Promise<IObject> => {
-    const { code, data } = await _getUserRoles()
+  // 获取系统用户权限
+  const getUserRole = async (): Promise<IObject> => {
+    const { code, data } = await GET('/system/user/role')
     if (code === 0) {
       setUserRoles(data)
       return data
@@ -89,36 +94,29 @@ export const useUserStore = defineStore('user', () => {
     }
   }
 
-  const loginApiHandle = async (): Promise<void> => {
-    await getUserProfile()
-    await getUserRoles()
-    const routeStore = useRouteStore()
-    await routeStore.getAsyncRoutes()
-    ElNotification({
-      title: _t('app.authentication.loginSuccess'),
-      type: 'success',
-    })
-    router.replace({
-      path: Settings.AdminFirstRoute,
+  // 系统用户登录
+  const userLogin = async (form: any): Promise<void> => {
+    POST('/system/user/login', form).then(async ({ data, code }) => {
+      if (code === 0) {
+        const routeStore = useRouteStore()
+        await setStayLogin(data.remember)
+        await setToken(data as string)
+        await getUserProfile()
+        await getUserRole()
+        await routeStore.getAsyncRoutes()
+        ElNotification({
+          title: _t('app.authentication.loginSuccess'),
+          type: 'success',
+        })
+        router.replace({
+          path: Settings.AdminFirstRoute,
+        })
+      }
     })
   }
 
-  const loginByAccount = async <T>(data: LoginAccountData): Promise<void> => {
-    const res: ResponseData<T> = await _loginByAccount(data)
-    if (res.code === 0) {
-      await setStayLogin(data.remember)
-      await setToken(res.data as string)
-      await loginApiHandle()
-    }
-  }
-
-  const loginByMobile = (): void => { }
-
-  const constloginByEmail = (): void => { }
-
-  const switchRoles = (): void => { }
-
-  const logout = (): void => {
+  // 系统用户退出登录
+  const userlogout = (): void => {
     setToken('')
     setUserProfile({})
     setUserRoles([])
@@ -140,12 +138,8 @@ export const useUserStore = defineStore('user', () => {
     setStayLogin,
     setUserProfile,
     getUserProfile,
-    getUserRoles,
-    loginApiHandle,
-    loginByAccount,
-    loginByMobile,
-    constloginByEmail,
-    switchRoles,
-    logout,
+    getUserRole,
+    userLogin,
+    userlogout,
   }
 })

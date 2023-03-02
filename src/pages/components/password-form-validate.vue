@@ -7,7 +7,7 @@ import { MobileCodeTypeEnum, StorageEnum } from '@/constants/enums'
 import { useCountDown } from '@/hooks/use-crud/use-count-down'
 import { getStorage } from '@/utils/storage'
 
-const emit = defineEmits(['verify'])
+const emit = defineEmits(['validate'])
 
 const { t } = useI18n()
 
@@ -56,15 +56,16 @@ const verifyFormRules = reactive<FormRules>({
 
 const mobileAreaCodeList = getStorage(StorageEnum.MOBILE_AREA_CODE)
 
-const verify = async (formEl: FormInstance | undefined): Promise<void> => {
+const validate = async (formEl: FormInstance | undefined): Promise<void> => {
   if (!formEl)
     return
   await formEl.validate(async (valid: boolean) => {
     if (valid)
-      emit('verify', { status: true } as IObject)
+
+      emit('validate', { status: true } as IObject)
 
     else
-      emit('verify', { status: false } as IObject)
+      emit('validate', { status: false } as IObject)
   })
 }
 </script>
@@ -139,8 +140,8 @@ const verify = async (formEl: FormInstance | undefined): Promise<void> => {
       </el-input>
     </el-form-item>
     <el-form-item>
-      <el-button type="primary" w="100%" @click="verify(verifyFormRef)">
-        <span font-600> {{ t('password.verify') }}</span>
+      <el-button type="primary" w="100%" @click="validate(verifyFormRef)">
+        <span font-600> {{ t('app.password.security') }}</span>
       </el-button>
     </el-form-item>
   </el-form>

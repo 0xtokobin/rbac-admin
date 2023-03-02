@@ -1,9 +1,11 @@
 <script setup lang="ts">
-
+const { t } = useI18n()
 </script>
 
 <template>
-  <div>
-    <slot />
+  <div w-full>
+    <div text-center text-3 style="color: var(--el-color-info-light-3)">
+      {{ t('app.copyright') }}
+    </div>
   </div>
 </template>

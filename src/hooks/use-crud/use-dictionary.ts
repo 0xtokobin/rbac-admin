@@ -2,11 +2,11 @@ import type { ComputedRef } from 'vue'
 import type { IObject } from '#/global'
 import { StorageEnum } from '@/constants/enums'
 import { getStorage, setStorage } from '@/utils/storage'
-import { getDictionaryAll as _getDictionaryAll } from '@/apis/system/dictionary'
+import { GET } from '@/utils/request'
 
 export const useDictionary = () => {
   const getDictionaryAll = async () => {
-    const { data } = await _getDictionaryAll()
+    const { data } = await GET('/system/dict/list')
     let dictionaries = {}
     data.forEach((item: IObject) => {
       dictionaries = { [item.key]: item.values, ...dictionaries }

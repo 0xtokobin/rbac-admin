@@ -30,10 +30,10 @@ const goHome = () => {
     >
       <img cursor-pointer h-22 my-10 src="@/assets/logo.svg">
       <div text-12 mb-6 font-600 style="color: var(--el-color-info-dark)">
-        {{ t('404.title') }}
+        {{ t('app.404.title') }}
       </div>
       <div text-4 mb-12 style="color: var(--el-color-info)">
-        {{ t('404.description') }}
+        {{ t('app.404.description') }}
       </div>
       <div text-center>
         <el-button
@@ -41,7 +41,7 @@ const goHome = () => {
           type="primary"
           @click="goHome"
         >
-          {{ t('404.btn') }}
+          {{ t('app.404.btn') }}
         </el-button>
       </div>
     </div>

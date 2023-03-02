@@ -4,7 +4,6 @@ import { useDateFormat } from '@vueuse/core'
 import type { IObject } from '#/global'
 import { useUserStore } from '@/hooks/use-store/use-user-store'
 import { RouteEnum } from '@/constants/enums'
-import { getUserNotificationByNotRead } from '@/apis/system/user'
 
 const props = defineProps({
   color: {
@@ -26,8 +25,8 @@ const goPersonalNotification = () => {
 const list = ref<Array<any>>([])
 
 onBeforeMount(async () => {
-  const res = await getUserNotificationByNotRead()
-  list.value = res.data
+  // const res = await getUserNotificationByNotRead()
+  list.value = []
 })
 
 const read = (item: IObject) => {

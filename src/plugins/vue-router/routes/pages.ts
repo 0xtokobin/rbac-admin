@@ -11,13 +11,13 @@ export default [
   {
     path: '/403',
     name: '403',
-    component: () => import('@/pages/error/403.vue'),
+    component: () => import('@/pages/403.vue'),
     meta: { layout: '' },
   },
   {
     path: '/404',
     name: '404',
-    component: () => import('@/pages/error/404.vue'),
+    component: () => import('@/pages/404.vue'),
     meta: { layout: '' },
   },
   {
@@ -27,15 +27,9 @@ export default [
     meta: { layout: '' },
   },
   {
-    path: '/signup',
-    name: 'signup',
-    component: () => import('@/pages/signup.vue'),
-    meta: { layout: '' },
-  },
-  {
-    path: '/password/forget',
-    name: 'password.forget',
-    component: () => import('@/pages/password/forget.vue'),
+    path: '/password',
+    name: 'password',
+    component: () => import('@/pages/password.vue'),
     meta: { layout: '' },
   },
 ]

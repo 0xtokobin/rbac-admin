@@ -28,10 +28,10 @@ const goBack = () => {
     >
       <img cursor-pointer h-22 my-10 src="@/assets/logo.svg">
       <div text-12 mb-6 font-600 style="color: var(--el-color-info-dark)">
-        {{ t('403.title') }}
+        {{ t('app.403.title') }}
       </div>
       <div text-4 mb-12 style="color: var(--el-color-info)">
-        {{ t('403.description') }}
+        {{ t('app.403.description') }}
       </div>
       <div text-center>
         <el-button
@@ -39,7 +39,7 @@ const goBack = () => {
           type="primary"
           @click="goBack"
         >
-          {{ t('403.btn') }}
+          {{ t('app.403.btn') }}
         </el-button>
       </div>
     </div>

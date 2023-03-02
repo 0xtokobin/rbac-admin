@@ -1,6 +1,6 @@
 import { ElMessage } from 'element-plus'
 import type { Callback } from '#/global'
-import { getMobileSmscode } from '@/apis/common/mobile'
+import { GET } from '@/utils/request'
 
 export interface Form {
   time: number
@@ -54,7 +54,7 @@ export const useCountDown = () => {
 
   const getMobileCode = (mobile: number | string, type: number): void => {
     getCode(mobile, async () => {
-      const res = await getMobileSmscode({
+      const res = await GET('/common/mobile/smscode', {
         mobile,
         type,
       })
