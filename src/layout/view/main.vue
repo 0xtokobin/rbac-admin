@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import viewBreadcrumb from './breadcrumb.vue'
-import copyright from './copyright.vue'
+import viewBreadcrumb from '@/layout/view/breadcrumb.vue'
+import copyright from '@/layout/copyright/index.vue'
 import { useSystemStore } from '@/hooks/use-store/use-system-store'
 import { SettingsValueEnum } from '@/constants/enums'
 

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { RouteRecordRaw } from 'vue-router'
-import menuItem from '../aside/menu-item.vue'
+import menuItem from '@/layout/menu/item.vue'
 import { IconTypeEnum } from '@/constants/enums'
 import { useSystemStore } from '@/hooks/use-store/use-system-store'
 

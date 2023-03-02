@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import menuCollapse from '../menu/menu-collapse.vue'
-import viewMenu from './menu.vue'
-import viewLogo from './logo.vue'
+import viewMenu from '@/layout/view/menu.vue'
+import viewLogo from '@/layout/view/logo.vue'
+import menuCollapse from '@/layout/menu/collapse.vue'
 import { useSystemStore } from '@/hooks/use-store/use-system-store'
 import { SettingsValueEnum } from '@/constants/enums'
 

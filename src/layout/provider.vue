@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { Language } from 'element-plus/es/locale'
-import layoutPage from './page/index.vue'
-import layoutView from './view/index.vue'
+import layoutPage from '@/layout/page/index.vue'
+import layoutView from '@/layout/view/index.vue'
 import { Settings } from '@/constants/settings'
 import { SettingsValueEnum } from '@/constants/enums'
 import { setEpThemeColor } from '@/utils/theme'

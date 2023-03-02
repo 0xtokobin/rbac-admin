@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import colorScheme from './toolbar/color-scheme.vue'
-import avatar from './toolbar/avatar.vue'
-import fullscreen from './toolbar/fullscreen.vue'
-import language from './toolbar/language.vue'
-import notification from './toolbar/notification.vue'
-import refresh from './toolbar/refresh.vue'
-import setting from './toolbar/setting.vue'
+import toolbarFullscreen from '@/layout/toolbar/fullscreen.vue'
+import toolbarLanguage from '@/layout/toolbar/language.vue'
+import toolbarNotification from '@/layout/toolbar/notification.vue'
+import toolbarRefresh from '@/layout/toolbar/refresh.vue'
+import toolbarSetting from '@/layout/toolbar/setting.vue'
+import toolbarAvatar from '@/layout/toolbar/avatar.vue'
+import toolbarColorScheme from '@/layout/toolbar/color-scheme.vue'
 import { SettingsValueEnum } from '@/constants/enums'
 import { useSystemStore } from '@/hooks/use-store/use-system-store'
 
@@ -33,13 +33,7 @@ const changeToolbar = () => {
 
 <template>
   <div
-    h-full
-    flex
-    items-center
-    justify-end
-    p-x-6
-    box-border
-    style="width: var(--wingscloud-admin-header-toobar-width)"
+    h-full flex items-center justify-end p-x-6 box-border style="width: var(--wingscloud-admin-header-toobar-width)"
     :class="[
       props.fixed ? 'wingscloud-admin-fixed' : '',
       systemStore.isMobile ? 'wingscloud-admin-small' : 'wingscloud-admin-normal',
@@ -49,60 +43,44 @@ const changeToolbar = () => {
     ]"
   >
     <el-icon
-      v-if="props.fixed"
-      cursor-pointer
-      color="#fff"
-      m-r-4
-      :style="collapse ? 'transform:rotate(180deg)' : 'transform:rotate(0deg)'"
-      @click="changeToolbar()"
+      v-if="props.fixed" cursor-pointer color="#fff" m-r-4
+      :style="collapse ? 'transform:rotate(180deg)' : 'transform:rotate(0deg)'" @click="changeToolbar()"
     >
       <ArrowRight />
     </el-icon>
     <div
-      h-full
-      flex
-      items-center
-      justify-end
+      h-full flex items-center justify-end
       :class="systemStore.isMobile ? 'wingscloud-admin-mobile' : 'wingscloud-admin-pc'"
       :style="collapse ? 'width:0' : 'width:auto'"
     >
-      <color-scheme
-        v-if="systemStore.settings.Toolbar.Dark"
-        class="wingscloud-admin-toolbar"
+      <toolbar-color-scheme
+        v-if="systemStore.settings.Toolbar.Dark" class="wingscloud-admin-toolbar"
         :color="iconColor()"
       />
-      <language
-        v-if="systemStore.settings.Toolbar.Language"
-        only-icon
-        class="wingscloud-admin-toolbar"
+      <toolbar-language
+        v-if="systemStore.settings.Toolbar.Language" only-icon class="wingscloud-admin-toolbar"
         :color="iconColor()"
       />
-      <refresh
-        v-if="systemStore.settings.Toolbar.Refresh"
-        class="wingscloud-admin-toolbar"
+      <toolbar-refresh
+        v-if="systemStore.settings.Toolbar.Refresh" class="wingscloud-admin-toolbar"
         :color="iconColor()"
       />
-      <notification
-        v-if="systemStore.settings.Toolbar.Notification"
-        class="wingscloud-admin-toolbar"
+      <toolbar-notification
+        v-if="systemStore.settings.Toolbar.Notification" class="wingscloud-admin-toolbar"
         :color="iconColor()"
       />
-      <fullscreen
+      <toolbar-fullscreen
         v-if="systemStore.settings.Toolbar.Fullscreen && !systemStore.isMobile"
-        class="wingscloud-admin-toolbar"
-        :color="iconColor()"
+        class="wingscloud-admin-toolbar" :color="iconColor()"
       />
-      <setting
-        v-if="systemStore.settings.Toolbar.Setting"
-        class="wingscloud-admin-toolbar"
+      <toolbar-setting
+        v-if="systemStore.settings.Toolbar.Setting" class="wingscloud-admin-toolbar"
         :color="iconColor()"
       />
     </div>
-    <avatar
-      v-if="systemStore.settings.Toolbar.Avatar"
-      :color="iconColor()"
-      :avatar-size="systemStore.isMobile ? 28 : 38"
-      @click="changeToolbar"
+    <toolbar-avatar
+      v-if="systemStore.settings.Toolbar.Avatar" :color="iconColor()"
+      :avatar-size="systemStore.isMobile ? 28 : 38" @click="changeToolbar"
     />
   </div>
 </template>

@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import viewHeader from './header.vue'
-import viewFooter from './footer.vue'
-import viewMain from './main.vue'
-import viewAside from './aside.vue'
-import viewTab from './tab.vue'
-import viewToolbar from './toolbar.vue'
-import mobileMenu from './toolbar/view-tab.vue'
+import viewHeader from '@/layout/view/header.vue'
+import viewFooter from '@/layout/view/footer.vue'
+import viewMain from '@/layout/view/main.vue'
+import viewAside from '@/layout/view/aside.vue'
+import viewTab from '@/layout/view/tab.vue'
+import viewToolbar from '@/layout/view/toolbar.vue'
+import toolbarMobileMenu from '@/layout/toolbar/mobile-menu.vue'
 
 import { useSystemStore } from '@/hooks/use-store/use-system-store'
 import { SettingsValueEnum } from '@/constants/enums'
@@ -93,7 +93,7 @@ const systemStore = useSystemStore()
         </el-main>
       </el-container>
     </el-container>
-    <mobile-menu
+    <toolbar-mobile-menu
       v-if="
         systemStore.isMobile
           && (systemStore.settings.Layout === SettingsValueEnum.LAYOUT_ASIDE_LEAN
