@@ -62,7 +62,7 @@
 # 界面展示
 
 <p>
-	<img width="100%" src="https://github.com/wingscloud/assets/blob/main/admin/login.png?jpg=true" />
+	<img width="100%" src="https://github.com/wingscloud/assets/blob/main/admin/login.jpg?raw=true" />
 </p>
 
 <p>
