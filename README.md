@@ -22,14 +22,14 @@
 
 # 快速上手
 
-1. 您需要提前在本地安装 Node.js，版本号建议为 ^14.18.1 及以上版本 。
+1. 您需要提前在本地安装 Node.js，版本建议为 ^14.18.1 及以上。
 
-2. Wings Cloud 项目版本更新时，通过 [Github Release](https://github.com/wingscloud/template-admin/releases) 下载相应版本的源码压缩包。
+2. Wings Cloud Admin 项目版本更新时，通过 [Github Release](https://github.com/wingscloud/template-admin/releases) 下载相应版本的源码压缩包。
 
 3. 源码下载完成后，通过 npm 安装项目依赖包，您也可以使用 pnpm 或者 yarn。
 	> 如网络不稳定，安装时出错或进度过慢！请移步 cnpm 淘宝镜像进行安装。
 
-4. 该项目提供了基于环境变量的启动命令，你可以在 package.json 中查看。例如，运行 npm run serve 将默认启动本地开发服务。您也可以搭配环境变量使用，如：npm run serve:stag 即本地启动测试环境的开发服务。
+4. 该项目提供了基于环境变量的启动命令，你可以在 package.json 中查看。例如，运行 pnpm serve 将默认启动本地开发服务。您也可以搭配环境变量使用，如：pnpm serve:stag 即本地启动测试环境的开发服务。
 
 5. 启动完成后，会自动打开浏览器访问 http://localhost:3000 ，如您看到下面的相关页面代表前端项目运行成功。
 
