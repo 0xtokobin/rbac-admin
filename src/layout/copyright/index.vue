@@ -1,9 +1,5 @@
 <script lang="ts" setup>
-import { useSystemStore } from '@/hooks/use-store/use-system-store'
-
 const { t } = useI18n()
-
-const systemStore = useSystemStore()
 </script>
 
 <template>
