@@ -2,7 +2,7 @@ import type { App } from 'vue'
 import { createApp } from 'vue'
 import 'virtual:svg-icons-register'
 import { useMock } from '../mock'
-import _App from './components/app/app.vue'
+import Index from './layout/index.vue'
 
 import { useElementPlus, useElementPlusIcons } from './plugins/element-plus'
 import { useVueDomPurifyHTML } from './plugins/vue-dompurify-html'
@@ -16,7 +16,7 @@ import './assets/theme/index.scss'
 import './assets/style/index.scss'
 import 'uno.css'
 
-const app: App<Element> = createApp(_App)
+const app: App<Element> = createApp(Index)
 
 useI18n(app)
 usePinia(app)

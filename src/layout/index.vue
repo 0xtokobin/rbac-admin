@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import provider from './provider.vue'
+import loading from './loading.vue'
 import { useSystemStore } from '@/hooks/use-store/use-system-store'
 
 const systemStore = useSystemStore()
@@ -16,8 +18,8 @@ provide('reloadView', { reload: reloadView })
 </script>
 
 <template>
-  <app-provider>
-    <template #app>
+  <provider>
+    <template #index>
       <router-view v-slot="{ Component, route }">
         <Suspense>
           <transition name="wingscloud-admin-page" mode="out-in" appear>
@@ -26,12 +28,12 @@ provide('reloadView', { reload: reloadView })
             </keep-alive>
           </transition>
           <template #fallback>
-            <app-loading />
+            <loading />
           </template>
         </Suspense>
       </router-view>
     </template>
-  </app-provider>
+  </provider>
 </template>
 
 <style lang="scss" scoped>

@@ -1,6 +1,10 @@
 <script lang="ts" setup>
-import { useSystemStore } from '@/hooks/use-store/use-system-store'
+import mobileMenu from './toolbar/mobile-menu.vue'
+import viewMenu from './menu.vue'
+import viewToolbar from './toolbar.vue'
+import viewLogo from './logo.vue'
 import { SettingsValueEnum } from '@/constants/enums'
+import { useSystemStore } from '@/hooks/use-store/use-system-store'
 
 const systemStore = useSystemStore()
 </script>
@@ -8,15 +12,15 @@ const systemStore = useSystemStore()
 <template>
   <div h-full flex items-center justify-between box-border>
     <div h-full flex items-center>
-      <layout-toolbar-mobile-menu v-if="systemStore.isMobile" />
-      <layout-admin-logo
+      <mobile-menu v-if="systemStore.isMobile" />
+      <view-logo
         v-if="
           !systemStore.isMobile
             && (systemStore.settings.Layout === SettingsValueEnum.LAYOUT_TOP
               || systemStore.settings.Layout === SettingsValueEnum.LAYOUT_TOP_LEAN)
         "
       />
-      <layout-admin-menu
+      <view-menu
         v-if="
           !systemStore.isMobile
             && systemStore.settings.Layout === SettingsValueEnum.LAYOUT_TOP_LEAN
@@ -24,6 +28,6 @@ const systemStore = useSystemStore()
         mode="horizontal"
       />
     </div>
-    <layout-toolbar />
+    <view-toolbar />
   </div>
 </template>

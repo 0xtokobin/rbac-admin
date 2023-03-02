@@ -1,4 +1,12 @@
 <script lang="ts" setup>
+import viewHeader from './header.vue'
+import viewFooter from './footer.vue'
+import viewMain from './main.vue'
+import viewAside from './aside.vue'
+import viewTab from './tab.vue'
+import viewToolbar from './toolbar.vue'
+import mobileMenu from './toolbar/view-tab.vue'
+
 import { useSystemStore } from '@/hooks/use-store/use-system-store'
 import { SettingsValueEnum } from '@/constants/enums'
 
@@ -21,7 +29,7 @@ const systemStore = useSystemStore()
             : 'height: 0; border-bottom: none;'
         "
       >
-        <layout-admin-header
+        <view-header
           v-if="
             systemStore.settings.Layout === SettingsValueEnum.LAYOUT_TOP
               || systemStore.settings.Layout === SettingsValueEnum.LAYOUT_TOP_LEAN
@@ -40,7 +48,7 @@ const systemStore = useSystemStore()
             systemStore.isMobile ? 'border:none' : '',
           ]"
         >
-          <layout-admin-aside
+          <view-aside
             v-if="
               !systemStore.isMobile
                 && systemStore.settings.Layout !== SettingsValueEnum.LAYOUT_TOP_LEAN
@@ -64,7 +72,7 @@ const systemStore = useSystemStore()
                 : 'height: 0; border-bottom: none'
             "
           >
-            <layout-admin-header
+            <view-header
               v-if="
                 systemStore.settings.Layout
                   === SettingsValueEnum.LAYOUT_ASIDE
@@ -73,19 +81,19 @@ const systemStore = useSystemStore()
               "
             />
           </el-header>
-          <layout-admin-tab v-if="systemStore.settings.Tab" />
-          <layout-admin-main>
+          <view-tab v-if="systemStore.settings.Tab" />
+          <view-main>
             <template #main-router-view>
               <slot name="router-view" />
             </template>
-          </layout-admin-main>
+          </view-main>
           <el-footer v-if="systemStore.settings.Footer">
-            <layout-admin-footer />
+            <view-footer />
           </el-footer>
         </el-main>
       </el-container>
     </el-container>
-    <layout-toolbar-mobile-menu
+    <mobile-menu
       v-if="
         systemStore.isMobile
           && (systemStore.settings.Layout === SettingsValueEnum.LAYOUT_ASIDE_LEAN
@@ -101,9 +109,9 @@ const systemStore = useSystemStore()
       :with-header="false"
       size="var(--wingscloud-admin-aside-width)"
     >
-      <layout-admin-aside />
+      <view-aside />
     </el-drawer>
-    <layout-toolbar
+    <view-toolbar
       v-if="
         systemStore.settings.Layout === SettingsValueEnum.LAYOUT_ASIDE_LEAN
           || systemStore.settings.Layout === SettingsValueEnum.LAYOUT_ASIDE_LEAN_DARK

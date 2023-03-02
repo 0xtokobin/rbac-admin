@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import viewBreadcrumb from './breadcrumb.vue'
+import copyright from './copyright.vue'
 import { useSystemStore } from '@/hooks/use-store/use-system-store'
 import { SettingsValueEnum } from '@/constants/enums'
 
@@ -42,7 +44,7 @@ const height = computed(() => {
               var(--el-transition-function-ease-in-out-bezier);
           "
     >
-      <layout-admin-breadcrumb
+      <view-breadcrumb
         v-if="
           systemStore.settings.Breadcrumb
             === SettingsValueEnum.BREADCRUMB_VIEW_TOP
@@ -51,7 +53,7 @@ const height = computed(() => {
       <div style="padding-bottom: var(--wingscloud-admin-main-padding)">
         <slot name="main-router-view" />
       </div>
-      <layout-admin-copyright
+      <copyright
         v-if="
           systemStore.settings.Copyright
             === SettingsValueEnum.COPYRIGHT_VIEW_BOTTOM

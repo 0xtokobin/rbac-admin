@@ -4,7 +4,8 @@
     "types/**/*",
     "src/**/*",
     "serve/**/*",
-    "test/**/*"
+    "test/**/*",
+    "mock/**/*"
   ],
   "exclude": [
     "node_modules",

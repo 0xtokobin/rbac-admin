@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import language from '../toolbar/language.vue'
+import colorScheme from '../toolbar/color-scheme.vue'
 import { RouteEnum } from '@/constants/enums'
 
 const { t } = useI18n()
@@ -17,8 +19,8 @@ const login = () => {
       <span>{{ t('app.name') }}</span>
     </div>
     <div flex items-center>
-      <layout-toolbar-language only-icon mr-6 />
-      <layout-toolbar-color-scheme />
+      <language only-icon mr-6 />
+      <color-scheme />
     </div>
   </div>
 </template>

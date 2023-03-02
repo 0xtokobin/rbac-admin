@@ -1,11 +1,16 @@
+<script setup lang="ts">
+import pageHeader from './header.vue'
+import pageFooter from './footer.vue'
+</script>
+
 <template>
   <el-container style="background: var(--el-bg-color)">
     <el-header>
-      <layout-page-header />
+      <page-header />
     </el-header>
     <el-main>
       <slot name="router-view" />
-      <layout-page-footer />
+      <page-footer />
     </el-main>
   </el-container>
 </template>

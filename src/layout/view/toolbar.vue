@@ -1,4 +1,11 @@
 <script lang="ts" setup>
+import colorScheme from './toolbar/color-scheme.vue'
+import avatar from './toolbar/avatar.vue'
+import fullscreen from './toolbar/fullscreen.vue'
+import language from './toolbar/language.vue'
+import notification from './toolbar/notification.vue'
+import refresh from './toolbar/refresh.vue'
+import setting from './toolbar/setting.vue'
 import { SettingsValueEnum } from '@/constants/enums'
 import { useSystemStore } from '@/hooks/use-store/use-system-store'
 
@@ -59,39 +66,39 @@ const changeToolbar = () => {
       :class="systemStore.isMobile ? 'wingscloud-admin-mobile' : 'wingscloud-admin-pc'"
       :style="collapse ? 'width:0' : 'width:auto'"
     >
-      <layout-toolbar-color-scheme
+      <color-scheme
         v-if="systemStore.settings.Toolbar.Dark"
         class="wingscloud-admin-toolbar"
         :color="iconColor()"
       />
-      <layout-toolbar-language
+      <language
         v-if="systemStore.settings.Toolbar.Language"
         only-icon
         class="wingscloud-admin-toolbar"
         :color="iconColor()"
       />
-      <layout-toolbar-refresh
+      <refresh
         v-if="systemStore.settings.Toolbar.Refresh"
         class="wingscloud-admin-toolbar"
         :color="iconColor()"
       />
-      <layout-toolbar-notification
+      <notification
         v-if="systemStore.settings.Toolbar.Notification"
         class="wingscloud-admin-toolbar"
         :color="iconColor()"
       />
-      <layout-toolbar-fullscreen
+      <fullscreen
         v-if="systemStore.settings.Toolbar.Fullscreen && !systemStore.isMobile"
         class="wingscloud-admin-toolbar"
         :color="iconColor()"
       />
-      <layout-toolbar-setting
+      <setting
         v-if="systemStore.settings.Toolbar.Setting"
         class="wingscloud-admin-toolbar"
         :color="iconColor()"
       />
     </div>
-    <layout-toolbar-avatar
+    <avatar
       v-if="systemStore.settings.Toolbar.Avatar"
       :color="iconColor()"
       :avatar-size="systemStore.isMobile ? 28 : 38"

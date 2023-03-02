@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import type { RouteRecordRaw } from 'vue-router'
+import menuItem from '../aside/menu-item.vue'
 import { IconTypeEnum } from '@/constants/enums'
 import { useSystemStore } from '@/hooks/use-store/use-system-store'
 
@@ -65,7 +66,7 @@ const systemStore = useSystemStore()
           {{ route.meta?.menuName }}
         </span>
       </template>
-      <layout-admin-menu-item :routes="route.children" />
+      <menu-item :routes="route.children" />
     </el-sub-menu>
   </template>
 </template>

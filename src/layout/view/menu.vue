@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import menuItem from './aside/menu-item.vue'
 import { useSystemStore } from '@/hooks/use-store/use-system-store'
 import { useRouteStore } from '@/hooks/use-store/use-route-store'
 import { SettingsValueEnum } from '@/constants/enums'
@@ -56,7 +57,7 @@ const wrapStyle = computed(() => {
         :collapse="props.mode === 'vertical' ? systemStore.collapse : false"
         :unique-opened="systemStore.settings.UniqueOpened" :default-active="route.path" important="h-full border-none"
       >
-        <layout-admin-menu-item :routes="routeStore.menuRoutes" />
+        <menu-item :routes="routeStore.menuRoutes" />
       </el-menu>
     </div>
   </el-scrollbar>

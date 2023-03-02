@@ -1,5 +1,7 @@
 <script lang="ts" setup>
 import type { Language } from 'element-plus/es/locale'
+import layoutPage from './page/index.vue'
+import layoutView from './view/index.vue'
 import { Settings } from '@/constants/settings'
 import { SettingsValueEnum } from '@/constants/enums'
 import { setEpThemeColor } from '@/utils/theme'
@@ -117,14 +119,14 @@ onBeforeMount(() => {
         "
       >
         <template #router-view>
-          <slot name="app" />
+          <slot name="index" />
         </template>
       </layout-page>
-      <layout-admin v-if="route.meta?.layout === 'admin'">
+      <layout-view v-if="route.meta?.layout === 'view'">
         <template #router-view>
-          <slot name="app" />
+          <slot name="index" />
         </template>
-      </layout-admin>
+      </layout-view>
     </template>
   </el-config-provider>
 </template>
