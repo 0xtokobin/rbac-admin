@@ -56,7 +56,7 @@ export const addRouterGuard = (router: Router): Router => {
       if (userStore.isLogin && routeStore.asyncRoutes.length === 0) {
         systemStore.loading = true
         await userStore.getUserProfile()
-        await userStore.getUserRoles()
+        await userStore.getUserRole()
         await routeStore.getAsyncRoutes()
         systemStore.loading = false
         if (to.redirectedFrom)

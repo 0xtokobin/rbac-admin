@@ -62,16 +62,13 @@
 # 界面展示
 
 <p>
-	<img width="100%" src="https://github.com/wingscloud/assets/blob/main/template-admin/signin.png?raw=true" />
+	<img width="100%" src="https://github.com/wingscloud/assets/blob/main/template-admin/login.png?raw=true" />
 </p>
 
 <p>
-	<img width="100%" src="https://github.com/wingscloud/assets/blob/main/template-admin/layout-1.png?raw=true" />
+	<img width="100%" src="https://github.com/wingscloud/assets/blob/main/template-admin/workbench.png?raw=true" />
 </p>
 
-<p>
-	<img width="100%" src="https://github.com/wingscloud/assets/blob/main/template-admin/layout-6.png?raw=true" />
-</p>
 
 # 参与共建
 

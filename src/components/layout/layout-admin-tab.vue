@@ -123,7 +123,7 @@ watch(
     <div class="operation">
       <el-dropdown @command="clickOperationMenu">
         <el-button size="small" type="primary">
-          <span text-2 mr-2>{{ t('app.more') }}</span>
+          <span text-3 mr-2>{{ t('app.tab.more') }}</span>
           <el-icon>
             <ArrowDown />
           </el-icon>
@@ -132,17 +132,17 @@ watch(
           <el-dropdown-menu>
             <el-dropdown-item command="current">
               {{
-                t('app.close')
+                t('app.tab.close')
               }}
             </el-dropdown-item>
             <el-dropdown-item command="other">
               {{
-                t('app.closeOther')
+                t('app.tab.closeOther')
               }}
             </el-dropdown-item>
             <el-dropdown-item command="all">
               {{
-                t('app.closeAll')
+                t('app.tab.closeAll')
               }}
             </el-dropdown-item>
           </el-dropdown-menu>

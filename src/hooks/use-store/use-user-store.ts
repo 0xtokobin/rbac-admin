@@ -99,8 +99,8 @@ export const useUserStore = defineStore('user', () => {
     POST('/system/user/login', form).then(async ({ data, code }) => {
       if (code === 0) {
         const routeStore = useRouteStore()
-        await setStayLogin(data.remember)
-        await setToken(data as string)
+        await setStayLogin(form.remember)
+        await setToken(data)
         await getUserProfile()
         await getUserRole()
         await routeStore.getAsyncRoutes()
@@ -129,6 +129,9 @@ export const useUserStore = defineStore('user', () => {
     })
   }
 
+  // 切换系统用户角色
+  const switchUserRole = () => { }
+
   return {
     stayLogin,
     token,
@@ -141,5 +144,6 @@ export const useUserStore = defineStore('user', () => {
     getUserRole,
     userLogin,
     userlogout,
+    switchUserRole,
   }
 })

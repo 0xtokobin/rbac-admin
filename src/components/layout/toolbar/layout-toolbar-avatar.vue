@@ -20,9 +20,9 @@ const actionChange = (command: string): void => {
   if (command.includes('/'))
     router.push({ path: command })
   else if (command === 'switchRoles')
-    userStore.switchRoles()
+    userStore.switchUserRole()
   else if (command === 'signout')
-    userStore.logout()
+    userStore.userlogout()
 }
 </script>
 

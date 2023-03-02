@@ -39,7 +39,7 @@ export enum MobileCodeTypeEnum {
 }
 
 export enum StorageEnum {
-  KEY = 'wings-vue-storage',
+  KEY = 'wingscloud-admin',
   LANGUAGE = 'language',
   STAY_LOGIN = 'stay-login',
   TOKEN = 'token',
