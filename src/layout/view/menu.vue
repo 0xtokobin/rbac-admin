@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import menuItem from '@/layout/aside/item.vue'
+import menuItem from '@/layout/menu/item.vue'
 import { useSystemStore } from '@/hooks/use-store/use-system-store'
 import { useRouteStore } from '@/hooks/use-store/use-route-store'
 import { SettingsValueEnum } from '@/constants/enums'
