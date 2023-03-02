@@ -134,6 +134,9 @@ export const authCodeAdaptor = (
       case 10039:
         message = t('app.authentication.password')
         break
+      case 10040:
+        message = t('app.authentication.sms')
+        break
     }
   }
   if (data.code && message && callback)

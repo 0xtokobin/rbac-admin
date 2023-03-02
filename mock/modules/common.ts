@@ -1,10 +1,43 @@
+import type { ResponseData } from '../../src/utils/request'
+import type { IObject } from '../../types/global'
+import { interceptJointData } from '../../src/utils/common'
+
 export default {
+  /**
+  * @name getMobileSmscode
+  * @description 获取验证码
+  */
   getMobileSmscode: {
     url: '/common/mobile/smscode',
     method: 'get',
     data: '',
   },
 
+  /**
+* @name validateMobileSmscode
+* @description 校验验证码
+*/
+  validateMobileSmscode: {
+    url: '/common/mobile/smscode',
+    method: 'post',
+    data: true,
+    response: <T>(data: IObject, res: ResponseData<T>) => {
+      if (interceptJointData(data.body).code.length !== 6) {
+        return {
+          ...res,
+          code: 10040,
+          msg: null,
+          data: '',
+        }
+      }
+      return res
+    },
+  },
+
+  /**
+  * @name getMobileCodes
+  * @description 查询手机区号列表
+  */
   getMobileCodes: {
     url: '/common/mobile/areacode',
     method: 'get',

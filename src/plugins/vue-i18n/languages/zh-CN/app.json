@@ -1,6 +1,6 @@
 {
   "name": "Wings Cloud",
-  "description": "# 中后台管理系统，基于 Vue3 + Element Plus。集成 Vue3 生态最新工具链、国际化、多主题（黑暗模式）、响应式布局（移动端）、动态路由等。",
+  "description": "# 中后台管理系统，基于 Vue3 + Element Plus。集成 Vue3 生态最新工具链、国际化、多主题（支持黑暗模式）、移动端适配、动态路由等。",
   "copyright": "Copyright © 2022-PRESENT Kaivan Wong",
   "loading": "资源加载中，请稍后...",
   "building": "建设中...",
@@ -63,7 +63,8 @@
     "noEmployee": "该账户未关联员工",
     "failure": "账号已无效",
     "notFound": "账号未找到",
-    "password": "密码错误，请重试"
+    "password": "密码错误，请重试",
+    "sms": "验证码错误"
   },
   "403": {
     "btn": "返回",

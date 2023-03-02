@@ -6,6 +6,7 @@ import type { IObject } from '#/global'
 import { MobileCodeTypeEnum, StorageEnum } from '@/constants/enums'
 import { useCountDown } from '@/hooks/use-crud/use-count-down'
 import { getStorage } from '@/utils/storage'
+import { POST } from '@/utils/request'
 
 const emit = defineEmits(['validate'])
 
@@ -13,18 +14,18 @@ const { t } = useI18n()
 
 const countDown = useCountDown()
 
-const verifyFormRef = ref<FormInstance>()
+const validateFormRef = ref<FormInstance>()
 
-const verifyForm = ref<MobileForm>({
+const validateForm = ref<MobileForm>({
   areaCode: '+86',
   mobile: '',
   code: '',
 })
 
-const verifyFormRules = reactive<FormRules>({
+const validateFormRules = reactive<FormRules>({
   mobile: [
     {
-      required: false,
+      required: true,
       message: t('crud.placeholder.enter', {
         label: t('crud.mobile.mobileText'),
       }),
@@ -40,7 +41,7 @@ const verifyFormRules = reactive<FormRules>({
   ],
   code: [
     {
-      required: !!verifyForm.value.mobile,
+      required: validateForm.value.mobile.length > 0,
       message: t('crud.placeholder.enter', { label: t('crud.mobile.code') }),
       trigger: 'change',
     },
@@ -60,63 +61,44 @@ const validate = async (formEl: FormInstance | undefined): Promise<void> => {
   if (!formEl)
     return
   await formEl.validate(async (valid: boolean) => {
-    if (valid)
-
-      emit('validate', { status: true } as IObject)
-
-    else
-      emit('validate', { status: false } as IObject)
+    if (valid) {
+      POST('/common/mobile/smscode', { code: validateForm.value.code }).then(({ data }) => {
+        if (data)
+          emit('validate', { status: true } as IObject)
+      })
+    }
   })
 }
 </script>
 
 <template>
-  <el-form
-    ref="verifyFormRef"
-    :model="verifyForm"
-    :rules="verifyFormRules"
-    size="large"
-  >
+  <el-form ref="validateFormRef" :model="validateForm" :rules="validateFormRules" size="large">
     <el-form-item prop="mobile">
-      <el-input
-        v-model.number="verifyForm.mobile"
-        autocomplete="off"
-        :placeholder="t('crud.mobile.mobile')"
-      >
+      <el-input v-model.number="validateForm.mobile" autocomplete="off" :placeholder="t('crud.mobile.mobile')">
         <template #prepend>
-          <el-select v-model="verifyForm.areaCode" important="w-24">
-            <el-option
-              v-for="(item, index) in mobileAreaCodeList"
-              :key="index"
-              :label="item.code"
-              :value="item.code"
-            />
+          <el-select v-model="validateForm.areaCode" important="w-24">
+            <el-option v-for="(item, index) in mobileAreaCodeList" :key="index" :label="item.code" :value="item.code" />
           </el-select>
         </template>
         <template #prefix>
-          <el-icon><Iphone /></el-icon>
+          <el-icon>
+            <Iphone />
+          </el-icon>
         </template>
       </el-input>
     </el-form-item>
-    <el-form-item v-show="verifyForm.mobile" prop="code">
-      <el-input
-        v-model.number="verifyForm.code"
-        autocomplete="off"
-        :placeholder="t('crud.mobile.code')"
-      >
+    <el-form-item v-show="validateForm.mobile" prop="code">
+      <el-input v-model="validateForm.code" autocomplete="off" :placeholder="t('crud.mobile.code')">
         <template #prefix>
-          <el-icon><ChatDotSquare /></el-icon>
+          <el-icon>
+            <ChatDotSquare />
+          </el-icon>
         </template>
         <template #suffix>
           <el-button
-            inline-block
-            p-0
-            link
-            type="primary"
-            :disabled="countDown.countDownForm.getting"
-            @click="
+            inline-block p-0 link type="primary" :disabled="countDown.countDownForm.getting" @click="
               countDown.getMobileCode(
-                verifyForm.mobile,
+                validateForm.mobile,
                 MobileCodeTypeEnum.FORGET_PASSWORDS,
               )
             "
@@ -140,7 +122,7 @@ const validate = async (formEl: FormInstance | undefined): Promise<void> => {
       </el-input>
     </el-form-item>
     <el-form-item>
-      <el-button type="primary" w="100%" @click="validate(verifyFormRef)">
+      <el-button type="primary" w="100%" @click="validate(validateFormRef)">
         <span font-600> {{ t('app.password.security') }}</span>
       </el-button>
     </el-form-item>

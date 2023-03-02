@@ -14,7 +14,7 @@ export default {
     method: 'post',
     data: 'E7UJ0aubyQm32NWlJ0iNionQkv0Ltn2dVf10',
     response: <T>(data: IObject, res: ResponseData<T>) => {
-      if (interceptJointData(data.body).password !== '123456') {
+      if (interceptJointData(data.body).type === 0 && interceptJointData(data.body).password !== 'wingscloud') {
         return {
           ...res,
           code: 10039,
@@ -22,8 +22,26 @@ export default {
           data: '',
         }
       }
+      if (interceptJointData(data.body).type === 1 && interceptJointData(data.body).code.length !== 6) {
+        return {
+          ...res,
+          code: 10040,
+          msg: null,
+          data: '',
+        }
+      }
       return res
     },
+  },
+
+  /**
+  * @name getScanResult
+  * @description 轮询接口：获取扫码结果
+  */
+  getScanResult: {
+    url: '/system/user/scan',
+    method: 'post',
+    data: null,
   },
 
   /**

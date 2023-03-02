@@ -4,7 +4,7 @@ import { PASSWORD_NORMAL } from '@kaivanwong/utils'
 import type { PasswordForm } from '#/login'
 import type { IObject } from '#/global'
 
-const emit = defineEmits(['change'])
+const emit = defineEmits(['reset'])
 
 const { t } = useI18n()
 
@@ -73,12 +73,12 @@ const changeFormRules = reactive<FormRules>({
   ],
 })
 
-const change = async (formEl: FormInstance | undefined): Promise<void> => {
+const reset = async (formEl: FormInstance | undefined): Promise<void> => {
   if (!formEl)
     return
   await formEl.validate(async (valid: boolean) => {
     if (valid)
-      emit('change', { status: true } as IObject)
+      emit('reset', { status: true } as IObject)
   })
 }
 </script>
@@ -117,7 +117,7 @@ const change = async (formEl: FormInstance | undefined): Promise<void> => {
       </el-input>
     </el-form-item>
     <el-form-item>
-      <el-button type="primary" w="100%" @click="change(changeFormRef)">
+      <el-button type="primary" w="100%" @click="reset(changeFormRef)">
         <span font-600>{{ t('app.password.reset') }}</span>
       </el-button>
     </el-form-item>

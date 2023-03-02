@@ -9,8 +9,6 @@ const { t } = useI18n()
 
 const router = useRouter()
 
-const userStore = useUserStore()
-
 const formRef = ref<FormInstance>()
 
 interface Form {
@@ -21,13 +19,11 @@ interface Form {
 }
 
 const form = ref<Form>({
-  username: '',
-  password: '',
+  username: 'admin',
+  password: 'wingscloud',
   remember: false,
   type: 0,
 })
-
-const loading = ref<boolean>(false)
 
 const validateUsername = (rule: any, value: string, callback: any) => {
   if (value && !USERNAME.test(value)) {
@@ -81,6 +77,10 @@ const formRules = reactive<FormRules>({
 const password = (): void => {
   router.push({ path: RouteEnum.ROUTE_PASSWORD_FORGET })
 }
+
+const loading = ref<boolean>(false)
+
+const userStore = useUserStore()
 
 const login = async (formEl: FormInstance | undefined): Promise<void> => {
   if (!formEl)

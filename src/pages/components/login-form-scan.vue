@@ -1,7 +1,32 @@
 <script lang="ts" setup>
 import QRcode from '@/assets/image/qr-code.png'
+import { GET } from '@/utils/request'
 
 const { t } = useI18n()
+
+const timer = ref()
+
+const clearTimer = () => {
+  clearTimeout(timer.value)
+  timer.value = null
+}
+
+const getScanResult = () => {
+  GET('/system/user/scan').then(({ code, data }) => {
+    if (code === 0 && data)
+      clearTimer()
+  })
+}
+
+onMounted(() => {
+  timer.value = setInterval(() => {
+    getScanResult()
+  }, 1500)
+})
+
+onUnmounted(() => {
+  clearTimer()
+})
 </script>
 
 <template>

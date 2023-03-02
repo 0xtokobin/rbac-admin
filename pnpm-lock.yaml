@@ -3,7 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@element-plus/icons-vue': ^2.0.10
   '@kaivanwong/eslint-config': ^0.13.14
-  '@kaivanwong/utils': ^0.3.4
+  '@kaivanwong/utils': ^0.3.5
   '@types/jsdom': ^21.1.0
   '@types/node': ^18.14.2
   '@vitejs/plugin-basic-ssl': ^1.0.1
@@ -43,7 +43,7 @@ specifiers:
   vue-tsc: ^1.2.0
 
 dependencies:
-  '@kaivanwong/utils': 0.3.4
+  '@kaivanwong/utils': 0.3.5
   '@vueuse/core': 9.13.0_vue@3.2.47
   '@vueuse/integrations': 9.13.0_tvbhak4dhyk6qwhumplgte6jji
   axios: 1.3.4
@@ -917,8 +917,8 @@ packages:
       - typescript
     dev: true
 
-  /@kaivanwong/utils/0.3.4:
-    resolution: {integrity: sha512-zbfCUcxNxLDuCLZznHzM5PR9zJZEH4rL/Q7VnxYtgp1lupmqoG2APetH/gf6On+eiZXV+6qa9nsV+wQSI544CA==}
+  /@kaivanwong/utils/0.3.5:
+    resolution: {integrity: sha512-RYv+ricHEVUEnBjq5uExn5TT42G4ImI9MfGUTcjk+sBgRHnd+tBKcNFXinqzHwyNYzqXYwrqwvBcm6ONHG1KoQ==}
     dev: false
 
   /@nodelib/fs.scandir/2.1.5:

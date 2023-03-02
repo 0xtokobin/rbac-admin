@@ -1,6 +1,6 @@
 {
   "name": "Wings Cloud",
-  "description": "# The middle and background management system, based on Vue3 + Element Plus. Integration with the latest toolchain of Vue3 ecosystem, internationalization, multi-theme (dark mode), responsive layout (mobile), dynamic routing, and more.",
+  "description": "# Middle and background management system based on Vue3 + Element Plus. Integrate the latest toolchain of Vue3 ecosystem, internationalization, multi-theme (supports dark mode), mobile adaptation, dynamic routing, etc.",
   "copyright": "Copyright © 2022-PRESENT Kaivan Wong",
   "loading": "The resource is loading. Please wait...",
   "building": "Building...",
@@ -63,7 +63,8 @@
     "noEmployee": "The account is not associated with any employee",
     "failure": "The account is invalid",
     "notFound": "Account not found",
-    "password": "Incorrect password, please try again"
+    "password": "Incorrect password, please try again",
+    "sms": "Sms Code Error"
   },
   "403": {
     "btn": "Back",
