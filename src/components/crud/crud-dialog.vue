@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { ComponentInternalInstance } from 'vue'
-import { useSystemStore } from '@/hooks/use-store/use-system-store'
+import { useSystemStore } from '@/hooks/store/use-system-store'
 
 const props = defineProps({
   value: {

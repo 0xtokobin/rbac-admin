@@ -6,7 +6,7 @@ export default [
     name: 'system.profile',
     component: () => import('@/views/system/profile.vue'),
     meta: {
-      layout: 'admin',
+      layout: 'view',
       iconType: IconTypeEnum.ELEMENT_PLUS,
       icon: 'Postcard',
       i18nKey: 'system.profile',
@@ -17,7 +17,7 @@ export default [
     name: 'system.notification',
     component: () => import('@/views/system/notification.vue'),
     meta: {
-      layout: 'admin',
+      layout: 'view',
       iconType: IconTypeEnum.ELEMENT_PLUS,
       icon: 'ChatDotSquare',
       i18nKey: 'system.notification',
@@ -29,7 +29,7 @@ export default [
     name: 'system.setting',
     component: () => import('@/views/system/setting.vue'),
     meta: {
-      layout: 'admin',
+      layout: 'view',
       iconType: IconTypeEnum.ELEMENT_PLUS,
       icon: 'Setting',
       isI18n: true,
@@ -40,7 +40,7 @@ export default [
     path: '/example',
     name: 'example',
     meta: {
-      layout: 'admin',
+      layout: 'view',
       isMenu: true,
       iconType: IconTypeEnum.ELEMENT_PLUS,
       icon: 'Guide',
@@ -54,7 +54,7 @@ export default [
         name: 'example.icon',
         component: () => import('@/views/example/icon.vue'),
         meta: {
-          layout: 'admin',
+          layout: 'view',
           isMenu: true,
           iconType: IconTypeEnum.ELEMENT_PLUS,
           icon: 'MagicStick',
@@ -66,7 +66,7 @@ export default [
         path: '/example/form',
         name: 'example.form',
         meta: {
-          layout: 'admin',
+          layout: 'view',
           isMenu: true,
           iconType: IconTypeEnum.ELEMENT_PLUS,
           icon: 'DocumentChecked',
@@ -79,7 +79,7 @@ export default [
             name: 'example.form.base',
             component: () => import('@/views/example/form/base.vue'),
             meta: {
-              layout: 'admin',
+              layout: 'view',
               isMenu: true,
               sort: 1,
               i18nKey: 'example.form.base',
@@ -90,7 +90,7 @@ export default [
             name: 'example.form.step',
             component: () => import('@/views/example/form/step.vue'),
             meta: {
-              layout: 'admin',
+              layout: 'view',
               isMenu: true,
               sort: 2,
               i18nKey: 'example.form.step',
@@ -102,7 +102,7 @@ export default [
         path: '/example/result',
         name: 'example.result',
         meta: {
-          layout: 'admin',
+          layout: 'view',
           isMenu: true,
           iconType: IconTypeEnum.ELEMENT_PLUS,
           icon: 'Warning',
@@ -115,7 +115,7 @@ export default [
             name: 'example.result.success',
             component: () => import('@/views/example/result/success.vue'),
             meta: {
-              layout: 'admin',
+              layout: 'view',
               isMenu: true,
               sort: 1,
               i18nKey: 'example.result.success',
@@ -126,7 +126,7 @@ export default [
             name: 'example.result.warning',
             component: () => import('@/views/example/result/warning.vue'),
             meta: {
-              layout: 'admin',
+              layout: 'view',
               isMenu: true,
               sort: 2,
               i18nKey: 'example.result.warning',
@@ -137,7 +137,7 @@ export default [
             name: 'example.result.error',
             component: () => import('@/views/example/result/error.vue'),
             meta: {
-              layout: 'admin',
+              layout: 'view',
               isMenu: true,
               sort: 3,
               i18nKey: 'example.result.error',
@@ -148,7 +148,7 @@ export default [
             name: 'example.result.info',
             component: () => import('@/views/example/result/info.vue'),
             meta: {
-              layout: 'admin',
+              layout: 'view',
               isMenu: true,
               sort: 4,
               i18nKey: 'example.result.info',
@@ -160,7 +160,7 @@ export default [
         path: '/example/keep-alive',
         name: 'example.keepAlive',
         meta: {
-          layout: 'admin',
+          layout: 'view',
           isMenu: true,
           iconType: IconTypeEnum.ELEMENT_PLUS,
           icon: 'CopyDocument',
@@ -174,7 +174,7 @@ export default [
             name: 'example.keepAlive.open',
             component: () => import('@/views/example/keep-alive/open.vue'),
             meta: {
-              layout: 'admin',
+              layout: 'view',
               isMenu: true,
               sort: 1,
               i18nKey: 'example.keepAlive.open',
@@ -186,7 +186,7 @@ export default [
             name: 'example.keepAlive.close',
             component: () => import('@/views/example/keep-alive/close.vue'),
             meta: {
-              layout: 'admin',
+              layout: 'view',
               isMenu: true,
               sort: 2,
               i18nKey: 'example.keepAlive.close',
@@ -199,7 +199,7 @@ export default [
         path: '/example/navigation-one',
         name: 'example.navigation.one',
         meta: {
-          layout: 'admin',
+          layout: 'view',
           isMenu: true,
           iconType: IconTypeEnum.ELEMENT_PLUS,
           icon: 'Notification',
@@ -211,7 +211,7 @@ export default [
             path: '/example/navigation-two',
             name: 'example.navigation.two',
             meta: {
-              layout: 'admin',
+              layout: 'view',
               isMenu: true,
               sort: 1,
               i18nKey: 'example.navigation.two',
@@ -222,7 +222,7 @@ export default [
                 name: 'example.navigation.three',
                 component: () => import('@/views/example/navigation.vue'),
                 meta: {
-                  layout: 'admin',
+                  layout: 'view',
                   isMenu: true,
                   sort: 1,
                   i18nKey: 'example.navigation.three',

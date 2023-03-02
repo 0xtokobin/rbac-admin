@@ -32,26 +32,21 @@ export const useRouteStore = defineStore('route', () => {
 
   // 获取异步路由
   const getAsyncRoutes = async (): Promise<Routes> => {
-    const { code, data } = await GET('/system/user/route')
-    if (code === 0) {
-      const viewComponents: ViewComponents = autoImportViewComponents(
-        import.meta.glob('/src/views/**/*.vue'),
-      )
-      const asyncRoutes: Routes = await mergeAsyncRoutes(
-        routerInject(data, _t),
-        viewComponents,
-      )
-      setAsyncRoutes(asyncRoutes)
-      const menuRoutes: Routes = await mergeMenuRoutes(
-        routerInject(routes, _t),
-        asyncRoutes,
-      )
-      setMenuRoutes(menuRoutes)
-      return asyncRoutes
-    }
-    else {
-      return []
-    }
+    const { data } = await GET('/system/user/route')
+    const viewComponents: ViewComponents = autoImportViewComponents(
+      import.meta.glob('/src/views/**/*.vue'),
+    )
+    const asyncRoutes: Routes = await mergeAsyncRoutes(
+      routerInject(data, _t),
+      viewComponents,
+    )
+    setAsyncRoutes(asyncRoutes)
+    const menuRoutes: Routes = await mergeMenuRoutes(
+      routerInject(routes, _t),
+      asyncRoutes,
+    )
+    setMenuRoutes(menuRoutes)
+    return asyncRoutes
   }
 
   return {

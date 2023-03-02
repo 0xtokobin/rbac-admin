@@ -24,12 +24,12 @@ export default [
     path: '/login',
     name: 'login',
     component: () => import('@/pages/login.vue'),
-    meta: { layout: '' },
+    meta: { layout: 'page' },
   },
   {
     path: '/password',
     name: 'password',
     component: () => import('@/pages/password.vue'),
-    meta: { layout: '' },
+    meta: { layout: 'page' },
   },
 ]

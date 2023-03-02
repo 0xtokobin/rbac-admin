@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import provider from '@/layout/provider.vue'
 import loading from '@/layout/loading.vue'
-import { useSystemStore } from '@/hooks/use-store/use-system-store'
+import { useSystemStore } from '@/hooks/store/use-system-store'
 
 const systemStore = useSystemStore()
 

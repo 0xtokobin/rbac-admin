@@ -2,7 +2,7 @@
 import { Check } from '@element-plus/icons-vue'
 import { useDateFormat } from '@vueuse/core'
 import type { IObject } from '#/global'
-import { useUserStore } from '@/hooks/use-store/use-user-store'
+import { useUserStore } from '@/hooks/store/use-user-store'
 import { RouteEnum } from '@/constants/enums'
 
 const props = defineProps({

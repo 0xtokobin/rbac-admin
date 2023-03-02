@@ -2,12 +2,14 @@
 import type { Language } from 'element-plus/es/locale'
 import layoutPage from '@/layout/page/index.vue'
 import layoutView from '@/layout/view/index.vue'
+import layoutDefault from '@/layout/default/index.vue'
 import { Settings } from '@/constants/settings'
 import { SettingsValueEnum } from '@/constants/enums'
 import { setEpThemeColor } from '@/utils/theme'
-import { useSystemStore } from '@/hooks/use-store/use-system-store'
-import { useMobileCodes } from '@/hooks/use-crud/use-mobile-codes'
-import { useDictionary } from '@/hooks/use-crud/use-dictionary'
+import { useSystemStore } from '@/hooks/store/use-system-store'
+import { useMobileCodes } from '@/hooks/crud/use-mobile-codes'
+import { useDictionary } from '@/hooks/crud/use-dictionary'
+import loading from '@/layout/loading.vue'
 
 const route = useRoute()
 
@@ -62,9 +64,8 @@ watch(
   () => systemStore.browserTitle,
   () => {
     if (systemStore.browserTitle) {
-      document.title = `${systemStore.browserTitle} - ${
-        t('app.name') || import.meta.env.APP_NAME
-      }`
+      document.title = `${systemStore.browserTitle} - ${t('app.name') || import.meta.env.APP_NAME
+        }`
     }
     else {
       document.title = t('app.name') || import.meta.env.APP_NAME
@@ -90,33 +91,18 @@ onBeforeMount(() => {
 
 <template>
   <el-config-provider
-    :locale="locale"
-    :button="systemStore.settings.ElementPlus.button"
-    :message="systemStore.settings.ElementPlus.message"
-    :size="systemStore.settings.ElementPlus.size"
+    :locale="locale" :button="systemStore.settings.ElementPlus.button"
+    :message="systemStore.settings.ElementPlus.message" :size="systemStore.settings.ElementPlus.size"
   >
-    <div
-      v-if="systemStore.loading"
-      v-loading="true"
-      class="global-loading"
-      absolute
-      top-0
-      left-0
-      z-9999
-      w-screen
-      h-screen
-      :element-loading-fullscreen="true"
-      :element-loading-lock="true"
-      :element-loading-text="t('app.loading')"
-      element-loading-background="rgba(0, 0, 0, 0.8)"
-    />
+    <loading v-if="systemStore.loading" />
     <template v-else>
+      <layout-default v-if=" !route.meta.layout || route.meta?.layout === ''">
+        <template #router-view>
+          <slot name="index" />
+        </template>
+      </layout-default>
       <layout-page
-        v-if="
-          !route.meta.layout
-            || route.meta?.layout === ''
-            || route.meta?.layout === 'page'
-        "
+        v-if="route.meta?.layout === 'page'"
       >
         <template #router-view>
           <slot name="index" />

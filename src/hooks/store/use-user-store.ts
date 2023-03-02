@@ -31,7 +31,7 @@ export const useUserStore = defineStore('user', () => {
   )
 
   // 系统用户权限
-  const userRoles = ref<Array<string>>(
+  const userRole = ref<Array<string>>(
     getStorage(StorageEnum.USER_ROLES, {
       type: getLoginStorageType(),
     }) || [],
@@ -63,8 +63,8 @@ export const useUserStore = defineStore('user', () => {
   }
 
   // 缓存系统用户权限
-  const setUserRoles = (data: Array<string>): void => {
-    userRoles.value = data
+  const setUserRole = (data: Array<string>): void => {
+    userRole.value = data
     setStorage(StorageEnum.USER_ROLES, data, {
       type: getLoginStorageType(),
     })
@@ -86,7 +86,7 @@ export const useUserStore = defineStore('user', () => {
   const getUserRole = async (): Promise<IObject> => {
     const { code, data } = await GET('/system/user/role')
     if (code === 0) {
-      setUserRoles(data)
+      setUserRole(data)
       return data
     }
     else {
@@ -119,7 +119,7 @@ export const useUserStore = defineStore('user', () => {
   const userlogout = (): void => {
     setToken('')
     setUserProfile({})
-    setUserRoles([])
+    setUserRole([])
     ElNotification({
       title: _t('app.authentication.logoutSuccess'),
       type: 'success',
@@ -136,7 +136,7 @@ export const useUserStore = defineStore('user', () => {
     stayLogin,
     token,
     userProfile,
-    userRoles,
+    userRole,
     isLogin,
     setStayLogin,
     setUserProfile,

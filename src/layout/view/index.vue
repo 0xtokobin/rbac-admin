@@ -7,7 +7,7 @@ import viewTab from '@/layout/view/tab.vue'
 import viewToolbar from '@/layout/view/toolbar.vue'
 import toolbarMobileMenu from '@/layout/toolbar/mobile-menu.vue'
 
-import { useSystemStore } from '@/hooks/use-store/use-system-store'
+import { useSystemStore } from '@/hooks/store/use-system-store'
 import { SettingsValueEnum } from '@/constants/enums'
 
 const systemStore = useSystemStore()

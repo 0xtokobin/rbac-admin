@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { DArrowLeft, DArrowRight } from '@element-plus/icons-vue'
-import { useSystemStore } from '@/hooks/use-store/use-system-store'
+import { useSystemStore } from '@/hooks/store/use-system-store'
 
 const systemStore = useSystemStore()
 

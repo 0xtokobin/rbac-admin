@@ -1,4 +1,4 @@
-import { useSystemStore } from '@/hooks/use-store/use-system-store'
+import { useSystemStore } from '@/hooks/store/use-system-store'
 
 export const useLanguage = () => {
   const systemStore = useSystemStore()

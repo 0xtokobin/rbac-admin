@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { UserFilled } from '@element-plus/icons-vue'
-import { useUserStore } from '@/hooks/use-store/use-user-store'
-import { useSystemStore } from '@/hooks/use-store/use-system-store'
+import { useUserStore } from '@/hooks/store/use-user-store'
+import { useSystemStore } from '@/hooks/store/use-system-store'
 
 const { t } = useI18n()
 

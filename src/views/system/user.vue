@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useDateFormat } from '@vueuse/core'
-import { useCrud } from '@/hooks/use-crud/use-crud'
+import { useCrud } from '@/hooks/crud/use-crud'
 
 const { t } = useI18n()
 

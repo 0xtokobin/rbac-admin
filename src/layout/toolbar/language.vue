@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useLanguage } from '@/hooks/use-language/use-language'
+import { useLanguage } from '@/hooks/language/use-language'
 
 const props = defineProps({
   onlyIcon: {

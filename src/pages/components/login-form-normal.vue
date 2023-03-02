@@ -2,7 +2,7 @@
 import type { FormInstance, FormRules } from 'element-plus'
 import { PASSWORD_NORMAL, USERNAME } from '@kaivanwong/utils'
 import { GET, type ResponseData } from '@/utils/request'
-import { useUserStore } from '@/hooks/use-store/use-user-store'
+import { useUserStore } from '@/hooks/store/use-user-store'
 import { RouteEnum } from '@/constants/enums'
 
 const { t } = useI18n()

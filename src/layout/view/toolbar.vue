@@ -7,7 +7,7 @@ import toolbarSetting from '@/layout/toolbar/setting.vue'
 import toolbarAvatar from '@/layout/toolbar/avatar.vue'
 import toolbarColorScheme from '@/layout/toolbar/color-scheme.vue'
 import { SettingsValueEnum } from '@/constants/enums'
-import { useSystemStore } from '@/hooks/use-store/use-system-store'
+import { useSystemStore } from '@/hooks/store/use-system-store'
 
 const props = defineProps({
   fixed: {

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { UserFilled } from '@element-plus/icons-vue'
 import { RouteEnum } from '@/constants/enums'
-import { useUserStore } from '@/hooks/use-store/use-user-store'
+import { useUserStore } from '@/hooks/store/use-user-store'
 
 const props = defineProps({
   avatarSize: {

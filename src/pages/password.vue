@@ -9,7 +9,6 @@ const { t } = useI18n()
 const step = ref<string>('validate')
 
 const validate = (e: IObject): void => {
-  console.warn(e)
   if (e.status)
     step.value = 'reset'
 }

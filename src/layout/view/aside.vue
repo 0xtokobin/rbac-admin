@@ -2,7 +2,7 @@
 import viewMenu from '@/layout/view/menu.vue'
 import viewLogo from '@/layout/view/logo.vue'
 import menuCollapse from '@/layout/menu/collapse.vue'
-import { useSystemStore } from '@/hooks/use-store/use-system-store'
+import { useSystemStore } from '@/hooks/store/use-system-store'
 import { SettingsValueEnum } from '@/constants/enums'
 
 const systemStore = useSystemStore()

@@ -98,7 +98,7 @@ export default {
         path: '/home',
         name: 'home',
         meta: {
-          layout: 'admin',
+          layout: 'view',
           isMenu: true,
           requiresAuth: true,
           iconType: IconTypeEnum.ELEMENT_PLUS,
@@ -112,7 +112,7 @@ export default {
             name: 'home.workbench',
             component: '/home/workbench',
             meta: {
-              layout: 'admin',
+              layout: 'view',
               isMenu: true,
               requiresAuth: true,
               iconType: IconTypeEnum.ELEMENT_PLUS,
@@ -128,7 +128,7 @@ export default {
         path: '/system',
         name: 'system',
         meta: {
-          layout: 'admin',
+          layout: 'view',
           isMenu: true,
           requiresAuth: true,
           iconType: IconTypeEnum.ELEMENT_PLUS,
@@ -142,7 +142,7 @@ export default {
             name: 'system.menu',
             component: '/system/menu',
             meta: {
-              layout: 'admin',
+              layout: 'view',
               isMenu: true,
               requiresAuth: true,
               iconType: IconTypeEnum.ELEMENT_PLUS,
@@ -157,7 +157,7 @@ export default {
             name: 'system.role',
             component: '/system/role',
             meta: {
-              layout: 'admin',
+              layout: 'view',
               isMenu: true,
               requiresAuth: true,
               iconType: IconTypeEnum.ELEMENT_PLUS,
@@ -172,7 +172,7 @@ export default {
             name: 'system.user',
             component: '/system/user',
             meta: {
-              layout: 'admin',
+              layout: 'view',
               isMenu: true,
               requiresAuth: true,
               iconType: IconTypeEnum.ELEMENT_PLUS,
@@ -187,7 +187,7 @@ export default {
             name: 'system.department',
             component: '/system/department',
             meta: {
-              layout: 'admin',
+              layout: 'view',
               isMenu: true,
               requiresAuth: true,
               iconType: IconTypeEnum.APP,
@@ -202,7 +202,7 @@ export default {
             name: 'system.dictionary',
             component: '/system/dictionary',
             meta: {
-              layout: 'admin',
+              layout: 'view',
               isMenu: true,
               requiresAuth: true,
               iconType: IconTypeEnum.ELEMENT_PLUS,
@@ -217,7 +217,7 @@ export default {
             name: 'system.param',
             component: '/system/param',
             meta: {
-              layout: 'admin',
+              layout: 'view',
               isMenu: true,
               requiresAuth: true,
               iconType: IconTypeEnum.ELEMENT_PLUS,
@@ -232,7 +232,7 @@ export default {
             name: 'system.file',
             component: '/system/file',
             meta: {
-              layout: 'admin',
+              layout: 'view',
               isMenu: true,
               requiresAuth: true,
               iconType: IconTypeEnum.ELEMENT_PLUS,
@@ -247,7 +247,7 @@ export default {
             name: 'system.log',
             component: '/system/log',
             meta: {
-              layout: 'admin',
+              layout: 'view',
               isMenu: true,
               requiresAuth: true,
               iconType: IconTypeEnum.ELEMENT_PLUS,

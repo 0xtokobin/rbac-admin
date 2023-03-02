@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useSystemStore } from '@/hooks/use-store/use-system-store'
+import { useSystemStore } from '@/hooks/store/use-system-store'
 import { PredefineThemeColors } from '@/constants/settings'
 
 const emit = defineEmits(['change'])
