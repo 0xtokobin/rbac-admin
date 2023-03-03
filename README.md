@@ -35,7 +35,7 @@
 
 # 源码目录结构
 
-```sh
+```
 ├── .vscode                   // VSCode IDE 配置
 ├── /mock                     // 模拟接口
 ├── /public                   // 公共静态资源
