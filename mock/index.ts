@@ -4,7 +4,7 @@ import type { ResponseData } from '../src/utils/request'
 import { autoImportMocks } from '../src/utils/auto'
 
 Mock.setup({
-  timeout: '100-300',
+  timeout: '300-600',
 })
 
 const mocks: Mocks = autoImportMocks(

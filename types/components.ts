@@ -92,6 +92,7 @@ declare module '@vue/runtime-core' {
     LayoutToolbarNotification: typeof import('./../src/components/layout/toolbar/layout-toolbar-notification.vue')['default']
     LayoutToolbarRefresh: typeof import('./../src/components/layout/toolbar/layout-toolbar-refresh.vue')['default']
     LayoutToolbarSetting: typeof import('./../src/components/layout/toolbar/layout-toolbar-setting.vue')['default']
+    Provider: typeof import('./../src/components/app/provider.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SvgIcon: typeof import('./../src/components/svg-icon.vue')['default']

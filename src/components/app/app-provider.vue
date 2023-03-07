@@ -1,15 +1,13 @@
 <script lang="ts" setup>
 import type { Language } from 'element-plus/es/locale'
-import layoutPage from '@/layout/page/index.vue'
-import layoutView from '@/layout/view/index.vue'
-import layoutDefault from '@/layout/default/index.vue'
+import layoutPage from '@/layout/layout-page.vue'
+import layoutView from '@/layout/layout-view.vue'
 import { Settings } from '@/constants/settings'
 import { SettingsValueEnum } from '@/constants/enums'
 import { setEpThemeColor } from '@/utils/theme'
 import { useSystemStore } from '@/hooks/store/use-system-store'
 import { useMobileCodes } from '@/hooks/crud/use-mobile-codes'
 import { useDictionary } from '@/hooks/crud/use-dictionary'
-import loading from '@/layout/loading.vue'
 
 const route = useRoute()
 
@@ -76,7 +74,17 @@ watch(
   },
 )
 
+const getRelease = () => {
+  return fetch('https://api.github.com/repos/wingscloud/ui/releases/latest')
+    .then(res => res.json())
+    .then(json => json.tag_name ?? '')
+    .then((releaseTag) => {
+      console.info(`<Wings Cloud> 最新版本：${releaseTag || 'v0.0.0'}已发布，更多信息请访问： https://github.com/wingscloud`)
+    })
+}
+
 onBeforeMount(() => {
+  getRelease()
   systemStore.changeMobile()
   window.onresize = () => {
     systemStore.changeMobile()
@@ -94,25 +102,15 @@ onBeforeMount(() => {
     :locale="locale" :button="systemStore.settings.ElementPlus.button"
     :message="systemStore.settings.ElementPlus.message" :size="systemStore.settings.ElementPlus.size"
   >
-    <loading v-if="systemStore.loading" />
-    <template v-else>
-      <layout-default v-if=" !route.meta.layout || route.meta?.layout === ''">
-        <template #router-view>
-          <slot name="index" />
-        </template>
-      </layout-default>
-      <layout-page
-        v-if="route.meta?.layout === 'page'"
-      >
-        <template #router-view>
-          <slot name="index" />
-        </template>
-      </layout-page>
-      <layout-view v-if="route.meta?.layout === 'view'">
-        <template #router-view>
-          <slot name="index" />
-        </template>
-      </layout-view>
-    </template>
+    <layout-page v-if=" !route.meta.layout || route.meta?.layout === '' || route.meta?.layout === 'page'">
+      <template #router-view>
+        <slot name="index" />
+      </template>
+    </layout-page>
+    <layout-view v-if="route.meta?.layout === 'view'">
+      <template #router-view>
+        <slot name="index" />
+      </template>
+    </layout-view>
   </el-config-provider>
 </template>

@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import provider from '@/layout/provider.vue'
-import loading from '@/layout/loading.vue'
+import provider from '@/components/app/app-provider.vue'
 import { useSystemStore } from '@/hooks/store/use-system-store'
+
+const { t } = useI18n()
 
 const systemStore = useSystemStore()
 
@@ -28,7 +29,11 @@ provide('reloadView', { reload: reloadView })
             </keep-alive>
           </transition>
           <template #fallback>
-            <loading />
+            <div
+              v-loading="true" class="global-loading" fixed top-0 left-0 z-9999 w-screen h-screen
+              :element-loading-fullscreen="true" :element-loading-lock="true" :element-loading-text="t('app.loading')"
+              element-loading-background="rgba(0, 0, 0, 0.8)"
+            />
           </template>
         </Suspense>
       </router-view>

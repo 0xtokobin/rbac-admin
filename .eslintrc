@@ -2,5 +2,8 @@
   "extends": [
     "@kaivanwong",
     "./.eslintrc-auto-import.json"
-  ]
+  ],
+  "rules": {
+    "no-console":"off"
+  }
 }
