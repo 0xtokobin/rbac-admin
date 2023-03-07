@@ -1,8 +1,7 @@
 {
   "extends": "@vue/tsconfig/tsconfig.node.json",
   "include": [
-    "./serve/index.ts",
-    "./test/index.ts"
+    "./serve/index.ts"
   ],
   "exclude": [
     "node_modules",

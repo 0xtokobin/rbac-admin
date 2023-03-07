@@ -4,7 +4,6 @@
     "types/**/*",
     "src/**/*",
     "serve/**/*",
-    "test/**/*",
     "mock/**/*",
     "./package.json"
   ],
@@ -14,9 +13,8 @@
   ],
   "compilerOptions": {
     "composite": true,
-    "moduleResolution": "node",
     "module": "ESNext",
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
       "@/*": [
         "./src/*"
@@ -25,6 +23,5 @@
         "./types/*"
       ]
     }
-  },
-  "resolveJsonModule": true
+  }
 }
