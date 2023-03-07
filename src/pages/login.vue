@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import pkg from '../../package.json'
 import LoginFormNormal from './components/login-form-normal.vue'
 import LoginFormSms from './components/login-form-sms.vue'
 import LoginFormScan from './components/login-form-scan.vue'
@@ -13,27 +14,22 @@ const changeType = (e: string): void => {
 </script>
 
 <template>
-  <el-card box-border w-xs m-auto my-20 shadow="never" important="border-none">
-    <div mt-4 mb-8 text-6 font-600 style="color: var(--el-color-info-light)">
-      {{ t('app.login.login') }}
+  <el-card box-border w-sm m-auto my-20 important-border-0 p-4>
+    <div mt-10 mb-20 text-5 font-600 text-center style="color:var(--el-color-primary);">
+      {{ t('app.name') }} {{ `v${pkg.version}` }}
     </div>
     <LoginFormNormal v-if="type === 'normal'" />
     <LoginFormSms v-if="type === 'sms'" />
     <LoginFormScan v-if="type === 'scan'" />
-    <el-divider>
-      <span text-3 style="color: var(--el-text-color-primary)">
-        {{ t('app.login.or') }}
-      </span>
-    </el-divider>
-    <div w="100%" flex justify-between items-center>
-      <el-button v-if="type !== 'normal'" w="45%" size="large" @click="changeType('normal')">
-        <span text-3 font-600>{{ t('app.login.normal') }}</span>
+    <div flex justify-between>
+      <el-button v-show="type !== 'normal'" type="text" important-m-0 @click="changeType('normal')">
+        {{ t('app.login.normal') }}
       </el-button>
-      <el-button v-if="type !== 'sms'" w="46%" size="large" @click="changeType('sms')">
-        <span text-3 font-600> {{ t('app.login.sms') }}</span>
+      <el-button v-show="type !== 'sms'" type="text" important-m-0 @click="changeType('sms')">
+        {{ t('app.login.sms') }}
       </el-button>
-      <el-button v-if="type !== 'scan'" w="46%" size="large" @click="changeType('scan')">
-        <span text-3 font-600> {{ t('app.login.scan') }}</span>
+      <el-button v-show="type !== 'scan'" type="text" important-m-0 @click="changeType('scan')">
+        {{ t('app.login.scan') }}
       </el-button>
     </div>
   </el-card>

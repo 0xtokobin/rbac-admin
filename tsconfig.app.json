@@ -5,7 +5,8 @@
     "src/**/*",
     "serve/**/*",
     "test/**/*",
-    "mock/**/*"
+    "mock/**/*",
+    "./package.json"
   ],
   "exclude": [
     "node_modules",
@@ -13,6 +14,7 @@
   ],
   "compilerOptions": {
     "composite": true,
+    "moduleResolution": "node",
     "module": "ESNext",
     "baseUrl": ".",
     "paths": {
@@ -23,5 +25,6 @@
         "./types/*"
       ]
     }
-  }
+  },
+  "resolveJsonModule": true
 }

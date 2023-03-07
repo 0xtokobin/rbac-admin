@@ -45,7 +45,7 @@ export const addRouterGuard = (router: Router): Router => {
         userStore.isLogin
         && (to.path === RouteEnum.ROUTE_LOGIN
           || to.path === RouteEnum.ROUTE_SIGNUP
-          || to.path === RouteEnum.ROUTE_PASSWORD_FORGET)
+          || to.path === RouteEnum.ROUTE_PASSWORD)
       ) {
         next({
           path: RouteEnum.ROUTE_ADMIN_FIRST,

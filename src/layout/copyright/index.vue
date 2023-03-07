@@ -1,19 +1,16 @@
 <script lang="ts" setup>
+import { useSystemStore } from '@/hooks/store/use-system-store'
+
 const { t } = useI18n()
+
+const systemStore = useSystemStore()
 </script>
 
 <template>
   <div
-    flex
-    items-center
-    justify-center
-    style="padding: var(--wingscloud-admin-main-padding) 0"
+    text-center style="padding: var(--wingscloud-admin-main-padding) 0;color: var(--el-text-color-secondary)"
+    :class="systemStore.isMobile ? 'text-3' : 'text-4'"
   >
-    <div
-      text-3
-      style="color: var(--el-text-color-secondary)"
-    >
-      {{ t('app.copyright') }}
-    </div>
+    {{ t('app.copyright') }}
   </div>
 </template>

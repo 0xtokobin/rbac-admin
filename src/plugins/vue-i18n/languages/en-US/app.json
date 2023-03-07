@@ -1,6 +1,6 @@
 {
   "name": "Wings Cloud",
-  "description": "# Middle and background management system based on Vue3 + Element Plus. Integrate the latest toolchain of Vue3 ecosystem, internationalization, multi-theme (supports dark mode), mobile adaptation, dynamic routing, etc.",
+  "description": "Middle and background RBAC authority management system designed by microservice architecture",
   "copyright": "Copyright © 2022-PRESENT Kaivan Wong",
   "loading": "The resource is loading. Please wait...",
   "building": "Building...",

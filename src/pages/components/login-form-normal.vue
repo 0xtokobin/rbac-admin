@@ -75,7 +75,7 @@ const formRules = reactive<FormRules>({
 })
 
 const password = (): void => {
-  router.push({ path: RouteEnum.ROUTE_PASSWORD_FORGET })
+  router.push({ path: RouteEnum.ROUTE_PASSWORD })
 }
 
 const loading = ref<boolean>(false)

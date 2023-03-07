@@ -2,8 +2,5 @@
   "extends": [
     "@kaivanwong",
     "./.eslintrc-auto-import.json"
-  ],
-  "globals": {
-    "defineOptions": "readonly"
-  }
+  ]
 }

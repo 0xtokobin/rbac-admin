@@ -1,6 +1,6 @@
 {
   "name": "Wings Cloud",
-  "description": "# 中后台管理系统，基于 Vue3 + Element Plus。集成 Vue3 生态最新工具链、国际化、多主题（支持黑暗模式）、移动端适配、动态路由等。",
+  "description": "微服务架构设计的中后台 RBAC 权限管理系统",
   "copyright": "Copyright © 2022-PRESENT Kaivan Wong",
   "loading": "资源加载中，请稍后...",
   "building": "建设中...",
