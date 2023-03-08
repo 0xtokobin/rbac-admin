@@ -19,7 +19,7 @@ const props = defineProps({
 const systemStore = useSystemStore()
 
 const iconColor = () => {
-  return props.fixed ? '#fff' : 'var(--wingscloud-admin-header-text-color)'
+  return props.fixed ? '#fff' : 'var(--wingscloud-header-text-color)'
 }
 
 const collapse = ref<boolean>(true)
@@ -33,7 +33,7 @@ const changeToolbar = () => {
 
 <template>
   <div
-    h-full flex items-center justify-end p-x-6 box-border style="width: var(--wingscloud-admin-header-toobar-width)"
+    h-full flex items-center justify-end p-x-6 box-border style="width: var(--wingscloud-header-toobar-width)"
     :class="[
       props.fixed ? 'wingscloud-admin-fixed' : '',
       systemStore.isMobile ? 'wingscloud-admin-small' : 'wingscloud-admin-normal',

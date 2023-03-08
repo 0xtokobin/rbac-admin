@@ -74,17 +74,7 @@ watch(
   },
 )
 
-const getRelease = () => {
-  return fetch('https://api.github.com/repos/wingscloud/ui/releases/latest')
-    .then(res => res.json())
-    .then(json => json.tag_name ?? '')
-    .then((releaseTag) => {
-      console.info(`<Wings Cloud> 最新版本：${releaseTag || 'v0.0.0'}已发布，更多信息请访问： https://github.com/wingscloud`)
-    })
-}
-
 onBeforeMount(() => {
-  getRelease()
   systemStore.changeMobile()
   window.onresize = () => {
     systemStore.changeMobile()

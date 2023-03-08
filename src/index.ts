@@ -1,5 +1,6 @@
 import type { App as VueApp } from 'vue'
 import { createApp } from 'vue'
+import Particles from 'vue3-particles'
 import { useMock } from '../mock'
 import App from './components/app/app.vue'
 import 'virtual:svg-icons-register'
@@ -23,7 +24,10 @@ usePinia(app)
 useElementPlus(app)
 useElementPlusIcons(app)
 useVueDomPurifyHTML(app)
+// useparticles(app)
 useRouter(app)
 useMock()
+
+app.use(Particles)
 
 app.mount('#app', true)

@@ -37,16 +37,16 @@ const { t } = useI18n()
 
 <style lang="scss">
 :root {
-  --wingscloud-admin-table-table-row-height: 3.2rem;
+  --wingscloud-table-table-row-height: 3.2rem;
 }
 
 .wingscloud-admin-crud-table-row {
-  height: var(--wingscloud-admin-table-table-row-height);
+  height: var(--wingscloud-table-table-row-height);
 }
 
 .wingscloud-admin-crud-table-header-row {
   &:first-child {
-    height: var(--wingscloud-admin-table-table-row-height);
+    height: var(--wingscloud-table-table-row-height);
   }
 }
 </style>

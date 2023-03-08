@@ -14,7 +14,7 @@ const route = useRoute()
     justify-start
     :style="
       systemStore.settings.Breadcrumb === SettingsValueEnum.BREADCRUMB_VIEW_TOP
-        ? 'padding-bottom: var(--wingscloud-admin-main-padding)'
+        ? 'padding-bottom: var(--wingscloud-main-padding)'
         : ''
     "
   >

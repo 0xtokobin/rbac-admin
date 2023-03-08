@@ -15,13 +15,13 @@ const height = computed(() => {
     || systemStore.settings.Layout === SettingsValueEnum.LAYOUT_ASIDE_DARK
   ) {
     _height
-      = 'calc(100vh - var(--wingscloud-admin-header-height) - var(--wingscloud-admin-tab-height))'
+      = 'calc(100vh - var(--wingscloud-header-height) - var(--wingscloud-tab-height))'
   }
   else {
-    _height = 'calc(100vh - var(--wingscloud-admin-tab-height))'
+    _height = 'calc(100vh - var(--wingscloud-tab-height))'
   }
   if (!systemStore.settings.Tab)
-    _height = `calc(${_height} + var(--wingscloud-admin-tab-height))`
+    _height = `calc(${_height} + var(--wingscloud-tab-height))`
 
   return `height: ${_height}`
 })
@@ -38,8 +38,8 @@ const height = computed(() => {
       style="
             box-sizing: border-box;
             height: 100%;
-            padding: var(--wingscloud-admin-main-padding);
-            background: var(--wingscloud-admin-main-fill);
+            padding: var(--wingscloud-main-padding);
+            background: var(--wingscloud-main-fill);
             transition: all var(--el-transition-duration)
               var(--el-transition-function-ease-in-out-bezier);
           "
@@ -50,7 +50,7 @@ const height = computed(() => {
             === SettingsValueEnum.BREADCRUMB_VIEW_TOP
         "
       />
-      <div style="padding-bottom: var(--wingscloud-admin-main-padding)">
+      <div style="padding-bottom: var(--wingscloud-main-padding)">
         <slot name="main-router-view" />
       </div>
       <copyright

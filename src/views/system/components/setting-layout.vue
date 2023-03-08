@@ -32,14 +32,14 @@ const systemStore = useSystemStore()
           h-4
           style="
             box-sizing: border-box;
-            background-color: var(--wingscloud-admin-header-bg-color);
-            border: 1px solid var(--wingscloud-admin-header-border-color);
+            background-color: var(--wingscloud-header-bg-color);
+            border: 1px solid var(--wingscloud-header-border-color);
             border-radius: 4px 4px 0 0;
           "
           :style="
             systemStore.colorScheme === SettingsValueEnum.COLOR_SCHEME_DARK
               ? 'border-color:var(--el-border-color)'
-              : 'border-color: var(--wingscloud-admin-header-border-color)'
+              : 'border-color: var(--wingscloud-header-border-color)'
           "
         />
         <div flex h-14 w-full>
@@ -48,7 +48,7 @@ const systemStore = useSystemStore()
             w-6
             style="
               box-sizing: border-box;
-              background-color: var(--wingscloud-admin-menu-bg-color);
+              background-color: var(--wingscloud-menu-bg-color);
               border: 1px solid var(--el-border-color);
               border-top: 0;
               border-radius: 0 0 0 4px;
@@ -59,7 +59,7 @@ const systemStore = useSystemStore()
             w-14
             style="
               box-sizing: border-box;
-              background-color: var(--wingscloud-admin-main-fill);
+              background-color: var(--wingscloud-main-fill);
               border: 1px solid var(--el-border-color);
               border-top: 0;
               border-left: 0;
@@ -78,14 +78,14 @@ const systemStore = useSystemStore()
           h-4
           style="
             box-sizing: border-box;
-            background-color: var(--wingscloud-admin-header-bg-color);
+            background-color: var(--wingscloud-header-bg-color);
             border: 1px solid;
             border-radius: 4px 4px 0 0;
           "
           :style="
             systemStore.colorScheme === SettingsValueEnum.COLOR_SCHEME_DARK
               ? 'border-color:var(--el-border-color)'
-              : 'border-color: var(--wingscloud-admin-header-border-color)'
+              : 'border-color: var(--wingscloud-header-border-color)'
           "
         />
         <div
@@ -93,7 +93,7 @@ const systemStore = useSystemStore()
           h-14
           style="
             box-sizing: border-box;
-            background-color: var(--wingscloud-admin-main-fill);
+            background-color: var(--wingscloud-main-fill);
             border: 1px solid var(--el-border-color);
             border-top: 0;
             border-radius: 0 0 4px 4px;
@@ -111,7 +111,7 @@ const systemStore = useSystemStore()
           w-6
           style="
             box-sizing: border-box;
-            background-color: var(--wingscloud-admin-menu-bg-color);
+            background-color: var(--wingscloud-menu-bg-color);
             border: 1px solid var(--el-border-color);
             border-right: 0;
             border-radius: 4px 0 0 4px;
@@ -123,14 +123,14 @@ const systemStore = useSystemStore()
             h-4
             style="
               box-sizing: border-box;
-              background-color: var(--wingscloud-admin-header-bg-color);
+              background-color: var(--wingscloud-header-bg-color);
               border: 1px solid;
               border-radius: 0 4px 0 0;
             "
             :style="
               systemStore.colorScheme === SettingsValueEnum.COLOR_SCHEME_DARK
                 ? 'border-color:var(--el-border-color)'
-                : 'border-color: var(--wingscloud-admin-header-border-color)'
+                : 'border-color: var(--wingscloud-header-border-color)'
             "
           />
           <div
@@ -138,7 +138,7 @@ const systemStore = useSystemStore()
             w-full
             style="
               box-sizing: border-box;
-              background-color: var(--wingscloud-admin-main-fill);
+              background-color: var(--wingscloud-main-fill);
               border: 1px solid var(--el-border-color);
               border-top: 0;
               border-radius: 0 0 4px;
@@ -174,14 +174,14 @@ const systemStore = useSystemStore()
             h-4
             style="
               box-sizing: border-box;
-              background-color: var(--wingscloud-admin-header-bg-color);
+              background-color: var(--wingscloud-header-bg-color);
               border: 1px solid;
               border-radius: 0 4px 0 0;
             "
             :style="
               systemStore.colorScheme === SettingsValueEnum.COLOR_SCHEME_DARK
                 ? 'border-color:var(--el-border-color)'
-                : 'border-color: var(--wingscloud-admin-header-border-color)'
+                : 'border-color: var(--wingscloud-header-border-color)'
             "
           />
           <div
@@ -189,7 +189,7 @@ const systemStore = useSystemStore()
             w-full
             style="
               box-sizing: border-box;
-              background-color: var(--wingscloud-admin-main-fill);
+              background-color: var(--wingscloud-main-fill);
               border: 1px solid var(--el-border-color);
               border-top: 0;
               border-radius: 0 0 4px;
@@ -208,7 +208,7 @@ const systemStore = useSystemStore()
           w-6
           style="
             box-sizing: border-box;
-            background-color: var(--wingscloud-admin-menu-bg-color);
+            background-color: var(--wingscloud-menu-bg-color);
             border: 1px solid var(--el-border-color);
             border-radius: 4px 0 0 4px;
           "
@@ -218,7 +218,7 @@ const systemStore = useSystemStore()
           w-12
           style="
             box-sizing: border-box;
-            background-color: var(--wingscloud-admin-main-fill);
+            background-color: var(--wingscloud-main-fill);
             border: 1px solid var(--el-border-color);
             border-left: 0;
             border-radius: 0 4px 4px 0;
@@ -251,7 +251,7 @@ const systemStore = useSystemStore()
           w-12
           style="
             box-sizing: border-box;
-            background-color: var(--wingscloud-admin-main-fill);
+            background-color: var(--wingscloud-main-fill);
             border: 1px solid var(--el-border-color);
             border-left: 0;
             border-radius: 0 4px 4px 0;

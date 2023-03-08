@@ -15,7 +15,7 @@ const changeCollapse = (): void => {
     items-center
     justify-center
     cursor-pointer
-    style="height: var(--wingscloud-admin-collapse-height)"
+    style="height: var(--wingscloud-collapse-height)"
     class="wingscloud-admin-layout-aside-menu-collapse" :class="[
       `wingscloud-admin-${systemStore.colorScheme}`,
       `wingscloud-admin-${systemStore.settings.Layout}`,

@@ -14,24 +14,24 @@ const goHomeRoute = () => {
 }
 
 const width = computed(() => {
-  let _width = 'var(--wingscloud-admin-header-logo-width)'
+  let _width = 'var(--wingscloud-header-logo-width)'
   if (
     systemStore.collapse
     && systemStore.settings.Layout !== SettingsValueEnum.LAYOUT_TOP
     && systemStore.settings.Layout !== SettingsValueEnum.LAYOUT_TOP_LEAN
   )
-    _width = 'var(--wingscloud-admin-aside-width-fold)'
+    _width = 'var(--wingscloud-aside-width-fold)'
   else
-    _width = 'var(--wingscloud-admin-aside-width)'
+    _width = 'var(--wingscloud-aside-width)'
 
   if (
     systemStore.settings.Layout === SettingsValueEnum.LAYOUT_TOP
     || systemStore.settings.Layout === SettingsValueEnum.LAYOUT_TOP_LEAN
   )
-    _width = 'var(--wingscloud-admin-header-logo-width)'
+    _width = 'var(--wingscloud-header-logo-width)'
 
   if (systemStore.isMobile)
-    _width = 'var(--wingscloud-admin-aside-width)'
+    _width = 'var(--wingscloud-aside-width)'
 
   return `width:${_width};`
 })
@@ -106,8 +106,8 @@ const position = computed(() => {
               === SettingsValueEnum.LAYOUT_ASIDE_LEAN
               || systemStore.settings.Layout === SettingsValueEnum.LAYOUT_ASIDE))
           || systemStore.isMobile
-          ? 'color: var(--wingscloud-admin-menu-text-color)'
-          : 'color: var(--wingscloud-admin-header-text-color)'
+          ? 'color: var(--wingscloud-menu-text-color)'
+          : 'color: var(--wingscloud-header-text-color)'
       "
     >
       {{ t('app.name') }}

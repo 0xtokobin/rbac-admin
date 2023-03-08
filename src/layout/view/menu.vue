@@ -24,20 +24,20 @@ const wrapStyle = computed(() => {
       || systemStore.settings.Layout === SettingsValueEnum.LAYOUT_TOP_LEAN
     ) {
       _height
-        = 'calc(100vh - var(--wingscloud-admin-header-height) - var(--wingscloud-admin-collapse-height))'
+        = 'calc(100vh - var(--wingscloud-header-height) - var(--wingscloud-collapse-height))'
     }
     else {
       _height
-        = 'calc(100vh - var(--wingscloud-admin-aside-logo-height) - var(--wingscloud-admin-collapse-height))'
+        = 'calc(100vh - var(--wingscloud-aside-logo-height) - var(--wingscloud-collapse-height))'
     }
     if (systemStore.isMobile)
-      _height = 'calc(100vh - var(--wingscloud-admin-aside-logo-height)'
+      _height = 'calc(100vh - var(--wingscloud-aside-logo-height)'
 
     return `height:${_height};`
   }
   else {
     const _width
-      = 'calc(100vw - var(--wingscloud-admin-header-toobar-width) - var(--wingscloud-admin-header-logo-width))'
+      = 'calc(100vw - var(--wingscloud-header-toobar-width) - var(--wingscloud-header-logo-width))'
     return `width:${_width};height:100%;display:flex;align-items:center;`
   }
 })

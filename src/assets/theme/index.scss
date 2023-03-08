@@ -3,18 +3,18 @@
 @use './dark.scss';
 
 :root {
-  --wingscloud-admin-header-height: 5rem;
-  --wingscloud-admin-header-toobar-width: 30rem;
-  --wingscloud-admin-header-logo-width: 22rem;
-  --wingscloud-admin-aside-logo-height: 6rem;
-  --wingscloud-admin-aside-width-fold: calc(
-    var(--el-menu-item-height) + var(--wingscloud-admin-menu-gap) * 2 +
+  --wingscloud-header-height: 5rem;
+  --wingscloud-header-toobar-width: 30rem;
+  --wingscloud-header-logo-width: 22rem;
+  --wingscloud-aside-logo-height: 6rem;
+  --wingscloud-aside-width-fold: calc(
+    var(--el-menu-item-height) + var(--wingscloud-menu-gap) * 2 +
       var(--el-menu-icon-width)
   );
-  --wingscloud-admin-aside-width: 14.6rem;
-  --wingscloud-admin-menu-radius: 0.5rem;
-  --wingscloud-admin-menu-gap: 0.2rem;
-  --wingscloud-admin-tab-height: 2.5rem;
-  --wingscloud-admin-collapse-height: 3rem;
-  --wingscloud-admin-main-padding: 1.4rem;
+  --wingscloud-aside-width: 14.6rem;
+  --wingscloud-menu-radius: 0.5rem;
+  --wingscloud-menu-gap: 0.2rem;
+  --wingscloud-tab-height: 2.5rem;
+  --wingscloud-collapse-height: 3rem;
+  --wingscloud-main-padding: 1.4rem;
 }

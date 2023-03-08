@@ -2,7 +2,7 @@
 const props = defineProps({
   color: {
     type: String,
-    default: 'var(--wingscloud-admin-header-text-color)',
+    default: 'var(--wingscloud-header-text-color)',
   },
 })
 

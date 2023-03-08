@@ -36,7 +36,7 @@ const changeMobileMenu = () => {
       :color="
         props.fixed
           ? 'var(--el-color-white)'
-          : 'var(--wingscloud-admin-header-text-color)'
+          : 'var(--wingscloud-header-text-color)'
       "
       @click="changeMobileMenu()"
     />

@@ -20,8 +20,8 @@ const systemStore = useSystemStore()
 
 <template>
   <el-card
-    m-auto important-border-0 w-xs
-    :style="systemStore.isMobile ? 'margin-top:10vh;padding:0;' : 'margin-top:10vh;padding:1rem 1.5rem'"
+    m-auto important-border-0
+    :style="systemStore.isMobile ? 'margin-top:0vh;padding:0;width:88vw;' : 'margin-top:10vh;padding:1rem 1.5rem;width:20rem;'"
   >
     <div my-4 flex justify-center items-center>
       <img w-20 h-20 src="@/assets/logo.svg">
@@ -34,13 +34,13 @@ const systemStore = useSystemStore()
     <LoginFormSms v-if="type === 'sms'" />
     <LoginFormScan v-if="type === 'scan'" />
     <div flex justify-between>
-      <el-button v-show="type !== 'normal'" type="text" important-m-0 @click="changeType('normal')">
+      <el-button v-show="type !== 'normal'" link important-m-0 @click="changeType('normal')">
         {{ t('app.login.normal') }}
       </el-button>
-      <el-button v-show="type !== 'sms'" type="text" important-m-0 @click="changeType('sms')">
+      <el-button v-show="type !== 'sms'" link important-m-0 @click="changeType('sms')">
         {{ t('app.login.sms') }}
       </el-button>
-      <el-button v-show="type !== 'scan'" type="text" important-m-0 @click="changeType('scan')">
+      <el-button v-show="type !== 'scan'" link important-m-0 @click="changeType('scan')">
         {{ t('app.login.scan') }}
       </el-button>
     </div>

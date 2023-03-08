@@ -8,7 +8,7 @@ const systemStore = useSystemStore()
 
 <template>
   <div
-    text-center style="padding: var(--wingscloud-admin-main-padding) 0;color: var(--el-text-color-secondary)"
+    text-center style="padding: var(--wingscloud-main-padding) 0;color: var(--el-text-color-secondary)"
     :class="systemStore.isMobile ? 'text-3' : 'text-4'"
   >
     {{ t('app.copyright') }}

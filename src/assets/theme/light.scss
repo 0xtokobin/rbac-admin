@@ -1,17 +1,18 @@
 :root {
-  --wingscloud-admin-header-bg-color: var(--el-bg-color) !important;
-  --wingscloud-admin-header-text-color: var(--el-text-color-primary) !important;
-  --wingscloud-admin-header-border-color: var(--el-border-color) !important;
-  --wingscloud-admin-aside-border-color: var(--el-border-color);
-  --wingscloud-admin-menu-bg-color: var(--el-bg-color);
-  --wingscloud-admin-menu-bg-color-active: var(--el-color-primary);
-  --wingscloud-admin-menu-bg-color-hover: var(--el-color-info-light-7);
-  --wingscloud-admin-menu-text-color: var(--el-text-color-primary);
-  --wingscloud-admin-menu-text-color-active: var(--el-color-white);
-  --wingscloud-admin-menu-text-color-hover: var(--el-text-color-primary);
-  --wingscloud-admin-menu-sub-bg-color: none;
-  --wingscloud-admin-menu-inline-bg-color: var(--el-color-info-light-9);
-  --wingscloud-admin-tab-bg-color: var(--el-bg-color);
-  --wingscloud-admin-tab-border-color: var(--el-border-color);
-  --wingscloud-admin-main-fill: var(--el-bg-color-fill);
+  --wingscloud-header-bg-color: var(--el-bg-color) !important;
+  --wingscloud-header-text-color: var(--el-text-color-primary) !important;
+  --wingscloud-header-border-color: var(--el-border-color) !important;
+  --wingscloud-aside-border-color: var(--el-border-color);
+  --wingscloud-menu-bg-color: var(--el-bg-color);
+  --wingscloud-menu-bg-color-active: var(--el-color-primary);
+  --wingscloud-menu-bg-color-hover: var(--el-color-info-light-7);
+  --wingscloud-menu-text-color: var(--el-text-color-primary);
+  --wingscloud-menu-text-color-active: var(--el-color-white);
+  --wingscloud-menu-text-color-hover: var(--el-text-color-primary);
+  --wingscloud-menu-sub-bg-color: none;
+  --wingscloud-menu-inline-bg-color: var(--el-color-info-light-9);
+  --wingscloud-tab-bg-color: var(--el-bg-color);
+  --wingscloud-tab-border-color: var(--el-border-color);
+  --wingscloud-main-fill: var(--el-bg-color-fill);
+  --wingscloud-bg-color-login: #0d47a1;
 }

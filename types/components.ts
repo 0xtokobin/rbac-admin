@@ -13,6 +13,7 @@ declare module '@vue/runtime-core' {
     AppLoading: typeof import('./../src/components/app/app-loading.vue')['default']
     AppProvider: typeof import('./../src/components/app/app-provider.vue')['default']
     AvatarUpload: typeof import('./../src/components/avatar-upload.vue')['default']
+    Bg: typeof import('./../src/components/bg.vue')['default']
     CrudCard: typeof import('./../src/components/crud-card.vue')['default']
     CrudDialog: typeof import('./../src/components/crud-dialog.vue')['default']
     CrudPageForm: typeof import('./../src/components/crud-page-form.vue')['default']

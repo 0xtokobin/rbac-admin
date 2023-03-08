@@ -155,10 +155,10 @@ watch(
 <style lang="scss" scoped>
 .slot {
   box-sizing: border-box;
-  height: var(--wingscloud-admin-tab-height);
-  padding: 0 var(--wingscloud-admin-main-padding);
-  background-color: var(--wingscloud-admin-tab-bg-color) !important;
-  border-bottom: 1px solid var(--wingscloud-admin-tab-border-color);
+  height: var(--wingscloud-tab-height);
+  padding: 0 var(--wingscloud-main-padding);
+  background-color: var(--wingscloud-tab-bg-color) !important;
+  border-bottom: 1px solid var(--wingscloud-tab-border-color);
   transition: all var(--el-transition-duration) var(--el-transition-function-ease-in-out-bezier);
 }
 
@@ -186,7 +186,7 @@ watch(
 
 .slot.wingscloud-admin-round {
   height: auto;
-  background-color: var(--wingscloud-admin-main-fill) !important;
+  background-color: var(--wingscloud-main-fill) !important;
   border-bottom: 1px solid rgba($color: #000, $alpha: 0%);
 
   :deep(.el-tabs__item) {

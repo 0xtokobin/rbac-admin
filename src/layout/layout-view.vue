@@ -25,7 +25,7 @@ const systemStore = useSystemStore()
         :style="
           systemStore.settings.Layout === SettingsValueEnum.LAYOUT_TOP
             || systemStore.settings.Layout === SettingsValueEnum.LAYOUT_TOP_LEAN
-            ? 'height: var(--wingscloud-admin-header-height); border-bottom: 1px solid'
+            ? 'height: var(--wingscloud-header-height); border-bottom: 1px solid'
             : 'height: 0; border-bottom: none;'
         "
       >
@@ -42,8 +42,8 @@ const systemStore = useSystemStore()
             !systemStore.isMobile
               && systemStore.settings.Layout !== SettingsValueEnum.LAYOUT_TOP_LEAN
               ? systemStore.collapse
-                ? 'width: var(--wingscloud-admin-aside-width-fold)'
-                : 'width: var(--wingscloud-admin-aside-width)'
+                ? 'width: var(--wingscloud-aside-width-fold)'
+                : 'width: var(--wingscloud-aside-width)'
               : 'width: 0',
             systemStore.isMobile ? 'border:none' : '',
           ]"
@@ -59,7 +59,7 @@ const systemStore = useSystemStore()
           :style="
             systemStore.settings.Layout === SettingsValueEnum.LAYOUT_TOP
               || systemStore.settings.Layout === SettingsValueEnum.LAYOUT_TOP_LEAN
-              ? 'height: calc(100vh - var(--wingscloud-admin-header-height));'
+              ? 'height: calc(100vh - var(--wingscloud-header-height));'
               : 'height: calc(100vh);'
           "
         >
@@ -68,7 +68,7 @@ const systemStore = useSystemStore()
               systemStore.settings.Layout === SettingsValueEnum.LAYOUT_ASIDE
                 || systemStore.settings.Layout
                   === SettingsValueEnum.LAYOUT_ASIDE_DARK
-                ? 'height: var(--wingscloud-admin-header-height); border-bottom: 1px solid'
+                ? 'height: var(--wingscloud-header-height); border-bottom: 1px solid'
                 : 'height: 0; border-bottom: none'
             "
           >
@@ -107,7 +107,7 @@ const systemStore = useSystemStore()
       :show-close="false"
       direction="ltr"
       :with-header="false"
-      size="var(--wingscloud-admin-aside-width)"
+      size="var(--wingscloud-aside-width)"
     >
       <view-aside />
     </el-drawer>
@@ -126,8 +126,8 @@ const systemStore = useSystemStore()
   box-sizing: border-box;
   padding: 0 !important;
   overflow: hidden;
-  background-color: var(--wingscloud-admin-header-bg-color);
-  border-color: var(--wingscloud-admin-header-border-color) !important;
+  background-color: var(--wingscloud-header-bg-color);
+  border-color: var(--wingscloud-header-border-color) !important;
   transition: all var(--el-transition-duration)
     var(--el-transition-function-ease-in-out-bezier);
 }
@@ -135,7 +135,7 @@ const systemStore = useSystemStore()
 :deep(.el-container) {
   box-sizing: border-box;
   overflow: hidden;
-  background-color: var(--wingscloud-admin-menu-bg-color);
+  background-color: var(--wingscloud-menu-bg-color);
   transition: all var(--el-transition-duration)
     var(--el-transition-function-ease-in-out-bezier);
 }
@@ -143,7 +143,7 @@ const systemStore = useSystemStore()
 :deep(.el-aside) {
   box-sizing: border-box;
   overflow: hidden;
-  border-right: 1px solid var(--wingscloud-admin-aside-border-color);
+  border-right: 1px solid var(--wingscloud-aside-border-color);
   transition: all var(--el-transition-duration)
     var(--el-transition-function-ease-in-out-bezier);
 }
@@ -152,13 +152,13 @@ const systemStore = useSystemStore()
   box-sizing: border-box;
   padding: 0;
   overflow: hidden;
-  background: var(--wingscloud-admin-main-fill);
+  background: var(--wingscloud-main-fill);
   transition: all var(--el-transition-duration)
     var(--el-transition-function-ease-in-out-bezier);
 }
 
 :deep(.el-drawer) {
   overflow-x: hidden;
-  background-color: var(--wingscloud-admin-menu-bg-color);
+  background-color: var(--wingscloud-menu-bg-color);
 }
 </style>

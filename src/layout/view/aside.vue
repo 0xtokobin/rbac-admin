@@ -21,7 +21,7 @@ const systemStore = useSystemStore()
           || (!systemStore.isMobile
             && systemStore.settings.Layout !== SettingsValueEnum.LAYOUT_TOP
             && systemStore.settings.Layout !== SettingsValueEnum.LAYOUT_TOP_LEAN)
-      " style="height: var(--wingscloud-admin-aside-logo-height)"
+      " style="height: var(--wingscloud-aside-logo-height)"
     />
     <view-menu />
     <menu-collapse v-if="!systemStore.isMobile" />
