@@ -3,11 +3,10 @@ import type { FormInstance, FormRules } from 'element-plus'
 import { PASSWORD_NORMAL, USERNAME } from '@kaivanwong/utils'
 import { GET, type ResponseData } from '@/utils/request'
 import { useUserStore } from '@/hooks/store/use-user-store'
-import { RouteEnum } from '@/constants/enums'
+
+const emit = defineEmits(['password'])
 
 const { t } = useI18n()
-
-const router = useRouter()
 
 const formRef = ref<FormInstance>()
 
@@ -75,7 +74,7 @@ const formRules = reactive<FormRules>({
 })
 
 const password = (): void => {
-  router.push({ path: RouteEnum.ROUTE_PASSWORD })
+  emit('password')
 }
 
 const loading = ref<boolean>(false)

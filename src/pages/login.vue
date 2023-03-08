@@ -1,8 +1,12 @@
 <script lang="ts" setup>
 import pkg from '../../package.json'
-import LoginFormNormal from './components/login-form-normal.vue'
-import LoginFormSms from './components/login-form-sms.vue'
-import LoginFormScan from './components/login-form-scan.vue'
+import loginFormNormal from './components/login-form-normal.vue'
+import loginFormSms from './components/login-form-sms.vue'
+import loginFormScan from './components/login-form-scan.vue'
+import passwordFormValidate from './components/password-form-validate.vue'
+import passwordFormReset from './components/password-form-reset.vue'
+import passwordFormResult from './components/password-form-result.vue'
+import type { IObject } from '#/global'
 import { useSystemStore } from '@/hooks/store/use-system-store'
 
 const { t } = useI18n()
@@ -16,6 +20,26 @@ const changeType = (e: string): void => {
 const release = ref<string>(pkg.version)
 
 const systemStore = useSystemStore()
+
+const passwordVisible = ref<boolean>(false)
+
+const openPassword = () => {
+  passwordVisible.value = true
+}
+
+const passwordStep = ref<string>('validate')
+
+const validate = (e: IObject): void => {
+  passwordStep.value = 'reset'
+}
+
+const reset = (e: IObject): void => {
+  passwordStep.value = 'result'
+}
+
+const closePassword = () => {
+  passwordVisible.value = false
+}
 </script>
 
 <template>
@@ -30,9 +54,9 @@ const systemStore = useSystemStore()
       <span mr-2>{{ t('app.name') }}</span>
       <span>{{ `v${release}` }}</span>
     </div>
-    <LoginFormNormal v-if="type === 'normal'" />
-    <LoginFormSms v-if="type === 'sms'" />
-    <LoginFormScan v-if="type === 'scan'" />
+    <login-form-normal v-if="type === 'normal'" @password="openPassword" />
+    <login-form-sms v-if="type === 'sms'" />
+    <login-form-scan v-if="type === 'scan'" />
     <div flex justify-between>
       <el-button v-show="type !== 'normal'" link important-m-0 @click="changeType('normal')">
         {{ t('app.login.normal') }}
@@ -45,4 +69,9 @@ const systemStore = useSystemStore()
       </el-button>
     </div>
   </el-card>
+  <app-dialog v-model="passwordVisible" width="26rem" :title="t('app.password.reset')" height="auto">
+    <password-form-validate v-if="passwordStep === 'validate'" @validate="validate" />
+    <password-form-reset v-if="passwordStep === 'reset'" @reset="reset" />
+    <password-form-result v-if="passwordStep === 'result'" @back="closePassword" />
+  </app-dialog>
 </template>
