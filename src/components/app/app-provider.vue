@@ -94,12 +94,12 @@ onBeforeMount(() => {
   >
     <layout-page v-if=" !route.meta.layout || route.meta?.layout === '' || route.meta?.layout === 'page'">
       <template #router-view>
-        <slot name="index" />
+        <slot name="app" />
       </template>
     </layout-page>
     <layout-view v-if="route.meta?.layout === 'view'">
       <template #router-view>
-        <slot name="index" />
+        <slot name="app" />
       </template>
     </layout-view>
   </el-config-provider>

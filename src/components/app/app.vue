@@ -20,7 +20,7 @@ provide('reloadView', { reload: reloadView })
 
 <template>
   <provider>
-    <template #index>
+    <template #app>
       <router-view v-slot="{ Component, route }">
         <Suspense>
           <transition name="wingscloud-admin-page" mode="out-in" appear>

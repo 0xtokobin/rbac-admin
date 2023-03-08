@@ -55,10 +55,8 @@ const particlesInit = async (engine: Engine) => {
 <template>
   <Particles id="tsparticles" :options="options" :particles-init="particlesInit" />
   <el-container>
-    <el-header>
-      <div h-full flex items-center justify-end>
-        <app-language color="#E5EAF3" />
-      </div>
+    <el-header flex items-center justify-end>
+      <app-language color="#E5EAF3" />
     </el-header>
     <el-main>
       <slot name="router-view" />
