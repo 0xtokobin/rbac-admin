@@ -2,8 +2,6 @@
 import type { Engine } from 'tsparticles-engine'
 import { loadFull } from 'tsparticles'
 import { parallax } from 'tsparticles-demo-configs'
-import language from '@/layout/toolbar/language.vue'
-import colorScheme from '@/layout/toolbar/color-scheme.vue'
 import copyright from '@/layout/copyright/index.vue'
 
 const options = computed(() => {
@@ -59,15 +57,14 @@ const particlesInit = async (engine: Engine) => {
   <el-container>
     <el-header>
       <div h-full flex items-center justify-end>
-        <language only-icon mr-6 />
-        <color-scheme />
+        <app-language color="#E5EAF3" />
       </div>
     </el-header>
     <el-main>
       <slot name="router-view" />
     </el-main>
     <el-footer>
-      <copyright />
+      <copyright color="#A3A6AD" />
     </el-footer>
   </el-container>
 </template>

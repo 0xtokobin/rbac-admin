@@ -1,6 +1,17 @@
 <script lang="ts" setup>
 import { useSystemStore } from '@/hooks/store/use-system-store'
 
+const props = defineProps({
+  color: {
+    type: String,
+    default: 'var(--el-text-color-secondary)',
+  },
+  padding: {
+    type: String,
+    default: 'var(--wingscloud-main-padding)',
+  },
+})
+
 const { t } = useI18n()
 
 const systemStore = useSystemStore()
@@ -8,8 +19,8 @@ const systemStore = useSystemStore()
 
 <template>
   <div
-    text-center style="padding: var(--wingscloud-main-padding) 0;color: var(--el-text-color-secondary)"
-    :class="systemStore.isMobile ? 'text-3' : 'text-4'"
+    text-center :style="{ padding: props.padding, color: props.color }"
+    :class="systemStore.isMobile ? 'text-3.2' : 'text-3.8'"
   >
     {{ t('app.copyright') }}
   </div>

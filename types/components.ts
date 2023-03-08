@@ -10,6 +10,7 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     App: typeof import('./../src/components/app/app.vue')['default']
+    AppLanguage: typeof import('./../src/components/app/app-language.vue')['default']
     AppLoading: typeof import('./../src/components/app/app-loading.vue')['default']
     AppProvider: typeof import('./../src/components/app/app-provider.vue')['default']
     AvatarUpload: typeof import('./../src/components/avatar-upload.vue')['default']
