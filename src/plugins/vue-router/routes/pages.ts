@@ -26,10 +26,4 @@ export default [
     component: () => import('@/pages/login.vue'),
     meta: { layout: 'page' },
   },
-  {
-    path: '/password',
-    name: 'password',
-    component: () => import('@/pages/password.vue'),
-    meta: { layout: 'page' },
-  },
 ]

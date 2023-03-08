@@ -30,11 +30,13 @@ const openPassword = () => {
 const passwordStep = ref<string>('validate')
 
 const validate = (e: IObject): void => {
-  passwordStep.value = 'reset'
+  if (e.status)
+    passwordStep.value = 'reset'
 }
 
 const reset = (e: IObject): void => {
-  passwordStep.value = 'result'
+  if (e.status)
+    passwordStep.value = 'result'
 }
 
 const closePassword = () => {
