@@ -10,9 +10,9 @@ const routes: Array<RouteRecordRaw> = autoImportRoutes(
   }),
 )
 
-const router: Router = createRouter({
+const router: Router = addRouterGuard(createRouter({
   history: createWebHistory(import.meta.env.VITE_BASE_URL),
   routes,
-})
+}))
 
-export { routes, router, addRouterGuard }
+export { routes, router }

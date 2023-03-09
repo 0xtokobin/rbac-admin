@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Engine } from 'tsparticles-engine'
+
 import { loadFull } from 'tsparticles'
 import { parallax } from 'tsparticles-demo-configs'
 import copyright from '@/layout/copyright/index.vue'
