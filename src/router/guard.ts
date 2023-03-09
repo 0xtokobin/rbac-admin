@@ -14,6 +14,11 @@ import '@/assets/style/nprogress.scss'
 
 const { isLoading } = useNProgress()
 
+/**
+ * @name addRouterGuard
+ * @description 路由注入拦截器
+ * @returns
+ */
 export const addRouterGuard = (router: Router): Router => {
   router.beforeEach(
     async (

@@ -32,7 +32,7 @@ onUnmounted(() => {
 <template>
   <div w-full flex flex-wrap items-center justify-center>
     <el-image important-w-36 important-h-36 :src="QRcode" />
-    <el-button type="text" w-full m-y-4>
+    <el-button link w-full m-y-4>
       {{ t('app.login.refresh') }}
     </el-button>
   </div>

@@ -219,3 +219,23 @@ export const getLoginStorageType = (): string => {
     ? 'local'
     : 'session'
 }
+
+/**
+ * @name installComponents
+ * @description 自动安装组件
+ * @returns
+ */
+export const installComponents = (
+  app: App,
+  components: Record<string, any>,
+): void => {
+  Object.entries(components).forEach(([, component]) => {
+    if (component.install) {
+      component.install(app)
+    }
+    else {
+      componentAddInstall(component)
+      component.install(app)
+    }
+  })
+}

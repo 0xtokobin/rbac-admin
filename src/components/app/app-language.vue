@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { ArrowDown } from '@element-plus/icons-vue'
 import { useLanguage } from '@/hooks/use-language'
 
 const props = defineProps({

@@ -1,5 +1,5 @@
 export enum RouteEnum {
-  ROUTE_FIRST = '/',
+  ROUTE_FIRST = '/login',
   ROUTE_ADMIN_FIRST = '/home',
   ROUTE_NO_PERMISSION = '/403',
   ROUTE_NO_FOUND = '/404',

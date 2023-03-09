@@ -5,15 +5,10 @@ import { IconTypeEnum } from '@/constants/enums'
 export default [
   {
     path: '/',
+    name: 'index',
     component: Index,
     redirect: Settings.FirstRoute,
     meta: { layout: '' },
-  },
-  {
-    path: '/login',
-    name: 'login',
-    component: () => import('@/views/login/login.vue'),
-    meta: { layout: 'page' },
   },
   {
     path: '/403',
@@ -26,6 +21,12 @@ export default [
     name: '404',
     component: () => import('@/views/404.vue'),
     meta: { layout: '' },
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('@/views/login/login.vue'),
+    meta: { layout: 'page' },
   },
   {
     path: '/home',
