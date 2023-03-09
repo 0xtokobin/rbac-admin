@@ -1,16 +1,28 @@
 <script lang="ts" setup>
-import viewHeader from '@/layout/view/header.vue'
-import viewFooter from '@/layout/view/footer.vue'
-import viewMain from '@/layout/view/main.vue'
-import viewAside from '@/layout/view/aside.vue'
-import viewTab from '@/layout/view/tab.vue'
-import viewToolbar from '@/layout/view/toolbar.vue'
-import toolbarMobileMenu from '@/layout/toolbar/mobile-menu.vue'
-
 import { useSystemStore } from '@/hooks/use-system-store'
 import { SettingsValueEnum } from '@/constants/enums'
 
 const systemStore = useSystemStore()
+
+const height = computed(() => {
+  let _height = '100vh'
+  if (
+    systemStore.settings.Layout === SettingsValueEnum.LAYOUT_TOP
+    || systemStore.settings.Layout === SettingsValueEnum.LAYOUT_TOP_LEAN
+    || systemStore.settings.Layout === SettingsValueEnum.LAYOUT_ASIDE
+    || systemStore.settings.Layout === SettingsValueEnum.LAYOUT_ASIDE_DARK
+  ) {
+    _height
+      = 'calc(100vh - var(--wingscloud-header-height) - var(--wingscloud-tab-height))'
+  }
+  else {
+    _height = 'calc(100vh - var(--wingscloud-tab-height))'
+  }
+  if (!systemStore.settings.Tab)
+    _height = `calc(${_height} + var(--wingscloud-tab-height))`
+
+  return `height: ${_height}`
+})
 </script>
 
 <template>
@@ -29,7 +41,7 @@ const systemStore = useSystemStore()
             : 'height: 0; border-bottom: none;'
         "
       >
-        <view-header
+        <layout-view-header
           v-if="
             systemStore.settings.Layout === SettingsValueEnum.LAYOUT_TOP
               || systemStore.settings.Layout === SettingsValueEnum.LAYOUT_TOP_LEAN
@@ -48,7 +60,7 @@ const systemStore = useSystemStore()
             systemStore.isMobile ? 'border:none' : '',
           ]"
         >
-          <view-aside
+          <layout-view-aside
             v-if="
               !systemStore.isMobile
                 && systemStore.settings.Layout !== SettingsValueEnum.LAYOUT_TOP_LEAN
@@ -72,7 +84,7 @@ const systemStore = useSystemStore()
                 : 'height: 0; border-bottom: none'
             "
           >
-            <view-header
+            <layout-view-header
               v-if="
                 systemStore.settings.Layout
                   === SettingsValueEnum.LAYOUT_ASIDE
@@ -81,43 +93,38 @@ const systemStore = useSystemStore()
               "
             />
           </el-header>
-          <view-tab v-if="systemStore.settings.Tab" />
-          <view-main>
-            <template #main-router-view>
+          <app-tab v-if="systemStore.settings.Tab" />
+          <div
+            style="
+                  box-sizing: border-box;
+                  padding: var(--wingscloud-main-padding);
+                  background: var(--wingscloud-main-fill);
+                  transition: all var(--el-transition-duration)
+                    var(--el-transition-function-ease-in-out-bezier);
+                " :style="height"
+          >
+            <app-breadcrumb
+              v-if="
+                systemStore.settings.Breadcrumb
+                  === SettingsValueEnum.BREADCRUMB_VIEW_TOP
+              "
+            />
+            <div style="padding-bottom: var(--wingscloud-main-padding)">
               <slot name="router-view" />
-            </template>
-          </view-main>
+            </div>
+          </div>
           <el-footer v-if="systemStore.settings.Footer">
-            <view-footer />
+            <layout-view-footer />
           </el-footer>
         </el-main>
       </el-container>
     </el-container>
-    <toolbar-mobile-menu
-      v-if="
-        systemStore.isMobile
-          && (systemStore.settings.Layout === SettingsValueEnum.LAYOUT_ASIDE_LEAN
-            || systemStore.settings.Layout
-              === SettingsValueEnum.LAYOUT_ASIDE_LEAN_DARK)
-      "
-      :fixed="true"
-    />
     <el-drawer
-      v-model="systemStore.mobileMenu"
-      :show-close="false"
-      direction="ltr"
-      :with-header="false"
+      v-model="systemStore.mobileMenu" :show-close="false" direction="ltr" :with-header="false"
       size="var(--wingscloud-aside-width)"
     >
-      <view-aside />
+      <layout-view-aside />
     </el-drawer>
-    <view-toolbar
-      v-if="
-        systemStore.settings.Layout === SettingsValueEnum.LAYOUT_ASIDE_LEAN
-          || systemStore.settings.Layout === SettingsValueEnum.LAYOUT_ASIDE_LEAN_DARK
-      "
-      :fixed="true"
-    />
   </div>
 </template>
 
@@ -128,24 +135,21 @@ const systemStore = useSystemStore()
   overflow: hidden;
   background-color: var(--wingscloud-header-bg-color);
   border-color: var(--wingscloud-header-border-color) !important;
-  transition: all var(--el-transition-duration)
-    var(--el-transition-function-ease-in-out-bezier);
+  transition: all var(--el-transition-duration) var(--el-transition-function-ease-in-out-bezier);
 }
 
 :deep(.el-container) {
   box-sizing: border-box;
   overflow: hidden;
   background-color: var(--wingscloud-menu-bg-color);
-  transition: all var(--el-transition-duration)
-    var(--el-transition-function-ease-in-out-bezier);
+  transition: all var(--el-transition-duration) var(--el-transition-function-ease-in-out-bezier);
 }
 
 :deep(.el-aside) {
   box-sizing: border-box;
   overflow: hidden;
   border-right: 1px solid var(--wingscloud-aside-border-color);
-  transition: all var(--el-transition-duration)
-    var(--el-transition-function-ease-in-out-bezier);
+  transition: all var(--el-transition-duration) var(--el-transition-function-ease-in-out-bezier);
 }
 
 :deep(.el-main) {
@@ -153,8 +157,7 @@ const systemStore = useSystemStore()
   padding: 0;
   overflow: hidden;
   background: var(--wingscloud-main-fill);
-  transition: all var(--el-transition-duration)
-    var(--el-transition-function-ease-in-out-bezier);
+  transition: all var(--el-transition-duration) var(--el-transition-function-ease-in-out-bezier);
 }
 
 :deep(.el-drawer) {

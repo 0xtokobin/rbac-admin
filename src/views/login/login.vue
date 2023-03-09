@@ -72,10 +72,10 @@ const closePassword = () => {
         {{ t('app.login.scan') }}
       </el-button>
     </div>
-    <app-dialog v-model="passwordVisible" :width="systemStore.isMobile ? '80vw' : '22rem'" :title="t('app.password.reset')" height="auto">
+    <crud-dialog v-model="passwordVisible" :width="systemStore.isMobile ? '80vw' : '22rem'" :title="t('app.password.reset')" height="auto">
       <password-form-validate v-if="passwordStep === 'validate'" @validate="validate" />
       <password-form-reset v-if="passwordStep === 'reset'" @reset="reset" />
       <password-form-result v-if="passwordStep === 'result'" @back="closePassword" />
-    </app-dialog>
+    </crud-dialog>
   </el-card>
 </template>

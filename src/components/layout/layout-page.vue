@@ -3,7 +3,6 @@ import type { Engine } from 'tsparticles-engine'
 
 import { loadFull } from 'tsparticles'
 import { parallax } from 'tsparticles-demo-configs'
-import copyright from '@/layout/copyright/index.vue'
 
 const options = computed(() => {
   return {
@@ -63,7 +62,7 @@ const particlesInit = async (engine: Engine) => {
       <slot name="router-view" />
     </el-main>
     <el-footer>
-      <copyright color="#A3A6AD" />
+      <app-copyright color="#A3A6AD" />
     </el-footer>
   </el-container>
 </template>
