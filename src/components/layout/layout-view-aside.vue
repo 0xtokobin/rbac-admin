@@ -1,7 +1,5 @@
 <script lang="ts" setup>
 import { DArrowLeft, DArrowRight } from '@element-plus/icons-vue'
-import viewMenu from '@/layout/view/menu.vue'
-import viewLogo from '@/layout/view/logo.vue'
 import { useSystemStore } from '@/hooks/use-system-store'
 import { SettingsValueEnum } from '@/constants/enums'
 
@@ -19,7 +17,7 @@ const changeCollapse = (): void => {
       `wingscloud-admin-${systemStore.settings.Layout}`,
     ]"
   >
-    <view-logo
+    <app-logo
       v-if="
         systemStore.isMobile
           || (!systemStore.isMobile
@@ -27,7 +25,7 @@ const changeCollapse = (): void => {
             && systemStore.settings.Layout !== SettingsValueEnum.LAYOUT_TOP_LEAN)
       " style="height: var(--wingscloud-aside-logo-height)"
     />
-    <view-menu />
+    <app-menu />
     <div
       v-if="!systemStore.isMobile"
       flex
