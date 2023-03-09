@@ -1,5 +1,4 @@
-import type { Callback, IObject } from '#/global'
-import type { I18nT } from '@/plugins/vue-i18n/index.d'
+import type { Callback, I18nT, IObject } from '#/global'
 
 export const networkCodeAdaptor = (
   code: number,

@@ -6,7 +6,7 @@ import { Settings } from '@/constants/settings'
 import { getStorage, setStorage } from '@/utils/storage'
 import { getLoginStorageType } from '@/utils/common'
 import { RouteEnum, StorageEnum } from '@/constants/enums'
-import { router } from '@/plugins/vue-router'
+import { router } from '@/router'
 import { _t } from '@/i18n'
 import { GET, POST } from '@/utils/request'
 
