@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { FormInstance, FormRules } from 'element-plus'
 import { MOBILE } from '@kaivanwong/utils'
-import type { MobileForm } from '#/login'
+import type { MobileForm } from '@/views/login/login'
 import type { IObject } from '#/global'
 import { MobileCodeTypeEnum, StorageEnum } from '@/constants/enums'
 import { useCountDown } from '@/hooks/use-count-down'
