@@ -19,8 +19,6 @@ const userStore = useUserStore()
 const actionChange = (command: string): void => {
   if (command.includes('/'))
     router.push({ path: command })
-  else if (command === 'switchRoles')
-    userStore.switchUserRole()
   else if (command === 'signout')
     userStore.userlogout()
 }
@@ -36,10 +34,6 @@ const actionChange = (command: string): void => {
     />
     <template #dropdown>
       <el-dropdown-menu>
-        <el-dropdown-item command="swtichRoles">
-          <el-icon><CollectionTag /></el-icon>
-          <span>{{ t('app.toolbar.avatar.switchRoles') }}</span>
-        </el-dropdown-item>
         <el-dropdown-item :command="RouteEnum.ROUTE_SYSTEM_PROFILE">
           <el-icon><User /></el-icon>
           <span>{{ t('system.profile.menuName') }}</span>

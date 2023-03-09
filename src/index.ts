@@ -18,8 +18,6 @@ import { installComponents } from '@/utils/common'
 
 const app = createApp(App)
 
-registerMock()
-
 app
   .use(createPinia())
   .use(router)
@@ -28,5 +26,7 @@ app
   .use(Particles)
   .use(VueDOMPurifyHTML)
   .mount('#app', true)
+
+registerMock()
 
 installComponents(app, ElementPlusIconsVue)

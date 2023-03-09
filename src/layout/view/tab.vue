@@ -40,8 +40,8 @@ const findTab = (path: string): IObject => {
 
 const addTab = (data: IObject, isPushTab?: boolean): void => {
   isPushTab = isPushTab || false
+  console.log(data)
   tabList.value.push({ label: data.meta.menuName, name: data.path })
-  nowTab.value = data.path
   if (isPushTab)
     router.push({ path: data.path })
 }
