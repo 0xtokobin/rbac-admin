@@ -1,11 +1,8 @@
 <script lang="ts" setup>
-import { useRouteStore } from '@/hooks/use-route-store'
 import { useSystemStore } from '@/hooks/use-system-store'
 import { IconTypeEnum } from '@/constants/enums'
 
 const { t } = useI18n()
-
-const routeStore = useRouteStore()
 
 const systemStore = useSystemStore()
 
@@ -22,7 +19,7 @@ const keepAliveChange = (val: string | number | boolean) => {
         </el-button>
       </template>
     </crud-table-query>
-    <crud-table :data="routeStore.menuRoutes" action-width="300" row-key="path">
+    <crud-table :data="systemStore.menuRoutes" action-width="300" row-key="path">
       <el-table-column :label="t('system.menu.menu')" width="240">
         <template #default="scope">
           {{ scope.row.meta.menuName }}

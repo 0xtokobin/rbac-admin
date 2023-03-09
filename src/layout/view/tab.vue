@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import type { IObject } from '#/global'
 import { useSystemStore } from '@/hooks/use-system-store'
-import { useRouteStore } from '@/hooks/use-route-store'
 import { Settings } from '@/constants/settings'
 import { arrayRecursion } from '@/utils/common'
 
@@ -16,7 +15,6 @@ const route = useRoute()
 const router = useRouter()
 
 const systemStore = useSystemStore()
-const routeStore = useRouteStore()
 
 const tabList = ref<Tab[]>([])
 const nowTab = ref(route.path)
@@ -87,7 +85,7 @@ const clickOperationMenu = (command: string | number | object): void => {
 onBeforeMount(() => {
   homeTab.value = arrayRecursion(
     'path',
-    routeStore.menuRoutes,
+    systemStore.menuRoutes,
     Settings.AdminFirstRoute,
   )
   const { isFind, path } = findTab(route.path)

@@ -91,7 +91,7 @@ export default {
    * @description 获取系统用户路由
    */
   getSystemUserRoute: {
-    url: '/system/user/route',
+    url: '/system/menu/list',
     method: 'get',
     data: [
       {

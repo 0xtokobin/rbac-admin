@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ElNotification } from 'element-plus'
-import { useRouteStore } from './use-route-store'
+import { useSystemStore } from './use-system-store'
 import type { IObject } from '#/global'
 import { Settings } from '@/constants/settings'
 import { getStorage, setStorage } from '@/utils/storage'
@@ -10,13 +10,18 @@ import { router } from '@/router'
 import { _t } from '@/i18n'
 import { GET, POST } from '@/utils/request'
 
+/**
+ * @name useUserStore
+ * @description 用户状态管理钩子函数
+ * @returns
+ */
 export const useUserStore = defineStore('user', () => {
-  // 保持登录状态
+  // 保持登录状态标识
   const stayLogin = ref<boolean>(
     getStorage(StorageEnum.STAY_LOGIN, { type: 'local' }) || false,
   )
 
-  // Token
+  // 令牌
   const token = ref<string | null>(
     getStorage(StorageEnum.TOKEN, {
       type: getLoginStorageType(),
@@ -96,23 +101,22 @@ export const useUserStore = defineStore('user', () => {
 
   // 系统用户登录
   const userLogin = async (form: any): Promise<void> => {
-    POST('/system/user/login', form).then(async ({ data, code }) => {
-      if (code === 0) {
-        const routeStore = useRouteStore()
-        await setStayLogin(form.remember)
-        await setToken(data)
-        await getUserProfile()
-        await getUserRole()
-        await routeStore.getAsyncRoutes()
-        ElNotification({
-          title: _t('app.authentication.loginSuccess'),
-          type: 'success',
-        })
-        router.replace({
-          path: Settings.AdminFirstRoute,
-        })
-      }
-    })
+    const { data, code } = await POST('/system/user/login', form)
+    if (code === 0) {
+      const systemStore = useSystemStore()
+      await setStayLogin(form.remember)
+      await setToken(data)
+      await getUserProfile()
+      await getUserRole()
+      await systemStore.getMenuRoutes()
+      router.replace({
+        path: Settings.AdminFirstRoute,
+      })
+      ElNotification({
+        title: _t('app.authentication.loginSuccess'),
+        type: 'success',
+      })
+    }
   }
 
   // 系统用户退出登录
@@ -129,9 +133,6 @@ export const useUserStore = defineStore('user', () => {
     })
   }
 
-  // 切换系统用户角色
-  const switchUserRole = () => { }
-
   return {
     stayLogin,
     token,
@@ -144,6 +145,5 @@ export const useUserStore = defineStore('user', () => {
     getUserRole,
     userLogin,
     userlogout,
-    switchUserRole,
   }
 })

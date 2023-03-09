@@ -6,7 +6,6 @@ import type {
 import { useNProgress } from '@vueuse/integrations/useNProgress'
 import { RouteEnum, StorageEnum } from '@/constants/enums'
 import { useSystemStore } from '@/hooks/use-system-store'
-import { useRouteStore } from '@/hooks/use-route-store'
 import { useUserStore } from '@/hooks/use-user-store'
 import { getStorage } from '@/utils/storage'
 import { getLoginStorageType } from '@/utils/common'
@@ -36,7 +35,6 @@ export const addRouterGuard = (router: Router): Router => {
       )
 
       const systemStore = useSystemStore()
-      const routeStore = useRouteStore()
       const userStore = useUserStore()
 
       if (requiresAuth && !userStore.isLogin) {
@@ -56,12 +54,10 @@ export const addRouterGuard = (router: Router): Router => {
         return
       }
 
-      if (userStore.isLogin && routeStore.asyncRoutes.length === 0) {
-        systemStore.loading = true
+      if (userStore.isLogin && systemStore.menuRoutes.length === 0) {
         await userStore.getUserProfile()
         await userStore.getUserRole()
-        await routeStore.getAsyncRoutes()
-        systemStore.loading = false
+        await systemStore.getMenuRoutes()
         if (to.redirectedFrom)
           next({ path: to.redirectedFrom.fullPath, replace: true })
         else
