@@ -19,10 +19,10 @@ const app = createApp(App)
 registerMock()
 
 app
-  .use(i18n)
   .use(createPinia())
-  .use(ElementPlus)
   .use(router)
+  .use(ElementPlus)
+  .use(i18n)
   .use(Particles)
   .use(VueDOMPurifyHTML)
   .mount('#app', true)

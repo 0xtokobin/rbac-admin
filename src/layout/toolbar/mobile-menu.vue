@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { SettingsValueEnum } from '@/constants/enums'
-import { useSystemStore } from '@/hooks/store/use-system-store'
+import { useSystemStore } from '@/hooks/use-system-store'
 
 const props = defineProps({
   fixed: {

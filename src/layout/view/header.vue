@@ -4,7 +4,7 @@ import viewMenu from '@/layout/view/menu.vue'
 import viewToolbar from '@/layout/view/toolbar.vue'
 import viewLogo from '@/layout/view/logo.vue'
 import { SettingsValueEnum } from '@/constants/enums'
-import { useSystemStore } from '@/hooks/store/use-system-store'
+import { useSystemStore } from '@/hooks/use-system-store'
 
 const systemStore = useSystemStore()
 </script>

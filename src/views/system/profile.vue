@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useUserStore } from '@/hooks/store/use-user-store'
+import { useUserStore } from '@/hooks/use-user-store'
 
 const { t } = useI18n()
 

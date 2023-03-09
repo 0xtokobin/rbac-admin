@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import provider from '@/components/app/app-provider.vue'
-import { useSystemStore } from '@/hooks/store/use-system-store'
+import { useSystemStore } from '@/hooks/use-system-store'
 
 const { t } = useI18n()
 

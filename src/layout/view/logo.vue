@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { Settings } from '@/constants/settings'
-import { useSystemStore } from '@/hooks/store/use-system-store'
+import { useSystemStore } from '@/hooks/use-system-store'
 import { SettingsValueEnum } from '@/constants/enums'
 
 const { t } = useI18n()

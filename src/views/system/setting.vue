@@ -9,7 +9,7 @@ import {
   SystemSettingsLayout,
 } from '#/global'
 import { useLanguage } from '@/hooks/use-language'
-import { useSystemStore } from '@/hooks/store/use-system-store'
+import { useSystemStore } from '@/hooks/use-system-store'
 import {
   PredefineBreadcrumbPosition,
   PredefineColorSchemes,

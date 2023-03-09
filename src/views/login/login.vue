@@ -7,7 +7,7 @@ import passwordFormValidate from '../../pages/components/password-form-validate.
 import passwordFormReset from '../../pages/components/password-form-reset.vue'
 import passwordFormResult from '../../pages/components/password-form-result.vue'
 import type { IObject } from '#/global'
-import { useSystemStore } from '@/hooks/store/use-system-store'
+import { useSystemStore } from '@/hooks/use-system-store'
 
 const { t } = useI18n()
 

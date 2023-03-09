@@ -2,17 +2,6 @@ import { IconTypeEnum } from '@/constants/enums'
 
 export default [
   {
-    path: '/home',
-    name: 'home',
-    component: () => import('@/views/home.vue'),
-    meta: {
-      layout: 'view',
-      iconType: IconTypeEnum.ELEMENT_PLUS,
-      icon: 'Workbench',
-      i18nKey: 'home',
-    },
-  },
-  {
     path: '/system/profile',
     name: 'system.profile',
     component: () => import('@/views/system/profile.vue'),

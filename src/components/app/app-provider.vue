@@ -5,7 +5,7 @@ import layoutView from '@/layout/layout-view.vue'
 import { Settings } from '@/constants/settings'
 import { SettingsValueEnum } from '@/constants/enums'
 import { setEpThemeColor } from '@/utils/common'
-import { useSystemStore } from '@/hooks/store/use-system-store'
+import { useSystemStore } from '@/hooks/use-system-store'
 import { useMobileCodes } from '@/hooks/use-mobile-codes'
 import { useDictionary } from '@/hooks/use-dictionary'
 

@@ -4,7 +4,7 @@ import { MOBILE } from '@kaivanwong/utils'
 import { MobileCodeTypeEnum, StorageEnum } from '@/constants/enums'
 import { getStorage } from '@/utils/storage'
 import { useCountDown } from '@/hooks/use-count-down'
-import { useUserStore } from '@/hooks/store/use-user-store'
+import { useUserStore } from '@/hooks/use-user-store'
 
 const { t } = useI18n()
 

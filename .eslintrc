@@ -4,6 +4,8 @@
     "./.eslintrc-auto-import.json"
   ],
   "rules": {
-    "no-console":"off"
+    "no-console": "off",
+    "no-debugger": "off",
+    "no-restricted-syntax":"off"
   }
 }
