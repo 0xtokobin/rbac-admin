@@ -4,8 +4,8 @@ import type { IObject } from './global'
 
 declare module 'vue-router' {
   interface RouteMeta {
-    component?: string | Component
     layout: string
+    component?: string | Component
     isI18n?: boolean
     i18nKey?: string
     isMenu?: boolean
