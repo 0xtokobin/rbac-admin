@@ -3,13 +3,6 @@ import { UserFilled } from '@element-plus/icons-vue'
 import { RouteEnum } from '@/constants/enums'
 import { useUserStore } from '@/hooks/use-user-store'
 
-const props = defineProps({
-  avatarSize: {
-    type: Number,
-    default: 38,
-  },
-})
-
 const { t } = useI18n()
 
 const router = useRouter()
@@ -27,8 +20,8 @@ const actionChange = (command: string): void => {
 <template>
   <el-dropdown @command="actionChange">
     <el-avatar
+      :size="32"
       cursor-pointer
-      :size="props.avatarSize"
       :src="userStore.userProfile.avatar"
       :icon="UserFilled"
     />

@@ -130,9 +130,6 @@ const height = computed(() => {
 
 <style lang="scss" scoped>
 :deep(.el-header) {
-  box-sizing: border-box;
-  padding: 0 !important;
-  overflow: hidden;
   background-color: var(--wingscloud-header-bg-color);
   border-color: var(--wingscloud-header-border-color) !important;
   transition: all var(--el-transition-duration) var(--el-transition-function-ease-in-out-bezier);

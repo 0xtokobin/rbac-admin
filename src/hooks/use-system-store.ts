@@ -96,7 +96,7 @@ export const useSystemStore = defineStore('system', () => {
       isMobile.value = true
 
     else
-      isMobile.value = document.documentElement.clientWidth < 992
+      isMobile.value = document.documentElement.clientWidth < 778
 
     if (!isMobile.value) {
       collapse.value = false

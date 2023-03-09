@@ -57,12 +57,12 @@ const position = computed(() => {
   <div
     class="wingscloud-admin-layout-admin-logo"
     cursor-pointer
-    p-x-6
-    box-border
     :style="[width, position]"
     @click="goHomeRoute()"
   >
-    <div class="logo" flex items-center justify-center>
+    <div
+      class="logo" flex items-center justify-center h-5
+    >
       <img
         v-if="
           (systemStore.colorScheme === SettingsValueEnum.COLOR_SCHEME_THEME
@@ -82,11 +82,10 @@ const position = computed(() => {
                   === SettingsValueEnum.LAYOUT_ASIDE_LEAN_DARK))
             || systemStore.colorScheme === SettingsValueEnum.COLOR_SCHEME_DARK
         "
-        w-10
-        h-10
+        h-full
         src="@/assets/logo-white.svg"
       >
-      <img v-else w-10 h-10 src="@/assets/logo.svg">
+      <img v-else h-full src="@/assets/logo.svg">
     </div>
     <div
       v-if="
@@ -95,7 +94,7 @@ const position = computed(() => {
           || systemStore.settings.Layout === SettingsValueEnum.LAYOUT_TOP_LEAN
       "
       w-full
-      text-6
+      text="4.2"
       font-600
       ml-4
       class="single-line-omitted name"

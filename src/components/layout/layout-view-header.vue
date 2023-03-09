@@ -6,7 +6,7 @@ const systemStore = useSystemStore()
 </script>
 
 <template>
-  <div h-full flex items-center justify-between box-border>
+  <div h-full flex justify-between>
     <div h-full flex items-center>
       <layout-toolbar-mobile-menu v-if="systemStore.isMobile" />
       <app-logo
@@ -23,12 +23,11 @@ const systemStore = useSystemStore()
         " mode="horizontal"
       />
     </div>
-    <div h-full flex justify-end items-center>
-      <layout-toolbar-color-scheme mr-7 />
-      <layout-toolbar-language only-icon mr-7 />
-      <layout-toolbar-refresh mr-7 />
-      <layout-toolbar-fullscreen v-if="!systemStore.isMobile" mr-7 />
-      <layout-toolbar-notification mr-7 />
+    <div w-74 h-full flex justify-between items-center>
+      <layout-toolbar-language />
+      <layout-toolbar-color-scheme />
+      <layout-toolbar-refresh />
+      <layout-toolbar-notification />
       <layout-toolbar-avatar />
     </div>
   </div>

@@ -1,10 +1,7 @@
 <script lang="ts" setup>
-const props = defineProps({
-  color: {
-    type: String,
-    default: 'var(--wingscloud-header-text-color)',
-  },
-})
+import {
+  Refresh,
+} from '@element-plus/icons-vue'
 
 const reloadView: any = inject('reloadView')
 
@@ -14,13 +11,5 @@ const refresh = () => {
 </script>
 
 <template>
-  <div cursor-pointer flex items-center>
-    <svg-icon
-      cursor-pointer
-      size="1.2rem"
-      name="base-arrow-sync"
-      :color="props.color"
-      @click="refresh"
-    />
-  </div>
+  <el-button important-m-0 circle :icon="Refresh" @click="refresh" />
 </template>
