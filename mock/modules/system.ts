@@ -99,41 +99,22 @@ export default {
         name: 'home',
         meta: {
           layout: 'view',
-          isMenu: true,
           requiresAuth: true,
           iconType: IconTypeEnum.ELEMENT_PLUS,
           icon: 'House',
-          sort: 1,
+          sort: 0,
           i18nKey: 'home',
         },
-        children: [
-          {
-            path: '/home/workbench',
-            name: 'home.workbench',
-            component: '/home/workbench',
-            meta: {
-              layout: 'view',
-              isMenu: true,
-              requiresAuth: true,
-              iconType: IconTypeEnum.ELEMENT_PLUS,
-              icon: 'Monitor',
-              sort: 1,
-              isI18n: true,
-              i18nKey: 'home.workbench',
-            },
-          },
-        ],
       },
       {
         path: '/system',
         name: 'system',
         meta: {
           layout: 'view',
-          isMenu: true,
           requiresAuth: true,
           iconType: IconTypeEnum.ELEMENT_PLUS,
           icon: 'Operation',
-          sort: 3,
+          sort: 1,
           i18nKey: 'system',
         },
         children: [
@@ -143,7 +124,6 @@ export default {
             component: '/system/menu',
             meta: {
               layout: 'view',
-              isMenu: true,
               requiresAuth: true,
               iconType: IconTypeEnum.ELEMENT_PLUS,
               icon: 'Menu',
@@ -158,7 +138,6 @@ export default {
             component: '/system/role',
             meta: {
               layout: 'view',
-              isMenu: true,
               requiresAuth: true,
               iconType: IconTypeEnum.ELEMENT_PLUS,
               icon: 'CollectionTag',
@@ -173,7 +152,6 @@ export default {
             component: '/system/user',
             meta: {
               layout: 'view',
-              isMenu: true,
               requiresAuth: true,
               iconType: IconTypeEnum.ELEMENT_PLUS,
               icon: 'User',
@@ -188,7 +166,6 @@ export default {
             component: '/system/department',
             meta: {
               layout: 'view',
-              isMenu: true,
               requiresAuth: true,
               iconType: IconTypeEnum.APP,
               icon: 'base-tree',
@@ -203,7 +180,6 @@ export default {
             component: '/system/dictionary',
             meta: {
               layout: 'view',
-              isMenu: true,
               requiresAuth: true,
               iconType: IconTypeEnum.ELEMENT_PLUS,
               icon: 'Reading',
@@ -218,7 +194,6 @@ export default {
             component: '/system/param',
             meta: {
               layout: 'view',
-              isMenu: true,
               requiresAuth: true,
               iconType: IconTypeEnum.ELEMENT_PLUS,
               icon: 'Key',
@@ -233,7 +208,6 @@ export default {
             component: '/system/file',
             meta: {
               layout: 'view',
-              isMenu: true,
               requiresAuth: true,
               iconType: IconTypeEnum.ELEMENT_PLUS,
               icon: 'FolderOpened',
@@ -248,7 +222,6 @@ export default {
             component: '/system/log',
             meta: {
               layout: 'view',
-              isMenu: true,
               requiresAuth: true,
               iconType: IconTypeEnum.ELEMENT_PLUS,
               icon: 'Notebook',
@@ -270,8 +243,7 @@ export default {
     url: '/system/user/role',
     method: 'get',
     data: [
-      '/home/workbench',
-      '/home/dashboard',
+      '/home',
       '/system/role',
       '/system/user',
       '/system/department',
@@ -280,11 +252,7 @@ export default {
       '/system/param',
       '/system/file',
       '/system/log',
-      '/development/options',
-      '/development/code',
-      '/development/form',
-    ]
-    ,
+    ],
   },
 
   /**
