@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { useRouteStore } from '@/hooks/store/use-route-store'
-import { useSystemStore } from '@/hooks/store/use-system-store'
+import { useRouteStore } from '@/hooks/use-route-store'
+import { useSystemStore } from '@/hooks/use-system-store'
 import { IconTypeEnum } from '@/constants/enums'
 
 const { t } = useI18n()

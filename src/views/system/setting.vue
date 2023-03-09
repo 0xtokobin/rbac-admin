@@ -8,7 +8,7 @@ import {
   SystemSettingsColorScheme,
   SystemSettingsLayout,
 } from '#/global'
-import { useLanguage } from '@/hooks/language/use-language'
+import { useLanguage } from '@/hooks/use-language'
 import { useSystemStore } from '@/hooks/store/use-system-store'
 import {
   PredefineBreadcrumbPosition,

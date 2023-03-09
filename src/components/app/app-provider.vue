@@ -6,8 +6,8 @@ import { Settings } from '@/constants/settings'
 import { SettingsValueEnum } from '@/constants/enums'
 import { setEpThemeColor } from '@/utils/common'
 import { useSystemStore } from '@/hooks/store/use-system-store'
-import { useMobileCodes } from '@/hooks/crud/use-mobile-codes'
-import { useDictionary } from '@/hooks/crud/use-dictionary'
+import { useMobileCodes } from '@/hooks/use-mobile-codes'
+import { useDictionary } from '@/hooks/use-dictionary'
 
 const route = useRoute()
 

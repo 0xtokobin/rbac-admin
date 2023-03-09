@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import pkg from '../../package.json'
-import loginFormNormal from './components/login-form-normal.vue'
-import loginFormSms from './components/login-form-sms.vue'
-import loginFormScan from './components/login-form-scan.vue'
-import passwordFormValidate from './components/password-form-validate.vue'
-import passwordFormReset from './components/password-form-reset.vue'
-import passwordFormResult from './components/password-form-result.vue'
+import pkg from '../../../package.json'
+import loginFormNormal from '../../pages/components/login-form-normal.vue'
+import loginFormSms from '../../pages/components/login-form-sms.vue'
+import loginFormScan from '../../pages/components/login-form-scan.vue'
+import passwordFormValidate from '../../pages/components/password-form-validate.vue'
+import passwordFormReset from '../../pages/components/password-form-reset.vue'
+import passwordFormResult from '../../pages/components/password-form-result.vue'
 import type { IObject } from '#/global'
 import { useSystemStore } from '@/hooks/store/use-system-store'
 

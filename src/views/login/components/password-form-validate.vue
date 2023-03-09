@@ -1,34 +1,28 @@
 <script lang="ts" setup>
 import type { FormInstance, FormRules } from 'element-plus'
 import { MOBILE } from '@kaivanwong/utils'
+import type { MobileForm } from '#/login'
+import type { IObject } from '#/global'
 import { MobileCodeTypeEnum, StorageEnum } from '@/constants/enums'
+import { useCountDown } from '@/hooks/use-count-down'
 import { getStorage } from '@/utils/storage'
-import { useCountDown } from '@/hooks/crud/use-count-down'
-import { useUserStore } from '@/hooks/store/use-user-store'
+import { POST } from '@/utils/request'
+
+const emit = defineEmits(['validate'])
 
 const { t } = useI18n()
 
 const countDown = useCountDown()
 
-const formRef = ref<FormInstance>()
+const validateFormRef = ref<FormInstance>()
 
-interface Form {
-  areaCode: string
-  mobile: string
-  code: string
-  remember: boolean
-  type: number
-}
-
-const form = ref<Form>({
+const validateForm = ref<MobileForm>({
   areaCode: '+86',
   mobile: '',
   code: '',
-  remember: false,
-  type: 1,
 })
 
-const formRules = reactive<FormRules>({
+const validateFormRules = reactive<FormRules>({
   mobile: [
     {
       required: true,
@@ -47,16 +41,14 @@ const formRules = reactive<FormRules>({
   ],
   code: [
     {
-      required: true,
-      message: t('crud.placeholder.enter', {
-        label: t('crud.mobile.codeText'),
-      }),
+      required: validateForm.value.mobile.length > 0,
+      message: t('crud.placeholder.enter', { label: t('crud.mobile.code') }),
       trigger: 'change',
     },
     {
       len: 6,
       message: t('crud.placeholder.formatIncorrect', {
-        label: t('crud.mobile.codeText'),
+        label: t('crud.mobile.code'),
       }),
       trigger: 'blur',
     },
@@ -65,29 +57,26 @@ const formRules = reactive<FormRules>({
 
 const mobileAreaCodeList = getStorage(StorageEnum.MOBILE_AREA_CODE)
 
-const loading = ref<boolean>(false)
-
-const userStore = useUserStore()
-
-const login = async (formEl: FormInstance | undefined): Promise<void> => {
+const validate = async (formEl: FormInstance | undefined): Promise<void> => {
   if (!formEl)
     return
   await formEl.validate(async (valid: boolean) => {
     if (valid) {
-      loading.value = true
-      await userStore.userLogin(form.value)
-      loading.value = false
+      POST('/common/mobile/smscode', { code: validateForm.value.code }).then(({ data }) => {
+        if (data)
+          emit('validate', { status: true } as IObject)
+      })
     }
   })
 }
 </script>
 
 <template>
-  <el-form ref="formRef" :model="form" :rules="formRules" size="large">
+  <el-form ref="validateFormRef" :model="validateForm" :rules="validateFormRules" size="large">
     <el-form-item prop="mobile">
-      <el-input v-model.number="form.mobile" autocomplete="off" :placeholder="t('crud.mobile.mobile')">
+      <el-input v-model.number="validateForm.mobile" autocomplete="off" :placeholder="t('crud.mobile.mobile')">
         <template #prepend>
-          <el-select v-model="form.areaCode" important="w-24">
+          <el-select v-model="validateForm.areaCode" important="w-24">
             <el-option v-for="(item, index) in mobileAreaCodeList" :key="index" :label="item.code" :value="item.code" />
           </el-select>
         </template>
@@ -98,8 +87,8 @@ const login = async (formEl: FormInstance | undefined): Promise<void> => {
         </template>
       </el-input>
     </el-form-item>
-    <el-form-item prop="code" mb-2>
-      <el-input v-model="form.code" autocomplete="off" :placeholder="t('crud.mobile.code')">
+    <el-form-item v-show="validateForm.mobile" prop="code">
+      <el-input v-model="validateForm.code" autocomplete="off" :placeholder="t('crud.mobile.code')">
         <template #prefix>
           <el-icon>
             <ChatDotSquare />
@@ -109,7 +98,7 @@ const login = async (formEl: FormInstance | undefined): Promise<void> => {
           <el-button
             inline-block p-0 link type="primary" :disabled="countDown.countDownForm.getting" @click="
               countDown.getMobileCode(
-                form.mobile,
+                validateForm.mobile,
                 MobileCodeTypeEnum.FORGET_PASSWORDS,
               )
             "
@@ -132,9 +121,9 @@ const login = async (formEl: FormInstance | undefined): Promise<void> => {
         </template>
       </el-input>
     </el-form-item>
-    <el-form-item mb-2>
-      <el-button type="primary" w="100%" :loading="loading" @click="login(formRef)">
-        <span text="3.6" font-600>{{ t('app.login.login') }}</span>
+    <el-form-item>
+      <el-button type="primary" w="100%" @click="validate(validateFormRef)">
+        <span font-600> {{ t('app.password.security') }}</span>
       </el-button>
     </el-form-item>
   </el-form>

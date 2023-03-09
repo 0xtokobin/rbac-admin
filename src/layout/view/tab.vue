@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { IObject } from '#/global'
-import { useSystemStore } from '@/hooks/store/use-system-store'
-import { useRouteStore } from '@/hooks/store/use-route-store'
+import { useSystemStore } from '@/hooks/use-system-store'
+import { useRouteStore } from '@/hooks/use-route-store'
 import { Settings } from '@/constants/settings'
 import { arrayRecursion } from '@/utils/common'
 
