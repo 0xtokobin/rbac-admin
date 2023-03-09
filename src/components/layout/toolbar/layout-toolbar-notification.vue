@@ -1,35 +1,17 @@
 <script lang="ts" setup>
 import { Bell, Check } from '@element-plus/icons-vue'
 import { useDateFormat } from '@vueuse/core'
-import type { IObject } from '#/global'
-import { useUserStore } from '@/hooks/use-user-store'
 import { RouteEnum } from '@/constants/enums'
 
 const { t } = useI18n()
 
 const router = useRouter()
 
-const userStore = useUserStore()
-
 const goPersonalNotification = () => {
   router.push(RouteEnum.ROUTE_SYSTEM_NOTIFICATION)
 }
 
 const list = ref<Array<any>>([])
-
-onBeforeMount(async () => {
-  // const res = await getUserNotificationByNotRead()
-  list.value = []
-})
-
-const read = (item: IObject) => {
-  const _list: Array<any> = []
-  list.value.forEach((listItem) => {
-    if (listItem.id !== item.id)
-      _list.push(listItem)
-  })
-  list.value = _list
-}
 </script>
 
 <template>
@@ -77,7 +59,7 @@ const read = (item: IObject) => {
               }}
             </div>
           </div>
-          <el-button size="small" :icon="Check" circle @click="read(item)" />
+          <el-button size="small" :icon="Check" circle />
         </div>
       </div>
       <div v-if="list.length === 0">
