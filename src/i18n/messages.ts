@@ -3,7 +3,7 @@ import enUS from 'element-plus/dist/locale/en.mjs'
 import type { Languages, Messages } from '#/global'
 import { Settings } from '@/constants/settings'
 import { LanguageEnum } from '@/constants/enums'
-import { autoImportLanguages } from '@/utils/auto'
+import { autoImportLanguages } from '@/utils/common'
 
 const languages: Languages = autoImportLanguages(
   import.meta.glob('./languages/**/*.json', {

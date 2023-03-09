@@ -4,7 +4,6 @@ import { languages, messages } from './messages'
 import type { I18nT } from '#/global'
 import { Settings } from '@/constants/settings'
 import { getStorage } from '@/utils/storage'
-import { pluginAddRegister } from '@/utils/auto'
 import { StorageEnum } from '@/constants/enums'
 
 const language: any = getStorage(StorageEnum.LANGUAGE) || Settings.Language
@@ -25,5 +24,3 @@ const { t } = i18n.global
 const _t: I18nT = t
 
 export { messages, languages, i18n, _t }
-
-export default pluginAddRegister(i18n)

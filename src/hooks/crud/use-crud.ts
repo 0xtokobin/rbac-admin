@@ -1,5 +1,5 @@
 import type { IObject } from '#/global'
-import type { ResponseData } from '@/utils/request/index.d'
+import type { ResponseData } from '@/utils/request'
 import { mergeValueByKey } from '@/utils/common'
 import { GET } from '@/utils/request'
 

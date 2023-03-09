@@ -2,12 +2,12 @@ import type { Axios, AxiosRequestHeaders, AxiosResponse } from 'axios'
 import axios from 'axios'
 import qs from 'qs'
 import { ElNotification } from 'element-plus'
-import { getStorage } from '../storage'
+import { getStorage } from './storage'
 import {
   apiCodeAdaptor,
   authCodeAdaptor,
   networkCodeAdaptor,
-} from '../code-adaptor'
+} from './code-adaptor'
 import type { IObject } from '#/global'
 import { RequestHeaderEnum, StorageEnum } from '@/constants/enums'
 import { Settings } from '@/constants/settings'

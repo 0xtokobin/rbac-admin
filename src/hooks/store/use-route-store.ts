@@ -5,8 +5,8 @@ import {
   mergeMenuRoutes,
   registerRouter,
   routerInject,
-} from '@/utils/router'
-import { autoImportViewComponents } from '@/utils/auto'
+} from '@/router/helper'
+import { autoImportViewComponents } from '@/utils/common'
 import { router, routes } from '@/router'
 import { _t } from '@/i18n'
 import { GET } from '@/utils/request'
