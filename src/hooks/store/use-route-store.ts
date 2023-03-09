@@ -8,7 +8,7 @@ import {
 } from '@/utils/router'
 import { autoImportViewComponents } from '@/utils/auto'
 import { router, routes } from '@/plugins/vue-router'
-import { _t } from '@/plugins/vue-i18n'
+import { _t } from '@/i18n'
 import { GET } from '@/utils/request'
 
 export const useRouteStore = defineStore('route', () => {

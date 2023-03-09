@@ -14,7 +14,7 @@ const mocks: Mocks = autoImportMocks(
   }),
 )
 
-const useMock = (): void => {
+const registerMock = (): void => {
   Object.keys(mocks).forEach((key: string) => {
     Mock.mock(
       new RegExp(mocks[key].url),
@@ -34,4 +34,4 @@ const useMock = (): void => {
   })
 }
 
-export { mocks, useMock }
+export { mocks, registerMock }

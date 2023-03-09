@@ -11,7 +11,7 @@ import {
 import type { IObject } from '#/global'
 import { RequestHeaderEnum, StorageEnum } from '@/constants/enums'
 import { Settings } from '@/constants/settings'
-import { _t } from '@/plugins/vue-i18n'
+import { _t } from '@/i18n'
 
 export interface RequestOptions {
   baseURL?: string

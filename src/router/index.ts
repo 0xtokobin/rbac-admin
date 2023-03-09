@@ -1,7 +1,6 @@
 import type { RouteRecordRaw, Router } from 'vue-router'
-import type { App } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
-import { autoImportRoutes, pluginAddRegister } from '../../utils/auto'
+import { autoImportRoutes } from '../../utils/auto'
 import { addRouterGuard } from './guard'
 
 const routes: Array<RouteRecordRaw> = autoImportRoutes(
@@ -16,10 +15,4 @@ const router: Router = createRouter({
   routes,
 })
 
-const useRouter = (app: App<Element>): void => {
-  app.use(addRouterGuard(router))
-}
-
-export { routes, router, useRouter }
-
-export default pluginAddRegister(addRouterGuard(router))
+export { routes, router, addRouterGuard }

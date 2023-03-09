@@ -1,15 +1,13 @@
-import type { App as VueApp } from 'vue'
 import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 import Particles from 'vue3-particles'
-import { useMock } from '../mock'
+import VueDOMPurifyHTML from 'vue-dompurify-html'
+import ElementPlus from 'element-plus'
+import { registerMock } from '../mock'
 import App from './components/app/app.vue'
+import { i18n } from './i18n'
+import { addRouterGuard, router } from './router'
 import 'virtual:svg-icons-register'
-
-import { useElementPlus, useElementPlusIcons } from './plugins/element-plus'
-import { useVueDomPurifyHTML } from './plugins/vue-dompurify-html'
-import { useRouter } from './plugins/vue-router'
-import { useI18n } from './plugins/vue-i18n'
-import { usePinia } from './plugins/pinia'
 
 import 'element-plus/theme-chalk/src/message.scss'
 import 'element-plus/theme-chalk/src/notification.scss'
@@ -17,17 +15,15 @@ import './assets/theme/index.scss'
 import './assets/style/index.scss'
 import 'uno.css'
 
-const app: VueApp<Element> = createApp(App)
+const app = createApp(App)
 
-useI18n(app)
-usePinia(app)
-useElementPlus(app)
-useElementPlusIcons(app)
-useVueDomPurifyHTML(app)
-// useparticles(app)
-useRouter(app)
-useMock()
+registerMock()
 
-app.use(Particles)
-
-app.mount('#app', true)
+app
+  .use(i18n)
+  .use(createPinia())
+  .use(ElementPlus)
+  .use(addRouterGuard(router))
+  .use(Particles)
+  .use(VueDOMPurifyHTML)
+  .mount('#app', true)

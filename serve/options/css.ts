@@ -4,7 +4,7 @@ export const useCssOptions = (): CSSOptions | undefined => {
   const cssOptions: CSSOptions | undefined = {
     preprocessorOptions: {
       scss: {
-        additionalData: '@use "src/plugins/element-plus/styles/index.scss" as *;',
+        additionalData: '@use "src/assets/style/element-plus.scss" as *;',
       },
     },
   }

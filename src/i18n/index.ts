@@ -1,5 +1,4 @@
 import type { I18n, I18nOptions } from 'vue-i18n'
-import type { App } from 'vue'
 import { createI18n } from 'vue-i18n'
 import { languages, messages } from './messages'
 import type { I18nT } from '#/global'
@@ -22,13 +21,9 @@ const i18n: I18n = createI18n({
   messages,
 } as I18nOptions)
 
-const useI18n = (app: App<Element>): void => {
-  app.use(i18n)
-}
-
 const { t } = i18n.global
 const _t: I18nT = t
 
-export { messages, languages, i18n, useI18n, _t }
+export { messages, languages, i18n, _t }
 
 export default pluginAddRegister(i18n)
