@@ -1,6 +1,6 @@
 import type { ComputedRef } from 'vue'
 import type { IObject } from '#/global'
-import { StorageEnum } from '@/enum'
+import { StorageKeyEnum } from '@/enum'
 import { getStorage, setStorage } from '@/utils/storage'
 import { GET } from '@/utils/request'
 
@@ -11,13 +11,13 @@ export const useDictionary = () => {
     data.forEach((item: IObject) => {
       dictionaries = { [item.key]: item.values, ...dictionaries }
     })
-    setStorage(StorageEnum.DICTIONARY, dictionaries)
+    setStorage(StorageKeyEnum.DICT, dictionaries)
     return data
   }
 
   const getDictionaryData = (key: string): ComputedRef<any> => {
     return computed(() => {
-      const data = getStorage(StorageEnum.DICTIONARY)[key]
+      const data = getStorage(StorageKeyEnum.DICT)[key]
       if (!data)
         getDictionaryAll()
 

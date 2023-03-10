@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-import { Settings } from '@/constants/settings'
+import { RouteEnum } from '@/enum'
 
 const { t } = useI18n()
 
 const router = useRouter()
 
 const goHome = () => {
-  router.replace({ path: Settings.AdminFirstRoute })
+  router.replace({ path: RouteEnum.ROUTE_FIRST })
 }
 </script>
 

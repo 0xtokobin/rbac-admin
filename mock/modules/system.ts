@@ -240,7 +240,7 @@ export default {
    * @description 获取用户权限列表
    */
   getSystemUserRole: {
-    url: '/system/user/role',
+    url: '/system/user/roles',
     method: 'get',
     data: [
       '/home',

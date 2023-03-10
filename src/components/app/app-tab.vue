@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { IObject } from '#/global'
+import { RouteEnum } from '@/enum'
 import { useSystemStore } from '@/hooks/use-system-store'
-import { Settings } from '@/constants/settings'
 import { arrayRecursion } from '@/utils/common'
 
 export interface Tab {
@@ -86,7 +86,7 @@ onBeforeMount(() => {
   homeTab.value = arrayRecursion(
     'path',
     systemStore.menuRoutes,
-    Settings.AdminFirstRoute,
+    RouteEnum.ROUTE_FIRST,
   )
   const { isFind, path } = findTab(route.path)
   if (isFind)
@@ -111,7 +111,7 @@ watch(
 </script>
 
 <template>
-  <div flex items-center justify-between class="slot" :class="`wingscloud-admin-${systemStore.settings.TabStyle}`">
+  <div flex items-center justify-between class="slot">
     <el-tabs
       v-model="nowTab" type="card" closable tab-position="top"
       :style="systemStore.isMobile ? 'width: 76%' : 'width: 94%'" @tab-click="tabClick" @tab-remove="tabRemove"
@@ -121,7 +121,7 @@ watch(
     <div class="operation">
       <el-dropdown @command="clickOperationMenu">
         <el-button size="small" type="primary">
-          <span text-3 mr-2>{{ t('app.tab.more') }}</span>
+          <span text-3 mr-2>{{ t('app.more') }}</span>
           <el-icon>
             <ArrowDown />
           </el-icon>
@@ -130,17 +130,17 @@ watch(
           <el-dropdown-menu>
             <el-dropdown-item command="current">
               {{
-                t('app.tab.close')
+                t('app.closeNow')
               }}
             </el-dropdown-item>
             <el-dropdown-item command="other">
               {{
-                t('app.tab.closeOther')
+                t('app.closeOther')
               }}
             </el-dropdown-item>
             <el-dropdown-item command="all">
               {{
-                t('app.tab.closeAll')
+                t('app.closeAll')
               }}
             </el-dropdown-item>
           </el-dropdown-menu>

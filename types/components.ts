@@ -73,6 +73,7 @@ declare module '@vue/runtime-core' {
     LayoutPage: typeof import('./../src/components/layout/layout-page.vue')['default']
     LayoutToolbarAvatar: typeof import('./../src/components/layout/toolbar/layout-toolbar-avatar.vue')['default']
     LayoutToolbarColorScheme: typeof import('../src/components/layout/toolbar/layout-toolbar-dark.vue')['default']
+    LayoutToolbarDarkMode: typeof import('./../src/components/layout/toolbar/layout-toolbar-dark-mode.vue')['default']
     LayoutToolbarLanguage: typeof impo../src/components/layout/toolbar/layout-toolbar-dark-mode.vue'default']
     LayoutToolbarMobileMenu: typeof import('./../src/components/layout/toolbar/layout-toolbar-mobile-menu.vue')['default']
     LayoutToolbarNotification: typeof import('./../src/components/layout/toolbar/layout-toolbar-notification.vue')['default']
