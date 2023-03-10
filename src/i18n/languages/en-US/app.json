@@ -18,12 +18,6 @@
       "clear": "Empty"
     }
   },
-  "tab": {
-    "more": "More",
-    "close": "Close the current",
-    "closeOther": "Close the other",
-    "closeAll": "Close all"
-  },
   "unknown": {
     "error": "Unknown error, error message: {message}",
     "code": "Unknown error occurs, error code: {code}"
@@ -101,5 +95,12 @@
   "dark": "Dark Mode",
   "theme": "Theme Color",
   "layout": "Layout",
-  "language": "Language"
+  "language": "Language",
+  "size": "Size",
+  "navigation": "Navigation",
+  "tab": "Tab",
+  "more": "More",
+  "close": "Close the current",
+  "closeOther": "Close the other",
+  "closeAll": "Close all"
 }
