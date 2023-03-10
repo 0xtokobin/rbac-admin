@@ -23,7 +23,7 @@ const systemStore = useSystemStore()
 <template>
   <div mr-7 mb-4 class="animation">
     <div h-18 w-18 overflow-hidden cursor-pointer>
-      <div v-if="props.mode === SettingsValueEnum.LAYOUT_TOP" w-full h-full>
+      <div v-if="props.mode === SettingsValueEnum.LAYOUT_MIX" w-full h-full>
         <div
           w-full
           flex
@@ -69,7 +69,7 @@ const systemStore = useSystemStore()
         </div>
       </div>
       <div
-        v-if="props.mode === SettingsValueEnum.LAYOUT_TOP_LEAN"
+        v-if="props.mode === SettingsValueEnum.LAYOUT_TOP"
         w-full
         h-full
       >
@@ -197,75 +197,6 @@ const systemStore = useSystemStore()
           />
         </div>
       </div>
-      <div
-        v-if="props.mode === SettingsValueEnum.LAYOUT_ASIDE_LEAN"
-        w-full
-        h-full
-        flex
-      >
-        <div
-          h-full
-          w-6
-          style="
-            box-sizing: border-box;
-            background-color: var(--wingscloud-menu-bg-color);
-            border: 1px solid var(--el-border-color);
-            border-radius: 4px 0 0 4px;
-          "
-        />
-        <div
-          h-full
-          w-12
-          style="
-            box-sizing: border-box;
-            background-color: var(--wingscloud-main-fill);
-            border: 1px solid var(--el-border-color);
-            border-left: 0;
-            border-radius: 0 4px 4px 0;
-          "
-        />
-      </div>
-      <div
-        v-if="props.mode === SettingsValueEnum.LAYOUT_ASIDE_LEAN_DARK"
-        w-full
-        h-full
-        flex
-      >
-        <div
-          h-full
-          w-6
-          style="
-            box-sizing: border-box;
-            background-color: #262a3c;
-            border: 1px solid;
-            border-radius: 4px 0 0 4px;
-          "
-          :style="
-            systemStore.colorScheme === SettingsValueEnum.COLOR_SCHEME_DARK
-              ? 'border-color: var(--el-border-color)'
-              : 'border-color: #262a3c'
-          "
-        />
-        <div
-          h-full
-          w-12
-          style="
-            box-sizing: border-box;
-            background-color: var(--wingscloud-main-fill);
-            border: 1px solid var(--el-border-color);
-            border-left: 0;
-            border-radius: 0 4px 4px 0;
-          "
-        />
-      </div>
-    </div>
-    <div w-full h-2 flex items-center justify-center p-y-2>
-      <div
-        v-if="active"
-        w-2
-        h-2
-        style="background-color: var(--el-color-primary); border-radius: 50%"
-      />
     </div>
   </div>
 </template>

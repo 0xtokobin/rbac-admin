@@ -14,12 +14,11 @@ import {
   PredefineBreadcrumbPosition,
   PredefineColorSchemes,
   PredefineCopyrightPosition,
-  PredefineLayouts,
   PredefineMenuStyle,
   PredefineTabStyle,
-  PredefineToolbar,
   SettingsDefault,
 } from '@/constants/settings'
+import { SettingsValueEnum } from '@/constants/enums'
 
 const { t } = useI18n()
 
@@ -61,6 +60,25 @@ const backSettings = () => {
   systemStore.updateSettings(SettingsDefault)
   ElMessage.success(t('system.setting.backSuccess'))
 }
+
+const Layouts = [
+  {
+    label: 'system.setting.layoutMix',
+    value: SettingsValueEnum.LAYOUT_MIX,
+  },
+  {
+    label: 'system.setting.layoutTop',
+    value: SettingsValueEnum.LAYOUT_TOP,
+  },
+  {
+    label: 'system.setting.layoutAside',
+    value: SettingsValueEnum.LAYOUT_ASIDE,
+  },
+  {
+    label: 'system.setting.layoutAsideDark',
+    value: SettingsValueEnum.LAYOUT_ASIDE_DARK,
+  },
+]
 </script>
 
 <template>
@@ -69,7 +87,7 @@ const backSettings = () => {
       {{ t('system.setting.layout') }}
     </div>
     <div flex items-center flex-wrap m-b-2>
-      <div v-for="(item, index) in PredefineLayouts" :key="index">
+      <div v-for="(item, index) in Layouts" :key="index">
         <el-tooltip :show-after="300" effect="dark" :content="t(item.label)" placement="top">
           <SettingLayout
             :mode="item.value" :name="item.label" :active="systemStore.settings.Layout === item.value"
@@ -97,17 +115,6 @@ const backSettings = () => {
     </div>
     <div flex items-center flex-wrap m-b-6>
       <SettingThemeColor @change="changeThemeColor" />
-    </div>
-    <div text-4 m-b-4>
-      {{ t('system.setting.toolbar') }}
-    </div>
-    <div flex items-center flex-wrap m-b-6>
-      <el-check-tag
-        v-for="(item, index) in PredefineToolbar" :key="index" mr-6 mb-2
-        :checked="systemStore.settings.Toolbar[item.value]" @change="toolbarChange(item.value)"
-      >
-        {{ t(item.label) }}
-      </el-check-tag>
     </div>
     <div text-4 m-b-4>
       {{ t('system.setting.component') }}

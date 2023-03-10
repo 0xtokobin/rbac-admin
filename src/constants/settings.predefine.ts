@@ -1,44 +1,13 @@
 import { SettingsValueEnum } from '@/constants/enums'
 
-export const PredefineToolbar = [
-  {
-    label: 'system.setting.toolbarDark',
-    value: 'Dark',
-  },
-  {
-    label: 'system.setting.toolbarLanguage',
-    value: 'Language',
-  },
-  {
-    label: 'system.setting.toolbarRefresh',
-    value: 'Refresh',
-  },
-  {
-    label: 'system.setting.toolbarNotification',
-    value: 'Notification',
-  },
-  {
-    label: 'system.setting.toolbarFullscreen',
-    value: 'Fullscreen',
-  },
-  {
-    label: 'system.setting.toolbarSetting',
-    value: 'Setting',
-  },
-  {
-    label: 'system.setting.toolbarAvatar',
-    value: 'Avatar',
-  },
-]
-
 export const PredefineLayouts = [
+  {
+    label: 'system.setting.layoutMix',
+    value: SettingsValueEnum.LAYOUT_MIX,
+  },
   {
     label: 'system.setting.layoutTop',
     value: SettingsValueEnum.LAYOUT_TOP,
-  },
-  {
-    label: 'system.setting.layoutTopLean',
-    value: SettingsValueEnum.LAYOUT_TOP_LEAN,
   },
   {
     label: 'system.setting.layoutAside',
@@ -47,14 +16,6 @@ export const PredefineLayouts = [
   {
     label: 'system.setting.layoutAsideDark',
     value: SettingsValueEnum.LAYOUT_ASIDE_DARK,
-  },
-  {
-    label: 'system.setting.layoutAsideLean',
-    value: SettingsValueEnum.LAYOUT_ASIDE_LEAN,
-  },
-  {
-    label: 'system.setting.layoutAsideLeanDark',
-    value: SettingsValueEnum.LAYOUT_ASIDE_LEAN_DARK,
   },
 ]
 

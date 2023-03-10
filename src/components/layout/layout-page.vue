@@ -4,6 +4,11 @@ import type { Engine } from 'tsparticles-engine'
 import { loadFull } from 'tsparticles'
 import { parallax } from 'tsparticles-demo-configs'
 
+import { ArrowDown } from '@element-plus/icons-vue'
+import { useLanguage } from '@/hooks/use-language'
+
+const { changeLanguage, currentLanguage, languages } = useLanguage()
+
 const options = computed(() => {
   return {
     ...parallax,
@@ -56,7 +61,21 @@ const particlesInit = async (engine: Engine) => {
   <Particles id="tsparticles" :options="options" :particles-init="particlesInit" />
   <el-container>
     <el-header flex items-center justify-end>
-      <layout-toolbar-language color="#E5EAF3" />
+      <el-dropdown @command="changeLanguage">
+        <div h-full cursor-pointer flex items-center>
+          <span mr-2>{{ languages[currentLanguage].name }}</span>
+          <el-icon>
+            <ArrowDown />
+          </el-icon>
+        </div>
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item v-for="(value, key) in languages" :key="key" :command="key">
+              {{ value.name }}
+            </el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
     </el-header>
     <el-main>
       <slot name="router-view" />

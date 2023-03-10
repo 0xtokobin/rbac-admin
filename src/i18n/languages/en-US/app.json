@@ -94,5 +94,12 @@
     "success": "Password reset succeeded",
     "forget": "Forget Password ?",
     "back": "Back to Log in"
-  }
+  },
+  "logout": "Logout",
+  "personal": "Personal Center",
+  "setting": "Settings",
+  "dark": "Dark Mode",
+  "theme": "Theme Color",
+  "layout": "Layout",
+  "language": "Language"
 }

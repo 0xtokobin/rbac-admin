@@ -8,13 +8,13 @@ import { registerMock } from '../mock'
 import { i18n } from '@/i18n'
 import { router } from '@/router'
 import App from '@/components/app/app.vue'
+import { installComponents } from '@/utils/common'
 import 'virtual:svg-icons-register'
 import 'element-plus/theme-chalk/src/message.scss'
 import 'element-plus/theme-chalk/src/notification.scss'
 import '@/assets/theme/index.scss'
 import '@/assets/style/index.scss'
 import 'uno.css'
-import { installComponents } from '@/utils/common'
 
 const app = createApp(App)
 

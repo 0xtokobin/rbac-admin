@@ -66,11 +66,9 @@ export enum StorageEnum {
 
 export enum SettingsValueEnum {
   LAYOUT_TOP = 'top',
-  LAYOUT_TOP_LEAN = 'top-lean',
+  LAYOUT_MIX = 'mix',
   LAYOUT_ASIDE = 'aside',
   LAYOUT_ASIDE_DARK = 'aside-dark',
-  LAYOUT_ASIDE_LEAN = 'aside-lean',
-  LAYOUT_ASIDE_LEAN_DARK = 'aside-lean-dark',
   COLOR_SCHEME_AUTO = 'auto',
   COLOR_SCHEME_THEME = 'theme',
   COLOR_SCHEME_LIGHT = 'light',

@@ -94,5 +94,12 @@
     "success": "密码重置成功",
     "forget": "忘记密码？",
     "back": "返回登录"
-  }
+  },
+  "logout": "退出登录",
+  "personal": "个人中心",
+  "setting": "设置",
+  "dark": "黑暗模式",
+  "theme": "主题颜色",
+  "layout": "布局",
+  "language": "语言"
 }
