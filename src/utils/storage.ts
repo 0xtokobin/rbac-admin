@@ -1,5 +1,5 @@
 import { isNullOrUndefined } from '@/utils/common'
-import { StorageEnum } from '@/constants/enums'
+import { StorageKeyEnum } from '@/enum'
 
 export interface AppStorageOptions {
   type?: string
@@ -21,7 +21,7 @@ export const setStorage = (
   data: any,
   options?: AppStorageOptions,
 ): void => {
-  key = `${StorageEnum.KEY}-${key}`
+  key = `${StorageKeyEnum.WINGSCLOUD}-${key}`
   options = {
     type: 'session',
     isTemplate: false,
@@ -44,7 +44,7 @@ export const setStorage = (
 }
 
 export const getStorage = (key: string, options?: AppStorageOptions): any => {
-  key = `${StorageEnum.KEY}-${key}`
+  key = `${StorageKeyEnum.WINGSCLOUD}-${key}`
   options = {
     type: 'session',
     isTemplate: false,
@@ -71,6 +71,6 @@ export const getStorage = (key: string, options?: AppStorageOptions): any => {
 }
 
 export const removeStorage = (key: string, type?: string): void => {
-  key = `${StorageEnum.KEY}-${key}`
+  key = `${StorageKeyEnum.WINGSCLOUD}-${key}`
   storageType(type || 'session').removeItem(key)
 }

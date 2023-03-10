@@ -4,7 +4,7 @@ import type {
   Router,
 } from 'vue-router'
 import { useNProgress } from '@vueuse/integrations/useNProgress'
-import { RouteEnum, StorageEnum } from '@/constants/enums'
+import { RouteEnum, StorageKeyEnum } from '@/enum'
 import { useSystemStore } from '@/hooks/use-system-store'
 import { useUserStore } from '@/hooks/use-user-store'
 import { getStorage } from '@/utils/storage'
@@ -27,7 +27,7 @@ export const addRouterGuard = (router: Router): Router => {
     ) => {
       isLoading.value = true
 
-      const userRoles: Array<string> = getStorage(StorageEnum.USER_ROLES, {
+      const userRoles: Array<string> = getStorage(StorageKeyEnum.ROLES, {
         type: getLoginStorageType(),
       })
       const requiresAuth: boolean = to.matched.some(
@@ -49,14 +49,14 @@ export const addRouterGuard = (router: Router): Router => {
         && to.path === RouteEnum.ROUTE_LOGIN
       ) {
         next({
-          path: RouteEnum.ROUTE_ADMIN_FIRST,
+          path: RouteEnum.ROUTE_FIRST,
         })
         return
       }
 
       if (userStore.isLogin && systemStore.menuRoutes.length === 0) {
-        await userStore.getUserProfile()
-        await userStore.getUserRole()
+        await userStore.getProfile()
+        await userStore.getRoles()
         await systemStore.getMenuRoutes()
         if (to.redirectedFrom)
           next({ path: to.redirectedFrom.fullPath, replace: true })

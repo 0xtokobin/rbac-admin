@@ -1,6 +1,6 @@
 import type { ComputedRef } from 'vue'
 import type { IObject } from '#/global'
-import { StorageEnum } from '@/constants/enums'
+import { StorageEnum } from '@/enum'
 import { getStorage, setStorage } from '@/utils/storage'
 import { GET } from '@/utils/request'
 

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useSystemStore } from '@/hooks/use-system-store'
-import { SettingsValueEnum } from '@/constants/enums'
+import { LayoutEnum } from '@/enum'
 
 const props = defineProps({
   mode: {
@@ -17,8 +17,7 @@ const wrapStyle = computed(() => {
   if (props.mode === 'vertical') {
     let _height = '100vh'
     if (
-      systemStore.settings.Layout === SettingsValueEnum.LAYOUT_TOP
-      || systemStore.settings.Layout === SettingsValueEnum.LAYOUT_TOP_LEAN
+      systemStore.setting.layout === LayoutEnum.LAYOUT_TOP
     ) {
       _height
         = 'calc(100vh - var(--wingscloud-header-height) - var(--wingscloud-collapse-height))'
@@ -44,15 +43,14 @@ const wrapStyle = computed(() => {
   <el-scrollbar :wrap-style="wrapStyle">
     <div
       class="wingscloud-admin-layout-admin-menu" :class="[
-        `wingscloud-admin-${systemStore.settings.MenuStyle}`,
-        `wingscloud-admin-${systemStore.colorScheme}`,
-        `wingscloud-admin-${systemStore.settings.Layout}`,
+        `wingscloud-admin-${systemStore.darkMode}`,
+        `wingscloud-admin-${systemStore.setting.layout}`,
       ]" h-full
     >
       <el-menu
         router collapse-transition :mode="props.mode as any"
-        :collapse="props.mode === 'vertical' ? systemStore.collapse : false"
-        :unique-opened="systemStore.settings.UniqueOpened" :default-active="route.path" important="h-full border-none"
+        :collapse="props.mode === 'vertical' ? systemStore.collapse : false" :default-active="route.path"
+        important="h-full border-none"
       >
         <app-menu-item :routes="systemStore.menuRoutes" />
       </el-menu>

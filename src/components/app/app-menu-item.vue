@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { RouteRecordRaw } from 'vue-router'
-import { IconTypeEnum } from '@/constants/enums'
+import { IconTypeEnum } from '@/enum'
 import { useSystemStore } from '@/hooks/use-system-store'
 
 const props = defineProps({
@@ -45,7 +45,7 @@ const systemStore = useSystemStore()
     </el-menu-item>
     <el-sub-menu
       v-else :index="route.path"
-      :popper-class="`wingscloud-admin-${systemStore.settings.MenuStyle} wingscloud-admin-${systemStore.colorScheme} wingscloud-admin-${systemStore.settings.Layout} wingscloud-admin-layout-admin-menu`"
+      :popper-class="`wingscloud-${systemStore.darkMode} wingscloud-${systemStore.setting.layout} wingscloud-layout-admin-menu`"
     >
       <template #title>
         <svg-icon

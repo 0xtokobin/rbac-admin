@@ -1,14 +1,14 @@
 import { defineStore } from 'pinia'
 import type { RouteRecordRaw } from 'vue-router'
 import type { IObject, SystemSettings, ViewComponents } from '#/global'
-import { SettingsValueEnum, StorageEnum } from '@/constants/enums'
+import { DarkModeEnum, LanguageEnum, StorageKeyEnum } from '@/enum'
 import { getStorage, setStorage } from '@/utils/storage'
-import { Settings } from '@/constants/settings'
 import {
+  autoImportViewComponents,
   registerRouter,
   routerInject,
-} from '@/router/helper'
-import { autoImportViewComponents } from '@/utils/common'
+} from '@/utils/common'
+
 import { router } from '@/router'
 import { _t } from '@/i18n'
 import { GET } from '@/utils/request'
@@ -19,37 +19,37 @@ import { GET } from '@/utils/request'
  * @returns
  */
 export const useSystemStore = defineStore('system', () => {
-  // 系统菜单展开/折叠状态
+  // 菜单展开/折叠状态
   const collapse = ref<boolean>(false)
 
-  // 系统设置
-  const settings = ref<SystemSettings>(
-    getStorage(StorageEnum.SETTINGS) || Settings,
+  // 设置
+  const setting = ref<SystemSettings>(
+    getStorage(StorageKeyEnum.SETTING) || {},
   )
 
-  // 缓存系统设置
-  const updateSettings = (data: SystemSettings): void => {
-    settings.value = data
-    setStorage(StorageEnum.SETTINGS, data)
+  // 缓存设置
+  const setSetting = (data: SystemSettings): void => {
+    setting.value = data
+    setStorage(StorageKeyEnum.SETTING, data)
   }
 
-  // 配色方案
-  const colorScheme = ref<string>(settings.value.ColorScheme)
+  // 黑暗模式
+  const darkMode = ref<string>(setting.value.darkMode)
 
-  // 切换黑暗模式/明亮模式
-  const changeDarkOrLight = (value: boolean) => {
-    document.documentElement.classList.remove(colorScheme.value)
+  // 切换黑暗模式
+  const changeDarkMode = (value: boolean) => {
+    document.documentElement.classList.remove(darkMode.value)
     if (value) {
       document.documentElement.classList.add(
-        SettingsValueEnum.COLOR_SCHEME_DARK,
+        DarkModeEnum.DARK_MODE_DARK,
       )
-      colorScheme.value = SettingsValueEnum.COLOR_SCHEME_DARK
+      darkMode.value = DarkModeEnum.DARK_MODE_DARK
     }
     else {
       document.documentElement.classList.add(
-        SettingsValueEnum.COLOR_SCHEME_LIGHT,
+        DarkModeEnum.DARK_MODE_LIGHT,
       )
-      colorScheme.value = SettingsValueEnum.COLOR_SCHEME_LIGHT
+      darkMode.value = DarkModeEnum.DARK_MODE_LIGHT
     }
   }
 
@@ -71,13 +71,13 @@ export const useSystemStore = defineStore('system', () => {
 
   // 当前语言环境
   const language = ref<string>(
-    getStorage(StorageEnum.LANGUAGE) || Settings.Language,
+    getStorage(StorageKeyEnum.LANGUAGE) || LanguageEnum.ZH_CN_ALIAS,
   )
 
   // 切换当前语言环境
   const changeLanguage = (data: IObject): void => {
     language.value = data.alias
-    setStorage(StorageEnum.LANGUAGE, data.alias)
+    setStorage(StorageKeyEnum.LANGUAGE, data.alias)
   }
 
   // 是否移动端
@@ -127,10 +127,10 @@ export const useSystemStore = defineStore('system', () => {
 
   return {
     collapse,
-    settings,
-    updateSettings,
-    colorScheme,
-    changeDarkOrLight,
+    setting,
+    setSetting,
+    darkMode,
+    changeDarkMode,
     browserTitle,
     keepAliveNames,
     keepAliveAddName,

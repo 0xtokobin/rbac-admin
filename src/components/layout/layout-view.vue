@@ -1,16 +1,15 @@
 <script lang="ts" setup>
 import { useSystemStore } from '@/hooks/use-system-store'
-import { SettingsValueEnum } from '@/constants/enums'
+import { LayoutEnum } from '@/enum'
 
 const systemStore = useSystemStore()
 
 const height = computed(() => {
   let _height = '100vh'
   if (
-    systemStore.settings.Layout === SettingsValueEnum.LAYOUT_TOP
-    || systemStore.settings.Layout === SettingsValueEnum.LAYOUT_TOP_LEAN
-    || systemStore.settings.Layout === SettingsValueEnum.LAYOUT_ASIDE
-    || systemStore.settings.Layout === SettingsValueEnum.LAYOUT_ASIDE_DARK
+    systemStore.setting.layout === LayoutEnum.LAYOUT_TOP
+    || systemStore.setting.layout === LayoutEnum.LAYOUT_SIDE
+    || systemStore.setting.layout === LayoutEnum.LAYOUT_DARK_SIDE
   ) {
     _height
       = 'calc(100vh - var(--wingscloud-header-height) - var(--wingscloud-tab-height))'
@@ -18,9 +17,6 @@ const height = computed(() => {
   else {
     _height = 'calc(100vh - var(--wingscloud-tab-height))'
   }
-  if (!systemStore.settings.Tab)
-    _height = `calc(${_height} + var(--wingscloud-tab-height))`
-
   return `height: ${_height}`
 })
 </script>
@@ -28,23 +24,21 @@ const height = computed(() => {
 <template>
   <div
     class="wingscloud-admin-layout-admin" :class="[
-      `wingscloud-admin-${systemStore.colorScheme}`,
-      `wingscloud-admin-${systemStore.settings.Layout}`,
+      `wingscloud-admin-${systemStore.darkMode}`,
+      `wingscloud-admin-${systemStore.setting.layout}`,
     ]"
   >
     <el-container>
       <el-header
         :style="
-          systemStore.settings.Layout === SettingsValueEnum.LAYOUT_TOP
-            || systemStore.settings.Layout === SettingsValueEnum.LAYOUT_TOP_LEAN
+          systemStore.setting.layout === LayoutEnum.LAYOUT_TOP
             ? 'height: var(--wingscloud-header-height); border-bottom: 1px solid'
             : 'height: 0; border-bottom: none;'
         "
       >
         <layout-view-header
           v-if="
-            systemStore.settings.Layout === SettingsValueEnum.LAYOUT_TOP
-              || systemStore.settings.Layout === SettingsValueEnum.LAYOUT_TOP_LEAN
+            systemStore.setting.layout === LayoutEnum.LAYOUT_TOP
           "
         />
       </el-header>
@@ -52,7 +46,6 @@ const height = computed(() => {
         <el-aside
           :style="[
             !systemStore.isMobile
-              && systemStore.settings.Layout !== SettingsValueEnum.LAYOUT_TOP_LEAN
               ? systemStore.collapse
                 ? 'width: var(--wingscloud-aside-width-fold)'
                 : 'width: var(--wingscloud-aside-width)'
@@ -63,57 +56,50 @@ const height = computed(() => {
           <layout-view-aside
             v-if="
               !systemStore.isMobile
-                && systemStore.settings.Layout !== SettingsValueEnum.LAYOUT_TOP_LEAN
             "
           />
         </el-aside>
         <el-main
           :style="
-            systemStore.settings.Layout === SettingsValueEnum.LAYOUT_TOP
-              || systemStore.settings.Layout === SettingsValueEnum.LAYOUT_TOP_LEAN
+            systemStore.setting.layout === LayoutEnum.LAYOUT_TOP
               ? 'height: calc(100vh - var(--wingscloud-header-height));'
               : 'height: calc(100vh);'
           "
         >
           <el-header
             :style="
-              systemStore.settings.Layout === SettingsValueEnum.LAYOUT_ASIDE
-                || systemStore.settings.Layout
-                  === SettingsValueEnum.LAYOUT_ASIDE_DARK
+              systemStore.setting.layout === LayoutEnum.LAYOUT_SIDE
+                || systemStore.setting.layout
+                  === LayoutEnum.LAYOUT_DARK_SIDE
                 ? 'height: var(--wingscloud-header-height); border-bottom: 1px solid'
                 : 'height: 0; border-bottom: none'
             "
           >
             <layout-view-header
               v-if="
-                systemStore.settings.Layout
-                  === SettingsValueEnum.LAYOUT_ASIDE
-                  || systemStore.settings.Layout
-                    === SettingsValueEnum.LAYOUT_ASIDE_DARK
+                systemStore.setting.layout
+                  === LayoutEnum.LAYOUT_SIDE
+                  || systemStore.setting.layout
+                    === LayoutEnum.LAYOUT_DARK_SIDE
               "
             />
           </el-header>
-          <app-tab v-if="systemStore.settings.Tab" />
+          <app-tab />
           <div
             style="
-                  box-sizing: border-box;
-                  padding: var(--wingscloud-main-padding);
-                  background: var(--wingscloud-main-fill);
-                  transition: all var(--el-transition-duration)
-                    var(--el-transition-function-ease-in-out-bezier);
-                " :style="height"
+                    box-sizing: border-box;
+                    padding: var(--wingscloud-main-padding);
+                    background: var(--wingscloud-main-fill);
+                    transition: all var(--el-transition-duration)
+                      var(--el-transition-function-ease-in-out-bezier);
+                  " :style="height"
           >
-            <app-breadcrumb
-              v-if="
-                systemStore.settings.Breadcrumb
-                  === SettingsValueEnum.BREADCRUMB_VIEW_TOP
-              "
-            />
+            <app-breadcrumb />
             <div style="padding-bottom: var(--wingscloud-main-padding)">
               <slot name="router-view" />
             </div>
           </div>
-          <el-footer v-if="systemStore.settings.Footer">
+          <el-footer>
             <layout-view-footer />
           </el-footer>
         </el-main>

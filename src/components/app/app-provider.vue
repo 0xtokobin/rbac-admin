@@ -1,11 +1,10 @@
 <script lang="ts" setup>
 import type { Language } from 'element-plus/es/locale'
-import { Settings } from '@/constants/settings'
-import { SettingsValueEnum } from '@/constants/enums'
+import { DarkModeEnum, LanguageEnum } from '@/enum'
 import { setEpThemeColor } from '@/utils/common'
 import { useSystemStore } from '@/hooks/use-system-store'
 import { useMobileCodes } from '@/hooks/use-mobile-codes'
-import { useDictionary } from '@/hooks/use-dictionary'
+import { useDictionary } from '@/hooks/use-dict'
 
 const route = useRoute()
 
@@ -18,26 +17,26 @@ const { getDictionaryAll } = useDictionary()
 const { t, messages } = useI18n()
 
 const locale = messages.value[systemStore.language][
-  Settings.ElementPlus.language
+  LanguageEnum.ZH_CN_ALIAS
 ] as Language
 
 watch(
-  () => systemStore.settings.ColorScheme,
+  () => systemStore.setting.darkMode,
   (newVal) => {
-    if (newVal === SettingsValueEnum.COLOR_SCHEME_AUTO) {
-      systemStore.changeDarkOrLight(
+    if (newVal === DarkModeEnum.DARK_MODE_AUTO) {
+      systemStore.changeDarkMode(
         window.matchMedia('(prefers-color-scheme: dark)').matches,
       )
       window
         .matchMedia('(prefers-color-scheme: dark)')
         .addEventListener('change', (event) => {
-          systemStore.changeDarkOrLight(event.matches)
+          systemStore.changeDarkMode(event.matches)
         })
     }
     else {
-      document.documentElement.classList.remove(systemStore.colorScheme)
+      document.documentElement.classList.remove(systemStore.darkMode)
       document.documentElement.classList.add(newVal)
-      systemStore.colorScheme = newVal
+      systemStore.darkMode = newVal
     }
   },
   {
@@ -46,7 +45,7 @@ watch(
 )
 
 watch(
-  () => systemStore.settings.ThemeColor,
+  () => systemStore.setting.theme,
   (newVal, old) => {
     if (newVal && (newVal !== old || !old))
       setEpThemeColor(newVal as string)
@@ -60,7 +59,7 @@ watch(
   () => systemStore.browserTitle,
   () => {
     if (systemStore.browserTitle) {
-      document.title = `${systemStore.browserTitle} - ${t('app.name') || import.meta.env.APP_NAME
+      document.title = `${systemStore.browserTitle} - ${t('app.name') || import.meta.env.WINGSCLOUD_BROWSER_TITLE
         }`
     }
     else {
@@ -87,10 +86,12 @@ onBeforeMount(() => {
 
 <template>
   <el-config-provider
-    :locale="locale" :button="systemStore.settings.ElementPlus.button"
-    :message="systemStore.settings.ElementPlus.message" :size="systemStore.settings.ElementPlus.size"
+    :locale="locale" :button="systemStore.setting.elementPlus.button" :message="{
+      max: 3,
+    }"
+    :size="systemStore.setting.elementPlus.size"
   >
-    <layout-page v-if=" !route.meta.layout || route.meta?.layout === '' || route.meta?.layout === 'page'">
+    <layout-page v-if="!route.meta.layout || route.meta?.layout === '' || route.meta?.layout === 'page'">
       <template #router-view>
         <slot name="app" />
       </template>

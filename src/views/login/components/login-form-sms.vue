@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { FormInstance, FormRules } from 'element-plus'
 import { MOBILE } from '@kaivanwong/utils'
-import { MobileCodeTypeEnum, StorageEnum } from '@/constants/enums'
+import { StorageKeyEnum } from '@/enum'
 import { getStorage } from '@/utils/storage'
 import { useCountDown } from '@/hooks/use-count-down'
 import { useUserStore } from '@/hooks/use-user-store'
@@ -63,7 +63,7 @@ const formRules = reactive<FormRules>({
   ],
 })
 
-const mobileAreaCodeList = getStorage(StorageEnum.MOBILE_AREA_CODE)
+const mobileAreaCodeList = getStorage(StorageKeyEnum.MOBILE_AREA_CODE)
 
 const loading = ref<boolean>(false)
 
@@ -75,7 +75,7 @@ const login = async (formEl: FormInstance | undefined): Promise<void> => {
   await formEl.validate(async (valid: boolean) => {
     if (valid) {
       loading.value = true
-      await userStore.userLogin(form.value)
+      await userStore.login(form.value)
       loading.value = false
     }
   })
@@ -110,7 +110,7 @@ const login = async (formEl: FormInstance | undefined): Promise<void> => {
             inline-block p-0 link type="primary" :disabled="countDown.countDownForm.getting" @click="
               countDown.getMobileCode(
                 form.mobile,
-                MobileCodeTypeEnum.FORGET_PASSWORDS,
+                1,
               )
             "
           >

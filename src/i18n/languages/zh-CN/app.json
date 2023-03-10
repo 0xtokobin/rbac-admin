@@ -102,5 +102,11 @@
   "more": "更多",
   "closeNow": "关闭当前",
   "closeOther": "关闭其他",
-  "closeAll": "关闭全部"
+  "closeAll": "关闭全部",
+  "action": "操作",
+  "save": "保存",
+  "layoutMix": "混合布局",
+  "layoutTop": "顶部布局",
+  "layoutSide": "侧栏布局",
+  "layoutDarkSide": "深色侧栏布局"
 }

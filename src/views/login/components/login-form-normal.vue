@@ -87,7 +87,7 @@ const login = async (formEl: FormInstance | undefined): Promise<void> => {
   await formEl.validate(async (valid: boolean) => {
     if (valid) {
       loading.value = true
-      await userStore.userLogin(form.value)
+      await userStore.login(form.value)
       loading.value = false
     }
   })

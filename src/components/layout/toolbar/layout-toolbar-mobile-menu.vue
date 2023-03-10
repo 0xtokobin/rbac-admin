@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { SettingsValueEnum } from '@/constants/enums'
+import { DarkModeEnum } from '@/enum'
 import { useSystemStore } from '@/hooks/use-system-store'
 
 const props = defineProps({
@@ -23,7 +23,7 @@ const changeMobileMenu = () => {
     items-center
     :class="[
       props.fixed ? 'wingscloud-admin-fixed' : '',
-      systemStore.colorScheme === SettingsValueEnum.COLOR_SCHEME_DARK
+      systemStore.darkMode === DarkModeEnum.DARK_MODE_DARK
         ? 'wingscloud-admin-dark'
         : '',
     ]"

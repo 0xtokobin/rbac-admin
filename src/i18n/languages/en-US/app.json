@@ -102,5 +102,11 @@
   "more": "More",
   "close": "Close the current",
   "closeOther": "Close the other",
-  "closeAll": "Close all"
+  "closeAll": "Close all",
+  "action": "Action",
+  "save": "Save",
+  "layoutMix": "Mixed Layout",
+  "layoutTop": "Top Layout",
+  "layoutSide": "Side Layout",
+  "layoutDarkSide": "Side Dark Layout"
 }

@@ -2,7 +2,7 @@ import { dict } from '../data/dict'
 import type { ResponseData } from '../../src/utils/request'
 import type { IObject } from '../../types/global'
 import { interceptJointData } from '../../src/utils/common'
-import { IconTypeEnum } from '../../src/constants/enums'
+import { IconTypeEnum } from '../../src/enum'
 
 export default {
   /**

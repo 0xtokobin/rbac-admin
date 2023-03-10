@@ -3,15 +3,15 @@ import { useSystemStore } from '@/hooks/use-system-store'
 export const useLanguage = () => {
   const systemStore = useSystemStore()
 
-  const { messages, locale } = useI18n()
-
   const currentLanguage = computed(() => {
+    const { locale } = useI18n()
     return locale.value
   })
 
   const changeLanguage = (
     value: string | number | Record<string, any> | undefined,
   ) => {
+    const { messages, locale } = useI18n()
     locale.value = value as string
     systemStore.changeLanguage({
       alias: value,
@@ -23,6 +23,5 @@ export const useLanguage = () => {
   return {
     currentLanguage,
     changeLanguage,
-    languages: messages.value,
   }
 }

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { DArrowLeft, DArrowRight } from '@element-plus/icons-vue'
 import { useSystemStore } from '@/hooks/use-system-store'
-import { SettingsValueEnum } from '@/constants/enums'
+import { LayoutEnum } from '@/enum'
 
 const systemStore = useSystemStore()
 
@@ -13,16 +13,16 @@ const changeCollapse = (): void => {
 <template>
   <div
     class="wingscloud-admin-layout-admin-aside" :class="[
-      `wingscloud-admin-${systemStore.colorScheme}`,
-      `wingscloud-admin-${systemStore.settings.Layout}`,
+      `wingscloud-admin-${systemStore.darkMode}`,
+      `wingscloud-admin-${systemStore.setting.layout}`,
     ]"
   >
     <app-logo
       v-if="
         systemStore.isMobile
           || (!systemStore.isMobile
-            && systemStore.settings.Layout !== SettingsValueEnum.LAYOUT_TOP
-            && systemStore.settings.Layout !== SettingsValueEnum.LAYOUT_TOP_LEAN)
+            && systemStore.setting.layout !== LayoutEnum.LAYOUT_TOP
+          )
       " style="height: var(--wingscloud-aside-logo-height)"
     />
     <app-menu />
@@ -34,8 +34,8 @@ const changeCollapse = (): void => {
       cursor-pointer
       style="height: var(--wingscloud-collapse-height)"
       class="wingscloud-admin-layout-aside-menu-collapse" :class="[
-        `wingscloud-admin-${systemStore.colorScheme}`,
-        `wingscloud-admin-${systemStore.settings.Layout}`,
+        `wingscloud-admin-${systemStore.darkMode}`,
+        `wingscloud-admin-${systemStore.setting.layout}`,
       ]"
       @click="changeCollapse()"
     >

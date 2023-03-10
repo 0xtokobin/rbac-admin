@@ -1,15 +1,8 @@
 <script lang="ts" setup>
 import { Bell, Check } from '@element-plus/icons-vue'
 import { useDateFormat } from '@vueuse/core'
-import { RouteEnum } from '@/constants/enums'
 
 const { t } = useI18n()
-
-const router = useRouter()
-
-const goPersonalNotification = () => {
-  router.push(RouteEnum.ROUTE_SYSTEM_NOTIFICATION)
-}
 
 const list = ref<Array<any>>([])
 </script>
@@ -35,7 +28,7 @@ const list = ref<Array<any>>([])
           >
             {{ t('app.toolbar.notifications.clear') }}
           </el-button>
-          <el-button text type="primary" @click="goPersonalNotification">
+          <el-button text type="primary">
             {{ t('app.toolbar.notifications.more') }}
           </el-button>
         </div>

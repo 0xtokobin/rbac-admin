@@ -9,8 +9,7 @@ import {
   networkCodeAdaptor,
 } from './code-adaptor'
 import type { IObject } from '#/global'
-import { RequestHeaderEnum, StorageEnum } from '@/constants/enums'
-import { Settings } from '@/constants/settings'
+import { RequestHeaderEnum, StorageKeyEnum } from '@/enum'
 import { _t } from '@/i18n'
 
 export interface RequestOptions {
@@ -47,7 +46,7 @@ export const addInterceptorsRequest = (
       config.headers = { ...config.headers, ...options.headers } as AxiosRequestHeaders
       if (options.isToken) {
         config.headers[RequestHeaderEnum.HEADER_TOKEN] = getStorage(
-          StorageEnum.TOKEN,
+          StorageKeyEnum.TOKEN,
         )
       }
     }
@@ -110,7 +109,7 @@ export const request = <T>(
         baseURL: options.baseURL || import.meta.env.APP_REQUEST_URL,
         url: options.url,
         method: options.method,
-        timeout: options.timeout || Settings.NetworkTimeout,
+        timeout: options.timeout || 30000,
         headers: {
           'Content-Type': RequestHeaderEnum.CONTENT_TYPE_JSON,
           ...options.headers,

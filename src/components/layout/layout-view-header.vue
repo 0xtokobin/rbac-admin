@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { SettingsValueEnum } from '@/constants/enums'
+import { LayoutEnum } from '@/enum'
 import { useSystemStore } from '@/hooks/use-system-store'
 
 const systemStore = useSystemStore()
@@ -11,13 +11,13 @@ const systemStore = useSystemStore()
       <layout-toolbar-mobile-menu v-if="systemStore.isMobile" />
       <app-logo
         v-if="
-          !systemStore.isMobile && systemStore.settings.Layout === SettingsValueEnum.LAYOUT_TOP"
+          !systemStore.isMobile && systemStore.setting.layout === LayoutEnum.LAYOUT_TOP"
       />
-      <app-menu v-if="!systemStore.isMobile && systemStore.settings.Layout === SettingsValueEnum.LAYOUT_TOP" mode="horizontal" />
+      <app-menu v-if="!systemStore.isMobile && systemStore.setting.layout === LayoutEnum.LAYOUT_TOP" mode="horizontal" />
     </div>
     <div w-50 h-full flex justify-between items-center>
       <layout-toolbar-language />
-      <layout-toolbar-color-scheme />
+      <layout-toolbar-dark-mode />
       <layout-toolbar-refresh />
       <layout-toolbar-notification />
       <layout-toolbar-avatar />

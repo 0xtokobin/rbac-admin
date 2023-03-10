@@ -8,18 +8,10 @@ export interface ViewComponents {
 export type Callback = (data?: any) => void
 
 export type SystemSettingsLayout =
+  | 'mix'
   | 'top'
-  | 'top-lean'
-  | 'aside'
-  | 'aside-dark'
-  | 'aside-lean'
-  | 'aside-lean-dark'
-
-export type SystemSettingsColorScheme = 'auto' | 'theme' | 'light' | 'dark' | ''
-
-export type SystemSettingsTabStyle = 'square' | 'round'
-
-export type SystemSettingsMenuStyle = 'square' | 'round'
+  | 'side'
+  | 'dark-side'
 
 export interface IObject<T = any> {
   [key: string]: T
@@ -30,22 +22,13 @@ export interface IFunction<T = any> {
 }
 
 export interface SystemSettings {
-  Layout: SystemSettingsLayout
-  ThemeColor: string
-  ColorScheme: SystemSettingsColorScheme
-  TabStyle: SystemSettingsTabStyle
-  MenuStyle: SystemSettingsMenuStyle
-  Toolbar: IObject<boolean>
-  Footer: boolean
-  Tab: boolean
-  UniqueOpened: boolean
-  Breadcrumb: string
-  Copyright: string
-  ElementPlus: IObject
-  Language: string
-  FirstRoute: string
-  AdminFirstRoute: string
-  NetworkTimeout: number
+  layout: SystemSettingsLayout
+  theme: string
+  darkMode: string
+  tab: boolean
+  navigation: string
+  elementPlus: IObject
+  language: string
 }
 
 export interface Stores<T = any> {

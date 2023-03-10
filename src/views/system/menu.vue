@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useSystemStore } from '@/hooks/use-system-store'
-import { IconTypeEnum } from '@/constants/enums'
+import { IconTypeEnum } from '@/enum'
 
 const { t } = useI18n()
 
