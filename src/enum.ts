@@ -68,7 +68,6 @@ export enum LayoutEnum {
   LAYOUT_MIX = 'mix',
   LAYOUT_TOP = 'top',
   LAYOUT_SIDE = 'side',
-  LAYOUT_DARK_SIDE = 'dark-side',
 }
 
 /**

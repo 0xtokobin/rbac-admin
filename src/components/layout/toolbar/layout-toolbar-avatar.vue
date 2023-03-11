@@ -28,10 +28,6 @@ const layouts = [
     label: t('app.layoutSide'),
     value: 'side',
   },
-  {
-    label: t('app.layoutDarkSide'),
-    value: 'dark',
-  },
 ]
 
 const themes = [
@@ -113,13 +109,14 @@ const themes = [
 
   &::after {
     content: "";
-    width: 1rem;
-    height: 1rem;
+    width: 0.5rem;
+    height: 0.5rem;
     background-color: #42b983;
     position: absolute;
     left: 50%;
     bottom: -1rem;
     transform: translateX(-50%);
+    border-radius: 50%;
   }
 }
 </style>

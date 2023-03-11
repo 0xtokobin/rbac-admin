@@ -1,8 +1,11 @@
 <script lang="ts" setup>
 import { LayoutEnum } from '@/enum'
 import { useSystemStore } from '@/hooks/use-system-store'
+import { useUserStore } from '@/hooks/use-user-store'
 
 const systemStore = useSystemStore()
+
+const userStore = useUserStore()
 </script>
 
 <template>

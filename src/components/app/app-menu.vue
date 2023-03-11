@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useSystemStore } from '@/hooks/use-system-store'
+import { useUserStore } from '@/hooks/use-user-store'
 import { LayoutEnum } from '@/enum'
 
 const props = defineProps({
@@ -12,6 +13,8 @@ const props = defineProps({
 const route = useRoute()
 
 const systemStore = useSystemStore()
+
+const userStore = useUserStore()
 
 const wrapStyle = computed(() => {
   if (props.mode === 'vertical') {

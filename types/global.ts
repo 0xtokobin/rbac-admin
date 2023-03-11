@@ -11,7 +11,6 @@ export type SystemSettingsLayout =
   | 'mix'
   | 'top'
   | 'side'
-  | 'dark-side'
 
 export interface IObject<T = any> {
   [key: string]: T

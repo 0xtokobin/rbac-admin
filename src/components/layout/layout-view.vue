@@ -1,120 +1,57 @@
 <script lang="ts" setup>
+import { LayoutEnum } from '@/enum'
 import { useSystemStore } from '@/hooks/use-system-store'
 import { useUserStore } from '@/hooks/use-user-store'
-import { LayoutEnum } from '@/enum'
 
 const systemStore = useSystemStore()
 
 const userStore = useUserStore()
-
-const height = computed(() => {
-  let _height = '100vh'
-  if (
-    userStore.profile.layout === LayoutEnum.LAYOUT_TOP
-    || userStore.profile.layout === LayoutEnum.LAYOUT_SIDE
-    || userStore.profile.layout === LayoutEnum.LAYOUT_DARK_SIDE
-  ) {
-    _height
-      = 'calc(100vh - var(--wingscloud-header-height) - var(--wingscloud-tab-height))'
-  }
-  else {
-    _height = 'calc(100vh - var(--wingscloud-tab-height))'
-  }
-  return `height: ${_height}`
-})
 </script>
 
 <template>
   <div
-    class="wingscloud-admin-layout-admin" :class="[
-      `wingscloud-admin-${systemStore.darkMode}`,
-      `wingscloud-admin-${userStore.profile.layout}`,
+    class="wingscloud-layout-view" :class="[
+      `wingscloud-${systemStore.darkMode}`,
+      `wingscloud-${userStore.profile.layout}`,
     ]"
   >
     <el-container>
-      <el-header
-        :style="
-          userStore.profile.layout === LayoutEnum.LAYOUT_TOP
-            ? 'height: var(--wingscloud-header-height); border-bottom: 1px solid'
-            : 'height: 0; border-bottom: none;'
-        "
-      >
-        <layout-view-header
-          v-if="
-            userStore.profile.layout === LayoutEnum.LAYOUT_TOP
-          "
+      <el-aside v-if="!systemStore.isMobile">
+        <layout-view-aside
+          v-if="systemStore.layout === LayoutEnum.LAYOUT_SIDE "
         />
+      </el-aside>
+      <el-header>
+        <layout-view-header v-if="systemStore.layout === LayoutEnum.LAYOUT_MIX || systemStore.layout === LayoutEnum.LAYOUT_TOP" />
       </el-header>
       <el-container>
-        <el-aside
-          :style="[
-            !systemStore.isMobile
-              ? systemStore.collapse
-                ? 'width: var(--wingscloud-aside-width-fold)'
-                : 'width: var(--wingscloud-aside-width)'
-              : 'width: 0',
-            systemStore.isMobile ? 'border:none' : '',
-          ]"
-        >
+        <el-aside v-if="!systemStore.isMobile">
           <layout-view-aside
-            v-if="
-              !systemStore.isMobile
-            "
+            v-if="systemStore.layout === LayoutEnum.LAYOUT_MIX"
           />
         </el-aside>
-        <el-main
-          :style="
-            userStore.profile.layout === LayoutEnum.LAYOUT_TOP
-              ? 'height: calc(100vh - var(--wingscloud-header-height));'
-              : 'height: calc(100vh);'
-          "
-        >
-          <el-header
-            :style="
-              userStore.profile.layout === LayoutEnum.LAYOUT_SIDE
-                || userStore.profile.layout
-                  === LayoutEnum.LAYOUT_DARK_SIDE
-                ? 'height: var(--wingscloud-header-height); border-bottom: 1px solid'
-                : 'height: 0; border-bottom: none'
-            "
-          >
-            <layout-view-header
-              v-if="
-                userStore.profile.layout
-                  === LayoutEnum.LAYOUT_SIDE
-                  || userStore.profile.layout
-                    === LayoutEnum.LAYOUT_DARK_SIDE
-              "
-            />
+        <el-container>
+          <el-header>
+            <layout-view-header v-if="systemStore.layout === LayoutEnum.LAYOUT_SIDE" />
           </el-header>
-          <app-tab />
-          <div
-            style="
-                    box-sizing: border-box;
-                    padding: var(--wingscloud-main-padding);
-                    background: var(--wingscloud-main-fill);
-                    transition: all var(--el-transition-duration)
-                      var(--el-transition-function-ease-in-out-bezier);
-                  " :style="height"
-          >
+          <el-main>
+            <app-tab />
             <app-breadcrumb />
-            <div style="padding-bottom: var(--wingscloud-main-padding)">
-              <slot name="router-view" />
-            </div>
-          </div>
-          <el-footer>
-            <layout-view-footer />
-          </el-footer>
-        </el-main>
+            <slot name="router-view" />
+          </el-main>
+        </el-container>
+        <el-footer>
+          <layout-view-footer />
+        </el-footer>
       </el-container>
     </el-container>
-    <el-drawer
-      v-model="systemStore.mobileMenu" :show-close="false" direction="ltr" :with-header="false"
-      size="var(--wingscloud-aside-width)"
-    >
-      <layout-view-aside />
-    </el-drawer>
   </div>
+  <el-drawer
+    v-model="systemStore.mobileMenu" :show-close="false" direction="ltr" :with-header="false"
+    size="var(--wingscloud-aside-width)"
+  >
+    <layout-view-aside />
+  </el-drawer>
 </template>
 
 <style lang="scss" scoped>
@@ -122,6 +59,8 @@ const height = computed(() => {
   background-color: var(--wingscloud-header-bg-color);
   border-color: var(--wingscloud-header-border-color) !important;
   transition: all var(--el-transition-duration) var(--el-transition-function-ease-in-out-bezier);
+  height: var(--wingscloud-header-height);
+  border-bottom: 1px solid;
 }
 
 :deep(.el-container) {

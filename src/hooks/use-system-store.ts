@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import type { RouteRecordRaw } from 'vue-router'
 import type { IObject, ViewComponents } from '#/global'
-import { DarkModeEnum, LanguageEnum, StorageKeyEnum } from '@/enum'
+import { DarkModeEnum, LanguageEnum, LayoutEnum, StorageKeyEnum } from '@/enum'
 import { getStorage, setStorage } from '@/utils/storage'
 import {
   autoImportViewComponents,
@@ -19,10 +19,10 @@ import { GET } from '@/utils/request'
  * @returns
  */
 export const useSystemStore = defineStore('system', () => {
-  // 菜单展开/折叠状态
+  // 当前菜单展开/折叠状态
   const collapse = ref<boolean>(false)
 
-  // 黑暗模式
+  // 当前黑暗模式
   const darkMode = ref<string>(DarkModeEnum.DARK_MODE_AUTO)
 
   // 切换黑暗模式
@@ -42,7 +42,7 @@ export const useSystemStore = defineStore('system', () => {
     }
   }
 
-  // 浏览器标题
+  // 当前浏览器标题
   const browserTitle = ref<string>('')
 
   // Keep Alive 列表
@@ -68,6 +68,9 @@ export const useSystemStore = defineStore('system', () => {
     language.value = data.alias
     setStorage(StorageKeyEnum.LANGUAGE, data.alias)
   }
+
+  // 当前布局
+  const layout = ref<string>(LayoutEnum.LAYOUT_MIX)
 
   // 是否移动端
   const isMobile = ref<boolean>(false)
@@ -124,6 +127,7 @@ export const useSystemStore = defineStore('system', () => {
     keepAliveRemoveName,
     language,
     changeLanguage,
+    layout,
     isMobile,
     mobileMenu,
     changeMobile,
