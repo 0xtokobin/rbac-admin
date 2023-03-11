@@ -1,3 +1,0 @@
-<template>
-  <app-copyright />
-</template>

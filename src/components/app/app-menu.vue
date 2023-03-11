@@ -20,7 +20,7 @@ const wrapStyle = computed(() => {
   if (props.mode === 'vertical') {
     let _height = '100vh'
     if (
-      userStore.profile.layout === LayoutEnum.LAYOUT_TOP
+      systemStore.layout === LayoutEnum.LAYOUT_TOP
     ) {
       _height
         = 'calc(100vh - var(--wingscloud-header-height) - var(--wingscloud-collapse-height))'
@@ -47,7 +47,7 @@ const wrapStyle = computed(() => {
     <div
       class="wingscloud-admin-layout-admin-menu" :class="[
         `wingscloud-admin-${systemStore.darkMode}`,
-        `wingscloud-admin-${userStore.profile.layout}`,
+        `wingscloud-admin-${systemStore.layout}`,
       ]" h-full
     >
       <el-menu

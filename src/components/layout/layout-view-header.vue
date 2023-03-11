@@ -1,22 +1,19 @@
 <script lang="ts" setup>
 import { LayoutEnum } from '@/enum'
 import { useSystemStore } from '@/hooks/use-system-store'
-import { useUserStore } from '@/hooks/use-user-store'
 
 const systemStore = useSystemStore()
-
-const userStore = useUserStore()
 </script>
 
 <template>
-  <div h-full flex justify-between>
+  <div h-full flex justify-between border-b-1>
     <div h-full flex items-center>
       <layout-toolbar-mobile-menu v-if="systemStore.isMobile" />
       <app-logo
         v-if="
-          !systemStore.isMobile && userStore.profile.layout === LayoutEnum.LAYOUT_TOP"
+          !systemStore.isMobile && systemStore.layout !== LayoutEnum.LAYOUT_SIDE "
       />
-      <app-menu v-if="!systemStore.isMobile && userStore.profile.layout === LayoutEnum.LAYOUT_TOP" mode="horizontal" />
+      <app-menu v-if="!systemStore.isMobile && systemStore.layout === LayoutEnum.LAYOUT_TOP" mode="horizontal" />
     </div>
     <div w-50 h-full flex justify-between items-center>
       <layout-toolbar-language />

@@ -12,26 +12,24 @@ const userStore = useUserStore()
   <div
     class="wingscloud-layout-view" :class="[
       `wingscloud-${systemStore.darkMode}`,
-      `wingscloud-${userStore.profile.layout}`,
+      `wingscloud-${systemStore.layout}`,
     ]"
   >
     <el-container>
       <el-aside v-if="!systemStore.isMobile">
-        <layout-view-aside
-          v-if="systemStore.layout === LayoutEnum.LAYOUT_SIDE "
-        />
+        <layout-view-aside v-if="systemStore.layout === LayoutEnum.LAYOUT_SIDE" />
       </el-aside>
       <el-header>
-        <layout-view-header v-if="systemStore.layout === LayoutEnum.LAYOUT_MIX || systemStore.layout === LayoutEnum.LAYOUT_TOP" />
+        <layout-view-header
+          v-if="systemStore.layout === LayoutEnum.LAYOUT_MIX || systemStore.layout === LayoutEnum.LAYOUT_TOP"
+        />
       </el-header>
       <el-container>
         <el-aside v-if="!systemStore.isMobile">
-          <layout-view-aside
-            v-if="systemStore.layout === LayoutEnum.LAYOUT_MIX"
-          />
+          <layout-view-aside v-if="systemStore.layout === LayoutEnum.LAYOUT_MIX" />
         </el-aside>
         <el-container>
-          <el-header>
+          <el-header style="height: auto">
             <layout-view-header v-if="systemStore.layout === LayoutEnum.LAYOUT_SIDE" />
           </el-header>
           <el-main>
@@ -39,10 +37,10 @@ const userStore = useUserStore()
             <app-breadcrumb />
             <slot name="router-view" />
           </el-main>
+          <el-footer>
+            <app-copyright />
+          </el-footer>
         </el-container>
-        <el-footer>
-          <layout-view-footer />
-        </el-footer>
       </el-container>
     </el-container>
   </div>
@@ -58,31 +56,27 @@ const userStore = useUserStore()
 :deep(.el-header) {
   background-color: var(--wingscloud-header-bg-color);
   border-color: var(--wingscloud-header-border-color) !important;
-  transition: all var(--el-transition-duration) var(--el-transition-function-ease-in-out-bezier);
   height: var(--wingscloud-header-height);
-  border-bottom: 1px solid;
 }
 
 :deep(.el-container) {
   box-sizing: border-box;
   overflow: hidden;
   background-color: var(--wingscloud-menu-bg-color);
-  transition: all var(--el-transition-duration) var(--el-transition-function-ease-in-out-bezier);
 }
 
 :deep(.el-aside) {
   box-sizing: border-box;
   overflow: hidden;
   border-right: 1px solid var(--wingscloud-aside-border-color);
-  transition: all var(--el-transition-duration) var(--el-transition-function-ease-in-out-bezier);
 }
 
 :deep(.el-main) {
-  box-sizing: border-box;
-  padding: 0;
-  overflow: hidden;
   background: var(--wingscloud-main-fill);
-  transition: all var(--el-transition-duration) var(--el-transition-function-ease-in-out-bezier);
+}
+
+:deep(.el-footer) {
+  background: var(--wingscloud-main-fill);
 }
 
 :deep(.el-drawer) {

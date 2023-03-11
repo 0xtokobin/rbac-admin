@@ -66,7 +66,7 @@ const themes = [
         </el-select>
       </el-form-item>
       <el-form-item :label="t('app.layout')">
-        <el-select v-model="userStore.profile.layout" important-w-full @change="changeLanguage">
+        <el-select v-model="systemStore.layout" important-w-full @change="changeLanguage">
           <el-option v-for="(item, key) in layouts" :key="key" :label="item.label" :value="item.value" />
         </el-select>
       </el-form-item>
