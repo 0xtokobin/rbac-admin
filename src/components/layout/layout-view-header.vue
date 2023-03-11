@@ -15,8 +15,7 @@ const systemStore = useSystemStore()
       />
       <app-menu v-if="!systemStore.isMobile && systemStore.layout === LayoutEnum.LAYOUT_TOP" mode="horizontal" />
     </div>
-    <div w-50 h-full flex justify-between items-center>
-      <layout-toolbar-language />
+    <div w-46 h-full flex justify-between items-center>
       <layout-toolbar-dark-mode />
       <layout-toolbar-refresh />
       <layout-toolbar-notification />

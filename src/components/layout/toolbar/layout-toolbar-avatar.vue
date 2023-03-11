@@ -2,12 +2,15 @@
 import { UserFilled } from '@element-plus/icons-vue'
 import { useUserStore } from '@/hooks/use-user-store'
 import { useLanguage } from '@/hooks/use-language'
+import { useSystemStore } from '@/hooks/use-system-store'
 
 const { changeLanguage, currentLanguage } = useLanguage()
 
 const { t, messages } = useI18n()
 
 const userStore = useUserStore()
+
+const systemStore = useSystemStore
 
 const personalDrawerVisible = ref<boolean>(false)
 
@@ -31,13 +34,12 @@ const layouts = [
 ]
 
 const themes = [
-  '#3dabf5',
-  '#0d6efd',
+  '#165DFF',
   '#42b983',
   '#ea3a72',
   '#fe7300',
   '#1C9399',
-  '#F56C6C',
+  '#f56c6c',
   '#839aff',
 ]
 </script>
@@ -73,13 +75,13 @@ const themes = [
       <el-form-item :label="t('app.theme')">
         <div w-full flex flex-wrap items-center justify-between>
           <div
-            v-for="(item, index) in themes" :key="index" :class="userStore.profile.theme === item ? 'active ' : ''"
+            v-for="(item, index) in themes" :key="index" :class="systemStore.theme === item ? 'active ' : ''"
             w-6 h-6 cursor-pointer rd-1 :style="{ backgroundColor: item }"
           />
         </div>
       </el-form-item>
       <el-form-item :label="t('app.size')">
-        <el-select v-model="userStore.profile.size" important-w-full>
+        <el-select v-model="systemStore.size" important-w-full>
           <el-option :label="t('system.setting.componentLarge')" value="large" />
           <el-option :label="t('system.setting.componentDefault')" value="default" />
           <el-option :label="t('system.setting.componentSmall')" value="small" />

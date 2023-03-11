@@ -79,3 +79,27 @@ export enum DarkModeEnum {
   DARK_MODE_LIGHT = 'light',
   DARK_MODE_DARK = 'dark',
 }
+
+/**
+ * @name ThemeEnum
+ * @description 主题颜色枚举
+ */
+export enum ThemeEnum {
+  BLUE = '#0d6efd',
+  GREEN = '#42b983',
+  RED = '#ea3a72',
+  ORANGE = '#fe7300',
+  CYAN = '#1c9399',
+  PINK = '#f56c6c',
+  VIOLET = '#839aff',
+}
+
+/**
+ * @name SizeEnum
+ * @description 组件大小枚举
+ */
+export enum SizeEnum {
+  LARGE = 'large',
+  DEFAULT = 'default',
+  SMALL = 'small',
+}
