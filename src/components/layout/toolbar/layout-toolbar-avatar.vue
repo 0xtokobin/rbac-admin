@@ -50,7 +50,7 @@ const themes = [
     @click="openPersonalDrawer"
   />
   <el-drawer v-model="personalDrawerVisible" :title="t('app.personal')" :size="300">
-    <div p-5 flex items-center>
+    <div p-2 flex items-center>
       <el-avatar mr-6 :size="82" :src="userStore.profile.avatar" :icon="UserFilled" />
       <div>
         <div text-6 mb-4>
@@ -61,7 +61,7 @@ const themes = [
         </div>
       </div>
     </div>
-    <el-form p-5 label-position="top">
+    <el-form p-2 label-position="top">
       <el-form-item :label="t('app.language')">
         <el-select v-model="currentLanguage" important-w-full @change="changeLanguage">
           <el-option v-for="(value, key) in messages" :key="key" :label="value.name" :value="key" />

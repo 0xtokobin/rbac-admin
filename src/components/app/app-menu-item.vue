@@ -2,7 +2,6 @@
 import type { RouteRecordRaw } from 'vue-router'
 import { IconTypeEnum } from '@/enum'
 import { useSystemStore } from '@/hooks/use-system-store'
-import { useUserStore } from '@/hooks/use-user-store'
 
 const props = defineProps({
   routes: {
@@ -14,8 +13,6 @@ const props = defineProps({
 })
 
 const systemStore = useSystemStore()
-
-const userStore = useUserStore()
 </script>
 
 <template>
