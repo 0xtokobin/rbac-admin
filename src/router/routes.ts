@@ -6,7 +6,7 @@ export const routes: Array<RouteRecordRaw> = [
     path: '/',
     name: 'index',
     component: Index,
-    meta: { layout: 'view' },
+    meta: { layout: 'view', requiresAuth: true },
   },
   {
     path: '/403',

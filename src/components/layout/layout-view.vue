@@ -7,9 +7,9 @@ const systemStore = useSystemStore()
 const height = computed(() => {
   let _height = '100vh'
   if (
-    systemStore.setting.layout === LayoutEnum.LAYOUT_TOP
-    || systemStore.setting.layout === LayoutEnum.LAYOUT_SIDE
-    || systemStore.setting.layout === LayoutEnum.LAYOUT_DARK_SIDE
+    userStore.profile.layout === LayoutEnum.LAYOUT_TOP
+    || userStore.profile.layout === LayoutEnum.LAYOUT_SIDE
+    || userStore.profile.layout === LayoutEnum.LAYOUT_DARK_SIDE
   ) {
     _height
       = 'calc(100vh - var(--wingscloud-header-height) - var(--wingscloud-tab-height))'
@@ -25,20 +25,20 @@ const height = computed(() => {
   <div
     class="wingscloud-admin-layout-admin" :class="[
       `wingscloud-admin-${systemStore.darkMode}`,
-      `wingscloud-admin-${systemStore.setting.layout}`,
+      `wingscloud-admin-${userStore.profile.layout}`,
     ]"
   >
     <el-container>
       <el-header
         :style="
-          systemStore.setting.layout === LayoutEnum.LAYOUT_TOP
+          userStore.profile.layout === LayoutEnum.LAYOUT_TOP
             ? 'height: var(--wingscloud-header-height); border-bottom: 1px solid'
             : 'height: 0; border-bottom: none;'
         "
       >
         <layout-view-header
           v-if="
-            systemStore.setting.layout === LayoutEnum.LAYOUT_TOP
+            userStore.profile.layout === LayoutEnum.LAYOUT_TOP
           "
         />
       </el-header>
@@ -61,15 +61,15 @@ const height = computed(() => {
         </el-aside>
         <el-main
           :style="
-            systemStore.setting.layout === LayoutEnum.LAYOUT_TOP
+            userStore.profile.layout === LayoutEnum.LAYOUT_TOP
               ? 'height: calc(100vh - var(--wingscloud-header-height));'
               : 'height: calc(100vh);'
           "
         >
           <el-header
             :style="
-              systemStore.setting.layout === LayoutEnum.LAYOUT_SIDE
-                || systemStore.setting.layout
+              userStore.profile.layout === LayoutEnum.LAYOUT_SIDE
+                || userStore.profile.layout
                   === LayoutEnum.LAYOUT_DARK_SIDE
                 ? 'height: var(--wingscloud-header-height); border-bottom: 1px solid'
                 : 'height: 0; border-bottom: none'
@@ -77,9 +77,9 @@ const height = computed(() => {
           >
             <layout-view-header
               v-if="
-                systemStore.setting.layout
+                userStore.profile.layout
                   === LayoutEnum.LAYOUT_SIDE
-                  || systemStore.setting.layout
+                  || userStore.profile.layout
                     === LayoutEnum.LAYOUT_DARK_SIDE
               "
             />

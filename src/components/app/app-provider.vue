@@ -3,6 +3,7 @@ import type { Language } from 'element-plus/es/locale'
 import { DarkModeEnum, LanguageEnum } from '@/enum'
 import { setEpThemeColor } from '@/utils/common'
 import { useSystemStore } from '@/hooks/use-system-store'
+import { useUserStore } from '@/hooks/use-user-store'
 import { useMobileCodes } from '@/hooks/use-mobile-codes'
 import { useDictionary } from '@/hooks/use-dict'
 
@@ -10,18 +11,22 @@ const route = useRoute()
 
 const systemStore = useSystemStore()
 
+const userStore = useUserStore()
+
 const { getMobileCodes } = useMobileCodes()
 
 const { getDictionaryAll } = useDictionary()
 
 const { t, messages } = useI18n()
 
-const locale = messages.value[systemStore.language][
-  LanguageEnum.ZH_CN_ALIAS
-] as Language
+const locale = computed(() => {
+  return messages.value[systemStore.language][
+    LanguageEnum.ELEMENT_PLUS_LANGUAGE
+  ] as Language
+})
 
 watch(
-  () => systemStore.setting.darkMode,
+  () => userStore.profile.darkMode,
   (newVal) => {
     if (newVal === DarkModeEnum.DARK_MODE_AUTO) {
       systemStore.changeDarkMode(
@@ -45,7 +50,7 @@ watch(
 )
 
 watch(
-  () => systemStore.setting.theme,
+  () => userStore.profile.theme,
   (newVal, old) => {
     if (newVal && (newVal !== old || !old))
       setEpThemeColor(newVal as string)
@@ -86,10 +91,8 @@ onBeforeMount(() => {
 
 <template>
   <el-config-provider
-    :locale="locale" :button="systemStore.setting.elementPlus.button" :message="{
-      max: 3,
-    }"
-    :size="systemStore.setting.elementPlus.size"
+    :locale="locale" :button="{ autoInsertSpace: true }" :message="{ max: 3 }"
+    :size="userStore.profile.size"
   >
     <layout-page v-if="!route.meta.layout || route.meta?.layout === '' || route.meta?.layout === 'page'">
       <template #router-view>

@@ -11,9 +11,9 @@ const systemStore = useSystemStore()
       <layout-toolbar-mobile-menu v-if="systemStore.isMobile" />
       <app-logo
         v-if="
-          !systemStore.isMobile && systemStore.setting.layout === LayoutEnum.LAYOUT_TOP"
+          !systemStore.isMobile && userStore.profile.layout === LayoutEnum.LAYOUT_TOP"
       />
-      <app-menu v-if="!systemStore.isMobile && systemStore.setting.layout === LayoutEnum.LAYOUT_TOP" mode="horizontal" />
+      <app-menu v-if="!systemStore.isMobile && userStore.profile.layout === LayoutEnum.LAYOUT_TOP" mode="horizontal" />
     </div>
     <div w-50 h-full flex justify-between items-center>
       <layout-toolbar-language />

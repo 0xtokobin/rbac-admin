@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import type { RouteRecordRaw } from 'vue-router'
-import type { IObject, SystemSettings, ViewComponents } from '#/global'
+import type { IObject, ViewComponents } from '#/global'
 import { DarkModeEnum, LanguageEnum, StorageKeyEnum } from '@/enum'
 import { getStorage, setStorage } from '@/utils/storage'
 import {
@@ -22,19 +22,8 @@ export const useSystemStore = defineStore('system', () => {
   // 菜单展开/折叠状态
   const collapse = ref<boolean>(false)
 
-  // 设置
-  const setting = ref<SystemSettings>(
-    getStorage(StorageKeyEnum.SETTING) || {},
-  )
-
-  // 缓存设置
-  const setSetting = (data: SystemSettings): void => {
-    setting.value = data
-    setStorage(StorageKeyEnum.SETTING, data)
-  }
-
   // 黑暗模式
-  const darkMode = ref<string>(setting.value.darkMode)
+  const darkMode = ref<string>(DarkModeEnum.DARK_MODE_AUTO)
 
   // 切换黑暗模式
   const changeDarkMode = (value: boolean) => {
@@ -127,8 +116,6 @@ export const useSystemStore = defineStore('system', () => {
 
   return {
     collapse,
-    setting,
-    setSetting,
     darkMode,
     changeDarkMode,
     browserTitle,

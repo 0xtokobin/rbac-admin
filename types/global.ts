@@ -27,7 +27,7 @@ export interface SystemSettings {
   darkMode: string
   tab: boolean
   navigation: string
-  elementPlus: IObject
+  size: string
   language: string
 }
 

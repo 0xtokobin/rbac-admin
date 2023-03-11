@@ -73,20 +73,20 @@ const themes = [
         </el-select>
       </el-form-item>
       <el-form-item :label="t('app.layout')">
-        <el-select v-model="systemStore.setting.layout" important-w-full @change="changeLanguage">
+        <el-select v-model="userStore.profile.layout" important-w-full @change="changeLanguage">
           <el-option v-for="(item, key) in layouts" :key="key" :label="item.label" :value="item.value" />
         </el-select>
       </el-form-item>
       <el-form-item :label="t('app.theme')">
         <div w-full flex flex-wrap items-center justify-between>
           <div
-            v-for="(item, index) in themes" :key="index" :class="systemStore.setting.theme === item ? 'active ' : ''"
+            v-for="(item, index) in themes" :key="index" :class="userStore.profile.theme === item ? 'active ' : ''"
             w-6 h-6 cursor-pointer rd-1 :style="{ backgroundColor: item }"
           />
         </div>
       </el-form-item>
       <el-form-item :label="t('app.size')">
-        <el-select v-model="systemStore.setting.elementPlus.size" important-w-full>
+        <el-select v-model="userStore.profile.size" important-w-full>
           <el-option :label="t('system.setting.componentLarge')" value="large" />
           <el-option :label="t('system.setting.componentDefault')" value="default" />
           <el-option :label="t('system.setting.componentSmall')" value="small" />

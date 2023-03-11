@@ -16,14 +16,14 @@ const width = computed(() => {
   let _width = 'var(--wingscloud-header-logo-width)'
   if (
     systemStore.collapse
-    && systemStore.setting.layout !== LayoutEnum.LAYOUT_TOP
+    && userStore.profile.layout !== LayoutEnum.LAYOUT_TOP
   )
     _width = 'var(--wingscloud-aside-width-fold)'
   else
     _width = 'var(--wingscloud-aside-width)'
 
   if (
-    systemStore.setting.layout === LayoutEnum.LAYOUT_TOP
+    userStore.profile.layout === LayoutEnum.LAYOUT_TOP
   )
     _width = 'var(--wingscloud-header-logo-width)'
 
@@ -36,11 +36,11 @@ const width = computed(() => {
 const position = computed(() => {
   let _position = 'display:flex;align-items:center;'
   if (
-    systemStore.setting.layout !== LayoutEnum.LAYOUT_TOP
+    userStore.profile.layout !== LayoutEnum.LAYOUT_TOP
   )
     _position += 'justify-content:center;'
   else if (
-    systemStore.setting.layout === LayoutEnum.LAYOUT_TOP
+    userStore.profile.layout === LayoutEnum.LAYOUT_TOP
   )
     _position += 'justify-content:flex-start;'
 
@@ -56,10 +56,10 @@ const position = computed(() => {
     <div
       v-if="
         !systemStore.collapse
-          || systemStore.setting.layout === LayoutEnum.LAYOUT_TOP
+          || userStore.profile.layout === LayoutEnum.LAYOUT_TOP
       " w-full text="4.2" font-600 ml-4 class="single-line-omitted name" :style="
         systemStore.darkMode === DarkModeEnum.DARK_MODE_DARK
-          || systemStore.setting.layout === LayoutEnum.LAYOUT_SIDE
+          || userStore.profile.layout === LayoutEnum.LAYOUT_SIDE
           || systemStore.isMobile
           ? 'color: var(--wingscloud-menu-text-color)'
           : 'color: var(--wingscloud-header-text-color)'

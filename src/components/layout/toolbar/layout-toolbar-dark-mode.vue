@@ -6,14 +6,14 @@ const systemStore = useSystemStore()
 
 const changeColorScheme = () => {
   if (
-    systemStore.setting.darkMode === DarkModeEnum.DARK_MODE_DARK
+    userStore.profile.darkMode === DarkModeEnum.DARK_MODE_DARK
   ) {
     systemStore.changeDarkMode(
       systemStore.darkMode === DarkModeEnum.DARK_MODE_LIGHT,
     )
   }
   else {
-    systemStore.setting.darkMode
+    userStore.profile.darkMode
       = systemStore.darkMode === DarkModeEnum.DARK_MODE_DARK
         ? DarkModeEnum.DARK_MODE_LIGHT
         : DarkModeEnum.DARK_MODE_DARK

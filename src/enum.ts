@@ -15,9 +15,9 @@ export enum RouteEnum {
  */
 export enum LanguageEnum {
   ELEMENT_PLUS_LANGUAGE = 'el-language',
-  EN_US_ALIAS = 'en',
+  EN_US_ALIAS = 'en-US',
   EN_US_NAME = 'English',
-  ZH_CN_ALIAS = 'zh',
+  ZH_CN_ALIAS = 'zh-CN',
   ZH_CN_NAME = '简体中文',
 }
 

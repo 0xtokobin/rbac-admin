@@ -45,7 +45,7 @@ const systemStore = useSystemStore()
     </el-menu-item>
     <el-sub-menu
       v-else :index="route.path"
-      :popper-class="`wingscloud-${systemStore.darkMode} wingscloud-${systemStore.setting.layout} wingscloud-layout-admin-menu`"
+      :popper-class="`wingscloud-${systemStore.darkMode} wingscloud-${userStore.profile.layout} wingscloud-layout-admin-menu`"
     >
       <template #title>
         <svg-icon
