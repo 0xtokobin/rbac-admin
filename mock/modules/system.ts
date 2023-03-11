@@ -61,8 +61,12 @@ export default {
       roleName: '管理员',
       departmentId: '0',
       departmentName: '总公司',
-    }
-    ,
+      layout: 'mix',
+      language: 'zh-CN',
+      size: 'default',
+      theme: '#3dabf5',
+      darkMode: 'auto',
+    },
   },
 
   /**
@@ -243,12 +247,12 @@ export default {
     url: '/system/user/roles',
     method: 'get',
     data: [
-      '/home',
+      '/',
       '/system/role',
       '/system/user',
-      '/system/department',
+      '/system/dept',
       '/system/menu',
-      '/system/dictionary',
+      '/system/dict',
       '/system/param',
       '/system/file',
       '/system/log',

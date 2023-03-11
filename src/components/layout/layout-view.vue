@@ -1,8 +1,11 @@
 <script lang="ts" setup>
 import { useSystemStore } from '@/hooks/use-system-store'
+import { useUserStore } from '@/hooks/use-user-store'
 import { LayoutEnum } from '@/enum'
 
 const systemStore = useSystemStore()
+
+const userStore = useUserStore()
 
 const height = computed(() => {
   let _height = '100vh'

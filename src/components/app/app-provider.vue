@@ -28,7 +28,7 @@ const locale = computed(() => {
 watch(
   () => userStore.profile.darkMode,
   (newVal) => {
-    if (newVal === DarkModeEnum.DARK_MODE_AUTO) {
+    if (!newVal || newVal === DarkModeEnum.DARK_MODE_AUTO) {
       systemStore.changeDarkMode(
         window.matchMedia('(prefers-color-scheme: dark)').matches,
       )

@@ -2,15 +2,12 @@
 import { UserFilled } from '@element-plus/icons-vue'
 import { useUserStore } from '@/hooks/use-user-store'
 import { useLanguage } from '@/hooks/use-language'
-import { useSystemStore } from '@/hooks/use-system-store'
 
 const { changeLanguage, currentLanguage } = useLanguage()
 
 const { t, messages } = useI18n()
 
 const userStore = useUserStore()
-
-const systemStore = useSystemStore()
 
 const personalDrawerVisible = ref<boolean>(false)
 
