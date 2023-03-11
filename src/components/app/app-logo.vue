@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { useSystemStore } from '@/hooks/use-system-store'
-import { useUserStore } from '@/hooks/use-user-store'
 import { DarkModeEnum, LayoutEnum, RouteEnum } from '@/enum'
 
 const { t } = useI18n()
@@ -8,8 +7,6 @@ const { t } = useI18n()
 const router = useRouter()
 
 const systemStore = useSystemStore()
-
-const userStore = useUserStore()
 
 const goHomeRoute = () => {
   router.push({ path: RouteEnum.ROUTE_FIRST })
