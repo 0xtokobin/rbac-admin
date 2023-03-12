@@ -104,7 +104,7 @@ export const useSystemStore = defineStore('system', () => {
   }
 
   // 当前系统语言环境
-  const language = ref<string>(getStorage(StorageKeyEnum.PROFILE)?.language || LanguageEnum.ZH_CN_ALIAS)
+  const language = ref<string>(getStorage(StorageKeyEnum.PROFILE)?.language || getStorage(StorageKeyEnum.LANGUAGE) || LanguageEnum.ZH_CN_ALIAS)
 
   // 当前系统主题颜色
   const theme = ref<string>(getStorage(StorageKeyEnum.PROFILE)?.theme || ThemeEnum.BLUE)
