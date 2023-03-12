@@ -1,12 +1,9 @@
 <script lang="ts" setup>
 import { DArrowLeft, DArrowRight } from '@element-plus/icons-vue'
 import { useSystemStore } from '@/hooks/use-system-store'
-import { useUserStore } from '@/hooks/use-user-store'
 import { LayoutEnum } from '@/enum'
 
 const systemStore = useSystemStore()
-
-const userStore = useUserStore()
 
 const changeCollapse = (): void => {
   systemStore.collapse = !systemStore.collapse

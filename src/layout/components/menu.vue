@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useSystemStore } from '@/hooks/use-system-store'
-import { useUserStore } from '@/hooks/use-user-store'
 import { LayoutEnum } from '@/enum'
+import layoutMenuItem from '@/layout/components/menu-item.vue'
 
 const props = defineProps({
   mode: {
@@ -13,8 +13,6 @@ const props = defineProps({
 const route = useRoute()
 
 const systemStore = useSystemStore()
-
-const userStore = useUserStore()
 
 const wrapStyle = computed(() => {
   if (props.mode === 'vertical') {
@@ -55,7 +53,7 @@ const wrapStyle = computed(() => {
         :collapse="props.mode === 'vertical' ? systemStore.collapse : false" :default-active="route.path"
         important="h-full border-none"
       >
-        <app-menu-item :routes="systemStore.menuRoutes" />
+        <layout-menu-item :routes="systemStore.menuRoutes" />
       </el-menu>
     </div>
   </el-scrollbar>

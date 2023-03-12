@@ -2,6 +2,7 @@
 import type { RouteRecordRaw } from 'vue-router'
 import { IconTypeEnum } from '@/enum'
 import { useSystemStore } from '@/hooks/use-system-store'
+import layoutMenuItem from '@/layout/components/menu-item.vue'
 
 const props = defineProps({
   routes: {
@@ -65,7 +66,7 @@ const systemStore = useSystemStore()
           {{ route.meta?.menuName }}
         </span>
       </template>
-      <app-menu-item :routes="route.children" />
+      <layout-menu-item :routes="route.children" />
     </el-sub-menu>
   </template>
 </template>

@@ -6,6 +6,8 @@ import { useSystemStore } from '@/hooks/use-system-store'
 import { useUserStore } from '@/hooks/use-user-store'
 import { useMobileCodes } from '@/hooks/use-mobile-codes'
 import { useDictionary } from '@/hooks/use-dict'
+import layoutPage from '@/layout/layout-page.vue'
+import layoutView from '@/layout/layout-view.vue'
 
 const route = useRoute()
 

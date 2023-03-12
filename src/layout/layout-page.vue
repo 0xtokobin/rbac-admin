@@ -5,6 +5,7 @@ import { loadFull } from 'tsparticles'
 import { parallax } from 'tsparticles-demo-configs'
 
 import { ArrowDown } from '@element-plus/icons-vue'
+import layoutCopyright from '@/layout/components/copyright.vue'
 import { useLanguage } from '@/hooks/use-language'
 
 const { messages } = useI18n()
@@ -83,7 +84,7 @@ const particlesInit = async (engine: Engine) => {
       <slot name="router-view" />
     </el-main>
     <el-footer>
-      <app-copyright color="#A3A6AD" />
+      <layout-copyright color="#A3A6AD" />
     </el-footer>
   </el-container>
 </template>
