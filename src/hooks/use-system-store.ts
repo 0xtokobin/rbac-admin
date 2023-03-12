@@ -1,8 +1,7 @@
 import { defineStore } from 'pinia'
 import type { RouteRecordRaw } from 'vue-router'
-import type { IObject, ViewComponents } from '#/global'
+import type { ViewComponents } from '#/global'
 import { DarkModeEnum, LanguageEnum, LayoutEnum, SizeEnum, StorageKeyEnum, ThemeEnum } from '@/enum'
-import { getStorage, setStorage } from '@/utils/storage'
 import {
   autoImportViewComponents,
   registerRouter,
@@ -12,6 +11,7 @@ import {
 import { router } from '@/router'
 import { _t } from '@/i18n'
 import { GET } from '@/utils/request'
+import { getStorage } from '@/utils/storage'
 
 /**
  * @name useSystemStore
@@ -22,8 +22,8 @@ export const useSystemStore = defineStore('system', () => {
   // 当前菜单展开/折叠状态
   const collapse = ref<boolean>(false)
 
-  // 当前黑暗模式
-  const darkMode = ref<string>(DarkModeEnum.DARK_MODE_AUTO)
+  // 当前系统黑暗模式
+  const darkMode = ref<string>(getStorage(StorageKeyEnum.PROFILE)?.darkMode || DarkModeEnum.DARK_MODE_AUTO)
 
   // 切换黑暗模式
   const changeDarkMode = (value: boolean) => {
@@ -57,23 +57,6 @@ export const useSystemStore = defineStore('system', () => {
   const keepAliveRemoveName = (name: string) => {
     keepAliveNames.value = keepAliveNames.value.filter(item => item !== name)
   }
-
-  // 当前语言环境
-  const language = ref<string>(
-    getStorage(StorageKeyEnum.LANGUAGE) || LanguageEnum.ZH_CN_ALIAS,
-  )
-
-  // 切换当前语言环境
-  const changeLanguage = (data: IObject): void => {
-    language.value = data.alias
-    setStorage(StorageKeyEnum.LANGUAGE, data.alias)
-  }
-
-  // 当前主题颜色
-  const theme = ref<string>(ThemeEnum.BLUE)
-
-  // 当前布局
-  const layout = ref<string>(LayoutEnum.LAYOUT_MIX)
 
   // 是否移动端
   const isMobile = ref<boolean>(false)
@@ -120,8 +103,17 @@ export const useSystemStore = defineStore('system', () => {
     return menu
   }
 
-  // 组件大小
-  const size = ref<string>(SizeEnum.DEFAULT)
+  // 当前系统语言环境
+  const language = ref<string>(getStorage(StorageKeyEnum.PROFILE)?.language || LanguageEnum.ZH_CN_ALIAS)
+
+  // 当前系统主题颜色
+  const theme = ref<string>(getStorage(StorageKeyEnum.PROFILE)?.theme || ThemeEnum.BLUE)
+
+  // 当前系统布局
+  const layout = ref<string>(getStorage(StorageKeyEnum.PROFILE)?.layout || LayoutEnum.LAYOUT_MIX)
+
+  // 当前系统组件大小
+  const size = ref<string>(getStorage(StorageKeyEnum.PROFILE)?.size || SizeEnum.DEFAULT)
 
   return {
     collapse,
@@ -131,16 +123,15 @@ export const useSystemStore = defineStore('system', () => {
     keepAliveNames,
     keepAliveAddName,
     keepAliveRemoveName,
-    language,
-    changeLanguage,
-    theme,
-    layout,
     isMobile,
     mobileMenu,
     changeMobile,
     menuRoutes,
     setMenuRoutes,
     getMenuRoutes,
+    language,
+    theme,
+    layout,
     size,
   }
 })

@@ -1,16 +1,18 @@
 <script lang="ts" setup>
 import { UserFilled } from '@element-plus/icons-vue'
 import { useUserStore } from '@/hooks/use-user-store'
-import { useLanguage } from '@/hooks/use-language'
-import { useSystemStore } from '@/hooks/use-system-store'
 
-const { changeLanguage, currentLanguage } = useLanguage()
+const { t, locale, messages } = useI18n()
 
-const { t, messages } = useI18n()
+const changeLanguage = (
+  value: string | number | Record<string, any> | undefined,
+) => {
+  const { locale } = useI18n()
+
+  locale.value = value as string
+}
 
 const userStore = useUserStore()
-
-const systemStore = useSystemStore
 
 const personalDrawerVisible = ref<boolean>(false)
 
@@ -45,10 +47,7 @@ const themes = [
 </script>
 
 <template>
-  <el-avatar
-    :size="32" cursor-pointer :src="userStore.profile.avatar" :icon="UserFilled"
-    @click="openPersonalDrawer"
-  />
+  <el-avatar :size="32" cursor-pointer :src="userStore.profile.avatar" :icon="UserFilled" @click="openPersonalDrawer" />
   <el-drawer v-model="personalDrawerVisible" :title="t('app.personal')" :size="300">
     <div p-2 flex items-center>
       <el-avatar mr-6 :size="82" :src="userStore.profile.avatar" :icon="UserFilled" />
@@ -63,25 +62,25 @@ const themes = [
     </div>
     <el-form p-2 label-position="top">
       <el-form-item :label="t('app.language')">
-        <el-select v-model="currentLanguage" important-w-full @change="changeLanguage">
+        <el-select :model-value="locale" important-w-full @change="changeLanguage">
           <el-option v-for="(value, key) in messages" :key="key" :label="value.name" :value="key" />
         </el-select>
       </el-form-item>
       <el-form-item :label="t('app.layout')">
-        <el-select v-model="systemStore.layout" important-w-full @change="changeLanguage">
+        <el-select v-model="userStore.profile.layout" important-w-full @change="changeLanguage">
           <el-option v-for="(item, key) in layouts" :key="key" :label="item.label" :value="item.value" />
         </el-select>
       </el-form-item>
       <el-form-item :label="t('app.theme')">
         <div w-full flex flex-wrap items-center justify-between>
           <div
-            v-for="(item, index) in themes" :key="index" :class="systemStore.theme === item ? 'active ' : ''"
-            w-6 h-6 cursor-pointer rd-1 :style="{ backgroundColor: item }"
+            v-for="(item, index) in themes" :key="index" :class="userStore.profile.theme === item ? 'active ' : ''" w-6
+            h-6 cursor-pointer rd-1 :style="{ backgroundColor: item }"
           />
         </div>
       </el-form-item>
       <el-form-item :label="t('app.size')">
-        <el-select v-model="systemStore.size" important-w-full>
+        <el-select v-model="userStore.profile.size" important-w-full>
           <el-option :label="t('system.setting.componentLarge')" value="large" />
           <el-option :label="t('system.setting.componentDefault')" value="default" />
           <el-option :label="t('system.setting.componentSmall')" value="small" />

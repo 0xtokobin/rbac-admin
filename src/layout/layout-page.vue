@@ -6,11 +6,21 @@ import { parallax } from 'tsparticles-demo-configs'
 
 import { ArrowDown } from '@element-plus/icons-vue'
 import layoutCopyright from '@/layout/components/copyright.vue'
-import { useLanguage } from '@/hooks/use-language'
+import { useSystemStore } from '@/hooks/use-system-store'
 
-const { messages } = useI18n()
+const { locale, messages } = useI18n()
 
-const { changeLanguage, currentLanguage } = useLanguage()
+const changeLanguage = (
+  value: string | number | Record<string, any> | undefined,
+) => {
+  const { locale } = useI18n()
+  const systemStore = useSystemStore()
+
+  locale.value = value as string
+  systemStore.language = value as string
+
+  location.reload()
+}
 
 const options = computed(() => {
   return {
@@ -66,7 +76,7 @@ const particlesInit = async (engine: Engine) => {
     <el-header flex items-center justify-end>
       <el-dropdown @command="changeLanguage">
         <div h-full cursor-pointer flex items-center>
-          <span mr-2>{{ messages[currentLanguage].name }}</span>
+          <span mr-2>{{ messages[locale].name }}</span>
           <el-icon>
             <ArrowDown />
           </el-icon>
