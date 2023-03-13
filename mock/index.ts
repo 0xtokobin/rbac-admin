@@ -1,7 +1,7 @@
 import Mock from 'mockjs'
 import type { Mocks } from '../types/global'
 import type { ResponseData } from '../src/utils/request'
-import { autoImportMocks } from '../src/utils/common'
+import { autoImportMocks } from './helper'
 
 Mock.setup({
   timeout: '300-600',
