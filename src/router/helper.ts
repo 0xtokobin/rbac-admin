@@ -16,7 +16,7 @@ export const autoImportRoutes = (files: Files): Routes => {
   })
   _routes.push({
     path: '/:pathMatch(.*)',
-    redirect: RouteEnum.ROUTE_NO_FOUND,
+    redirect: RouteEnum.ROUTE_ERROR,
   })
   return _routes
 }
@@ -69,6 +69,8 @@ export const routerInject = (
   routes.forEach((item) => {
     if (!item || !item.meta || item.meta.layout !== 'view')
       return
+    if (item.component)
+      item.component = viewComponents[item.component as unknown as string]
     if (item.meta && breadcrumbList) {
       const { cloned } = useCloned(breadcrumbList)
       item.meta.breadcrumb = cloned.value
@@ -78,9 +80,6 @@ export const routerInject = (
       label: item.meta.i18n,
       value: item.path,
     })
-    if (item.component)
-      item.component = viewComponents[item.component as unknown as string]
-
     item.children = routerInject(item.children || [], viewComponents, item.meta.breadcrumb)
     res.push(item)
   })

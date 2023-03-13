@@ -4,21 +4,12 @@ export default [
   {
     path: '/',
     name: 'index',
-    redirect: RouteEnum.ROUTE_FIRST,
+    redirect: RouteEnum.ROUTE_LOGIN,
   },
   {
-    path: '/403',
-    name: '403',
-    component: () => import('@/views/403.vue'),
-    meta: {
-      layout: 'page',
-      i18n: { 'zh-CN': '没有权限', 'en-US': 'Permission Denied' },
-    },
-  },
-  {
-    path: '/404',
-    name: '404',
-    component: () => import('@/views/404.vue'),
+    path: '/error',
+    name: 'error',
+    component: () => import('@/views/error.vue'),
     meta: {
       layout: 'page',
       i18n: { 'zh-CN': '页面找不到', 'en-US': 'Page Not Found' },

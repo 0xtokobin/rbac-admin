@@ -68,7 +68,8 @@ export const addRouterGuard = (router: Router): Router => {
 
       if (userStore.isLogin && requiresAuth && !userRoles.includes(to.path)) {
         next({
-          path: RouteEnum.ROUTE_NO_PERMISSION,
+          path: RouteEnum.ROUTE_ERROR,
+          params: { type: '403' },
         })
         return
       }

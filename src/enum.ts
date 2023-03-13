@@ -3,9 +3,9 @@
  * @description 路由枚举
  */
 export enum RouteEnum {
+  ROUTE_LANDING = '/',
   ROUTE_FIRST = '/home',
-  ROUTE_NO_PERMISSION = '/403',
-  ROUTE_NO_FOUND = '/404',
+  ROUTE_ERROR = '/error',
   ROUTE_LOGIN = '/login',
 }
 

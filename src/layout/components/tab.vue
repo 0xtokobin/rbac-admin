@@ -16,14 +16,14 @@ const router = useRouter()
 
 const systemStore = useSystemStore()
 
-const tabList = ref<Tab[]>([])
-const nowTab = ref(route.path)
+const tabs = ref<Tab[]>([])
+const currentTab = ref(route.path)
 const homeTab = ref<Tab | undefined>(undefined)
 
 const findTab = (path: string): IObject => {
   const res = { isFind: false, path: '', index: 0, length: 0 }
-  if (tabList.value.length > 0) {
-    res.length = tabList.value.filter((item: IObject, index: number) => {
+  if (tabs.value.length > 0) {
+    res.length = tabs.value.filter((item: IObject, index: number) => {
       if (item.name === path) {
         res.path = path
         res.index = index
@@ -39,45 +39,45 @@ const findTab = (path: string): IObject => {
 }
 
 const addTab = (data: IObject, isPushTab?: boolean): void => {
-  isPushTab = isPushTab || false
-  tabList.value.push({ label: data.meta.i18n, name: data.path })
-  if (isPushTab)
+  tabs.value.push({ label: data.meta.i18n, name: data.path })
+  if (isPushTab) {
+    currentTab.value = data.path
     router.push({ path: data.path })
+  }
 }
 
 const tabClick = (e: any): void => {
   router.push({ path: e.props.name })
-  nowTab.value = e.props.name
+  currentTab.value = e.props.name
 }
 
 const tabRemove = (e: string | number): void => {
-  if (tabList.value.length === 1)
+  if (tabs.value.length === 1)
     return
   const { isFind, index } = findTab(e.toString())
-  const nowTabRes = findTab(nowTab.value)
+  const currentTabRes = findTab(currentTab.value)
   if (isFind) {
-    tabList.value.splice(index, 1)
-    if (nowTabRes.index === index && nowTabRes.index !== 0)
-      router.push({ path: tabList.value[index - 1].name })
+    tabs.value.splice(index, 1)
+    if (currentTabRes.index === index && currentTabRes.index !== 0)
+      router.push({ path: tabs.value[index - 1].name })
 
-    else if (nowTabRes.index === 0)
-      router.push({ path: tabList.value[0].name })
+    else if (currentTabRes.index === 0)
+      router.push({ path: tabs.value[0].name })
   }
 }
 
 const clickOperationMenu = (command: string | number | object): void => {
   if (command === 'current') {
-    tabRemove(nowTab.value)
+    tabRemove(currentTab.value)
   }
   else if (command === 'other') {
-    nowTab.value = ''
-    tabList.value = []
+    tabs.value = []
     addTab(route)
   }
   else if (command === 'all') {
-    nowTab.value = ''
-    tabList.value = []
-    addTab(homeTab, true)
+    currentTab.value = ''
+    tabs.value = []
+    addTab(homeTab.value, true)
   }
 }
 
@@ -89,7 +89,7 @@ onBeforeMount(() => {
   )
   const { isFind, path } = findTab(route.path)
   if (isFind)
-    nowTab.value = path
+    currentTab.value = path
 
   else
     addTab(route)
@@ -98,10 +98,10 @@ onBeforeMount(() => {
 watch(
   () => route.path,
   () => {
-    nowTab.value = route.path
+    currentTab.value = route.path
     const { isFind, path } = findTab(route.path)
     if (isFind)
-      nowTab.value = path
+      currentTab.value = path
 
     else
       addTab(route)
@@ -112,10 +112,10 @@ watch(
 <template>
   <div flex items-center justify-between style="background-color: var(--el-bg-color-overlay);padding: 0 20px;">
     <el-tabs
-      v-model="nowTab" mr-4 type="card" closable tab-position="top"
+      v-model="currentTab" mr-4 type="card" closable tab-position="top"
       :style="systemStore.isMobile ? 'max-width: 80%' : 'width: 88%'" @tab-click="tabClick" @tab-remove="tabRemove"
     >
-      <el-tab-pane v-for="item in tabList" :key="item.name" :label="item.label[locale]" :name="item.name" />
+      <el-tab-pane v-for="item in tabs" :key="item.name" :label="item.label[locale]" :name="item.name" />
     </el-tabs>
     <el-dropdown @command="clickOperationMenu">
       <el-button size="small" type="primary">
