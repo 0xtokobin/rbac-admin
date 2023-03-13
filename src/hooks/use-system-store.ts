@@ -6,8 +6,7 @@ import {
   autoImportViewComponents,
   registerRouter,
   routerInject,
-} from '@/utils/common'
-
+} from '@/router/helper'
 import { router } from '@/router'
 import { _t } from '@/i18n'
 import { GET } from '@/utils/request'

@@ -1,8 +1,8 @@
 import zhCN from 'element-plus/dist/locale/zh-cn.mjs'
 import enUS from 'element-plus/dist/locale/en.mjs'
+import { autoImportLanguages } from './helper'
 import type { Languages, Messages } from '#/global'
 import { LanguageEnum } from '@/enum'
-import { autoImportLanguages } from '@/utils/common'
 
 const languages: Languages = autoImportLanguages(
   import.meta.glob('./languages/**/*.json', {
