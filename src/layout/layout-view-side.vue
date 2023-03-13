@@ -14,9 +14,9 @@ const changeCollapse = (): void => {
 
 <template>
   <div
-    class="wingscloud-admin-layout-admin-aside" :class="[
-      `wingscloud-admin-${systemStore.darkMode}`,
-      `wingscloud-admin-${systemStore.layout}`,
+    class="wingscloud-layout-view-side" :class="[
+      `wingscloud-${systemStore.darkMode}`,
+      `wingscloud-${systemStore.layout}`,
     ]"
   >
     <layout-logo
@@ -27,9 +27,9 @@ const changeCollapse = (): void => {
     <layout-menu />
     <div
       v-if="!systemStore.isMobile" flex items-center justify-center cursor-pointer
-      style="height: var(--wingscloud-collapse-height)" class="wingscloud-admin-layout-aside-menu-collapse" :class="[
-        `wingscloud-admin-${systemStore.darkMode}`,
-        `wingscloud-admin-${systemStore.layout}`,
+      style="height: var(--wingscloud-collapse-height)" class="wingscloud-layout-view-side-menu-collapse" :class="[
+        `wingscloud-${systemStore.darkMode}`,
+        `wingscloud-${systemStore.layout}`,
       ]" @click="changeCollapse()"
     >
       <el-button v-if="systemStore.collapse" bg text circle :icon="DArrowRight" />

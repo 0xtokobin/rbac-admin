@@ -12,30 +12,27 @@ const systemStore = useSystemStore()
 
 <template>
   <el-container>
-    <el-aside v-if="!systemStore.isMobile">
+    <el-aside v-if="!systemStore.isMobile" w-auto>
       <layout-view-side v-if="systemStore.layout === LayoutEnum.LAYOUT_SIDE" />
     </el-aside>
-    <el-header>
-      <layout-view-header
-        v-if="systemStore.layout === LayoutEnum.LAYOUT_MIX || systemStore.layout === LayoutEnum.LAYOUT_TOP"
-      />
-    </el-header>
     <el-container>
-      <el-aside v-if="!systemStore.isMobile">
-        <layout-view-side v-if="systemStore.layout === LayoutEnum.LAYOUT_MIX" />
-      </el-aside>
+      <el-header>
+        <layout-view-header />
+      </el-header>
       <el-container>
-        <el-header style="height: auto">
-          <layout-view-header v-if="systemStore.layout === LayoutEnum.LAYOUT_SIDE" />
-        </el-header>
-        <layout-tab />
-        <el-main>
-          <layout-breadcrumb />
-          <slot name="router-view" />
-        </el-main>
-        <el-footer>
-          <layout-copyright />
-        </el-footer>
+        <el-aside v-if="!systemStore.isMobile" w-auto>
+          <layout-view-side v-if="systemStore.layout === LayoutEnum.LAYOUT_MIX" />
+        </el-aside>
+        <el-container>
+          <el-main>
+            <layout-tab />
+            <layout-breadcrumb />
+            <slot name="router-view" />
+          </el-main>
+          <el-footer>
+            <layout-copyright />
+          </el-footer>
+        </el-container>
       </el-container>
     </el-container>
   </el-container>

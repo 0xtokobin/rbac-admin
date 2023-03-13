@@ -2,16 +2,13 @@
 import { UserFilled } from '@element-plus/icons-vue'
 import { useUserStore } from '@/hooks/use-user-store'
 import { LayoutEnum, SizeEnum, ThemeEnum } from '@/enum'
+import { useSystemStore } from '@/hooks/use-system-store'
 
 const { t, locale, messages } = useI18n()
 
 const userStore = useUserStore()
 
-const changeLanguage = (
-  value: string | number | Record<string, any> | undefined,
-) => {
-  locale.value = value as string
-}
+const systemStore = useSystemStore()
 
 const personalDrawerVisible = ref<boolean>(false)
 
@@ -25,7 +22,7 @@ const openPersonalDrawer = () => {
   <el-drawer v-model="personalDrawerVisible" :title="t('app.personal')" :size="300">
     <template #header="{ titleId, titleClass }">
       <div :id="titleId" h-full flex items-center :class="titleClass">
-        <el-avatar mr-3 :size="32" :src="userStore.profile.avatar" :icon="UserFilled" />
+        <el-avatar mr-3 :src="userStore.profile.avatar" :icon="UserFilled" />
         <div text="4.6">
           {{ userStore.profile.nickname }}
         </div>
@@ -33,12 +30,12 @@ const openPersonalDrawer = () => {
     </template>
     <el-form label-position="top">
       <el-form-item :label="t('app.language')">
-        <el-select :model-value="locale" important-w-full @change="changeLanguage">
+        <el-select v-model="locale" important-w-full>
           <el-option v-for="(value, key) in messages" :key="key" :label="value.name" :value="key" />
         </el-select>
       </el-form-item>
       <el-form-item :label="t('app.layout')">
-        <el-select v-model="userStore.profile.layout" important-w-full @change="changeLanguage">
+        <el-select v-model="systemStore.layout" important-w-full>
           <el-option :label="t('app.layoutMix')" :value="LayoutEnum.LAYOUT_MIX" />
           <el-option :label="t('app.layoutTop')" :value="LayoutEnum.LAYOUT_TOP" />
           <el-option :label="t('app.layoutSide')" :value="LayoutEnum.LAYOUT_SIDE" />
