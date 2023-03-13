@@ -12,7 +12,6 @@ import { installComponents } from '@/utils/common'
 import 'virtual:svg-icons-register'
 import 'element-plus/theme-chalk/src/message.scss'
 import 'element-plus/theme-chalk/src/notification.scss'
-import '@/assets/theme/index.scss'
 import '@/assets/style/index.scss'
 import 'uno.css'
 

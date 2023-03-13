@@ -17,9 +17,7 @@ const systemStore = useSystemStore()
 <template>
   <el-scrollbar>
     <el-menu
-      wingscloud-layout-menu
-      border-none
-      h-full router collapse-transition el-menu :mode="props.mode"
+      border-none h-full router collapse-transition el-menu :mode="props.mode"
       :collapse="props.mode === 'vertical' ? systemStore.collapse : false" :default-active="route.path"
     >
       <layout-menu-item :routes="systemStore.menuRoutes" />

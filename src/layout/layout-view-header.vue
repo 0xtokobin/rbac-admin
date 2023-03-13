@@ -7,7 +7,6 @@ import layoutNotification from '@/layout/components/notification.vue'
 import layoutAvatar from '@/layout/components/avatar.vue'
 import layoutLogo from '@/layout/components/logo.vue'
 import layoutMenu from '@/layout/components/menu.vue'
-import layoutMobileMenu from '@/layout/components/mobile-menu.vue'
 
 const systemStore = useSystemStore()
 </script>
@@ -15,10 +14,12 @@ const systemStore = useSystemStore()
 <template>
   <div h-full flex justify-between border-b-1>
     <div h-full flex items-center>
-      <layout-mobile-menu v-if="systemStore.isMobile" />
+      <div v-if="systemStore.isMobile" flex items-center>
+        <svg-icon name="app" cursor-pointer @click="systemStore.mobileMenu = !systemStore.mobileMenu" />
+      </div>
       <layout-logo
         v-if="
-          !systemStore.isMobile && systemStore.layout !== LayoutEnum.LAYOUT_SIDE "
+          !systemStore.isMobile && systemStore.layout !== LayoutEnum.LAYOUT_SIDE"
       />
       <layout-menu v-if="!systemStore.isMobile && systemStore.layout === LayoutEnum.LAYOUT_TOP" mode="horizontal" />
     </div>

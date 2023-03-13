@@ -13,27 +13,10 @@ const changeCollapse = (): void => {
 </script>
 
 <template>
-  <div
-    class="wingscloud-layout-view-side" :class="[
-      `wingscloud-${systemStore.darkMode}`,
-      `wingscloud-${systemStore.layout}`,
-    ]"
-  >
-    <layout-logo
-      v-if="
-        systemStore.isMobile || systemStore.layout === LayoutEnum.LAYOUT_SIDE"
-      style="height: var(--wingscloud-aside-logo-height)"
-    />
-    <layout-menu />
-    <div
-      v-if="!systemStore.isMobile" flex items-center justify-center cursor-pointer
-      style="height: var(--wingscloud-collapse-height)" class="wingscloud-layout-view-side-menu-collapse" :class="[
-        `wingscloud-${systemStore.darkMode}`,
-        `wingscloud-${systemStore.layout}`,
-      ]" @click="changeCollapse()"
-    >
-      <el-button v-if="systemStore.collapse" bg text circle :icon="DArrowRight" />
-      <el-button v-else bg text circle :icon="DArrowLeft" />
-    </div>
+  <layout-logo v-if="systemStore.isMobile || systemStore.layout === LayoutEnum.LAYOUT_SIDE" />
+  <layout-menu />
+  <div v-if="!systemStore.isMobile" flex items-center justify-center cursor-pointer @click="changeCollapse()">
+    <el-button v-if="systemStore.collapse" bg text circle :icon="DArrowRight" />
+    <el-button v-else bg text circle :icon="DArrowLeft" />
   </div>
 </template>
