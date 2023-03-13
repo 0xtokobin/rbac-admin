@@ -28,7 +28,7 @@ const goHome = () => {
       w-7xl
       text-center
     >
-      <img cursor-pointer h-22 my-10 src="@/assets/logo.svg">
+      <img cursor-pointer h-22 my-10 src="@/assets/svg/logo.svg">
       <div text-12 mb-6 font-600 style="color: var(--el-color-info-dark)">
         {{ t('app.404.title') }}
       </div>

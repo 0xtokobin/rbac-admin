@@ -52,7 +52,7 @@ const closePassword = () => {
     :style="systemStore.isMobile ? 'margin-top:4vh;padding:0;width:88vw;' : 'margin-top:10vh;padding:1rem 1.5rem;width:20rem;'"
   >
     <div my-4 flex justify-center items-center>
-      <img w-20 h-20 src="@/assets/logo.svg">
+      <img w-20 h-20 src="@/assets/svg/logo.svg">
     </div>
     <div mb-12 text-4 font-600 text-center style="color:var(--el-color-primary);">
       <span mr-2>{{ t('app.name') }}</span>
