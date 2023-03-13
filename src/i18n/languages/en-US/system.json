@@ -1,9 +1,5 @@
 {
-  "menuName": "System Management",
-  "menuDescription": "",
   "menu": {
-    "menuName": "Menu Management",
-    "menuDescription": "",
     "menu": "Menu Name",
     "icon": "Menu Icon",
     "type": "Menu Type",
@@ -18,50 +14,36 @@
     "keepAlive": "Keep Alive"
   },
   "role": {
-    "menuName": "Role Management",
-    "menuDescription": "",
     "roleType": "Role Types",
     "role": "Role",
     "roleName": "Role Name",
     "createTime": "Create Time"
   },
   "user": {
-    "menuName": "User Management",
-    "menuDescription": "",
     "avatar": "Avatar",
     "nickname": "Nickname",
     "username": "Username",
     "mobile": "Mobile Phone"
   },
   "dept": {
-    "menuName": "Department Management",
-    "menuDescription": "",
     "deptName": "Department Name",
     "parentdeptName": "Superior Department",
     "subdept": "Add Sub Department"
   },
   "dict": {
-    "menuName": "Dictionary Management",
-    "menuDescription": "",
     "dictName": "Dictionary Name",
     "dictItem": "Dictionary Item",
     "dictType": "Dictionary Type"
   },
   "param": {
-    "menuName": "Param Management",
-    "menuDescription": "",
     "paramName": "Param Name",
     "paramValue": "Param Value",
     "paramType": "Param Type"
   },
   "file": {
-    "menuName": "File Management",
-    "menuDescription": "",
     "fileUrl": "File Url"
   },
   "log": {
-    "menuName": "Log Management",
-    "menuDescription": "",
     "action": "Action",
     "status": "Status",
     "ip": "IP Address",

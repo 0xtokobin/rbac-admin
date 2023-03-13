@@ -13,6 +13,8 @@ const props = defineProps({
   },
 })
 
+const { locale } = useI18n()
+
 const systemStore = useSystemStore()
 </script>
 
@@ -23,30 +25,32 @@ const systemStore = useSystemStore()
         v-if="route.meta?.externalPage" target="_blank" :href="route.meta.externalPageUrl" text-2 single-line-omitted
         w-full
       >
-        {{ route.meta?.menuName }}
+        {{ route.meta?.i18n[locale] }}
       </a>
       <template v-else>
         <svg-icon
-          v-if="route.meta?.icon && route.meta?.iconType === IconTypeEnum.APP" show-el-width size="18px" :name="route.meta?.icon as string"
+          v-if="route.meta?.icon && route.meta?.iconType === IconTypeEnum.APP" show-el-width size="18px"
+          :name="route.meta?.icon as string"
         />
         <el-icon v-if="route.meta?.icon && route.meta?.iconType === IconTypeEnum.ELEMENT_PLUS" width="1rem" height="1rem">
           <component :is="route.meta?.icon" />
         </el-icon>
         <span text="3.4" class="single-line-omitted" :style="systemStore.collapse ? '' : 'width: 100%'">
-          {{ route.meta?.menuName }}
+          {{ route.meta?.i18n[locale] }}
         </span>
       </template>
     </el-menu-item>
     <el-sub-menu v-else :index="route.path">
       <template #title>
         <svg-icon
-          v-if="route.meta?.icon && route.meta?.iconType === IconTypeEnum.APP" show-el-width size="18px" :name="route.meta?.icon as string"
+          v-if="route.meta?.icon && route.meta?.iconType === IconTypeEnum.APP" show-el-width size="18px"
+          :name="route.meta?.icon as string"
         />
         <el-icon v-if="route.meta?.icon && route.meta?.iconType === IconTypeEnum.ELEMENT_PLUS" width="1rem" height="1rem">
           <component :is="route.meta?.icon" />
         </el-icon>
         <span text="3.4" single-line-omitted :style="systemStore.collapse ? '' : 'width: 68%'">
-          {{ route.meta?.menuName }}
+          {{ route.meta?.i18n[locale] }}
         </span>
       </template>
       <layout-menu-item :routes="route.children" />

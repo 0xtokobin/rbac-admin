@@ -8,7 +8,6 @@ import {
   routerInject,
 } from '@/router/helper'
 import { router } from '@/router'
-import { _t } from '@/i18n'
 import { GET } from '@/utils/request'
 import { getStorage } from '@/utils/storage'
 
@@ -97,7 +96,7 @@ export const useSystemStore = defineStore('system', () => {
     const viewComponents: ViewComponents = autoImportViewComponents(
       import.meta.glob('@/views/**/*.vue'),
     )
-    const menu: Array<RouteRecordRaw> = routerInject(data, _t, viewComponents)
+    const menu: Array<RouteRecordRaw> = routerInject(data, viewComponents)
     setMenuRoutes(menu)
     return menu
   }

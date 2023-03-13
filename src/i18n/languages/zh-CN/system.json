@@ -1,9 +1,5 @@
 {
-  "menuName": "系统管理",
-  "menuDescription": "",
   "menu": {
-    "menuName": "菜单管理",
-    "menuDescription": "",
     "menu": "菜单名称",
     "icon": "菜单图标",
     "type": "菜单类型",
@@ -18,50 +14,36 @@
     "keepAlive": "页面缓冲"
   },
   "role": {
-    "menuName": "角色管理",
-    "menuDescription": "",
     "roleType": "角色类型",
     "role": "角色",
     "roleName": "角色名称",
     "createTime": "创建时间"
   },
   "user": {
-    "menuName": "用户管理",
-    "menuDescription": "",
     "avatar": "头像",
     "nickname": "昵称",
     "username": "用户名",
     "mobile": "手机号"
   },
   "dept": {
-    "menuName": "部门管理",
-    "menuDescription": "",
     "deptName": "部门名称",
     "parentdeptName": "上级部门",
     "subdept": "新增子部门"
   },
   "dict": {
-    "menuName": "字典管理",
-    "menuDescription": "",
     "dictName": "字典名称",
     "dictItem": "字典项",
     "dictType": "字典类型"
   },
   "param": {
-    "menuName": "参数管理",
-    "menuDescription": "",
     "paramName": "参数名称",
     "paramValue": "参数值",
     "paramType": "参数类型"
   },
   "file": {
-    "menuName": "文件管理",
-    "menuDescription": "",
     "fileUrl": "文件链接"
   },
   "log": {
-    "menuName": "日志管理",
-    "menuDescription": "",
     "action": "操作",
     "status": "状态",
     "ip": "IP 地址",

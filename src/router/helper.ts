@@ -1,6 +1,6 @@
 import type { RouteRecordName, RouteRecordRaw, Router } from 'vue-router'
 import { useCloned } from '@vueuse/core'
-import type { Files, I18nT, IObject, Routes, ViewComponents } from '#/global'
+import type { Files, IObject, Routes, ViewComponents } from '#/global'
 
 import { RouteEnum } from '@/enum'
 
@@ -62,7 +62,6 @@ export const registerRouter = (routes: Routes, router: Router) => {
  */
 export const routerInject = (
   routes: Routes,
-  t: I18nT,
   viewComponents: ViewComponents,
   breadcrumbList?: Array<IObject>,
 ): Routes => {
@@ -70,25 +69,19 @@ export const routerInject = (
   routes.forEach((item) => {
     if (!item || !item.meta || item.meta.layout !== 'view')
       return
-    if (item.meta && item.meta.i18nKey) {
-      item.meta.menuName = t(`${item.meta.i18nKey as string}.menuName`)
-      item.meta.menuDescription = t(
-          `${item.meta.i18nKey as string}.menuDescription`,
-      )
-    }
     if (item.meta && breadcrumbList) {
       const { cloned } = useCloned(breadcrumbList)
       item.meta.breadcrumb = cloned.value
     }
     item.meta.breadcrumb = []
     item.meta.breadcrumb.push({
-      label: item.meta.menuName,
+      label: item.meta.i18n,
       value: item.path,
     })
     if (item.component)
       item.component = viewComponents[item.component as unknown as string]
 
-    item.children = routerInject(item.children || [], t, viewComponents, item.meta.breadcrumb)
+    item.children = routerInject(item.children || [], viewComponents, item.meta.breadcrumb)
     res.push(item)
   })
   return res

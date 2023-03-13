@@ -107,7 +107,7 @@ export default {
           iconType: IconTypeEnum.ELEMENT_PLUS,
           icon: 'House',
           sort: 0,
-          i18nKey: 'home',
+          i18n: { 'zh-CN': '首页', 'en-US': 'Home' },
         },
       },
       {
@@ -119,7 +119,7 @@ export default {
           iconType: IconTypeEnum.ELEMENT_PLUS,
           icon: 'Operation',
           sort: 1,
-          i18nKey: 'system',
+          i18n: { 'zh-CN': '系统管理', 'en-US': 'System Management' },
         },
         children: [
           {
@@ -132,8 +132,7 @@ export default {
               iconType: IconTypeEnum.ELEMENT_PLUS,
               icon: 'Menu',
               sort: 0,
-              isI18n: true,
-              i18nKey: 'system.menu',
+              i18n: { 'zh-CN': '菜单管理', 'en-US': 'Menu Management' },
             },
           },
           {
@@ -146,8 +145,7 @@ export default {
               iconType: IconTypeEnum.ELEMENT_PLUS,
               icon: 'CollectionTag',
               sort: 1,
-              isI18n: true,
-              i18nKey: 'system.role',
+              i18n: { 'zh-CN': '角色管理', 'en-US': 'Role Management' },
             },
           },
           {
@@ -160,8 +158,7 @@ export default {
               iconType: IconTypeEnum.ELEMENT_PLUS,
               icon: 'User',
               sort: 2,
-              isI18n: true,
-              i18nKey: 'system.user',
+              i18n: { 'zh-CN': '用户管理', 'en-US': 'User Management' },
             },
           },
           {
@@ -174,8 +171,7 @@ export default {
               iconType: IconTypeEnum.APP,
               icon: 'base-tree',
               sort: 3,
-              isI18n: true,
-              i18nKey: 'system.dept',
+              i18n: { 'zh-CN': '部门管理', 'en-US': 'Department Management' },
             },
           },
           {
@@ -188,8 +184,7 @@ export default {
               iconType: IconTypeEnum.ELEMENT_PLUS,
               icon: 'Reading',
               sort: 4,
-              isI18n: true,
-              i18nKey: 'system.dict',
+              i18n: { 'zh-CN': '字典管理', 'en-US': 'Dict Management' },
             },
           },
           {
@@ -202,8 +197,7 @@ export default {
               iconType: IconTypeEnum.ELEMENT_PLUS,
               icon: 'Key',
               sort: 5,
-              isI18n: true,
-              i18nKey: 'system.param',
+              i18n: { 'zh-CN': '参数管理', 'en-US': 'Parameter Management' },
             },
           },
           {
@@ -216,8 +210,7 @@ export default {
               iconType: IconTypeEnum.ELEMENT_PLUS,
               icon: 'FolderOpened',
               sort: 6,
-              isI18n: true,
-              i18nKey: 'system.file',
+              i18n: { 'zh-CN': '文件管理', 'en-US': 'File Management' },
             },
           },
           {
@@ -230,8 +223,7 @@ export default {
               iconType: IconTypeEnum.ELEMENT_PLUS,
               icon: 'Notebook',
               sort: 7,
-              isI18n: true,
-              i18nKey: 'system.log',
+              i18n: { 'zh-CN': '日志管理', 'en-US': 'Log Management' },
             },
           },
         ],
@@ -247,7 +239,7 @@ export default {
     url: '/system/user/roles',
     method: 'get',
     data: [
-      '/',
+      '/home',
       '/system/role',
       '/system/user',
       '/system/dept',

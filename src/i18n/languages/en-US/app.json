@@ -100,7 +100,7 @@
   "navigation": "Navigation",
   "tab": "Tab",
   "more": "More",
-  "closeNow": "Close the current",
+  "closeCurrent": "Close the current",
   "closeOther": "Close the other",
   "closeAll": "Close all",
   "action": "Action",

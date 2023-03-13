@@ -5,11 +5,11 @@ import { useSystemStore } from '@/hooks/use-system-store'
 import { arrayRecursion } from '@/utils/common'
 
 export interface Tab {
-  label: string
+  label: IObject
   name: string
 }
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
 const route = useRoute()
 const router = useRouter()
@@ -40,8 +40,7 @@ const findTab = (path: string): IObject => {
 
 const addTab = (data: IObject, isPushTab?: boolean): void => {
   isPushTab = isPushTab || false
-  console.log(data)
-  tabList.value.push({ label: data.meta.menuName, name: data.path })
+  tabList.value.push({ label: data.meta.i18n, name: data.path })
   if (isPushTab)
     router.push({ path: data.path })
 }
@@ -116,7 +115,7 @@ watch(
       v-model="nowTab" mr-4 type="card" closable tab-position="top"
       :style="systemStore.isMobile ? 'max-width: 80%' : 'width: 88%'" @tab-click="tabClick" @tab-remove="tabRemove"
     >
-      <el-tab-pane v-for="item in tabList" :key="item.name" :label="item.label" :name="item.name" />
+      <el-tab-pane v-for="item in tabList" :key="item.name" :label="item.label[locale]" :name="item.name" />
     </el-tabs>
     <el-dropdown @command="clickOperationMenu">
       <el-button size="small" type="primary">
@@ -129,7 +128,7 @@ watch(
         <el-dropdown-menu>
           <el-dropdown-item command="current">
             {{
-              t('app.closeNow')
+              t('app.closeCurrent')
             }}
           </el-dropdown-item>
           <el-dropdown-item command="other">
