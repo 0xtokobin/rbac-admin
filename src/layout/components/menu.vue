@@ -1,13 +1,7 @@
 <script lang="ts" setup>
+import { LayoutEnum } from '@/enum'
 import { useSystemStore } from '@/hooks/use-system-store'
 import layoutMenuItem from '@/layout/components/menu-item.vue'
-
-const props = defineProps({
-  mode: {
-    type: String,
-    default: 'vertical',
-  },
-})
 
 const route = useRoute()
 
@@ -17,8 +11,10 @@ const systemStore = useSystemStore()
 <template>
   <el-scrollbar>
     <el-menu
-      border-none h-full router collapse-transition el-menu :mode="props.mode"
-      :collapse="props.mode === 'vertical' ? systemStore.collapse : false" :default-active="route.path"
+      border-none h-full router collapse-transition el-menu
+      :mode="systemStore.layout === LayoutEnum.LAYOUT_TOP ? 'horizontal' : 'vertical'"
+      :collapse="systemStore.layout === LayoutEnum.LAYOUT_TOP ? false : systemStore.collapse"
+      :default-active="route.path"
     >
       <layout-menu-item :routes="systemStore.menuRoutes" />
     </el-menu>
