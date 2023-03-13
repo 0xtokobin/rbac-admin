@@ -169,7 +169,7 @@ export default {
               layout: 'view',
               requiresAuth: true,
               iconType: IconTypeEnum.APP,
-              icon: 'base-tree',
+              icon: 'tree',
               sort: 3,
               i18n: { 'zh-CN': '部门管理', 'en-US': 'Department Management' },
             },
