@@ -23,18 +23,15 @@ const openPersonalDrawer = () => {
 <template>
   <el-avatar :size="32" cursor-pointer :src="userStore.profile.avatar" :icon="UserFilled" @click="openPersonalDrawer" />
   <el-drawer v-model="personalDrawerVisible" :title="t('app.personal')" :size="300">
-    <div p-2 flex items-center>
-      <el-avatar mr-6 :size="82" :src="userStore.profile.avatar" :icon="UserFilled" />
-      <div>
-        <div text-6 mb-4>
-          名字
-        </div>
-        <div text-4>
-          描述信息...
+    <template #header="{ titleId, titleClass }">
+      <div :id="titleId" h-full flex items-center :class="titleClass">
+        <el-avatar mr-3 :size="32" :src="userStore.profile.avatar" :icon="UserFilled" />
+        <div text="4.6">
+          {{ userStore.profile.nickname }}
         </div>
       </div>
-    </div>
-    <el-form p-2 label-position="top">
+    </template>
+    <el-form label-position="top">
       <el-form-item :label="t('app.language')">
         <el-select :model-value="locale" important-w-full @change="changeLanguage">
           <el-option v-for="(value, key) in messages" :key="key" :label="value.name" :value="key" />
@@ -50,8 +47,8 @@ const openPersonalDrawer = () => {
       <el-form-item :label="t('app.theme')">
         <div w-full flex flex-wrap items-center justify-between>
           <div
-            v-for="(key, value) in ThemeEnum" :key="key" :class="userStore.profile.theme === key ? 'active ' : ''" w-6
-            h-6 cursor-pointer rd-1 :style="{ backgroundColor: value }"
+            v-for="(value, key) in ThemeEnum" :key="key" :class="userStore.profile.theme === value ? 'active ' : ''" w-6
+            h-6 mb-4 cursor-pointer rd-1 :style="{ backgroundColor: value }"
           />
         </div>
       </el-form-item>
@@ -86,12 +83,12 @@ const openPersonalDrawer = () => {
 
   &::after {
     content: "";
-    width: 0.5rem;
-    height: 0.5rem;
-    background-color: #42b983;
+    width: 0.36rem;
+    height: 0.36rem;
+    background-color: var(--el-color-primary);
     position: absolute;
     left: 50%;
-    bottom: -1rem;
+    bottom: -0.7rem;
     transform: translateX(-50%);
     border-radius: 50%;
   }
