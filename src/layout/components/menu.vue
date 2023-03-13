@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { useSystemStore } from '@/hooks/use-system-store'
-import { LayoutEnum } from '@/enum'
 import layoutMenuItem from '@/layout/components/menu-item.vue'
 
 const props = defineProps({
@@ -13,48 +12,23 @@ const props = defineProps({
 const route = useRoute()
 
 const systemStore = useSystemStore()
-
-const wrapStyle = computed(() => {
-  if (props.mode === 'vertical') {
-    let _height = '100vh'
-    if (
-      systemStore.layout === LayoutEnum.LAYOUT_TOP
-    ) {
-      _height
-        = 'calc(100vh - var(--wingscloud-header-height) - var(--wingscloud-collapse-height))'
-    }
-    else {
-      _height
-        = 'calc(100vh - var(--wingscloud-aside-logo-height) - var(--wingscloud-collapse-height))'
-    }
-    if (systemStore.isMobile)
-      _height = 'calc(100vh - var(--wingscloud-aside-logo-height)'
-
-    return `height:${_height};`
-  }
-  else {
-    const _width
-      = 'calc(100vw - var(--wingscloud-header-toobar-width) - var(--wingscloud-header-logo-width))'
-    return `width:${_width};height:100%;display:flex;align-items:center;`
-  }
-})
 </script>
 
 <template>
-  <el-scrollbar :wrap-style="wrapStyle">
-    <div
-      class="wingscloud-admin-layout-admin-menu" :class="[
-        `wingscloud-admin-${systemStore.darkMode}`,
-        `wingscloud-admin-${systemStore.layout}`,
-      ]" h-full
+  <el-scrollbar>
+    <el-menu
+      wingscloud-layout-menu
+      border-none
+      h-full router collapse-transition el-menu :mode="props.mode"
+      :collapse="props.mode === 'vertical' ? systemStore.collapse : false" :default-active="route.path"
     >
-      <el-menu
-        router collapse-transition :mode="props.mode as any"
-        :collapse="props.mode === 'vertical' ? systemStore.collapse : false" :default-active="route.path"
-        important="h-full border-none"
-      >
-        <layout-menu-item :routes="systemStore.menuRoutes" />
-      </el-menu>
-    </div>
+      <layout-menu-item :routes="systemStore.menuRoutes" />
+    </el-menu>
   </el-scrollbar>
 </template>
+
+<style lang="scss" scoped>
+.el-menu:not(.el-menu--collapse) {
+  width: 13rem;
+}
+</style>

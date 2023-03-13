@@ -108,5 +108,8 @@
   "layoutMix": "Mixed Layout",
   "layoutTop": "Top Layout",
   "layoutSide": "Side Layout",
-  "layoutDarkSide": "Side Dark Layout"
+  "layoutDarkSide": "Side Dark Layout",
+  "sizeLarge": "Large",
+  "sizeDefault": "Default",
+  "sizeSmall": "Small"
 }

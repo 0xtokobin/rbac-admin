@@ -23,11 +23,7 @@
     "roleType": "Role Types",
     "role": "Role",
     "roleName": "Role Name",
-    "createTime": "Create Time",
-    "list": {
-      "admin": "Administrator",
-      "development": "Development"
-    }
+    "createTime": "Create Time"
   },
   "user": {
     "menuName": "User Management",
@@ -35,22 +31,21 @@
     "avatar": "Avatar",
     "nickname": "Nickname",
     "username": "Username",
-    "mobile": "Mobile Phone",
-    "list": {}
+    "mobile": "Mobile Phone"
   },
-  "department": {
+  "dept": {
     "menuName": "Department Management",
     "menuDescription": "",
-    "departmentName": "Department Name",
-    "parentDepartmentName": "Superior department",
-    "subDepartment": "Add Sub Department"
+    "deptName": "Department Name",
+    "parentdeptName": "Superior Department",
+    "subdept": "Add Sub Department"
   },
-  "dictionary": {
+  "dict": {
     "menuName": "Dictionary Management",
     "menuDescription": "",
-    "dictionaryName": "Dictionary Name",
-    "dictionaryItem": "Dictionary Item",
-    "dictionaryType": "Dictionary Type"
+    "dictName": "Dictionary Name",
+    "dictItem": "Dictionary Item",
+    "dictType": "Dictionary Type"
   },
   "param": {
     "menuName": "Param Management",
@@ -71,79 +66,5 @@
     "status": "Status",
     "ip": "IP Address",
     "api": "Log Details"
-  },
-  "setting": {
-    "menuName": "System Settings",
-    "menuDescription": "System Settings are based on cache changes, and part of the Settings need to be implemented through code modification",
-    "layout": "Layout, including four out-of-the-box  system layout",
-    "layoutMix": "Mixed Layout",
-    "layoutTop": "Top Layout",
-    "layoutAside": "Side Layout",
-    "layoutAsideDark": "Dark Side layout",
-    "colorScheme": "Color scheme, you Layout switch different color style",
-    "colorSchemeAuto": "Light mode/dark mode adaptive",
-    "colorSchemeTheme": "Theme color mode",
-    "colorSchemeLight": "Light Mode",
-    "colorSchemeDark": "Dark Mode",
-    "themeColor": "Theme color, which can also be adjusted with a custom theme color to fit your project",
-    "tabStyle": "Tab Style",
-    "tabStyleSquare": "Square",
-    "tabStyleRound": "Round",
-    "menuStyle": "Menu Style",
-    "menuStyleSquare": "Square",
-    "menuStyleRound": "Round",
-    "toolbar": "bar, click the card to close the unwanted  button",
-    "toolbarLanguage": "Multilingual Toggle",
-    "toolbarRefresh": "View Refresh",
-    "toolbarDark": "Dark Mode",
-    "toolbarFullscreen": "Full-screen Switch",
-    "toolbarCollapse": "Menu Collapse",
-    "toolbarSetting": "Settings",
-    "toolbarNotification": "Message ",
-    "toolbarAvatar": "User Avatar",
-    "component": "Component Settings, you can flexibly configure the component style and location in the layout",
-    "componentSize": "Component Size",
-    "componentLarge": "Large",
-    "componentDefault": "Default",
-    "componentSmall": "Small",
-    "tab": "Tab component",
-    "uniqueOpened": "Accordion Menu",
-    "breadcrumb": "Breadcrumb",
-    "breadcrumbHidden": "Hidden",
-    "breadcrumbViewTop": "View Top",
-    "breadcrumbLayoutHeader": "Layout Header",
-    "copyright": "Copyright",
-    "copyrightHidden": "Hidden",
-    "copyrightBottom": "Bottom",
-    "other": "Other Settings",
-    "otherDescription": "These configurations are critical to the system and can only be modified by code",
-    "language": "Default Language",
-    "firstRoute": "First Route",
-    "adminFirstRoute": "System First Route",
-    "requestTimeout": "Request Timeout",
-    "requestTimeoutUnit": "DecDelay (ms)",
-    "updateSuccess": "The system Settings are modified successfully",
-    "copy": "Copy",
-    "copySuccess": "Copy succeeded, please paste it into the src/constant/settings/settings.replace.ts file!",
-    "back": "Reset",
-    "backSuccess": "System Settings have been restored to default Settings"
-  },
-  "profile": {
-    "menuName": "Personal Profile",
-    "menuDescription": "You can update your personal information on this page"
-  },
-  "notification": {
-    "menuName": "Notifications",
-    "menuDescription": "View the personal message and notification list",
-    "notificationContent": "The notification content",
-    "notificationContentText": "notification content",
-    "notificationType": "The notification type",
-    "notificationTypeText": "notification type",
-    "time": "The notification time",
-    "isRead": "Have read",
-    "source": "The notification source",
-    "datetime": "Date Time",
-    "send": "Send Time",
-    "read": "Read"
   }
 }

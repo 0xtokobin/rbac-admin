@@ -94,9 +94,9 @@ onBeforeMount(() => {
 <template>
   <el-config-provider
     :locale="locale" :button="{ autoInsertSpace: true }" :message="{ max: 3 }"
-    :size="userStore.profile.size"
+    :size="systemStore.size"
   >
-    <layout-page v-if="!route.meta.layout || route.meta?.layout === '' || route.meta?.layout === 'page'">
+    <layout-page v-if="route.meta?.layout === '' || route.meta?.layout === 'page'">
       <template #router-view>
         <slot name="app" />
       </template>

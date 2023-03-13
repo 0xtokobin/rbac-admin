@@ -3,6 +3,7 @@ import { UserFilled } from '@element-plus/icons-vue'
 import { useUserStore } from '@/hooks/use-user-store'
 import { LayoutEnum, SizeEnum, ThemeEnum } from '@/enum'
 import { useSystemStore } from '@/hooks/use-system-store'
+import { setEpThemeColor } from '@/utils/common'
 
 const { t, locale, messages } = useI18n()
 
@@ -44,16 +45,17 @@ const openPersonalDrawer = () => {
       <el-form-item :label="t('app.theme')">
         <div w-full flex flex-wrap items-center justify-between>
           <div
-            v-for="(value, key) in ThemeEnum" :key="key" :class="userStore.profile.theme === value ? 'active ' : ''" w-6
-            h-6 mb-4 cursor-pointer rd-1 :style="{ backgroundColor: value }"
+            v-for="(value, key) in ThemeEnum" :key="key" :class="systemStore.theme === value ? 'active ' : ''" w-6 h-6
+            mb-4 cursor-pointer rd-1 :style="{ backgroundColor: value }"
+            @click="setEpThemeColor(value), systemStore.theme = value"
           />
         </div>
       </el-form-item>
       <el-form-item :label="t('app.size')">
-        <el-select v-model="userStore.profile.size" important-w-full>
-          <el-option :label="t('system.setting.componentLarge')" :value="SizeEnum.LARGE" />
-          <el-option :label="t('system.setting.componentDefault')" :value="SizeEnum.DEFAULT" />
-          <el-option :label="t('system.setting.componentSmall')" :value="SizeEnum.SMALL" />
+        <el-select v-model="systemStore.size" important-w-full>
+          <el-option :label="t('app.sizeLarge')" :value="SizeEnum.LARGE" />
+          <el-option :label="t('app.sizeDefault')" :value="SizeEnum.DEFAULT" />
+          <el-option :label="t('app.sizeSmall')" :value="SizeEnum.SMALL" />
         </el-select>
       </el-form-item>
       <el-form-item :label="t('app.action')">

@@ -108,5 +108,8 @@
   "layoutMix": "混合布局",
   "layoutTop": "顶部布局",
   "layoutSide": "侧栏布局",
-  "layoutDarkSide": "深色侧栏布局"
+  "layoutDarkSide": "深色侧栏布局",
+  "sizeLarge": "大号",
+  "sizeDefault": "默认",
+  "sizeSmall": "小号"
 }

@@ -23,11 +23,7 @@
     "roleType": "角色类型",
     "role": "角色",
     "roleName": "角色名称",
-    "createTime": "创建时间",
-    "list": {
-      "admin": "管理员",
-      "development": "开发人员"
-    }
+    "createTime": "创建时间"
   },
   "user": {
     "menuName": "用户管理",
@@ -37,19 +33,19 @@
     "username": "用户名",
     "mobile": "手机号"
   },
-  "department": {
+  "dept": {
     "menuName": "部门管理",
     "menuDescription": "",
-    "departmentName": "部门名称",
-    "parentDepartmentName": "上级部门",
-    "subDepartment": "新增子部门"
+    "deptName": "部门名称",
+    "parentdeptName": "上级部门",
+    "subdept": "新增子部门"
   },
-  "dictionary": {
+  "dict": {
     "menuName": "字典管理",
     "menuDescription": "",
-    "dictionaryName": "字典名称",
-    "dictionaryItem": "字典项",
-    "dictionaryType": "字典类型"
+    "dictName": "字典名称",
+    "dictItem": "字典项",
+    "dictType": "字典类型"
   },
   "param": {
     "menuName": "参数管理",
@@ -70,79 +66,5 @@
     "status": "状态",
     "ip": "IP 地址",
     "api": "日志详细信息"
-  },
-  "setting": {
-    "menuName": "系统设置",
-    "menuDescription": "系统设置基于缓存变化，部分设置需要通过修改代码实现",
-    "layout": "布局，包含了 4 种开箱即用的管理系统布局方式",
-    "layoutMix": "混合布局",
-    "layoutTop": "顶部布局",
-    "layoutAside": "侧面布局",
-    "layoutAsideDark": "深色侧面布局",
-    "colorScheme": "配色方案，您可以切换不同的配色风格",
-    "colorSchemeAuto": "明亮模式/黑暗模式自适应",
-    "colorSchemeTheme": "主题颜色模式",
-    "colorSchemeLight": "明亮模式",
-    "colorSchemeDark": "黑暗模式",
-    "themeColor": "主题颜色，也可用使用自定义主题颜色进行调整，以适配您的项目",
-    "tabStyle": "标签风格",
-    "tabStyleSquare": "直角",
-    "tabStyleRound": "圆角",
-    "menuStyle": "菜单风格",
-    "menuStyleSquare": "直角",
-    "menuStyleRound": "圆角",
-    "toolbar": "工具栏，点击卡片可以关闭不需要的工具按钮",
-    "toolbarLanguage": "多语言切换",
-    "toolbarRefresh": "视图刷新",
-    "toolbarDark": "黑暗模式",
-    "toolbarFullscreen": "全屏开关",
-    "toolbarCollapse": "菜单折叠",
-    "toolbarSetting": "设置",
-    "toolbarNotification": "消息中心",
-    "toolbarAvatar": "用户头像",
-    "component": "组件设置，可灵活配置布局中的组件风格、位置",
-    "componentSize": "组件尺寸大小",
-    "componentLarge": "大号",
-    "componentDefault": "默认",
-    "componentSmall": "小型",
-    "tab": "标签页",
-    "uniqueOpened": "手风琴菜单",
-    "breadcrumb": "面包屑",
-    "breadcrumbHidden": "隐藏",
-    "breadcrumbViewTop": "视图顶部",
-    "breadcrumbLayoutHeader": "布局顶栏",
-    "copyright": "版权信息",
-    "copyrightHidden": "隐藏",
-    "copyrightBottom": "底部",
-    "other": "其他设置",
-    "otherDescription": "这些配置是系统关键配置，仅能通过代码修改",
-    "language": "默认语言环境",
-    "firstRoute": "网站首页路由",
-    "adminFirstRoute": "管理系统首页路由",
-    "requestTimeout": "网络请求超时时间",
-    "requestTimeoutUnit": "单位毫秒(ms)",
-    "updateSuccess": "系统设置修改成功",
-    "copy": "复制",
-    "copySuccess": "复制成功，请粘贴到 src/constant/settings/settings.replace.ts 文件中！",
-    "back": "重置",
-    "backSuccess": "系统设置已恢复默认"
-  },
-  "profile": {
-    "menuName": "个人资料",
-    "menuDescription": "您可以在此页面修改个人资料"
-  },
-  "notification": {
-    "menuName": "我的消息",
-    "menuDescription": "查看我的消息、通知列表",
-    "notificationContent": "消息内容",
-    "notificationContentText": "消息内容",
-    "notificationType": "消息类型",
-    "notificationTypeText": "消息类型",
-    "time": "通知时间",
-    "isRead": "是否已读",
-    "source": "消息来源",
-    "datetime": "时间",
-    "send": "发送时间",
-    "read": "已读"
   }
 }

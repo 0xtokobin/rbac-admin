@@ -24,8 +24,8 @@ const systemStore = useSystemStore()
           <layout-view-side v-if="systemStore.layout === LayoutEnum.LAYOUT_MIX" />
         </el-aside>
         <el-container>
+          <layout-tab />
           <el-main>
-            <layout-tab />
             <layout-breadcrumb />
             <slot name="router-view" />
           </el-main>

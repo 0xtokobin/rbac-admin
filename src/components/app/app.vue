@@ -23,7 +23,7 @@ provide('reloadView', { reload: reloadView })
     <template #app>
       <router-view v-slot="{ Component, route }">
         <Suspense>
-          <transition name="wingscloud-admin-page" mode="out-in" appear>
+          <transition name="wingscloud" mode="out-in" appear>
             <keep-alive :include="systemStore.keepAliveNames">
               <component :is="Component" v-if="reload" :key="route.fullPath" />
             </keep-alive>
@@ -42,20 +42,20 @@ provide('reloadView', { reload: reloadView })
 </template>
 
 <style lang="scss" scoped>
-.wingscloud-admin-page-enter-active {
+.wingscloud-enter-active {
   transition: 0.2s;
 }
 
-.wingscloud-admin-page-leave-active {
+.wingscloud-leave-active {
   transition: 0.15s;
 }
 
-.wingscloud-admin-page-enter-from {
+.wingscloud-enter-from {
   transform: translateX(-20px);
   opacity: 0;
 }
 
-.wingscloud-admin-page-leave-to {
+.wingscloud-leave-to {
   transform: translateX(20px);
   opacity: 0;
 }

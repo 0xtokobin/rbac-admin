@@ -111,55 +111,44 @@ watch(
 </script>
 
 <template>
-  <div flex items-center justify-between class="slot">
+  <div flex items-center justify-between style="background-color: var(--el-bg-color-overlay);padding: 0 20px;">
     <el-tabs
-      v-model="nowTab" type="card" closable tab-position="top"
-      :style="systemStore.isMobile ? 'width: 76%' : 'width: 94%'" @tab-click="tabClick" @tab-remove="tabRemove"
+      v-model="nowTab" mr-4 type="card" closable tab-position="top"
+      :style="systemStore.isMobile ? 'max-width: 80%' : 'width: 88%'" @tab-click="tabClick" @tab-remove="tabRemove"
     >
       <el-tab-pane v-for="item in tabList" :key="item.name" :label="item.label" :name="item.name" />
     </el-tabs>
-    <div class="operation">
-      <el-dropdown @command="clickOperationMenu">
-        <el-button size="small" type="primary">
-          <span text-3 mr-2>{{ t('app.more') }}</span>
-          <el-icon>
-            <ArrowDown />
-          </el-icon>
-        </el-button>
-        <template #dropdown>
-          <el-dropdown-menu>
-            <el-dropdown-item command="current">
-              {{
-                t('app.closeNow')
-              }}
-            </el-dropdown-item>
-            <el-dropdown-item command="other">
-              {{
-                t('app.closeOther')
-              }}
-            </el-dropdown-item>
-            <el-dropdown-item command="all">
-              {{
-                t('app.closeAll')
-              }}
-            </el-dropdown-item>
-          </el-dropdown-menu>
-        </template>
-      </el-dropdown>
-    </div>
+    <el-dropdown @command="clickOperationMenu">
+      <el-button size="small" type="primary">
+        <span text-3 mr-2>{{ t('app.more') }}</span>
+        <el-icon>
+          <ArrowDown />
+        </el-icon>
+      </el-button>
+      <template #dropdown>
+        <el-dropdown-menu>
+          <el-dropdown-item command="current">
+            {{
+              t('app.closeNow')
+            }}
+          </el-dropdown-item>
+          <el-dropdown-item command="other">
+            {{
+              t('app.closeOther')
+            }}
+          </el-dropdown-item>
+          <el-dropdown-item command="all">
+            {{
+              t('app.closeAll')
+            }}
+          </el-dropdown-item>
+        </el-dropdown-menu>
+      </template>
+    </el-dropdown>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.slot {
-  box-sizing: border-box;
-  height: var(--wingscloud-tab-height);
-  padding: 0 var(--wingscloud-main-padding);
-  background-color: var(--wingscloud-tab-bg-color) !important;
-  border-bottom: 1px solid var(--wingscloud-tab-border-color);
-  transition: all var(--el-transition-duration) var(--el-transition-function-ease-in-out-bezier);
-}
-
 :deep(.el-tabs__header) {
   margin: 0 !important;
   border: none !important;
@@ -172,32 +161,12 @@ watch(
 }
 
 :deep(.el-tabs__item) {
-  height: var(--el-tabs-header-height);
-  line-height: var(--el-tabs-header-height);
   border-left: none !important;
 }
 
 :deep(.el-tabs__item.is-active) {
   border: none;
   border-bottom: 2px solid var(--el-color-primary) !important;
-}
-
-.slot.wingscloud-admin-round {
-  height: auto;
-  background-color: var(--wingscloud-main-fill) !important;
-  border-bottom: 1px solid rgba($color: #000, $alpha: 0%);
-
-  :deep(.el-tabs__item) {
-    height: 30px;
-    line-height: 30px;
-    border-left: none !important;
-  }
-
-  :deep(.el-tabs__item.is-active) {
-    background-color: var(--el-bg-color) !important;
-    border-bottom: 0 !important;
-    border-radius: 6px;
-  }
 }
 
 :deep(.el-tabs__nav-next) {

@@ -165,9 +165,9 @@ export default {
             },
           },
           {
-            path: '/system/department',
-            name: 'system.department',
-            component: '/system/department',
+            path: '/system/dept',
+            name: 'system.dept',
+            component: '/system/dept',
             meta: {
               layout: 'view',
               requiresAuth: true,
@@ -175,13 +175,13 @@ export default {
               icon: 'base-tree',
               sort: 3,
               isI18n: true,
-              i18nKey: 'system.department',
+              i18nKey: 'system.dept',
             },
           },
           {
-            path: '/system/dictionary',
-            name: 'system.dictionary',
-            component: '/system/dictionary',
+            path: '/system/dict',
+            name: 'system.dict',
+            component: '/system/dict',
             meta: {
               layout: 'view',
               requiresAuth: true,
@@ -189,7 +189,7 @@ export default {
               icon: 'Reading',
               sort: 4,
               isI18n: true,
-              i18nKey: 'system.dictionary',
+              i18nKey: 'system.dict',
             },
           },
           {

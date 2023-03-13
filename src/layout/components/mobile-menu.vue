@@ -18,7 +18,6 @@ const changeMobileMenu = () => {
 
 <template>
   <div
-    p-l-6
     flex
     items-center
     :class="[
