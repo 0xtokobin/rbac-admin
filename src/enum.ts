@@ -85,7 +85,7 @@ export enum DarkModeEnum {
  * @description 主题颜色枚举
  */
 export enum ThemeEnum {
-  BLUE = '#0d6efd',
+  BLUE = '#3dabf5',
   GREEN = '#42b983',
   RED = '#ea3a72',
   ORANGE = '#fe7300',

@@ -1,49 +1,23 @@
 <script lang="ts" setup>
 import { UserFilled } from '@element-plus/icons-vue'
 import { useUserStore } from '@/hooks/use-user-store'
+import { LayoutEnum, SizeEnum, ThemeEnum } from '@/enum'
 
 const { t, locale, messages } = useI18n()
+
+const userStore = useUserStore()
 
 const changeLanguage = (
   value: string | number | Record<string, any> | undefined,
 ) => {
-  const { locale } = useI18n()
-
   locale.value = value as string
 }
-
-const userStore = useUserStore()
 
 const personalDrawerVisible = ref<boolean>(false)
 
 const openPersonalDrawer = () => {
   personalDrawerVisible.value = true
 }
-
-const layouts = [
-  {
-    label: t('app.layoutMix'),
-    value: 'mix',
-  },
-  {
-    label: t('app.layoutTop'),
-    value: 'top',
-  },
-  {
-    label: t('app.layoutSide'),
-    value: 'side',
-  },
-]
-
-const themes = [
-  '#165DFF',
-  '#42b983',
-  '#ea3a72',
-  '#fe7300',
-  '#1C9399',
-  '#f56c6c',
-  '#839aff',
-]
 </script>
 
 <template>
@@ -68,22 +42,24 @@ const themes = [
       </el-form-item>
       <el-form-item :label="t('app.layout')">
         <el-select v-model="userStore.profile.layout" important-w-full @change="changeLanguage">
-          <el-option v-for="(item, key) in layouts" :key="key" :label="item.label" :value="item.value" />
+          <el-option :label="t('app.layoutMix')" :value="LayoutEnum.LAYOUT_MIX" />
+          <el-option :label="t('app.layoutTop')" :value="LayoutEnum.LAYOUT_TOP" />
+          <el-option :label="t('app.layoutSide')" :value="LayoutEnum.LAYOUT_SIDE" />
         </el-select>
       </el-form-item>
       <el-form-item :label="t('app.theme')">
         <div w-full flex flex-wrap items-center justify-between>
           <div
-            v-for="(item, index) in themes" :key="index" :class="userStore.profile.theme === item ? 'active ' : ''" w-6
-            h-6 cursor-pointer rd-1 :style="{ backgroundColor: item }"
+            v-for="(key, value) in ThemeEnum" :key="key" :class="userStore.profile.theme === key ? 'active ' : ''" w-6
+            h-6 cursor-pointer rd-1 :style="{ backgroundColor: value }"
           />
         </div>
       </el-form-item>
       <el-form-item :label="t('app.size')">
         <el-select v-model="userStore.profile.size" important-w-full>
-          <el-option :label="t('system.setting.componentLarge')" value="large" />
-          <el-option :label="t('system.setting.componentDefault')" value="default" />
-          <el-option :label="t('system.setting.componentSmall')" value="small" />
+          <el-option :label="t('system.setting.componentLarge')" :value="SizeEnum.LARGE" />
+          <el-option :label="t('system.setting.componentDefault')" :value="SizeEnum.DEFAULT" />
+          <el-option :label="t('system.setting.componentSmall')" :value="SizeEnum.SMALL" />
         </el-select>
       </el-form-item>
       <el-form-item :label="t('app.action')">

@@ -1,7 +1,6 @@
-import type { RouteRecordRaw } from 'vue-router'
 import Index from '@/views/index.vue'
 
-export const routes: Array<RouteRecordRaw> = [
+export default [
   {
     path: '/',
     name: 'index',

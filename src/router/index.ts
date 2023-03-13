@@ -1,7 +1,14 @@
-import type { Router } from 'vue-router'
+import type { RouteRecordRaw, Router } from 'vue-router'
 import { createRouter, createWebHistory } from 'vue-router'
-import { routes } from './routes'
 import { addRouterGuard } from './guard'
+import { autoImportRoutes } from '@/utils/common'
+
+const routes: Array<RouteRecordRaw> = autoImportRoutes(
+  import.meta.glob('@/router/routes/**/*.ts', {
+    import: 'default',
+    eager: true,
+  }),
+)
 
 const router: Router = addRouterGuard(createRouter({
   history: createWebHistory(import.meta.env.VITE_BASE_URL),

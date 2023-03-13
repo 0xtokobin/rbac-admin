@@ -2,6 +2,8 @@
 import { DArrowLeft, DArrowRight } from '@element-plus/icons-vue'
 import { useSystemStore } from '@/hooks/use-system-store'
 import { LayoutEnum } from '@/enum'
+import layoutLogo from '@/layout/components/logo.vue'
+import layoutMenu from '@/layout/components/menu.vue'
 
 const systemStore = useSystemStore()
 
@@ -17,12 +19,12 @@ const changeCollapse = (): void => {
       `wingscloud-admin-${systemStore.layout}`,
     ]"
   >
-    <app-logo
+    <layout-logo
       v-if="
         systemStore.isMobile || systemStore.layout === LayoutEnum.LAYOUT_SIDE"
       style="height: var(--wingscloud-aside-logo-height)"
     />
-    <app-menu />
+    <layout-menu />
     <div
       v-if="!systemStore.isMobile" flex items-center justify-center cursor-pointer
       style="height: var(--wingscloud-collapse-height)" class="wingscloud-admin-layout-aside-menu-collapse" :class="[
