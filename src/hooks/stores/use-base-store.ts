@@ -10,6 +10,7 @@ import {
 import { router } from '@/router'
 import { GET } from '@/utils/request'
 import { getStorage } from '@/utils/storage'
+import { setEpThemeColor } from '@/utils/common'
 
 /**
  * @name useBaseStore
@@ -19,26 +20,6 @@ import { getStorage } from '@/utils/storage'
 export const useBaseStore = defineStore('base', () => {
   // 当前菜单展开/折叠状态
   const collapse = ref<boolean>(false)
-
-  // 当前黑暗模式
-  const darkMode = ref<string>(getStorage(StorageKeyEnum.PROFILE)?.darkMode || DarkModeEnum.DARK_MODE_AUTO)
-
-  // 切换黑暗模式
-  const changeDarkMode = (value: boolean) => {
-    document.documentElement.classList.remove(darkMode.value)
-    if (value) {
-      document.documentElement.classList.add(
-        DarkModeEnum.DARK_MODE_DARK,
-      )
-      darkMode.value = DarkModeEnum.DARK_MODE_DARK
-    }
-    else {
-      document.documentElement.classList.add(
-        DarkModeEnum.DARK_MODE_LIGHT,
-      )
-      darkMode.value = DarkModeEnum.DARK_MODE_LIGHT
-    }
-  }
 
   // 当前浏览器标题
   const browserTitle = ref<string>('')
@@ -112,6 +93,27 @@ export const useBaseStore = defineStore('base', () => {
 
   // 当前组件大小
   const size = ref<string>(getStorage(StorageKeyEnum.PROFILE)?.size || SizeEnum.DEFAULT)
+
+  // 当前黑暗模式
+  const darkMode = ref<string>(getStorage(StorageKeyEnum.PROFILE)?.darkMode || DarkModeEnum.DARK_MODE_AUTO)
+
+  // 切换黑暗模式
+  const changeDarkMode = (value: boolean) => {
+    setEpThemeColor(theme.value, value)
+    document.documentElement.classList.remove(darkMode.value)
+    if (value) {
+      document.documentElement.classList.add(
+        DarkModeEnum.DARK_MODE_DARK,
+      )
+      darkMode.value = DarkModeEnum.DARK_MODE_DARK
+    }
+    else {
+      document.documentElement.classList.add(
+        DarkModeEnum.DARK_MODE_LIGHT,
+      )
+      darkMode.value = DarkModeEnum.DARK_MODE_LIGHT
+    }
+  }
 
   return {
     collapse,

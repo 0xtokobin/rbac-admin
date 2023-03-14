@@ -128,19 +128,15 @@ export const componentAddInstall = <T>(
  * @description 设置主题颜色
  * @returns
  */
-export const setEpThemeColor = (color?: string): void => {
+export const setEpThemeColor = (color: string, isDark: boolean): void => {
   if (!color)
     return
   const element = document.documentElement
   element.style.setProperty('--el-color-primary', color)
-  for (let i = 1; i < 10; i += 1) {
-    element.style.setProperty(
-      `--el-color-primary-light-${i}`,
-      colorMix(color, '#ffffff', i * 0.1),
-    )
-  }
-  const dark = colorMix(color, '#000000', 0.2)
-  element.style.setProperty('--el-color-primary-dark-2', dark)
+  for (let i = 1; i < 10; i++)
+    element.style.setProperty(`--el-color-primary-light-${i}`, colorMix(color, isDark ? '#000000' : '#ffffff', i * 0.1))
+
+  element.style.setProperty('--el-color-primary-dark-2', colorMix(color, '#000000', 0.2))
 }
 
 /**

@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import type { Language } from 'element-plus/es/locale'
 import { DarkModeEnum, LanguageEnum } from '@/enum'
-import { setEpThemeColor } from '@/utils/common'
 import { useBaseStore } from '@/hooks/stores/use-base-store'
 import { useDict } from '@/hooks/use-dict'
 import layoutPage from '@/layout/layout-page.vue'
 import layoutView from '@/layout/layout-view.vue'
+import { setEpThemeColor } from '@/utils/common'
 
 const route = useRoute()
 
@@ -49,7 +49,7 @@ watch(
   () => baseStore.theme,
   (newVal, old) => {
     if (newVal && (newVal !== old || !old))
-      setEpThemeColor(newVal as string)
+      setEpThemeColor(newVal as string, baseStore.darkMode === DarkModeEnum.DARK_MODE_DARK)
   },
   {
     immediate: true,
