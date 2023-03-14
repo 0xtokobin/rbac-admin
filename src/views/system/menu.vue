@@ -5,9 +5,6 @@ import { IconTypeEnum } from '@/enum'
 const { t } = useI18n()
 
 const systemStore = useSystemStore()
-
-const keepAliveChange = (val: string | number | boolean) => {
-}
 </script>
 
 <template>
@@ -55,7 +52,7 @@ const keepAliveChange = (val: string | number | boolean) => {
       </el-table-column>
       <el-table-column :label="t('system.menu.keepAlive')" width="140">
         <template #default="scope">
-          <el-switch v-model="scope.row.meta.keepAlive" @change="keepAliveChange" />
+          <el-switch v-model="scope.row.meta.keepAlive" disabled />
         </template>
       </el-table-column>
       <el-table-column :label="t('crud.table.sort')" width="140">

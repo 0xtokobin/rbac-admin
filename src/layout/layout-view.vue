@@ -25,17 +25,16 @@ const systemStore = useSystemStore()
     </el-aside>
     <el-container h-full flex flex-col items-stretch>
       <el-header>
-        <div flex items-center>
-          <svg-icon
-            v-if="systemStore.isMobile" size="26" name="app" cursor-pointer
-            @click="systemStore.mobileMenu = !systemStore.mobileMenu"
-          />
-          <layout-logo
-            v-if="
-              !systemStore.isMobile && systemStore.layout !== LayoutEnum.LAYOUT_SIDE"
-          />
-          <layout-menu v-if="!systemStore.isMobile && systemStore.layout === LayoutEnum.LAYOUT_TOP" />
-        </div>
+        <svg-icon
+          v-if="systemStore.isMobile" size="26" name="app" cursor-pointer
+          @click="systemStore.mobileMenu = !systemStore.mobileMenu"
+        />
+        <layout-logo
+          v-if="
+            !systemStore.isMobile && systemStore.layout !== LayoutEnum.LAYOUT_SIDE"
+          mr="20px"
+        />
+        <layout-menu v-if="!systemStore.isMobile && systemStore.layout === LayoutEnum.LAYOUT_TOP" flex-1 />
         <div w-46 flex justify-between items-center>
           <layout-dark-mode />
           <layout-refresh />
