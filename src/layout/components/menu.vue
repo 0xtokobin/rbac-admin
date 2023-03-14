@@ -10,7 +10,7 @@ const systemStore = useSystemStore()
 
 <template>
   <el-menu
-    border-none h-full router collapse-transition el-menu
+    border-none router collapse-transition el-menu
     :mode="systemStore.layout === LayoutEnum.LAYOUT_TOP ? 'horizontal' : 'vertical'"
     :collapse="systemStore.layout === LayoutEnum.LAYOUT_TOP ? false : systemStore.collapse" :default-active="route.path"
   >

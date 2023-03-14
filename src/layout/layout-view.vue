@@ -19,12 +19,12 @@ const systemStore = useSystemStore()
 <template>
   <el-container w-screen h-screen>
     <el-aside v-if="!systemStore.isMobile">
-      <layout-logo v-if="systemStore.layout === LayoutEnum.LAYOUT_SIDE" h-22 flex-initial />
+      <layout-logo v-if="systemStore.layout === LayoutEnum.LAYOUT_SIDE" h-26 flex-initial />
       <layout-menu v-if="systemStore.layout === LayoutEnum.LAYOUT_SIDE" flex-auto overflow-auto />
       <layout-collapse v-if="systemStore.layout === LayoutEnum.LAYOUT_SIDE" />
     </el-aside>
-    <el-container>
-      <el-header flex justify-between border-b-1>
+    <el-container h-full flex flex-col items-stretch>
+      <el-header>
         <div flex items-center>
           <svg-icon
             v-if="systemStore.isMobile" size="26" name="app" cursor-pointer
@@ -43,9 +43,8 @@ const systemStore = useSystemStore()
           <layout-avatar />
         </div>
       </el-header>
-      <el-container>
+      <el-container flex-auto overflow-auto>
         <el-aside v-if="!systemStore.isMobile">
-          <div h-4 flex-initial />
           <layout-menu v-if="systemStore.layout === LayoutEnum.LAYOUT_MIX" flex-auto overflow-auto />
           <layout-collapse v-if="systemStore.layout === LayoutEnum.LAYOUT_MIX" flex-initial />
         </el-aside>
@@ -62,13 +61,17 @@ const systemStore = useSystemStore()
       </el-container>
     </el-container>
   </el-container>
-  <el-drawer v-model="systemStore.mobileMenu" :show-close="false" direction="ltr" :size="208" :with-header="false">
-    <layout-logo />
-    <layout-menu />
+  <el-drawer v-model="systemStore.mobileMenu" :show-close="false" direction="ltr" size="auto" :with-header="false">
+    <layout-logo h-12 mb-4 mx--4 />
+    <layout-menu mx--4 />
   </el-drawer>
 </template>
 
 <style lang="scss" scoped>
+:deep(.el-header) {
+  --at-apply: flex justify-between border-b-1 flex-initial;
+}
+
 :deep(.el-aside) {
   --at-apply: w-auto h-full flex flex-col items-stretch;
 }
