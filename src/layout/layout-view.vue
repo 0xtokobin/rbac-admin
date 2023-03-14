@@ -31,10 +31,10 @@ const baseStore = useBaseStore()
         />
         <layout-logo
           v-if="
-            !baseStore.isMobile && baseStore.layout !== LayoutEnum.LAYOUT_SIDE"
-          mr="20px"
+            !baseStore.isMobile && baseStore.layout !== LayoutEnum.LAYOUT_SIDE" mr="20px"
         />
         <layout-menu v-if="!baseStore.isMobile && baseStore.layout === LayoutEnum.LAYOUT_TOP" flex-1 />
+        <div v-else flex-1 />
         <div w-46 flex justify-between items-center>
           <layout-dark-mode />
           <layout-refresh />
@@ -49,10 +49,12 @@ const baseStore = useBaseStore()
         </el-aside>
         <el-container>
           <layout-tab />
-          <el-main>
+          <el-scrollbar>
             <layout-breadcrumb />
-            <slot name="router-view" />
-          </el-main>
+            <el-main>
+              <slot name="router-view" />
+            </el-main>
+          </el-scrollbar>
           <el-footer>
             <layout-copyright />
           </el-footer>

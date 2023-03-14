@@ -73,8 +73,8 @@ const particlesInit = async (engine: Engine) => {
 
 <template>
   <Particles id="tsparticles" :options="options" :particles-init="particlesInit" />
-  <el-container>
-    <el-header flex items-center justify-end>
+  <el-container w-screen h-screen>
+    <el-header w-full flex items-center justify-end>
       <el-dropdown @command="changeLanguage">
         <div h-full cursor-pointer flex items-center>
           <span mr-2>{{ messages[locale].name }}</span>
@@ -91,10 +91,12 @@ const particlesInit = async (engine: Engine) => {
         </template>
       </el-dropdown>
     </el-header>
-    <el-main>
-      <slot name="router-view" />
-    </el-main>
-    <el-footer>
+    <el-scrollbar>
+      <el-main>
+        <slot name="router-view" />
+      </el-main>
+    </el-scrollbar>
+    <el-footer flex items-center justify-center>
       <layout-copyright color="#A3A6AD" />
     </el-footer>
   </el-container>

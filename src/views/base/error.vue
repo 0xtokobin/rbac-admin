@@ -22,7 +22,7 @@ const router = useRouter()
     <div text-center>
       <el-button
         important="h-12 p-x-6 text-4 font-600" type="primary"
-        @click="router.replace({ path: RouteEnum.ROUTE_LANDING })"
+        @click="!route.params.type ? router.replace({ path: RouteEnum.ROUTE_LANDING }) : router.go(-1)"
       >
         <span v-if="!route.params.type">{{ t('app.404.btn') }}</span>
         <span v-if="route.params.type === '403'">{{ t('app.403.btn') }}</span>

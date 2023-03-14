@@ -2,7 +2,7 @@
 import type { FormInstance, FormRules } from 'element-plus'
 import { PASSWORD_NORMAL, USERNAME } from '@kaivanwong/utils'
 import { GET, type ResponseData } from '@/utils/request'
-import { useUserStore } from '@/hooks/use-user-store'
+import { useUserStore } from '@/hooks/stores/use-user-store'
 
 const emit = defineEmits(['password'])
 

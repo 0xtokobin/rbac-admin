@@ -9,13 +9,15 @@ const baseStore = useBaseStore()
 </script>
 
 <template>
-  <el-menu
-    border-none router collapse-transition el-menu
-    :mode="baseStore.layout === LayoutEnum.LAYOUT_TOP ? 'horizontal' : 'vertical'"
-    :collapse="baseStore.layout === LayoutEnum.LAYOUT_TOP ? false : baseStore.collapse" :default-active="route.path"
-  >
-    <layout-menu-item :routes="baseStore.menuRoutes" />
-  </el-menu>
+  <el-scrollbar>
+    <el-menu
+      border-none router collapse-transition el-menu
+      :mode="baseStore.layout === LayoutEnum.LAYOUT_TOP ? 'horizontal' : 'vertical'"
+      :collapse="baseStore.layout === LayoutEnum.LAYOUT_TOP ? false : baseStore.collapse" :default-active="route.path"
+    >
+      <layout-menu-item :routes="baseStore.menuRoutes" />
+    </el-menu>
+  </el-scrollbar>
 </template>
 
 <style lang="scss" scoped>

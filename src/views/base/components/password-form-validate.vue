@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { FormInstance, FormRules } from 'element-plus'
 import { MOBILE } from '@kaivanwong/utils'
-import type { MobileForm } from '@/views/login/login'
+import type { MobileForm } from '@/views/base/login'
 import type { IObject } from '#/global'
 import { StorageKeyEnum } from '@/enum'
 import { useCountDown } from '@/hooks/use-count-down'
@@ -95,12 +95,14 @@ const validate = async (formEl: FormInstance | undefined): Promise<void> => {
           </el-icon>
         </template>
         <template #suffix>
-          <el-button inline-block p-0 link type="primary" :disabled="countDown.countDownForm.getting" @click="
-            countDown.getMobileCode(
-              validateForm.mobile,
-              2,
-            )
-          ">
+          <el-button
+            inline-block p-0 link type="primary" :disabled="countDown.countDownForm.getting" @click="
+              countDown.getMobileCode(
+                validateForm.mobile,
+                2,
+              )
+            "
+          >
             <span v-if="countDown.countDownForm.getting" text-3>
               {{
                 t('crud.mobile.retrieve', {
@@ -111,8 +113,8 @@ const validate = async (formEl: FormInstance | undefined): Promise<void> => {
             <span v-else text-3>
               {{
                 countDown.countDownForm.send
-                ? t('crud.mobile.resend')
-                : t('crud.mobile.send')
+                  ? t('crud.mobile.resend')
+                  : t('crud.mobile.send')
               }}
             </span>
           </el-button>

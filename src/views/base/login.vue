@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import pkg from '../../../package.json'
-import loginFormNormal from './components/login-form-normal.vue'
-import loginFormSms from './components/login-form-sms.vue'
-import loginFormScan from './components/login-form-scan.vue'
-import passwordFormValidate from './components/password-form-validate.vue'
-import passwordFormReset from './components/password-form-reset.vue'
-import passwordFormResult from './components/password-form-result.vue'
+import loginFormNormal from '@/views/base/components/login-form-normal.vue'
+import loginFormSms from '@/views/base/components/login-form-sms.vue'
+import loginFormScan from '@/views/base/components/login-form-scan.vue'
+import passwordFormValidate from '@/views/base/components/password-form-validate.vue'
+import passwordFormReset from '@/views/base/components/password-form-reset.vue'
+import passwordFormResult from '@/views/base/components/password-form-result.vue'
 import type { IObject } from '#/global'
 import { useBaseStore } from '@/hooks/stores/use-base-store'
 import { GET } from '@/utils/request'
@@ -55,8 +55,10 @@ onBeforeMount(async () => {
 </script>
 
 <template>
-  <el-card m-auto important-border-0
-    :style="baseStore.isMobile ? 'margin-top:4vh;padding:0;width:88vw;' : 'margin-top:10vh;padding:1rem 1.5rem;width:20rem;'">
+  <el-card
+    m-auto important-border-0
+    :style="baseStore.isMobile ? 'margin-top:4vh;padding:0;width:88vw;' : 'margin-top:10vh;padding:1rem 1.5rem;width:20rem;'"
+  >
     <div my-4 flex justify-center items-center>
       <img w-20 h-20 src="@/assets/svg/logo.svg">
     </div>
@@ -78,8 +80,10 @@ onBeforeMount(async () => {
         {{ t('app.login.scan') }}
       </el-button>
     </div>
-    <crud-dialog v-model="passwordVisible" :width="baseStore.isMobile ? '80vw' : '22rem'"
-      :title="t('app.password.reset')" height="auto">
+    <crud-dialog
+      v-model="passwordVisible" :width="baseStore.isMobile ? '80vw' : '22rem'"
+      :title="t('app.password.reset')" height="auto"
+    >
       <password-form-validate v-if="passwordStep === 'validate'" @validate="validate" />
       <password-form-reset v-if="passwordStep === 'reset'" @reset="reset" />
       <password-form-result v-if="passwordStep === 'result'" @back="closePassword" />
