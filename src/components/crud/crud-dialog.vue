@@ -34,7 +34,7 @@ const closedHandle = (): void => {
     <template #header>
       <slot v-if="slots.header" name="header" />
     </template>
-    <div :style="{ height: props.height }" overflow-y-scroll>
+    <div :style="{ height: props.height }">
       <slot />
     </div>
     <template v-if="slots.footer" #footer>
