@@ -110,7 +110,7 @@ watch(
 </script>
 
 <template>
-  <div flex items-center justify-between style="background-color: var(--el-bg-color-overlay);padding: 0 20px;">
+  <div flex items-center justify-between class="tab">
     <el-tabs
       v-model="currentTab" mr-4 type="card" closable tab-position="top"
       :style="baseStore.isMobile ? 'max-width: 80%' : 'width: 88%'" @tab-click="tabClick" @tab-remove="tabRemove"
@@ -148,6 +148,11 @@ watch(
 </template>
 
 <style lang="scss" scoped>
+.tab {
+  padding: 0 20px;
+  border-bottom: 1px solid var(--el-border-color-extra-light);
+}
+
 :deep(.el-tabs__header) {
   margin: 0 !important;
   border: none !important;

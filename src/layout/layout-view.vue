@@ -18,7 +18,7 @@ const baseStore = useBaseStore()
 
 <template>
   <el-container w-screen h-screen>
-    <el-aside v-if="!baseStore.isMobile">
+    <el-aside v-if="!baseStore.isMobile" :class="baseStore.layout !== LayoutEnum.LAYOUT_SIDE ? 'important-border-0' : ''">
       <layout-logo v-if="baseStore.layout === LayoutEnum.LAYOUT_SIDE" h-26 flex-initial />
       <layout-menu v-if="baseStore.layout === LayoutEnum.LAYOUT_SIDE" flex-auto overflow-auto />
       <layout-collapse v-if="baseStore.layout === LayoutEnum.LAYOUT_SIDE" />
@@ -35,7 +35,7 @@ const baseStore = useBaseStore()
         />
         <layout-menu v-if="!baseStore.isMobile && baseStore.layout === LayoutEnum.LAYOUT_TOP" flex-1 />
         <div v-else flex-1 />
-        <div w-46 flex justify-between items-center>
+        <div w-46 flex justify-between items-center style="height: var(--el-header-height);">
           <layout-dark-mode />
           <layout-refresh />
           <layout-notification />
@@ -47,17 +47,18 @@ const baseStore = useBaseStore()
           <layout-menu v-if="baseStore.layout === LayoutEnum.LAYOUT_MIX" flex-auto overflow-auto />
           <layout-collapse v-if="baseStore.layout === LayoutEnum.LAYOUT_MIX" flex-initial />
         </el-aside>
-        <el-container>
+        <el-container direction="vertical">
           <layout-tab />
-          <el-scrollbar>
-            <layout-breadcrumb />
+          <el-scrollbar style="background-color: var(--el-bg-color-page);">
             <el-main>
+              <layout-breadcrumb />
               <slot name="router-view" />
+
+              <el-footer flex items-center justify-center>
+                <layout-copyright />
+              </el-footer>
             </el-main>
           </el-scrollbar>
-          <el-footer>
-            <layout-copyright />
-          </el-footer>
         </el-container>
       </el-container>
     </el-container>
@@ -71,9 +72,11 @@ const baseStore = useBaseStore()
 <style lang="scss" scoped>
 :deep(.el-header) {
   --at-apply: flex justify-between border-b-1 flex-initial;
+  border-bottom: 1px solid var(--el-border-color-light);
 }
 
 :deep(.el-aside) {
   --at-apply: w-auto h-full flex flex-col items-stretch;
+  border-right: 1px solid var(--el-border-color-lighter);
 }
 </style>

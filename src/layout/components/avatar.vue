@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { UserFilled } from '@element-plus/icons-vue'
 import { useUserStore } from '@/hooks/stores/use-user-store'
-import { LayoutEnum, SizeEnum, ThemeEnum } from '@/enum'
+import { DarkModeEnum, LayoutEnum, SizeEnum, ThemeEnum } from '@/enum'
 import { useBaseStore } from '@/hooks/stores/use-base-store'
 import { setEpThemeColor } from '@/utils/common'
 
@@ -47,7 +47,7 @@ const openPersonalDrawer = () => {
           <div
             v-for="(value, key) in ThemeEnum" :key="key" :class="baseStore.theme === value ? 'active ' : ''" w-6 h-6
             mb-4 cursor-pointer rd-1 :style="{ backgroundColor: value }"
-            @click="setEpThemeColor(value), baseStore.theme = value"
+            @click="setEpThemeColor(value, baseStore.darkMode === DarkModeEnum.DARK_MODE_DARK), baseStore.theme = value"
           />
         </div>
       </el-form-item>

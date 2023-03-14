@@ -75,7 +75,9 @@ export const routerInject = (
       const { cloned } = useCloned(breadcrumbList)
       item.meta.breadcrumb = cloned.value
     }
-    item.meta.breadcrumb = []
+    else {
+      item.meta.breadcrumb = []
+    }
     item.meta.breadcrumb.push({
       label: item.meta.i18n,
       value: item.path,
