@@ -1,20 +1,20 @@
 <script lang="ts" setup>
 import { LayoutEnum } from '@/enum'
-import { useSystemStore } from '@/hooks/use-system-store'
+import { useBaseStore } from '@/hooks/stores/use-base-store'
 import layoutMenuItem from '@/layout/components/menu-item.vue'
 
 const route = useRoute()
 
-const systemStore = useSystemStore()
+const baseStore = useBaseStore()
 </script>
 
 <template>
   <el-menu
     border-none router collapse-transition el-menu
-    :mode="systemStore.layout === LayoutEnum.LAYOUT_TOP ? 'horizontal' : 'vertical'"
-    :collapse="systemStore.layout === LayoutEnum.LAYOUT_TOP ? false : systemStore.collapse" :default-active="route.path"
+    :mode="baseStore.layout === LayoutEnum.LAYOUT_TOP ? 'horizontal' : 'vertical'"
+    :collapse="baseStore.layout === LayoutEnum.LAYOUT_TOP ? false : baseStore.collapse" :default-active="route.path"
   >
-    <layout-menu-item :routes="systemStore.menuRoutes" />
+    <layout-menu-item :routes="baseStore.menuRoutes" />
   </el-menu>
 </template>
 

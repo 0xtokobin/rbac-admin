@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ElNotification } from 'element-plus'
-import { useSystemStore } from './use-system-store'
+import { useBaseStore } from './use-base-store'
 import type { IObject } from '#/global'
 import { getStorage, setStorage } from '@/utils/storage'
 import { getLoginStorageType } from '@/utils/common'
@@ -102,12 +102,12 @@ export const useUserStore = defineStore('user', () => {
   const login = async (form: any): Promise<void> => {
     const { data, code } = await POST('/system/user/login', form)
     if (code === 0) {
-      const systemStore = useSystemStore()
+      const baseStore = useBaseStore()
       await setStayLogin(form.remember)
       await setToken(data)
       await getProfile()
       await getRoles()
-      await systemStore.getMenuRoutes()
+      await baseStore.getMenuRoutes()
       router.replace({
         path: RouteEnum.ROUTE_FIRST,
       })

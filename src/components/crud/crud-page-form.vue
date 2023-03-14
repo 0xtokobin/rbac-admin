@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { ComponentInternalInstance } from 'vue'
-import { useSystemStore } from '@/hooks/use-system-store'
+import { useBaseStore } from '@/hooks/stores/use-base-store'
 
 const props = defineProps({
   action: {
@@ -23,15 +23,11 @@ const props = defineProps({
 
 const emit = defineEmits(['submit', 'cancel'])
 
-defineOptions({
-  name: 'CrudPageForm',
-})
-
 const { slots } = getCurrentInstance() as ComponentInternalInstance
 
 const { t } = useI18n()
 
-const systemStore = useSystemStore()
+const baseStore = useBaseStore()
 
 const submit = () => {
   emit('submit', null)
@@ -45,8 +41,8 @@ const cancel = () => {
 <template>
   <el-form
     v-bind="$attrs"
-    :label-position="systemStore.isMobile ? 'top' : 'right'"
-    :style="systemStore.isMobile ? 'width:100%' : 'width:680px;margin:0 auto'"
+    :label-position="baseStore.isMobile ? 'top' : 'right'"
+    :style="baseStore.isMobile ? 'width:100%' : 'width:680px;margin:0 auto'"
   >
     <slot />
     <el-form-item v-if="props.action && !slots.action">

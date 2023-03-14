@@ -5,8 +5,8 @@ import type {
 } from 'vue-router'
 import { useNProgress } from '@vueuse/integrations/useNProgress'
 import { RouteEnum, StorageKeyEnum } from '@/enum'
-import { useSystemStore } from '@/hooks/use-system-store'
-import { useUserStore } from '@/hooks/use-user-store'
+import { useBaseStore } from '@/hooks/stores/use-base-store'
+import { useUserStore } from '@/hooks/stores/use-user-store'
 import { getStorage } from '@/utils/storage'
 import { getLoginStorageType } from '@/utils/common'
 import '@/assets/style/nprogress.scss'
@@ -34,7 +34,7 @@ export const addRouterGuard = (router: Router): Router => {
         (item: any) => item.meta.requiresAuth,
       )
 
-      const systemStore = useSystemStore()
+      const baseStore = useBaseStore()
       const userStore = useUserStore()
 
       if (requiresAuth && !userStore.isLogin) {
@@ -54,10 +54,10 @@ export const addRouterGuard = (router: Router): Router => {
         return
       }
 
-      if (userStore.isLogin && systemStore.menuRoutes.length === 0) {
+      if (userStore.isLogin && baseStore.menuRoutes.length === 0) {
         await userStore.getProfile()
         await userStore.getRoles()
-        await systemStore.getMenuRoutes()
+        await baseStore.getMenuRoutes()
         if (to.redirectedFrom)
           next({ path: to.redirectedFrom.fullPath, replace: true })
         else
@@ -82,24 +82,21 @@ export const addRouterGuard = (router: Router): Router => {
     (to: RouteLocationNormalized, from: RouteLocationNormalized) => {
       isLoading.value = false
 
-      const systemStore = useSystemStore()
+      const baseStore = useBaseStore()
       const toName
         = to.matched[to.matched.length - 1]?.components?.default.name
       const fromName
         = from.matched[to.matched.length - 1]?.components?.default.name
 
       if (to.meta.keepAlive && toName)
-        systemStore.keepAliveAddName(toName)
+        baseStore.keepAliveAddName(toName)
 
       if (
         !from.meta.keepAlive
         && fromName
-        && systemStore.keepAliveNames.includes(fromName)
+        && baseStore.keepAliveNames.includes(fromName)
       )
-        systemStore.keepAliveRemoveName(fromName)
-
-      if (to.meta.menuName)
-        systemStore.browserTitle = to.meta.menuName
+        baseStore.keepAliveRemoveName(fromName)
     },
   )
 

@@ -8,6 +8,8 @@ import { useUserStore } from '@/hooks/use-user-store'
 
 const { t } = useI18n()
 
+const mobileAreaCode = getStorage(StorageKeyEnum.MOBILE_AREA_CODE)
+
 const countDown = useCountDown()
 
 const formRef = ref<FormInstance>()
@@ -63,8 +65,6 @@ const formRules = reactive<FormRules>({
   ],
 })
 
-const mobileAreaCodeList = getStorage(StorageKeyEnum.MOBILE_AREA_CODE)
-
 const loading = ref<boolean>(false)
 
 const userStore = useUserStore()
@@ -88,7 +88,7 @@ const login = async (formEl: FormInstance | undefined): Promise<void> => {
       <el-input v-model.number="form.mobile" autocomplete="off" :placeholder="t('crud.mobile.mobile')">
         <template #prepend>
           <el-select v-model="form.areaCode" important="w-24">
-            <el-option v-for="(item, index) in mobileAreaCodeList" :key="index" :label="item.code" :value="item.code" />
+            <el-option v-for="(item, index) in mobileAreaCode" :key="index" :label="item.code" :value="item.code" />
           </el-select>
         </template>
         <template #prefix>

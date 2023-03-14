@@ -12,6 +12,8 @@ const emit = defineEmits(['validate'])
 
 const { t } = useI18n()
 
+const mobileAreaCode = getStorage(StorageKeyEnum.MOBILE_AREA_CODE)
+
 const countDown = useCountDown()
 
 const validateFormRef = ref<FormInstance>()
@@ -55,8 +57,6 @@ const validateFormRules = reactive<FormRules>({
   ],
 })
 
-const mobileAreaCodeList = getStorage(StorageKeyEnum.MOBILE_AREA_CODE)
-
 const validate = async (formEl: FormInstance | undefined): Promise<void> => {
   if (!formEl)
     return
@@ -77,7 +77,7 @@ const validate = async (formEl: FormInstance | undefined): Promise<void> => {
       <el-input v-model.number="validateForm.mobile" autocomplete="off" :placeholder="t('crud.mobile.mobile')">
         <template #prepend>
           <el-select v-model="validateForm.areaCode" important="w-24">
-            <el-option v-for="(item, index) in mobileAreaCodeList" :key="index" :label="item.code" :value="item.code" />
+            <el-option v-for="(item, index) in mobileAreaCode" :key="index" :label="item.code" :value="item.code" />
           </el-select>
         </template>
         <template #prefix>
@@ -95,14 +95,12 @@ const validate = async (formEl: FormInstance | undefined): Promise<void> => {
           </el-icon>
         </template>
         <template #suffix>
-          <el-button
-            inline-block p-0 link type="primary" :disabled="countDown.countDownForm.getting" @click="
-              countDown.getMobileCode(
-                validateForm.mobile,
-                2,
-              )
-            "
-          >
+          <el-button inline-block p-0 link type="primary" :disabled="countDown.countDownForm.getting" @click="
+            countDown.getMobileCode(
+              validateForm.mobile,
+              2,
+            )
+          ">
             <span v-if="countDown.countDownForm.getting" text-3>
               {{
                 t('crud.mobile.retrieve', {
@@ -113,8 +111,8 @@ const validate = async (formEl: FormInstance | undefined): Promise<void> => {
             <span v-else text-3>
               {{
                 countDown.countDownForm.send
-                  ? t('crud.mobile.resend')
-                  : t('crud.mobile.send')
+                ? t('crud.mobile.resend')
+                : t('crud.mobile.send')
               }}
             </span>
           </el-button>

@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import { useSystemStore } from '@/hooks/use-system-store'
+import { useBaseStore } from '@/hooks/stores/use-base-store'
 import { IconTypeEnum } from '@/enum'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
-const systemStore = useSystemStore()
+const baseStore = useBaseStore()
 </script>
 
 <template>
@@ -16,10 +16,10 @@ const systemStore = useSystemStore()
         </el-button>
       </template>
     </crud-table-query>
-    <crud-table :data="systemStore.menuRoutes" action-width="300" row-key="path">
+    <crud-table :data="baseStore.menuRoutes" action-width="300" row-key="path">
       <el-table-column :label="t('system.menu.menu')" width="240">
         <template #default="scope">
-          {{ scope.row.meta.menuName }}
+          {{ scope.row.meta.i18n[locale] }}
         </template>
       </el-table-column>
       <el-table-column :label="t('system.menu.icon')" width="140">
@@ -66,7 +66,7 @@ const systemStore = useSystemStore()
         </template>
       </el-table-column>
       <el-table-column min-width="340" prop="remark" :label="t('crud.table.remark')" />
-      <el-table-column :label="t('crud.btn.action')" fixed="right" :width="systemStore.isMobile ? '120' : '300'">
+      <el-table-column :label="t('crud.btn.action')" fixed="right" :width="baseStore.isMobile ? '120' : '300'">
         <template #default="scope">
           <el-button type="primary" link>
             {{ t('system.menu.subMenu') }}

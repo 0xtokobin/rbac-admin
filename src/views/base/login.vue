@@ -7,7 +7,10 @@ import passwordFormValidate from './components/password-form-validate.vue'
 import passwordFormReset from './components/password-form-reset.vue'
 import passwordFormResult from './components/password-form-result.vue'
 import type { IObject } from '#/global'
-import { useSystemStore } from '@/hooks/use-system-store'
+import { useBaseStore } from '@/hooks/stores/use-base-store'
+import { GET } from '@/utils/request'
+import { StorageKeyEnum } from '@/enum'
+import { setStorage } from '@/utils/storage'
 
 const { t } = useI18n()
 
@@ -19,7 +22,7 @@ const changeType = (e: string): void => {
 
 const release = ref<string>(pkg.version)
 
-const systemStore = useSystemStore()
+const baseStore = useBaseStore()
 
 const passwordVisible = ref<boolean>(false)
 
@@ -44,13 +47,16 @@ const closePassword = () => {
   passwordVisible.value = false
   passwordStep.value = 'validate'
 }
+
+onBeforeMount(async () => {
+  const { data: mobileAreaCode } = await GET('/common/mobile/areacode')
+  setStorage(StorageKeyEnum.MOBILE_AREA_CODE, mobileAreaCode)
+})
 </script>
 
 <template>
-  <el-card
-    m-auto important-border-0
-    :style="systemStore.isMobile ? 'margin-top:4vh;padding:0;width:88vw;' : 'margin-top:10vh;padding:1rem 1.5rem;width:20rem;'"
-  >
+  <el-card m-auto important-border-0
+    :style="baseStore.isMobile ? 'margin-top:4vh;padding:0;width:88vw;' : 'margin-top:10vh;padding:1rem 1.5rem;width:20rem;'">
     <div my-4 flex justify-center items-center>
       <img w-20 h-20 src="@/assets/svg/logo.svg">
     </div>
@@ -72,7 +78,8 @@ const closePassword = () => {
         {{ t('app.login.scan') }}
       </el-button>
     </div>
-    <crud-dialog v-model="passwordVisible" :width="systemStore.isMobile ? '80vw' : '22rem'" :title="t('app.password.reset')" height="auto">
+    <crud-dialog v-model="passwordVisible" :width="baseStore.isMobile ? '80vw' : '22rem'"
+      :title="t('app.password.reset')" height="auto">
       <password-form-validate v-if="passwordStep === 'validate'" @validate="validate" />
       <password-form-reset v-if="passwordStep === 'reset'" @reset="reset" />
       <password-form-result v-if="passwordStep === 'result'" @back="closePassword" />

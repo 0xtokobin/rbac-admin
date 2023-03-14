@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useSystemStore } from '@/hooks/use-system-store'
+import { useBaseStore } from '@/hooks/stores/use-base-store'
 
 const props = defineProps({
   color: {
@@ -14,13 +14,13 @@ const props = defineProps({
 
 const { t } = useI18n()
 
-const systemStore = useSystemStore()
+const baseStore = useBaseStore()
 </script>
 
 <template>
   <div
     text-center :style="{ padding: props.padding, color: props.color }"
-    :class="systemStore.isMobile ? 'text-3.2' : 'text-3.8'"
+    :class="baseStore.isMobile ? 'text-3.2' : 'text-3.8'"
   >
     {{ t('app.copyright') }}
   </div>

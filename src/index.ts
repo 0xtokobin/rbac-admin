@@ -18,10 +18,10 @@ import 'uno.css'
 const app = createApp(App)
 
 app
+  .use(i18n)
   .use(createPinia())
   .use(router)
   .use(ElementPlus)
-  .use(i18n)
   .use(Particles)
   .use(VueDOMPurifyHTML)
   .mount('#app', true)

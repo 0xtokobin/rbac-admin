@@ -2,48 +2,42 @@
 import type { Language } from 'element-plus/es/locale'
 import { DarkModeEnum, LanguageEnum } from '@/enum'
 import { setEpThemeColor } from '@/utils/common'
-import { useSystemStore } from '@/hooks/use-system-store'
-import { useUserStore } from '@/hooks/use-user-store'
-import { useMobileCodes } from '@/hooks/use-mobile-codes'
-import { useDictionary } from '@/hooks/use-dict'
+import { useBaseStore } from '@/hooks/stores/use-base-store'
+import { useDict } from '@/hooks/use-dict'
 import layoutPage from '@/layout/layout-page.vue'
 import layoutView from '@/layout/layout-view.vue'
 
 const route = useRoute()
 
-const systemStore = useSystemStore()
+const baseStore = useBaseStore()
 
-const userStore = useUserStore()
+const { getDictList } = useDict()
 
-const { getMobileCodes } = useMobileCodes()
+const { t, messages, locale } = useI18n()
 
-const { getDictionaryAll } = useDictionary()
-
-const { t, messages } = useI18n()
-
-const locale = computed(() => {
-  return messages.value[systemStore.language][
+const epMessages = computed(() => {
+  return messages.value[baseStore.language][
     LanguageEnum.ELEMENT_PLUS_LANGUAGE
   ] as Language
 })
 
 watch(
-  () => userStore.profile.darkMode,
+  () => baseStore.darkMode,
   (newVal) => {
     if (!newVal || newVal === DarkModeEnum.DARK_MODE_AUTO) {
-      systemStore.changeDarkMode(
+      baseStore.changeDarkMode(
         window.matchMedia('(prefers-color-scheme: dark)').matches,
       )
       window
         .matchMedia('(prefers-color-scheme: dark)')
         .addEventListener('change', (event) => {
-          systemStore.changeDarkMode(event.matches)
+          baseStore.changeDarkMode(event.matches)
         })
     }
     else {
-      document.documentElement.classList.remove(systemStore.darkMode)
+      document.documentElement.classList.remove(baseStore.darkMode)
       document.documentElement.classList.add(newVal)
-      systemStore.darkMode = newVal
+      baseStore.darkMode = newVal
     }
   },
   {
@@ -52,7 +46,7 @@ watch(
 )
 
 watch(
-  () => userStore.profile.theme,
+  () => baseStore.theme,
   (newVal, old) => {
     if (newVal && (newVal !== old || !old))
       setEpThemeColor(newVal as string)
@@ -63,15 +57,13 @@ watch(
 )
 
 watch(
-  () => systemStore.browserTitle,
+  () => route.path,
   () => {
-    if (systemStore.browserTitle) {
-      document.title = `${systemStore.browserTitle} - ${t('app.name') || import.meta.env.WINGSCLOUD_BROWSER_TITLE
-        }`
-    }
-    else {
-      document.title = t('app.name') || import.meta.env.APP_NAME
-    }
+    if (route.meta.i18n)
+      document.title = `${route.meta.i18n[locale.value]} - ${t('app.name')}`
+
+    else
+      document.title = t('app.name') || import.meta.env.WINGSCLOUD_BROWSER_TITLE
   },
   {
     immediate: true,
@@ -79,23 +71,20 @@ watch(
 )
 
 onBeforeMount(() => {
-  systemStore.changeMobile()
+  baseStore.changeMobile()
   window.onresize = () => {
-    systemStore.changeMobile()
+    baseStore.changeMobile()
   }
 })
 
 onBeforeMount(() => {
-  getMobileCodes()
-  getDictionaryAll()
+  getDictList()
 })
 </script>
 
 <template>
-  <el-config-provider
-    :locale="locale" :button="{ autoInsertSpace: true }" :message="{ max: 3 }"
-    :size="systemStore.size"
-  >
+  <el-config-provider :locale="epMessages" :button="{ autoInsertSpace: true }" :message="{ max: 3 }"
+    :size="baseStore.size">
     <layout-page v-if="route.meta?.layout === '' || route.meta?.layout === 'page'">
       <template #router-view>
         <slot name="app" />

@@ -22,4 +22,4 @@ const i18n: I18n = createI18n({
 const { t } = i18n.global
 const _t: I18nT = t
 
-export { messages, languages, i18n, _t }
+export { messages, languages, i18n, _t, language }

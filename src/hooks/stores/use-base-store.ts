@@ -12,15 +12,15 @@ import { GET } from '@/utils/request'
 import { getStorage } from '@/utils/storage'
 
 /**
- * @name useSystemStore
- * @description 系统状态钩子函数
+ * @name useBaseStore
+ * @description 基础状态钩子函数
  * @returns
  */
-export const useSystemStore = defineStore('system', () => {
+export const useBaseStore = defineStore('base', () => {
   // 当前菜单展开/折叠状态
   const collapse = ref<boolean>(false)
 
-  // 当前系统黑暗模式
+  // 当前黑暗模式
   const darkMode = ref<string>(getStorage(StorageKeyEnum.PROFILE)?.darkMode || DarkModeEnum.DARK_MODE_AUTO)
 
   // 切换黑暗模式
@@ -101,16 +101,16 @@ export const useSystemStore = defineStore('system', () => {
     return menu
   }
 
-  // 当前系统语言环境
+  // 当前语言环境
   const language = ref<string>(getStorage(StorageKeyEnum.PROFILE)?.language || getStorage(StorageKeyEnum.LANGUAGE) || LanguageEnum.ZH_CN_ALIAS)
 
-  // 当前系统主题颜色
+  // 当前主题颜色
   const theme = ref<string>(getStorage(StorageKeyEnum.PROFILE)?.theme || ThemeEnum.BLUE)
 
-  // 当前系统布局
+  // 当前布局
   const layout = ref<string>(getStorage(StorageKeyEnum.PROFILE)?.layout || LayoutEnum.LAYOUT_MIX)
 
-  // 当前系统组件大小
+  // 当前组件大小
   const size = ref<string>(getStorage(StorageKeyEnum.PROFILE)?.size || SizeEnum.DEFAULT)
 
   return {

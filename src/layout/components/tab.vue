@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { IObject } from '#/global'
 import { RouteEnum } from '@/enum'
-import { useSystemStore } from '@/hooks/use-system-store'
+import { useBaseStore } from '@/hooks/stores/use-base-store'
 import { arrayRecursion } from '@/utils/common'
 
 export interface Tab {
@@ -14,7 +14,7 @@ const { t, locale } = useI18n()
 const route = useRoute()
 const router = useRouter()
 
-const systemStore = useSystemStore()
+const baseStore = useBaseStore()
 
 const tabs = ref<Tab[]>([])
 const currentTab = ref(route.path)
@@ -84,7 +84,7 @@ const clickOperationMenu = (command: string | number | object): void => {
 onBeforeMount(() => {
   homeTab.value = arrayRecursion(
     'path',
-    systemStore.menuRoutes,
+    baseStore.menuRoutes,
     RouteEnum.ROUTE_FIRST,
   )
   const { isFind, path } = findTab(route.path)
@@ -113,7 +113,7 @@ watch(
   <div flex items-center justify-between style="background-color: var(--el-bg-color-overlay);padding: 0 20px;">
     <el-tabs
       v-model="currentTab" mr-4 type="card" closable tab-position="top"
-      :style="systemStore.isMobile ? 'max-width: 80%' : 'width: 88%'" @tab-click="tabClick" @tab-remove="tabRemove"
+      :style="baseStore.isMobile ? 'max-width: 80%' : 'width: 88%'" @tab-click="tabClick" @tab-remove="tabRemove"
     >
       <el-tab-pane v-for="item in tabs" :key="item.name" :label="item.label[locale]" :name="item.name" />
     </el-tabs>

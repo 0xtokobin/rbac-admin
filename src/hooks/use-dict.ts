@@ -4,28 +4,28 @@ import { StorageKeyEnum } from '@/enum'
 import { getStorage, setStorage } from '@/utils/storage'
 import { GET } from '@/utils/request'
 
-export const useDictionary = () => {
-  const getDictionaryAll = async () => {
+export const useDict = () => {
+  const getDictList = async () => {
     const { data } = await GET('/system/dict/list')
-    let dictionaries = {}
+    let dict = {}
     data.forEach((item: IObject) => {
-      dictionaries = { [item.key]: item.values, ...dictionaries }
+      dict = { [item.key]: item.values, ...dict }
     })
-    setStorage(StorageKeyEnum.DICT, dictionaries)
+    setStorage(StorageKeyEnum.DICT, dict)
     return data
   }
 
-  const getDictionaryData = (key: string): ComputedRef<any> => {
+  const getDictItem = (key: string): ComputedRef<any> => {
     return computed(() => {
       const data = getStorage(StorageKeyEnum.DICT)[key]
       if (!data)
-        getDictionaryAll()
+        getDictList()
 
       return data || []
     })
   }
 
-  const getDictionary = (key: string, value: string, getKey?: string) => {
+  const getDict = (key: string, value: string, getKey?: string) => {
     if (
       key === undefined
       || key === null
@@ -34,7 +34,7 @@ export const useDictionary = () => {
     )
       return
     getKey = getKey || 'label'
-    const dictionaryData = getDictionaryData(key).value
+    const dictionaryData = getDictItem(key).value
     if (dictionaryData && dictionaryData.length > 0) {
       const data = dictionaryData.find((item: IObject) => item.value === value)[
         getKey
@@ -47,8 +47,8 @@ export const useDictionary = () => {
   }
 
   return {
-    getDictionaryAll,
-    getDictionaryData,
-    getDictionary,
+    getDictList,
+    getDictItem,
+    getDict,
   }
 }

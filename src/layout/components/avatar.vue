@@ -1,15 +1,15 @@
 <script lang="ts" setup>
 import { UserFilled } from '@element-plus/icons-vue'
-import { useUserStore } from '@/hooks/use-user-store'
+import { useUserStore } from '@/hooks/stores/use-user-store'
 import { LayoutEnum, SizeEnum, ThemeEnum } from '@/enum'
-import { useSystemStore } from '@/hooks/use-system-store'
+import { useBaseStore } from '@/hooks/stores/use-base-store'
 import { setEpThemeColor } from '@/utils/common'
 
 const { t, locale, messages } = useI18n()
 
 const userStore = useUserStore()
 
-const systemStore = useSystemStore()
+const baseStore = useBaseStore()
 
 const personalDrawerVisible = ref<boolean>(false)
 
@@ -36,7 +36,7 @@ const openPersonalDrawer = () => {
         </el-select>
       </el-form-item>
       <el-form-item :label="t('app.layout')">
-        <el-select v-model="systemStore.layout" important-w-full>
+        <el-select v-model="baseStore.layout" important-w-full>
           <el-option :label="t('app.layoutMix')" :value="LayoutEnum.LAYOUT_MIX" />
           <el-option :label="t('app.layoutTop')" :value="LayoutEnum.LAYOUT_TOP" />
           <el-option :label="t('app.layoutSide')" :value="LayoutEnum.LAYOUT_SIDE" />
@@ -45,14 +45,14 @@ const openPersonalDrawer = () => {
       <el-form-item :label="t('app.theme')">
         <div w-full flex flex-wrap items-center justify-between>
           <div
-            v-for="(value, key) in ThemeEnum" :key="key" :class="systemStore.theme === value ? 'active ' : ''" w-6 h-6
+            v-for="(value, key) in ThemeEnum" :key="key" :class="baseStore.theme === value ? 'active ' : ''" w-6 h-6
             mb-4 cursor-pointer rd-1 :style="{ backgroundColor: value }"
-            @click="setEpThemeColor(value), systemStore.theme = value"
+            @click="setEpThemeColor(value), baseStore.theme = value"
           />
         </div>
       </el-form-item>
       <el-form-item :label="t('app.size')">
-        <el-select v-model="systemStore.size" important-w-full>
+        <el-select v-model="baseStore.size" important-w-full>
           <el-option :label="t('app.sizeLarge')" :value="SizeEnum.LARGE" />
           <el-option :label="t('app.sizeDefault')" :value="SizeEnum.DEFAULT" />
           <el-option :label="t('app.sizeSmall')" :value="SizeEnum.SMALL" />

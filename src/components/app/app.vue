@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import provider from '@/components/app/app-provider.vue'
-import { useSystemStore } from '@/hooks/use-system-store'
+import { useBaseStore } from '@/hooks/stores/use-base-store'
 
 const { t } = useI18n()
 
-const systemStore = useSystemStore()
+const baseStore = useBaseStore()
 
 const reload = ref<boolean>(true)
 
@@ -24,7 +24,7 @@ provide('reloadView', { reload: reloadView })
       <router-view v-slot="{ Component, route }">
         <Suspense>
           <transition name="wingscloud" mode="out-in" appear>
-            <keep-alive :include="systemStore.keepAliveNames">
+            <keep-alive :include="baseStore.keepAliveNames">
               <component :is="Component" v-if="reload" :key="route.fullPath" />
             </keep-alive>
           </transition>

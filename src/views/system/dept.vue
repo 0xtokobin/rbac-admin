@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useCrud } from '@/hooks/use-crud'
-import { useSystemStore } from '@/hooks/use-system-store'
+import { useBaseStore } from '@/hooks/stores/use-base-store'
 
 const { t } = useI18n()
 
@@ -8,7 +8,7 @@ const { tableData } = useCrud({
   queryUrl: '/system/department/list',
 })
 
-const systemStore = useSystemStore()
+const baseStore = useBaseStore()
 </script>
 
 <template>
@@ -40,7 +40,7 @@ const systemStore = useSystemStore()
       <el-table-column
         :label="t('crud.btn.action')"
         fixed="right"
-        :width="systemStore.isMobile ? '120' : '300'"
+        :width="baseStore.isMobile ? '120' : '300'"
       >
         <template #default="scope">
           <el-button type="primary" link>

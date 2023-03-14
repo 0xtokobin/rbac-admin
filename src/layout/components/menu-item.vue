@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { RouteRecordRaw } from 'vue-router'
 import { IconTypeEnum } from '@/enum'
-import { useSystemStore } from '@/hooks/use-system-store'
+import { useBaseStore } from '@/hooks/stores/use-base-store'
 import layoutMenuItem from '@/layout/components/menu-item.vue'
 
 const props = defineProps({
@@ -15,7 +15,7 @@ const props = defineProps({
 
 const { locale } = useI18n()
 
-const systemStore = useSystemStore()
+const baseStore = useBaseStore()
 </script>
 
 <template>
@@ -35,7 +35,7 @@ const systemStore = useSystemStore()
         <el-icon v-if="route.meta?.icon && route.meta?.iconType === IconTypeEnum.ELEMENT_PLUS" width="1rem" height="1rem">
           <component :is="route.meta?.icon" />
         </el-icon>
-        <span text="3.4" class="single-line-omitted" :style="systemStore.collapse ? '' : 'width: 100%'">
+        <span text="3.4" class="single-line-omitted" :style="baseStore.collapse ? '' : 'width: 100%'">
           {{ route.meta?.i18n[locale] }}
         </span>
       </template>
@@ -49,7 +49,7 @@ const systemStore = useSystemStore()
         <el-icon v-if="route.meta?.icon && route.meta?.iconType === IconTypeEnum.ELEMENT_PLUS" width="1rem" height="1rem">
           <component :is="route.meta?.icon" />
         </el-icon>
-        <span text="3.4" single-line-omitted :style="systemStore.collapse ? '' : 'width: 68%'">
+        <span text="3.4" single-line-omitted :style="baseStore.collapse ? '' : 'width: 68%'">
           {{ route.meta?.i18n[locale] }}
         </span>
       </template>

@@ -6,19 +6,19 @@ import { parallax } from 'tsparticles-demo-configs'
 
 import { ArrowDown } from '@element-plus/icons-vue'
 import layoutCopyright from '@/layout/components/copyright.vue'
-import { useSystemStore } from '@/hooks/use-system-store'
+import { useBaseStore } from '@/hooks/stores/use-base-store'
 import { setStorage } from '@/utils/storage'
 import { StorageKeyEnum } from '@/enum'
 
 const { locale, messages } = useI18n()
 
-const systemStore = useSystemStore()
+const baseStore = useBaseStore()
 
 const changeLanguage = (
   value: string | number | Record<string, any> | undefined,
 ) => {
   locale.value = value as string
-  systemStore.language = value as string
+  baseStore.language = value as string
   setStorage(StorageKeyEnum.LANGUAGE, value as string)
   location.reload()
 }

@@ -9,7 +9,7 @@ export default [
   {
     path: '/error',
     name: 'error',
-    component: () => import('@/views/error.vue'),
+    component: () => import('@/views/base/error.vue'),
     meta: {
       layout: 'page',
       i18n: { 'zh-CN': '页面找不到', 'en-US': 'Page Not Found' },
@@ -18,7 +18,7 @@ export default [
   {
     path: '/login',
     name: 'login',
-    component: () => import('@/views/login/login.vue'),
+    component: () => import('@/views/base/login.vue'),
     meta: {
       layout: 'page',
       i18n: { 'zh-CN': '登录', 'en-US': 'Login' },
