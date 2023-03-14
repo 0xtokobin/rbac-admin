@@ -7,10 +7,9 @@ const systemStore = useSystemStore()
 
 <template>
   <div
-    v-if="!systemStore.isMobile" flex items-center justify-center cursor-pointer
+    v-if="!systemStore.isMobile" w-full flex items-center justify-center h-16
     @click="systemStore.collapse = !systemStore.collapse"
   >
-    <el-button v-if="systemStore.collapse" bg text circle :icon="DArrowRight" />
-    <el-button v-else bg text circle :icon="DArrowLeft" />
+    <el-button bg text circle :icon="systemStore.collapse ? DArrowRight : DArrowLeft" />
   </div>
 </template>

@@ -9,16 +9,13 @@ const systemStore = useSystemStore()
 </script>
 
 <template>
-  <el-scrollbar>
-    <el-menu
-      border-none h-full router collapse-transition el-menu
-      :mode="systemStore.layout === LayoutEnum.LAYOUT_TOP ? 'horizontal' : 'vertical'"
-      :collapse="systemStore.layout === LayoutEnum.LAYOUT_TOP ? false : systemStore.collapse"
-      :default-active="route.path"
-    >
-      <layout-menu-item :routes="systemStore.menuRoutes" />
-    </el-menu>
-  </el-scrollbar>
+  <el-menu
+    border-none h-full router collapse-transition el-menu
+    :mode="systemStore.layout === LayoutEnum.LAYOUT_TOP ? 'horizontal' : 'vertical'"
+    :collapse="systemStore.layout === LayoutEnum.LAYOUT_TOP ? false : systemStore.collapse" :default-active="route.path"
+  >
+    <layout-menu-item :routes="systemStore.menuRoutes" />
+  </el-menu>
 </template>
 
 <style lang="scss" scoped>

@@ -67,7 +67,7 @@ const cancel = () => {
         </div>
       </div>
     </template>
-    <div class="padding">
+    <div style="padding: calc(var(--el-card-padding) - 2px) var(--el-card-padding);">
       <slot />
     </div>
     <template v-if="props.action">
@@ -86,21 +86,3 @@ const cancel = () => {
     </template>
   </el-card>
 </template>
-
-<style lang="scss" scoped>
-:deep(.el-card) {
-  border: 0 !important;
-  transition: all var(--el-transition-duration)
-    var(--el-transition-function-ease-in-out-bezier);
-}
-
-:deep(.el-card__body) {
-  padding: 0 !important;
-  transition: all var(--el-transition-duration)
-    var(--el-transition-function-ease-in-out-bezier);
-}
-
-.padding {
-  padding: calc(var(--el-card-padding) - 2px) var(--el-card-padding);
-}
-</style>
