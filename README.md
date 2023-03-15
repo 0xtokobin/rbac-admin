@@ -66,11 +66,11 @@
 # 界面展示
 
 <p>
-	<img width="100%" src="https://github.com/wingscloud/assets/blob/main/packages/assets/ui/login.jpg?raw=true" />
+	<img width="100%" src="https://github.com/wingscloud/assets/blob/main/packages/assets/web/login.png?raw=true" />
 </p>
 
 <p>
-	<img width="100%" src="https://github.com/wingscloud/assets/blob/main/packages/assets/ui/workbench.jpg?raw=true" />
+	<img width="100%" src="https://github.com/wingscloud/assets/blob/main/packages/assets/web/workbench.jpg?raw=true" />
 </p>
 
 
