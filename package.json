@@ -25,8 +25,8 @@
     "preview:dev": "pnpm preview --mode development",
     "preview:stag": "pnpm preview --mode staging",
     "preview:prod": "pnpm preview --mode production",
-    "eslint": "eslint .",
-    "eslint:fix": "eslint . --fix"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@kaivanwong/utils": "^0.3.7",
