@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import { UserFilled } from '@element-plus/icons-vue'
 import { useUserStore } from '@/hooks/stores/use-user-store'
 import { DarkModeEnum, LayoutEnum, SizeEnum, ThemeEnum } from '@/enum'
 import { useBaseStore } from '@/hooks/stores/use-base-store'
 import { setEpThemeColor } from '@/utils/common'
+import avatar from '@/assets/image/logo-black.png'
 
 const { t, locale, messages } = useI18n()
 
@@ -21,11 +21,11 @@ const active = ref(['general', 'personal', 'ui'])
 </script>
 
 <template>
-  <el-avatar :size="32" cursor-pointer :src="userStore.profile.avatar" :icon="UserFilled" @click="openPersonalDrawer" />
+  <el-avatar :size="32" cursor-pointer :src="userStore.profile.avatar || avatar" @click="openPersonalDrawer" />
   <el-drawer v-model="personalDrawerVisible" :size="300">
     <template #header="{ titleId, titleClass }">
       <div :id="titleId" h-full flex items-center :class="titleClass">
-        <el-avatar mr-3 :src="userStore.profile.avatar" :icon="UserFilled" />
+        <el-avatar mr-3 :src="userStore.profile.avatar || avatar" />
         <div text="4.6">
           {{ userStore.profile.nickname }}
         </div>
