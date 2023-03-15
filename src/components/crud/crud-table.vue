@@ -24,7 +24,7 @@ const { t } = useI18n()
     <el-table
       v-bind="$attrs"
       :data="props.data"
-      :empty-text="t('crud.table.noData')"
+      :empty-text="t('base.table.noData')"
       row-class-name="wingscloud-admin-crud-table-row"
       cell-class-name="wingscloud-admin-crud-table-cell"
       header-row-class-name="wingscloud-admin-crud-table-header-row"

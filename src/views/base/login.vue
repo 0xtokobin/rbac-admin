@@ -63,7 +63,7 @@ onBeforeMount(async () => {
       <img w-20 h-20 src="@/assets/svg/logo.svg">
     </div>
     <div mb-12 text-4 font-600 text-center style="color:var(--el-color-primary);">
-      <span mr-2>{{ t('app.name') }}</span>
+      <span mr-2>{{ t('base.name') }}</span>
       <span>{{ `v${release}` }}</span>
     </div>
     <login-form-normal v-if="type === 'normal'" @password="openPassword" />
@@ -71,18 +71,18 @@ onBeforeMount(async () => {
     <login-form-scan v-if="type === 'scan'" />
     <div flex justify-between>
       <el-button v-show="type !== 'normal'" link important-m-0 @click="changeType('normal')">
-        {{ t('app.login.normal') }}
+        {{ t('base.login.normal') }}
       </el-button>
       <el-button v-show="type !== 'sms'" link important-m-0 @click="changeType('sms')">
-        {{ t('app.login.sms') }}
+        {{ t('base.login.sms') }}
       </el-button>
       <el-button v-show="type !== 'scan'" link important-m-0 @click="changeType('scan')">
-        {{ t('app.login.scan') }}
+        {{ t('base.login.scan') }}
       </el-button>
     </div>
     <crud-dialog
       v-model="passwordVisible" :width="baseStore.isMobile ? '80vw' : '22rem'"
-      :title="t('app.password.reset')" height="auto"
+      :title="t('base.password.reset')" height="auto"
     >
       <password-form-validate v-if="passwordStep === 'validate'" @validate="validate" />
       <password-form-reset v-if="passwordStep === 'reset'" @reset="reset" />

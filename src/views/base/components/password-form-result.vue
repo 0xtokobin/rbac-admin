@@ -10,10 +10,10 @@ const back = () => {
 
 <template>
   <div w-full flex flex-wrap items-center justify-center p-y-2>
-    <el-result icon="success" :title="t('app.password.success')">
+    <el-result icon="success" :title="t('base.password.success')">
       <template #extra>
         <el-button type="primary" @click="back">
-          {{ t('app.password.back') }}
+          {{ t('base.password.back') }}
         </el-button>
       </template>
     </el-result>

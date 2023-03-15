@@ -14,7 +14,7 @@ const { tableData } = useCrud({
     <crud-table-query :query="false" :reset="false">
       <template #action>
         <el-button type="primary">
-          {{ t('crud.btn.upload') }}
+          {{ t('base.btn.upload') }}
         </el-button>
       </template>
     </crud-table-query>
@@ -22,7 +22,7 @@ const { tableData } = useCrud({
       <el-table-column
         type="index"
         width="60"
-        :label="t('crud.table.no')"
+        :label="t('base.table.no')"
       />
       <el-table-column
         prop="username"
@@ -31,16 +31,16 @@ const { tableData } = useCrud({
       />
       <el-table-column
         prop="createTime"
-        :label="t('crud.table.uploadTime')"
+        :label="t('base.table.uploadTime')"
         width="240"
       >
         <template #default="scope">
           {{ useDateFormat(scope.row.createTime, 'YYYY-MM-DD HH:mm:ss').value }}
         </template>
       </el-table-column>
-      <el-table-column :label="t('crud.btn.action')" fixed="right" width="120">
+      <el-table-column :label="t('base.btn.action')" fixed="right" width="120">
         <el-button type="primary" link>
-          {{ t('crud.btn.delete') }}
+          {{ t('base.btn.delete') }}
         </el-button>
       </el-table-column>
     </crud-table>

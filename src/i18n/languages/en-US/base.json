@@ -85,7 +85,6 @@
   },
   "avatar": {
     "personalCenter": "Personal Center",
-    "logout": "Logout",
     "darkMode": "Dark Mode",
     "theme": "Theme",
     "layout": "Layout",
@@ -121,10 +120,68 @@
     "closeAll": "Close all"
   },
   "btn": {
-    "saveUpdate": "Save Update"
+    "save": "Save",
+    "add": "Add",
+    "update": "Update",
+    "delete": "Delete",
+    "export": "Export",
+    "import": "Import",
+    "edit": "Edit",
+    "info": "Info",
+    "detail": "Detail",
+    "query": "Query",
+    "reset": "Reset",
+    "action": "Action",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "clear": "Clear",
+    "close": "Close",
+    "keyword": "Keyword",
+    "choose": "Please Choose",
+    "preview": "Preview",
+    "next": "Next",
+    "submit": "Submit",
+    "copy": "Copy",
+    "upload": "Upload",
+    "logout": "Logout"
   },
   "upload": {
+    "success": "Upload Complete",
+    "errortype": "Please upload a file with the correct format!",
+    "errorsize": "The size of the file cannot exceed {size}MB!",
     "avatarType": "Avatar picture must be JPG or PNG format!",
     "avatarSize": "Avatar picture size can not exceed 2MB!'"
+  },
+  "placeholder": {
+    "startTime": "Start Time",
+    "endTime": "End Time",
+    "startDate": "Start Date",
+    "endDate": "End Date",
+    "enter": "Please enter the {label}",
+    "enterAgain": "Please enter the {label} again",
+    "select": "Please select the {label}",
+    "selectAgain": "Please select the {label} again",
+    "formatIncorrect": "The {label} format is incorrect",
+    "inconsistent": "The {label} entered twice is inconsistent"
+  },
+  "table": {
+    "no": "No.",
+    "noData": "Empty",
+    "sort": "Sort",
+    "remark": "Remark",
+    "createTime": "Create Time",
+    "updateTime": "Update Time",
+    "actionTime": "Action Time",
+    "uploadTime": "Upload Time"
+  },
+  "mobile": {
+    "mobile": "Mobile Phone",
+    "mobileText": "mobile phone",
+    "code": "Security code",
+    "codeText": "security code",
+    "send": "Send Security Code",
+    "resend": "Send Again",
+    "retrieve": "Retrieve after {time} seconds",
+    "success": "Send Successfully"
   }
 }

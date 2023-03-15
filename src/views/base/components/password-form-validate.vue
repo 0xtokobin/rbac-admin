@@ -28,15 +28,15 @@ const validateFormRules = reactive<FormRules>({
   mobile: [
     {
       required: true,
-      message: t('crud.placeholder.enter', {
-        label: t('crud.mobile.mobileText'),
+      message: t('base.placeholder.enter', {
+        label: t('base.mobile.mobileText'),
       }),
       trigger: 'change',
     },
     {
       pattern: MOBILE,
-      message: t('crud.placeholder.formatIncorrect', {
-        label: t('crud.mobile.mobileText'),
+      message: t('base.placeholder.formatIncorrect', {
+        label: t('base.mobile.mobileText'),
       }),
       trigger: 'blur',
     },
@@ -44,13 +44,13 @@ const validateFormRules = reactive<FormRules>({
   code: [
     {
       required: validateForm.value.mobile.length > 0,
-      message: t('crud.placeholder.enter', { label: t('crud.mobile.code') }),
+      message: t('base.placeholder.enter', { label: t('base.mobile.code') }),
       trigger: 'change',
     },
     {
       len: 6,
-      message: t('crud.placeholder.formatIncorrect', {
-        label: t('crud.mobile.code'),
+      message: t('base.placeholder.formatIncorrect', {
+        label: t('base.mobile.code'),
       }),
       trigger: 'blur',
     },
@@ -74,7 +74,7 @@ const validate = async (formEl: FormInstance | undefined): Promise<void> => {
 <template>
   <el-form ref="validateFormRef" :model="validateForm" :rules="validateFormRules" size="large">
     <el-form-item prop="mobile">
-      <el-input v-model.number="validateForm.mobile" autocomplete="off" :placeholder="t('crud.mobile.mobile')">
+      <el-input v-model.number="validateForm.mobile" autocomplete="off" :placeholder="t('base.mobile.mobile')">
         <template #prepend>
           <el-select v-model="validateForm.areaCode" important="w-24">
             <el-option v-for="(item, index) in mobileAreaCode" :key="index" :label="item.code" :value="item.code" />
@@ -88,7 +88,7 @@ const validate = async (formEl: FormInstance | undefined): Promise<void> => {
       </el-input>
     </el-form-item>
     <el-form-item v-show="validateForm.mobile" prop="code">
-      <el-input v-model="validateForm.code" autocomplete="off" :placeholder="t('crud.mobile.code')">
+      <el-input v-model="validateForm.code" autocomplete="off" :placeholder="t('base.mobile.code')">
         <template #prefix>
           <el-icon>
             <ChatDotSquare />
@@ -105,7 +105,7 @@ const validate = async (formEl: FormInstance | undefined): Promise<void> => {
           >
             <span v-if="countDown.countDownForm.getting" text-3>
               {{
-                t('crud.mobile.retrieve', {
+                t('base.mobile.retrieve', {
                   time: countDown.countDownForm.time,
                 })
               }}
@@ -113,8 +113,8 @@ const validate = async (formEl: FormInstance | undefined): Promise<void> => {
             <span v-else text-3>
               {{
                 countDown.countDownForm.send
-                  ? t('crud.mobile.resend')
-                  : t('crud.mobile.send')
+                  ? t('base.mobile.resend')
+                  : t('base.mobile.send')
               }}
             </span>
           </el-button>
@@ -123,7 +123,7 @@ const validate = async (formEl: FormInstance | undefined): Promise<void> => {
     </el-form-item>
     <el-form-item>
       <el-button type="primary" w="100%" @click="validate(validateFormRef)">
-        <span font-600> {{ t('app.password.security') }}</span>
+        <span font-600> {{ t('base.password.security') }}</span>
       </el-button>
     </el-form-item>
   </el-form>

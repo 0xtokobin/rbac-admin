@@ -14,11 +14,11 @@ const handleAvatarSuccess: UploadProps['onSuccess'] = (
 
 const beforeAvatarUpload: UploadProps['beforeUpload'] = (rawFile) => {
   if (rawFile.type !== 'image/jpeg' && rawFile.type !== 'image/png') {
-    ElMessage.error(t('app.upload.avatarType'))
+    ElMessage.error(t('base.upload.avatarErrorType'))
     return false
   }
   else if (rawFile.size / 1024 / 1024 > 2) {
-    ElMessage.error(t('app.upload.avatarSize'))
+    ElMessage.error(t('base.upload.avatarErrorSize'))
     return false
   }
   return true

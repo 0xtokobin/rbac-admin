@@ -47,10 +47,10 @@ const cancel = () => {
     <slot />
     <el-form-item v-if="props.action && !slots.action">
       <el-button type="primary" @click="submit">
-        {{ props.submitLabel || t('crud.btn.submit') }}
+        {{ props.submitLabel || t('base.btn.submit') }}
       </el-button>
       <el-button @click="cancel">
-        {{ props.cancelLabel || t('crud.btn.cancel') }}
+        {{ props.cancelLabel || t('base.btn.cancel') }}
       </el-button>
     </el-form-item>
     <slot name="action" />

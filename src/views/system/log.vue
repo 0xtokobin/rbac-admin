@@ -28,12 +28,12 @@ const { queryForm, tableData, query, reset } = useCrud({
       </el-form-item>
       <template #action>
         <el-button type="primary">
-          {{ t('crud.btn.add') }}
+          {{ t('base.btn.add') }}
         </el-button>
       </template>
     </crud-table-query>
     <crud-table :data="tableData">
-      <el-table-column type="index" width="60" :label="t('crud.table.no')" />
+      <el-table-column type="index" width="60" :label="t('base.table.no')" />
       <el-table-column prop="username" :label="t('system.user.username')" width="240" />
       <el-table-column prop="action" :label="t('system.log.action')" width="240" />
       <el-table-column prop="ip" :label="t('system.log.ip')" width="240" />
@@ -44,12 +44,12 @@ const { queryForm, tableData, query, reset } = useCrud({
           </el-tag>
         </template>
       </el-table-column>
-      <el-table-column prop="createTime" :label="t('crud.table.actionTime')" min-width="240">
+      <el-table-column prop="createTime" :label="t('base.table.actionTime')" min-width="240">
         <template #default="scope">
           {{ useDateFormat(scope.row.createTime, 'YYYY-MM-DD HH:mm:ss').value }}
         </template>
       </el-table-column>
-      <el-table-column :label="t('crud.btn.action')" fixed="right" width="120">
+      <el-table-column :label="t('base.btn.action')" fixed="right" width="120">
         <el-button type="primary" link>
           {{ t('system.log.api') }}
         </el-button>

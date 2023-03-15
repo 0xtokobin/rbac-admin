@@ -112,7 +112,7 @@ export const useUserStore = defineStore('user', () => {
         path: RouteEnum.ROUTE_FIRST,
       })
       ElNotification({
-        title: _t('app.authentication.loginSuccess'),
+        title: _t('base.authentication.loginSuccess'),
         type: 'success',
       })
     }
@@ -124,7 +124,7 @@ export const useUserStore = defineStore('user', () => {
     setProfile({})
     setRoles([])
     ElNotification({
-      title: _t('app.authentication.logoutSuccess'),
+      title: _t('base.authentication.logoutSuccess'),
       type: 'success',
     })
     router.replace({

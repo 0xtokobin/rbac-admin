@@ -33,7 +33,7 @@ export const useCountDown = () => {
   ): void => {
     if (!data) {
       ElMessage.error(
-        t('crud.placeholder.enter', { label: t('crud.mobile.mobile') }),
+        t('base.placeholder.enter', { label: t('base.mobile.mobile') }),
       )
       return
     }
@@ -59,7 +59,7 @@ export const useCountDown = () => {
         type,
       })
       if (res.code === 0) {
-        ElMessage.success(t('crud.mobile.success'))
+        ElMessage.success(t('base.mobile.success'))
         getCoding()
       }
     })

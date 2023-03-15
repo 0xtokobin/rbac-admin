@@ -27,10 +27,10 @@ const { t } = useI18n()
       <slot />
       <el-form-item>
         <el-button v-if="props.query" @click="$attrs.onQuery">
-          {{ props.queryLabel || t('crud.btn.query') }}
+          {{ props.queryLabel || t('base.btn.query') }}
         </el-button>
         <el-button v-if="props.reset" @click="$attrs.onReset">
-          {{ props.resetLabel || t('crud.btn.reset') }}
+          {{ props.resetLabel || t('base.btn.reset') }}
         </el-button>
         <slot name="action" />
       </el-form-item>

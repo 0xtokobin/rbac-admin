@@ -26,7 +26,7 @@ const { queryForm, tableData, query, reset } = useCrud({
       </el-form-item>
       <template #action>
         <el-button type="primary">
-          {{ t('crud.btn.add') }}
+          {{ t('base.btn.add') }}
         </el-button>
       </template>
     </crud-table-query>
@@ -34,7 +34,7 @@ const { queryForm, tableData, query, reset } = useCrud({
       <el-table-column
         type="index"
         width="60"
-        :label="t('crud.table.no')"
+        :label="t('base.table.no')"
       />
       <el-table-column
         prop="name"
@@ -44,23 +44,23 @@ const { queryForm, tableData, query, reset } = useCrud({
       <el-table-column
         prop="remark"
         min-width="340"
-        :label="t('crud.table.remark')"
+        :label="t('base.table.remark')"
       />
       <el-table-column
         prop="createTime"
-        :label="t('crud.table.createTime')"
+        :label="t('base.table.createTime')"
         width="240"
       >
         <template #default="scope">
           {{ useDateFormat(scope.row.createTime, 'YYYY-MM-DD HH:mm:ss').value }}
         </template>
       </el-table-column>
-      <el-table-column :label="t('crud.btn.action')" fixed="right" width="120">
+      <el-table-column :label="t('base.btn.action')" fixed="right" width="120">
         <el-button type="primary" link>
-          {{ t('crud.btn.edit') }}
+          {{ t('base.btn.edit') }}
         </el-button>
         <el-button type="primary" link>
-          {{ t('crud.btn.delete') }}
+          {{ t('base.btn.delete') }}
         </el-button>
       </el-table-column>
     </crud-table>

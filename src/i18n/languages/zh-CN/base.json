@@ -85,7 +85,6 @@
   },
   "avatar": {
     "personalCenter": "个人中心",
-    "logout": "退出登录",
     "darkMode": "黑暗模式",
     "auto": "跟随系统",
     "open": "开启",
@@ -124,10 +123,68 @@
     "closeAll": "关闭全部"
   },
   "btn": {
-    "saveUpdate": "保存更改"
+    "save": "保存",
+    "add": "新增",
+    "update": "更新",
+    "delete": "删除",
+    "export": "导出",
+    "import": "导入",
+    "edit": "编辑",
+    "info": "信息",
+    "detail": "详情",
+    "query": "查询",
+    "reset": "重置",
+    "action": "操作",
+    "confirm": "确定",
+    "cancel": "取消",
+    "clear": "清除",
+    "close": "关闭",
+    "keyword": "关键字",
+    "choose": "请选择",
+    "preview": "预览",
+    "submit": "提交",
+    "next": "下一步",
+    "copy": "复制",
+    "upload": "上传",
+    "logout": "退出登录"
   },
   "upload": {
-    "avatarType": "头像图片必须是 JPG 或者 PNG 格式！",
-    "avatarSize": "头像图片大小不能超过 2MB !'"
+    "success": "上传成功",
+    "errorType": "请上传格式正确的文件！",
+    "errorSize": "文件体积不能超过 {size}MB！",
+    "avatarErrorType": "头像图片必须是 JPG 或者 PNG 格式！",
+    "avatarErrorSize": "头像图片大小不能超过 2MB！"
+  },
+  "placeholder": {
+    "startTime": "开始时间",
+    "endTime": "结束时间",
+    "startDate": "开始日期",
+    "endDate": "结束日期",
+    "enter": "请输入{label}",
+    "enterAgain": "请再次输入{label}",
+    "select": "请选择{label}",
+    "selectAgain": "请再次选择{label}",
+    "formatIncorrect": "{label}格式不正确",
+    "inconsistent": "两次输入的{label}不一致"
+  },
+  "table": {
+    "no": "序号",
+    "noData": "暂无数据",
+    "sort": "排序",
+    "remark": "备注",
+    "createTime": "创建时间",
+    "updateTime": "更新时间",
+    "actionTime": "操作时间",
+    "uploadTime": "上传时间"
+  },
+  "mobile": {
+    "mobile": "手机号",
+    "mobileText": "手机号",
+    "code": "验证码",
+    "codeText": "验证码",
+    "send": "发送验证码",
+    "resend": "重新发送",
+    "retrieve": "{time}秒后重新获取",
+    "success": "发送成功"
   }
 }

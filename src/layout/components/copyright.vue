@@ -22,6 +22,6 @@ const baseStore = useBaseStore()
     text-center :style="{ padding: props.padding, color: props.color }"
     :class="baseStore.isMobile ? 'text-3.2' : 'text-3.8'"
   >
-    {{ t('app.copyright') }}
+    {{ t('base.copyright') }}
   </div>
 </template>

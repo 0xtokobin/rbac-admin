@@ -23,10 +23,10 @@ const epMessages = computed(() => {
 
 const changeBrowserTitle = () => {
   if (route.meta.i18n)
-    document.title = `${route.meta.i18n[locale.value]} - ${t('app.name')}`
+    document.title = `${route.meta.i18n[locale.value]} - ${t('base.name')}`
 
   else
-    document.title = t('app.name') || import.meta.env.WINGSCLOUD_BROWSER_TITLE
+    document.title = t('base.name') || import.meta.env.WINGSCLOUD_BROWSER_TITLE
 }
 
 watch(

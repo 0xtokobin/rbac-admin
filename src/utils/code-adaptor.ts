@@ -12,43 +12,43 @@ export const networkCodeAdaptor = (
         message = ''
         break
       case 400:
-        message = t('app.request.wrong')
+        message = t('base.request.wrong')
         break
       case 401:
-        message = t('app.authentication.not')
+        message = t('base.authentication.not')
         break
       case 403:
-        message = t('app.authentication.denied')
+        message = t('base.authentication.denied')
         break
       case 404:
-        message = t('app.request.resource')
+        message = t('base.request.resource')
         break
       case 405:
-        message = t('app.request.method')
+        message = t('base.request.method')
         break
       case 408:
-        message = t('app.request.timeout')
+        message = t('base.request.timeout')
         break
       case 500:
-        message = t('app.server.error')
+        message = t('base.server.error')
         break
       case 501:
-        message = t('app.network.implemented')
+        message = t('base.network.implemented')
         break
       case 502:
-        message = t('app.network.error')
+        message = t('base.network.error')
         break
       case 503:
-        message = t('app.server.down')
+        message = t('base.server.down')
         break
       case 504:
-        message = t('app.network.timeout')
+        message = t('base.network.timeout')
         break
       case 505:
-        message = t('app.request.http')
+        message = t('base.request.http')
         break
       default:
-        message = t('app.unkown.code', { code })
+        message = t('base.unkown.code', { code })
     }
   }
   if (code && message && callback)
@@ -77,10 +77,10 @@ export const apiCodeAdaptor = (
         message = ''
         break
       case 500:
-        message = t('app.unkown.error', { message: data.msg })
+        message = t('base.unkown.error', { message: data.msg })
         break
       case 50001:
-        message = t('app.api.noParams')
+        message = t('base.api.noParams')
         break
     }
   }
@@ -107,34 +107,34 @@ export const authCodeAdaptor = (
   if (data.code) {
     switch (data.code) {
       case 10031:
-        message = t('app.authentication.overtime')
+        message = t('base.authentication.overtime')
         break
       case 10032:
-        message = t('app.authentication.longer')
+        message = t('base.authentication.longer')
         break
       case 10033:
-        message = t('app.authentication.bind')
+        message = t('base.authentication.bind')
         break
       case 10034:
-        message = t('app.authentication.signup')
+        message = t('base.authentication.signup')
         break
       case 10035:
-        message = t('app.authentication.inconformity')
+        message = t('base.authentication.inconformity')
         break
       case 10036:
-        message = t('app.authentication.noEmployee')
+        message = t('base.authentication.noEmployee')
         break
       case 10037:
-        message = t('app.authentication.failure')
+        message = t('base.authentication.failure')
         break
       case 10038:
-        message = t('app.authentication.notFound')
+        message = t('base.authentication.notFound')
         break
       case 10039:
-        message = t('app.authentication.password')
+        message = t('base.authentication.password')
         break
       case 10040:
-        message = t('app.authentication.sms')
+        message = t('base.authentication.sms')
         break
     }
   }

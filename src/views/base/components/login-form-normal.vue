@@ -28,8 +28,8 @@ const validateUsername = (rule: any, value: string, callback: any) => {
   if (value && !USERNAME.test(value)) {
     callback(
       new Error(
-        t('crud.placeholder.formatIncorrect', {
-          label: t('crud.account.usernameText'),
+        t('base.placeholder.formatIncorrect', {
+          label: t('base.account.usernameText'),
         }),
       ),
     )
@@ -39,7 +39,7 @@ const validateUsername = (rule: any, value: string, callback: any) => {
       if (data.validateResult)
         callback()
       else
-        callback(new Error(t('app.authentication.notFound')))
+        callback(new Error(t('base.authentication.notFound')))
     })
   }
 }
@@ -48,8 +48,8 @@ const formRules = reactive<FormRules>({
   username: [
     {
       required: true,
-      message: t('crud.placeholder.enter', {
-        label: t('crud.account.usernameText'),
+      message: t('base.placeholder.enter', {
+        label: t('base.account.usernameText'),
       }),
       trigger: 'change',
     },
@@ -58,15 +58,15 @@ const formRules = reactive<FormRules>({
   password: [
     {
       required: true,
-      message: t('crud.placeholder.enter', {
-        label: t('crud.account.passwordText'),
+      message: t('base.placeholder.enter', {
+        label: t('base.account.passwordText'),
       }),
       trigger: 'change',
     },
     {
       pattern: PASSWORD_NORMAL,
-      message: t('crud.placeholder.formatIncorrect', {
-        label: t('crud.account.passwordText'),
+      message: t('base.placeholder.formatIncorrect', {
+        label: t('base.account.passwordText'),
       }),
       trigger: 'blur',
     },
@@ -97,7 +97,7 @@ const login = async (formEl: FormInstance | undefined): Promise<void> => {
 <template>
   <el-form ref="formRef" :model="form" :rules="formRules" size="large">
     <el-form-item prop="username">
-      <el-input v-model="form.username" autocomplete="off" :placeholder="t('crud.account.username')">
+      <el-input v-model="form.username" autocomplete="off" :placeholder="t('base.account.username')">
         <template #prefix>
           <el-icon>
             <User />
@@ -108,7 +108,7 @@ const login = async (formEl: FormInstance | undefined): Promise<void> => {
     <el-form-item prop="password">
       <el-input
         v-model="form.password" type="password" autocomplete="off" show-password
-        :placeholder="t('crud.account.password')"
+        :placeholder="t('base.account.password')"
       >
         <template #prefix>
           <el-icon>
@@ -121,18 +121,18 @@ const login = async (formEl: FormInstance | undefined): Promise<void> => {
       <div w-full flex items-center justify-between>
         <el-checkbox
           v-model="form.remember" inline-block text-3 style="color: var(--el-color-info-light-3)"
-          :label="t('app.login.keep')"
+          :label="t('base.login.keep')"
         />
         <el-button inline-block p-0 link type="info" @click="password">
           <span text-3 style="color: var(--el-text-color-regular)">
-            {{ t('app.password.forget') }}
+            {{ t('base.password.forget') }}
           </span>
         </el-button>
       </div>
     </el-form-item>
     <el-form-item>
       <el-button type="primary" w-full :loading="loading" @click="login(formRef)">
-        <span font-600>{{ t('app.login.login') }}</span>
+        <span font-600>{{ t('base.login.login') }}</span>
       </el-button>
     </el-form-item>
   </el-form>

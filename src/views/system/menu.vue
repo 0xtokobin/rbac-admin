@@ -12,7 +12,7 @@ const baseStore = useBaseStore()
     <crud-table-query :query="false" :reset="false">
       <template #action>
         <el-button type="primary">
-          {{ t('crud.btn.add') }}
+          {{ t('base.btn.add') }}
         </el-button>
       </template>
     </crud-table-query>
@@ -55,7 +55,7 @@ const baseStore = useBaseStore()
           <el-switch v-model="scope.row.meta.keepAlive" disabled />
         </template>
       </el-table-column>
-      <el-table-column :label="t('crud.table.sort')" width="140">
+      <el-table-column :label="t('base.table.sort')" width="140">
         <template #default="scope">
           {{ scope.row.meta.sort }}
         </template>
@@ -65,8 +65,8 @@ const baseStore = useBaseStore()
           {{ scope.row.path }}
         </template>
       </el-table-column>
-      <el-table-column min-width="340" prop="remark" :label="t('crud.table.remark')" />
-      <el-table-column :label="t('crud.btn.action')" fixed="right" :width="baseStore.isMobile ? '120' : '300'">
+      <el-table-column min-width="340" prop="remark" :label="t('base.table.remark')" />
+      <el-table-column :label="t('base.btn.action')" fixed="right" :width="baseStore.isMobile ? '120' : '300'">
         <template #default="scope">
           <el-button type="primary" link>
             {{ t('system.menu.subMenu') }}
@@ -75,10 +75,10 @@ const baseStore = useBaseStore()
             {{ t('system.menu.permission') }}
           </el-button>
           <el-button type="primary" link>
-            {{ t('crud.btn.edit') }}
+            {{ t('base.btn.edit') }}
           </el-button>
           <el-button v-if="!scope.row.children || scope.row.children.length === 0" type="primary" link>
-            {{ t('crud.btn.delete') }}
+            {{ t('base.btn.delete') }}
           </el-button>
         </template>
       </el-table-column>

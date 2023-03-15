@@ -69,7 +69,7 @@ export const addInterceptorsResponse = (
     if (options.networkCodeAdaptor) {
       networkCodeAdaptor(response.status, _t, ({ message }) => {
         ElNotification({
-          title: _t('app.network.error'),
+          title: _t('base.network.error'),
           message,
           type: 'error',
         })
@@ -78,7 +78,7 @@ export const addInterceptorsResponse = (
     if (options.apiCodeAdaptor) {
       apiCodeAdaptor(response.data, _t, ({ message }) => {
         ElNotification({
-          title: _t('app.api.error'),
+          title: _t('base.api.error'),
           message,
           type: 'error',
         })
@@ -87,7 +87,7 @@ export const addInterceptorsResponse = (
     if (options.authCodeAdaptor) {
       authCodeAdaptor(response.data, _t, ({ message }) => {
         ElNotification({
-          title: _t('app.authentication.error'),
+          title: _t('base.authentication.error'),
           message,
           type: 'error',
         })

@@ -19,8 +19,8 @@ const validatePassword = (rule: any, value: string, callback: any) => {
   if (value && !PASSWORD_NORMAL.test(value)) {
     callback(
       new Error(
-        t('crud.placeholder.formatIncorrect', {
-          label: t('crud.account.passwordText'),
+        t('base.placeholder.formatIncorrect', {
+          label: t('base.account.passwordText'),
         }),
       ),
     )
@@ -29,8 +29,8 @@ const validatePassword = (rule: any, value: string, callback: any) => {
     if (value !== changeForm.value.password) {
       callback(
         new Error(
-          t('crud.placeholder.inconsistent', {
-            label: t('crud.account.passwordText'),
+          t('base.placeholder.inconsistent', {
+            label: t('base.account.passwordText'),
           }),
         ),
       )
@@ -45,15 +45,15 @@ const changeFormRules = reactive<FormRules>({
   password: [
     {
       required: true,
-      message: t('crud.placeholder.enter', {
-        label: t('crud.account.passwordText'),
+      message: t('base.placeholder.enter', {
+        label: t('base.account.passwordText'),
       }),
       trigger: 'change',
     },
     {
       pattern: PASSWORD_NORMAL,
-      message: t('crud.placeholder.formatIncorrect', {
-        label: t('crud.account.passwordText'),
+      message: t('base.placeholder.formatIncorrect', {
+        label: t('base.account.passwordText'),
       }),
       trigger: 'blur',
     },
@@ -61,8 +61,8 @@ const changeFormRules = reactive<FormRules>({
   passwordAgain: [
     {
       required: true,
-      message: t('crud.placeholder.enterAgain', {
-        label: t('crud.account.passwordText'),
+      message: t('base.placeholder.enterAgain', {
+        label: t('base.account.passwordText'),
       }),
       trigger: 'change',
     },
@@ -96,7 +96,7 @@ const reset = async (formEl: FormInstance | undefined): Promise<void> => {
         type="password"
         autocomplete="off"
         show-password
-        :placeholder="t('crud.account.password')"
+        :placeholder="t('base.account.password')"
       >
         <template #prefix>
           <el-icon><Lock /></el-icon>
@@ -109,7 +109,7 @@ const reset = async (formEl: FormInstance | undefined): Promise<void> => {
         type="password"
         autocomplete="off"
         show-password
-        :placeholder="t('crud.account.passwordAgain')"
+        :placeholder="t('base.account.passwordAgain')"
       >
         <template #prefix>
           <el-icon><Lock /></el-icon>
@@ -118,7 +118,7 @@ const reset = async (formEl: FormInstance | undefined): Promise<void> => {
     </el-form-item>
     <el-form-item>
       <el-button type="primary" w="100%" @click="reset(changeFormRef)">
-        <span font-600>{{ t('app.password.reset') }}</span>
+        <span font-600>{{ t('base.password.reset') }}</span>
       </el-button>
     </el-form-item>
   </el-form>
