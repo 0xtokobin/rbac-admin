@@ -64,14 +64,16 @@ const baseStore = useBaseStore()
     </el-container>
   </el-container>
   <el-drawer v-model="baseStore.mobileMenu" :show-close="false" direction="ltr" size="auto" :with-header="false">
-    <layout-logo h-12 mb-4 mx--4 />
-    <layout-menu mx--4 />
+    <div h-full flex flex-col items-stretch>
+      <layout-logo h-12 mb-4 mx--4 />
+      <layout-menu flex-auto overflow-auto mx--4 />
+    </div>
   </el-drawer>
 </template>
 
 <style lang="scss" scoped>
 :deep(.el-header) {
-  --at-apply: flex justify-between border-b-1 flex-initial;
+  --at-apply: flex justify-between items-center border-b-1 flex-initial;
   border-bottom: 1px solid var(--el-border-color-light);
 }
 
