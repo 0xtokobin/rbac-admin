@@ -1,7 +1,7 @@
 {
   "name": "@wingscloud/web",
   "version": "0.0.0",
-  "description": "基于 Vue + Element Plus + Vite ，客户端渲染的中后台权限管理 Web 应用程序。",
+  "description": "基于 Vue + Element Plus + Vite ，客户端渲染的 SPA 中后台权限管理 Web 应用。",
   "author": "Kaivan Wong <kaivanwong@outlook.com>",
   "license": "Apache 2.0",
   "homepage": "https://github.com/wingscloud/web#readme",
