@@ -1,6 +1,6 @@
 {
   "name": "Wings Cloud",
-  "description": "微服务架构设计的中后台 RBAC 权限管理系统",
+  "description": "基于 JS / TS ，轻量级，可灵活扩展的全栈应用程序解决方案",
   "copyright": "Copyright © 2022-PRESENT Kaivan Wong",
   "loading": "资源加载中，请稍后...",
   "building": "建设中...",
