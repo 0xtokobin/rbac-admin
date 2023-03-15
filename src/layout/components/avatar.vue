@@ -18,6 +18,13 @@ const openPersonalDrawer = () => {
 }
 
 const active = ref(['general', 'personal', 'ui'])
+
+const changeDarkMode = (e: string) => {
+  if (e === DarkModeEnum.DARK_MODE_AUTO)
+    baseStore.openDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches)
+  else
+    baseStore.openDarkMode(e === DarkModeEnum.DARK_MODE_DARK)
+}
 </script>
 
 <template>
@@ -95,7 +102,7 @@ const active = ref(['general', 'personal', 'ui'])
               </el-select>
             </el-form-item>
             <el-form-item :label="t('base.avatar.darkMode')">
-              <el-select v-model="baseStore.darkMode" important-w-full>
+              <el-select v-model="baseStore.darkMode" important-w-full @change="changeDarkMode">
                 <el-option :label="t('base.avatar.auto')" :value="DarkModeEnum.DARK_MODE_AUTO" />
                 <el-option :label="t('base.avatar.open')" :value="DarkModeEnum.DARK_MODE_DARK" />
                 <el-option :label="t('base.avatar.close')" :value="DarkModeEnum.DARK_MODE_LIGHT" />
