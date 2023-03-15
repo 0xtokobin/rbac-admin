@@ -18,7 +18,7 @@ const baseStore = useBaseStore()
 
 <template>
   <el-container w-screen h-screen>
-    <el-aside v-if="!baseStore.isMobile" :class="baseStore.layout !== LayoutEnum.LAYOUT_SIDE ? 'important-border-0' : ''">
+    <el-aside v-if="!baseStore.isMobile" w-auto :class="baseStore.layout !== LayoutEnum.LAYOUT_SIDE ? 'important-border-0' : ''">
       <layout-logo v-if="baseStore.layout === LayoutEnum.LAYOUT_SIDE" h-26 flex-initial />
       <layout-menu v-if="baseStore.layout === LayoutEnum.LAYOUT_SIDE" flex-auto overflow-auto />
       <layout-collapse v-if="baseStore.layout === LayoutEnum.LAYOUT_SIDE" />
