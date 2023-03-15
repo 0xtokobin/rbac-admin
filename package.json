@@ -1,16 +1,16 @@
 {
   "name": "@wingscloud/web",
   "version": "0.0.0",
-  "description": "基于 Vue + Element Plus + Vite ，客户端渲染的 SPA 中后台权限管理 Web 应用程序。",
+  "description": "基于 Vue + Element Plus + Vite ，客户端渲染的中后台权限管理 Web 应用程序。",
   "author": "Kaivan Wong <kaivanwong@outlook.com>",
   "license": "Apache 2.0",
-  "homepage": "https://github.com/wingscloud/ui#readme",
+  "homepage": "https://github.com/wingscloud/web#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wingscloud/ui.git"
+    "url": "git+https://github.com/wingscloud/web.git"
   },
   "bugs": {
-    "url": "https://github.com/wingscloud/ui/issues"
+    "url": "https://github.com/wingscloud/web/issues"
   },
   "scripts": {
     "serve": "vite --config ./serve/index.ts",
