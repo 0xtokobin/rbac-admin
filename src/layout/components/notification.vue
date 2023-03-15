@@ -17,7 +17,7 @@ const list = ref<Array<any>>([])
     <template #default>
       <div flex justify-between items-center>
         <span text-4 style="color: var(--el-text-color-regular)">
-          {{ t('app.toolbar.notifications.notifications') }}
+          {{ t('app.notifications.notifications') }}
         </span>
         <div>
           <el-button
@@ -26,10 +26,10 @@ const list = ref<Array<any>>([])
             type="primary"
             @click="list = []"
           >
-            {{ t('app.toolbar.notifications.clear') }}
+            {{ t('app.notifications.clear') }}
           </el-button>
           <el-button text type="primary">
-            {{ t('app.toolbar.notifications.more') }}
+            {{ t('app.notifications.more') }}
           </el-button>
         </div>
       </div>
@@ -58,7 +58,7 @@ const list = ref<Array<any>>([])
       <div v-if="list.length === 0">
         <el-empty
           :image-size="100"
-          :description="t('app.toolbar.notifications.empty')"
+          :description="t('app.notifications.empty')"
         />
       </div>
     </template>

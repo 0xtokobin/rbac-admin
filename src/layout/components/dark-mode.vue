@@ -1,14 +1,13 @@
 <script lang="ts" setup>
 import { useBaseStore } from '@/hooks/stores/use-base-store'
-import { DarkModeEnum } from '@/enum'
 
 const baseStore = useBaseStore()
 </script>
 
 <template>
-  <el-button circle @click="baseStore.changeDarkMode(baseStore.darkMode === DarkModeEnum.DARK_MODE_LIGHT)">
+  <el-button circle @click="baseStore.openDarkMode(!baseStore.isDarkMode)">
     <el-icon>
-      <Moon v-if="baseStore.darkMode === DarkModeEnum.DARK_MODE_DARK" />
+      <Moon v-if="baseStore.isDarkMode" />
       <Sunny v-else />
     </el-icon>
   </el-button>

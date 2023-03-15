@@ -5,18 +5,12 @@
   "loading": "The resource is loading. Please wait...",
   "building": "Building...",
   "termsConditions": "No content yet",
-  "toolbar": {
-    "avatar": {
-      "switchRoles": "Switch Roles",
-      "signout": "Sign out"
-    },
-    "notifications": {
-      "notifications": "Notifications",
-      "readAll": "All Read",
-      "empty": "No notification",
-      "more": "More",
-      "clear": "Empty"
-    }
+  "notifications": {
+    "notifications": "Notifications",
+    "readAll": "All Read",
+    "empty": "No notification",
+    "more": "More",
+    "clear": "Empty"
   },
   "unknown": {
     "error": "Unknown error, error message: {message}",
@@ -89,27 +83,43 @@
     "forget": "Forget Password ?",
     "back": "Back to Log in"
   },
-  "logout": "Logout",
-  "personal": "Personal Center",
-  "setting": "Settings",
-  "dark": "Dark Mode",
-  "theme": "Theme Color",
-  "layout": "Layout",
-  "language": "Language",
-  "size": "Size",
-  "navigation": "Navigation",
-  "tab": "Tab",
-  "more": "More",
-  "closeCurrent": "Close the current",
-  "closeOther": "Close the other",
-  "closeAll": "Close all",
-  "action": "Action",
-  "save": "Save",
-  "layoutMix": "Mixed Layout",
-  "layoutTop": "Top Layout",
-  "layoutSide": "Side Layout",
-  "layoutDarkSide": "Side Dark Layout",
-  "sizeLarge": "Large",
-  "sizeDefault": "Default",
-  "sizeSmall": "Small"
+  "avatar": {
+    "personalCenter": "Personal Center",
+    "logout": "Logout",
+    "darkMode": "Dark Mode",
+    "theme": "Theme",
+    "layout": "Layout",
+    "language": "Language",
+    "size": "Size",
+    "navigation": "Navigation",
+    "tab": "Tab",
+    "breadcrumb": "Breadcrumb",
+    "layoutMix": "Mixed Layout",
+    "layoutTop": "Top Layout",
+    "layoutSide": "Side Layout",
+    "layoutDarkSide": "Side Dark Layout",
+    "sizeLarge": "Large",
+    "sizeDefault": "Default",
+    "sizeSmall": "Small",
+    "nickname": "Nickname",
+    "username": "Username",
+    "mobile": "Mobile",
+    "bind": "Bind",
+    "change": "Change",
+    "empty": "Empty",
+    "dept": "Department",
+    "role": "Role",
+    "generalSettings": "General Settings",
+    "personalSettings": "Personal Settings",
+    "uiSettings": "UI Settings"
+  },
+  "tab": {
+    "more": "More",
+    "closeCurrent": "Close the current",
+    "closeOther": "Close the other",
+    "closeAll": "Close all"
+  },
+  "btn": {
+    "saveUpdate": "Save Update"
+  }
 }

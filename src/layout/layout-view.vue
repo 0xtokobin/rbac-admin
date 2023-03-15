@@ -48,10 +48,10 @@ const baseStore = useBaseStore()
           <layout-collapse v-if="baseStore.layout === LayoutEnum.LAYOUT_MIX" flex-initial />
         </el-aside>
         <el-container direction="vertical">
-          <layout-tab />
+          <layout-tab v-if="baseStore.tab" />
           <el-scrollbar style="background-color: var(--el-bg-color-page);">
             <el-main>
-              <layout-breadcrumb />
+              <layout-breadcrumb v-if="baseStore.breadcrumb" />
               <slot name="router-view" />
 
               <el-footer flex items-center justify-center>

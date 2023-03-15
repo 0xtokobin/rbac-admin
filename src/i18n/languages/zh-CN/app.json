@@ -5,18 +5,12 @@
   "loading": "资源加载中，请稍后...",
   "building": "建设中...",
   "termsConditions": "暂无内容",
-  "toolbar": {
-    "avatar": {
-      "switchRoles": "切换角色",
-      "signout": "退出登录"
-    },
-    "notifications": {
-      "notifications": "通知",
-      "readAll": "全部已读",
-      "empty": "暂无通知",
-      "more": "更多",
-      "clear": "清空"
-    }
+  "notifications": {
+    "notifications": "通知",
+    "readAll": "全部已读",
+    "empty": "暂无通知",
+    "more": "更多",
+    "clear": "清空"
   },
   "unknown": {
     "error": "未知错误，错误信息：{message}",
@@ -89,27 +83,46 @@
     "forget": "忘记密码？",
     "back": "返回登录"
   },
-  "logout": "退出登录",
-  "personal": "个人中心",
-  "setting": "设置",
-  "dark": "黑暗模式",
-  "theme": "主题颜色",
-  "layout": "布局",
-  "language": "语言",
-  "size": "尺寸",
-  "navigation": "导航条",
-  "tab": "标签栏",
-  "more": "更多",
-  "closeCurrent": "关闭当前",
-  "closeOther": "关闭其他",
-  "closeAll": "关闭全部",
-  "action": "操作",
-  "save": "保存",
-  "layoutMix": "混合布局",
-  "layoutTop": "顶部布局",
-  "layoutSide": "侧栏布局",
-  "layoutDarkSide": "深色侧栏布局",
-  "sizeLarge": "大号",
-  "sizeDefault": "默认",
-  "sizeSmall": "小号"
+  "tab": {
+    "more": "更多",
+    "closeCurrent": "关闭当前",
+    "closeOther": "关闭其他",
+    "closeAll": "关闭全部"
+  },
+  "avatar": {
+    "personalCenter": "个人中心",
+    "logout": "退出登录",
+    "darkMode": "黑暗模式",
+    "auto": "跟随系统",
+    "open": "开启",
+    "close": "关闭",
+    "theme": "主题颜色",
+    "layout": "布局",
+    "language": "语言",
+    "size": "尺寸",
+    "navigation": "导航条",
+    "tab": "标签栏",
+    "breadcrumb": "面包屑",
+    "layoutMix": "混合布局",
+    "layoutTop": "顶部布局",
+    "layoutSide": "侧栏布局",
+    "layoutDarkSide": "深色侧栏布局",
+    "sizeLarge": "大号",
+    "sizeDefault": "默认",
+    "sizeSmall": "小号",
+    "nickname": "昵称",
+    "username": "用户名",
+    "mobile": "手机号",
+    "bind": "绑定",
+    "change": "更换",
+    "empty": "暂无",
+    "dept": "部门",
+    "role": "角色",
+    "generalSettings": "通用设置",
+    "personalSettings": "个人设置",
+    "uiSettings": "外观设置"
+  },
+  "btn": {
+    "saveUpdate": "保存更改"
+  }
 }

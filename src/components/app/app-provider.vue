@@ -21,29 +21,23 @@ const epMessages = computed(() => {
   ] as Language
 })
 
+const changeBrowserTitle = () => {
+  if (route.meta.i18n)
+    document.title = `${route.meta.i18n[locale.value]} - ${t('app.name')}`
+
+  else
+    document.title = t('app.name') || import.meta.env.WINGSCLOUD_BROWSER_TITLE
+}
+
 watch(
-  () => baseStore.darkMode,
-  (newVal) => {
-    if (!newVal || newVal === DarkModeEnum.DARK_MODE_AUTO) {
-      baseStore.changeDarkMode(
-        window.matchMedia('(prefers-color-scheme: dark)').matches,
-      )
-      window
-        .matchMedia('(prefers-color-scheme: dark)')
-        .addEventListener('change', (event) => {
-          baseStore.changeDarkMode(event.matches)
-        })
-    }
-    else {
-      document.documentElement.classList.remove(baseStore.darkMode)
-      document.documentElement.classList.add(newVal)
-      baseStore.darkMode = newVal
-    }
-  },
+  () => route.path,
+  () => changeBrowserTitle(),
   {
     immediate: true,
   },
 )
+
+watch(() => locale.value, () => changeBrowserTitle())
 
 watch(
   () => baseStore.theme,
@@ -57,23 +51,19 @@ watch(
 )
 
 watch(
-  () => route.path,
-  () => {
-    if (route.meta.i18n)
-      document.title = `${route.meta.i18n[locale.value]} - ${t('app.name')}`
-
-    else
-      document.title = t('app.name') || import.meta.env.WINGSCLOUD_BROWSER_TITLE
-  },
-  {
-    immediate: true,
+  () => baseStore.isDarkMode,
+  (newVal, oldVal) => {
+    document.documentElement.classList.remove(oldVal ? DarkModeEnum.DARK_MODE_DARK : DarkModeEnum.DARK_MODE_LIGHT)
+    document.documentElement.classList.add(newVal ? DarkModeEnum.DARK_MODE_DARK : DarkModeEnum.DARK_MODE_LIGHT)
+    baseStore.isDarkMode = newVal
   },
 )
 
 onBeforeMount(() => {
-  baseStore.changeMobile()
+  baseStore.openDarkMode(baseStore.isDarkMode)
+  baseStore.changeMobileLayout()
   window.onresize = () => {
-    baseStore.changeMobile()
+    baseStore.changeMobileLayout()
   }
 })
 

@@ -44,7 +44,7 @@ export const useBaseStore = defineStore('base', () => {
   const mobileMenu = ref<boolean>(false)
 
   // 切换移动端布局方案
-  const changeMobile = () => {
+  const changeMobileLayout = () => {
     if (
       /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
         navigator.userAgent,
@@ -94,38 +94,52 @@ export const useBaseStore = defineStore('base', () => {
   // 当前组件大小
   const size = ref<string>(getStorage(StorageKeyEnum.PROFILE)?.size || SizeEnum.DEFAULT)
 
+  // 是否显示标签栏
+  const tab = ref<boolean>(getStorage(StorageKeyEnum.PROFILE)?.tab || true)
+
+  // 是否显示面包屑
+  const breadcrumb = ref<boolean>(getStorage(StorageKeyEnum.PROFILE)?.breadcrumb || true)
+
   // 当前黑暗模式
   const darkMode = ref<string>(getStorage(StorageKeyEnum.PROFILE)?.darkMode || DarkModeEnum.DARK_MODE_AUTO)
 
-  // 切换黑暗模式
-  const changeDarkMode = (value: boolean) => {
-    setEpThemeColor(theme.value, value)
+  // 当前黑暗模式开启状态
+  const isDarkMode = ref<boolean>(darkMode.value === DarkModeEnum.DARK_MODE_AUTO ? window.matchMedia('(prefers-color-scheme: dark)').matches : darkMode.value === DarkModeEnum.DARK_MODE_DARK)
+
+  // 切换黑暗模式开启状态
+  const openDarkMode = (isDark: boolean) => {
+    if (darkMode.value === DarkModeEnum.DARK_MODE_AUTO) {
+      window
+        .matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', (event) => {
+          openDarkMode(event.matches)
+        })
+    }
     document.documentElement.classList.remove(darkMode.value)
-    if (value) {
+    if (isDark) {
       document.documentElement.classList.add(
         DarkModeEnum.DARK_MODE_DARK,
       )
-      darkMode.value = DarkModeEnum.DARK_MODE_DARK
+      isDarkMode.value = true
     }
     else {
       document.documentElement.classList.add(
         DarkModeEnum.DARK_MODE_LIGHT,
       )
-      darkMode.value = DarkModeEnum.DARK_MODE_LIGHT
+      isDarkMode.value = false
     }
+    setEpThemeColor(theme.value, isDarkMode.value)
   }
 
   return {
     collapse,
-    darkMode,
-    changeDarkMode,
     browserTitle,
     keepAliveNames,
     keepAliveAddName,
     keepAliveRemoveName,
     isMobile,
     mobileMenu,
-    changeMobile,
+    changeMobileLayout,
     menuRoutes,
     setMenuRoutes,
     getMenuRoutes,
@@ -133,5 +147,10 @@ export const useBaseStore = defineStore('base', () => {
     theme,
     layout,
     size,
+    tab,
+    breadcrumb,
+    darkMode,
+    isDarkMode,
+    openDarkMode,
   }
 })
