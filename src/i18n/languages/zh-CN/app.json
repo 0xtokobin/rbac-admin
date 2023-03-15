@@ -83,12 +83,6 @@
     "forget": "忘记密码？",
     "back": "返回登录"
   },
-  "tab": {
-    "more": "更多",
-    "closeCurrent": "关闭当前",
-    "closeOther": "关闭其他",
-    "closeAll": "关闭全部"
-  },
   "avatar": {
     "personalCenter": "个人中心",
     "logout": "退出登录",
@@ -110,6 +104,7 @@
     "sizeLarge": "大号",
     "sizeDefault": "默认",
     "sizeSmall": "小号",
+    "avatar": "头像",
     "nickname": "昵称",
     "username": "用户名",
     "mobile": "手机号",
@@ -122,7 +117,17 @@
     "personalSettings": "个人设置",
     "uiSettings": "外观设置"
   },
+  "tab": {
+    "more": "更多",
+    "closeCurrent": "关闭当前",
+    "closeOther": "关闭其他",
+    "closeAll": "关闭全部"
+  },
   "btn": {
     "saveUpdate": "保存更改"
+  },
+  "upload": {
+    "avatarType": "头像图片必须是 JPG 或者 PNG 格式！",
+    "avatarSize": "头像图片大小不能超过 2MB !'"
   }
 }

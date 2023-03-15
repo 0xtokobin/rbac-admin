@@ -101,6 +101,7 @@
     "sizeLarge": "Large",
     "sizeDefault": "Default",
     "sizeSmall": "Small",
+    "avatar": "Avatar",
     "nickname": "Nickname",
     "username": "Username",
     "mobile": "Mobile",
@@ -121,5 +122,9 @@
   },
   "btn": {
     "saveUpdate": "Save Update"
+  },
+  "upload": {
+    "avatarType": "Avatar picture must be JPG or PNG format!",
+    "avatarSize": "Avatar picture size can not exceed 2MB!'"
   }
 }

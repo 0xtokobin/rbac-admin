@@ -42,6 +42,9 @@ const active = ref(['general', 'personal', 'ui'])
             </el-form-item>
           </el-collapse-item>
           <el-collapse-item :title="t('app.avatar.personalSettings')" name="personal">
+            <el-form-item :label="t('app.avatar.avatar')">
+              <avatar-upload />
+            </el-form-item>
             <el-form-item :label="t('app.avatar.username')">
               <el-input v-model="userStore.profile.username" disabled />
             </el-form-item>

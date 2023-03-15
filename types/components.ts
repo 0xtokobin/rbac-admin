@@ -11,7 +11,7 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     App: typeof import('./../src/components/app/app.vue')['default']
     AppProvider: typeof import('./../src/components/app/app-provider.vue')['default']
-    AvatarUpload: typeof import('./../src/components/avatar-upload.vue')['default']
+    AvatarUpload: typeof import('./../src/components/upload/avatar-upload.vue')['default']
     CrudCard: typeof import('./../src/components/crud/crud-card.vue')['default']
     CrudDialog: typeof import('./../src/components/crud/crud-dialog.vue')['default']
     CrudPageForm: typeof import('./../src/components/crud/crud-page-form.vue')['default']
@@ -59,6 +59,7 @@ declare module '@vue/runtime-core' {
     ElTabPane: typeof import('element-plus/es')['ElTabPane']
     ElTabs: typeof import('element-plus/es')['ElTabs']
     ElTag: typeof import('element-plus/es')['ElTag']
+    ElUpload: typeof import('element-plus/es')['ElUpload']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SvgIcon: typeof import('./../src/components/svg-icon.vue')['default']

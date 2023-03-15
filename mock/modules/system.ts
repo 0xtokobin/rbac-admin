@@ -56,7 +56,7 @@ export default {
       username: 'admin',
       nickname: '系统管理员',
       avatar: '',
-      mobile: '',
+      mobile: '+86 188***8888',
       roleId: '0',
       roleName: '管理员',
       deptId: '0',
