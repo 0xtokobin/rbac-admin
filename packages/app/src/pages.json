@@ -4,7 +4,10 @@
   },
   "pages": [
     {
-      "path": "pages/index"
+      "path": "pages/home/home"
+    },
+    {
+      "path": "pages/mine/mine"
     }
   ],
   "globalStyle": {
