@@ -1,0 +1,13 @@
+{
+  "pages": [
+    {
+      "path": "pages/index"
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "Wings Cloud",
+    "navigationBarBackgroundColor": "#fff",
+    "backgroundColor": "#fff"
+  }
+}

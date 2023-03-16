@@ -1,0 +1,195 @@
+{
+  "name": "Wings Cloud",
+  "description": "基于 JS / TS ，轻量级，可灵活扩展的全栈应用程序解决方案",
+  "copyright": "Copyright © 2022-PRESENT Kaivan Wong",
+  "loading": "资源加载中，请稍后...",
+  "building": "建设中...",
+  "termsConditions": "暂无内容",
+  "notifications": {
+    "notifications": "通知",
+    "readAll": "全部已读",
+    "empty": "暂无通知",
+    "more": "更多",
+    "clear": "清空"
+  },
+  "unknown": {
+    "error": "未知错误，错误信息：{message}",
+    "code": "出现未知错误，错误码：{code}"
+  },
+  "request": {
+    "wrong": "错误的请求",
+    "timeout": "请求超时",
+    "resource": "请求错误，未找到该资源",
+    "method": "请求方法未允许",
+    "http": "http 版本不支持该请求"
+  },
+  "network": {
+    "implemented": "网络未实现",
+    "error": "网络错误",
+    "timeout": "网络超时",
+    "connectError": "网络连接错误，错误码：{code}"
+  },
+  "server": {
+    "error": "服务器端出错",
+    "down": "服务不可用",
+    "notConnect": "无法连接到服务器"
+  },
+  "api": {
+    "error": "接口错误",
+    "noParams": "接口缺少参数"
+  },
+  "authentication": {
+    "error": "用户错误",
+    "loginSuccess": "登录成功",
+    "logoutSuccess": "成功退出",
+    "not": "未授权，请重新登录",
+    "denied": "拒绝访问",
+    "longer": "您太久没登录，请重新登录",
+    "overtime": "登录失效，需要重新登录",
+    "bind": "账户未绑定角色",
+    "inconformity": "无法获取对应第三方平台用户",
+    "noEmployee": "该账户未关联员工",
+    "failure": "账号已无效",
+    "notFound": "账号未找到",
+    "password": "密码错误，请重试",
+    "sms": "验证码错误"
+  },
+  "403": {
+    "btn": "返回",
+    "title": "没有权限",
+    "description": "您没有访问该页面的权限"
+  },
+  "404": {
+    "btn": "返回首页",
+    "title": "页面找不到",
+    "description": "您正在寻找的页面不存在或已被移动"
+  },
+  "login": {
+    "login": "登录",
+    "keep": "保持登录",
+    "or": "或者",
+    "normal": "普通登录",
+    "sms": "短信快捷登录",
+    "scan": "二维码登录",
+    "readAndAgree": "点击「{label}」表示已阅读并同意",
+    "termsConditions": "服务条款",
+    "refresh": "刷新二维码"
+  },
+  "password": {
+    "reset": "重置密码",
+    "security": "安全验证",
+    "account": "输入账号",
+    "success": "密码重置成功",
+    "forget": "忘记密码？",
+    "back": "返回登录"
+  },
+  "avatar": {
+    "personalCenter": "个人中心",
+    "darkMode": "黑暗模式",
+    "auto": "跟随系统",
+    "open": "开启",
+    "close": "关闭",
+    "theme": "主题颜色",
+    "layout": "布局",
+    "language": "语言",
+    "size": "尺寸",
+    "navigation": "导航条",
+    "tab": "标签栏",
+    "breadcrumb": "面包屑",
+    "layoutMix": "混合布局",
+    "layoutTop": "顶部布局",
+    "layoutSide": "侧栏布局",
+    "layoutDarkSide": "深色侧栏布局",
+    "sizeLarge": "大号",
+    "sizeDefault": "默认",
+    "sizeSmall": "小号",
+    "header": "顶栏",
+    "side": "侧栏",
+    "lightColor": "亮色",
+    "darkColor": "深色",
+    "themeColor": "主题色",
+    "avatar": "头像",
+    "nickname": "昵称",
+    "username": "用户名",
+    "mobile": "手机号",
+    "bind": "绑定",
+    "change": "更换",
+    "empty": "暂无",
+    "dept": "部门",
+    "role": "角色",
+    "generalSettings": "通用设置",
+    "personalSettings": "个人设置",
+    "uiSettings": "外观设置"
+  },
+  "tab": {
+    "more": "更多",
+    "closeCurrent": "关闭当前",
+    "closeOther": "关闭其他",
+    "closeAll": "关闭全部"
+  },
+  "btn": {
+    "save": "保存",
+    "add": "新增",
+    "update": "更新",
+    "delete": "删除",
+    "export": "导出",
+    "import": "导入",
+    "edit": "编辑",
+    "info": "信息",
+    "detail": "详情",
+    "query": "查询",
+    "reset": "重置",
+    "action": "操作",
+    "confirm": "确定",
+    "cancel": "取消",
+    "clear": "清除",
+    "close": "关闭",
+    "keyword": "关键字",
+    "choose": "请选择",
+    "preview": "预览",
+    "submit": "提交",
+    "next": "下一步",
+    "copy": "复制",
+    "upload": "上传",
+    "logout": "退出登录"
+  },
+  "upload": {
+    "success": "上传成功",
+    "errorType": "请上传格式正确的文件！",
+    "errorSize": "文件体积不能超过 {size}MB！",
+    "avatarErrorType": "头像图片必须是 JPG 或者 PNG 格式！",
+    "avatarErrorSize": "头像图片大小不能超过 2MB！"
+  },
+  "placeholder": {
+    "startTime": "开始时间",
+    "endTime": "结束时间",
+    "startDate": "开始日期",
+    "endDate": "结束日期",
+    "enter": "请输入{label}",
+    "enterAgain": "请再次输入{label}",
+    "select": "请选择{label}",
+    "selectAgain": "请再次选择{label}",
+    "formatIncorrect": "{label}格式不正确",
+    "inconsistent": "两次输入的{label}不一致"
+  },
+  "table": {
+    "no": "序号",
+    "noData": "暂无数据",
+    "sort": "排序",
+    "remark": "备注",
+    "createTime": "创建时间",
+    "updateTime": "更新时间",
+    "actionTime": "操作时间",
+    "uploadTime": "上传时间"
+  },
+  "mobile": {
+    "mobile": "手机号",
+    "mobileText": "手机号",
+    "code": "验证码",
+    "codeText": "验证码",
+    "send": "发送验证码",
+    "resend": "重新发送",
+    "retrieve": "{time}秒后重新获取",
+    "success": "发送成功"
+  }
+}

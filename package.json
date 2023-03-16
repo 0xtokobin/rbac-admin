@@ -1,0 +1,27 @@
+{
+  "name": "@wingscloud/ui-monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "description": "✈️ 基于 Vue 和 Uniapp 生态，通用的中后台权限管理系统 / OA 移动端应用程序。【↥ ↥ ↥ 点击 Star 关注更新】",
+  "author": "Kaivan Wong <kaivanwong@outlook.com>",
+  "license": "Apache 2.0",
+  "homepage": "https://github.com/wingscloud/ui#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wingscloud/ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wingscloud/ui/issues"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "devDependencies": {
+    "@kaivanwong/eslint-config": "^0.13.14",
+    "eslint": "^8.36.0"
+  },
+  "eslintConfig": {
+    "extends": "@kaivanwong"
+  }
+}

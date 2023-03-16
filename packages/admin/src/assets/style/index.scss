@@ -1,0 +1,27 @@
+:root {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Popins';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--el-color-primary);
+}
+
+code {
+  padding: 2px 4px;
+  color: var(--el-color-primary);
+  background-color: var(--el-color-primary-light-9);
+  border-radius: 4px;
+}
+
+.single-line-omitted {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
