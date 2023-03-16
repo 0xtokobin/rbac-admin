@@ -1,22 +1,8 @@
 {
-  "include": [
-    "types/**/*",
-    "src/**/*",
-    "serve/**/*",
-    "mock/**/*",
-    "./package.json"
-  ],
-  "exclude": [
-    "node_modules",
-    "build"
-  ],
   "compilerOptions": {
-    "composite": true,
-    "module": "ESNext",
     "baseUrl": "./",
-    "types": [
-      "node"
-    ],
+    "module": "ESNext",
+    "moduleResolution": "node",
     "paths": {
       "@/*": [
         "./src/*"
@@ -25,8 +11,22 @@
         "./types/*"
       ]
     },
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true
-  }
+    "types": [
+      "node"
+    ],
+    "allowSyntheticDefaultImports": true,
+    "composite": true,
+    "resolveJsonModule": true
+  },
+  "exclude": [
+    "node_modules",
+    "build"
+  ],
+  "include": [
+    "types/**/*",
+    "src/**/*",
+    "serve/**/*",
+    "mock/**/*",
+    "./package.json"
+  ]
 }
