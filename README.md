@@ -2,36 +2,18 @@
 	<img width="100%" src="https://github.com/wingscloud/assets/blob/main/packages/assets/logos/banner.svg" />
 </p>
 
-# 项目特点
-
-- 基于 Vue3 生态最新技术栈，集成了 VueUse、Pinia、UnoCss 等；
-
-- 语义化的 Vite 配置目录结构，搭配环境变量实现工程化的开发环境；
-
-- 集成 Eslint 用于语法检测以及代码格式化；
-
-- 提供多种开箱即用的页面模板，包含部门、角色、菜单、工作台等；
-
-- 内置不同布局方式，多种主题色，支持黑暗模式；
-
-- 提供国际化多语言解决方案，自动化的翻译文本导入，菜单注入翻译等；
-
-- 细颗粒度权限控制，适配 90% 以上的中后台业务场景；
-
-- 支持动态路由，菜单动态生成，提供灵活的路由参数、路由守卫；
-
 # 快速上手
 
-1. 您需要提前在本地安装 Node.js，版本建议为 ^14.18.1 及以上。
+1. 您需要提前在本地安装 Node.js，版本建议为 ^14.18.0 || ^16.0.0 。
 
-2. Wings Cloud 项目版本更新时，通过 [Github Release](https://github.com/wingscloud/template-admin/releases) 下载相应版本的源码压缩包。
+2. Wings Cloud 项目版本更新时，通过 [Github Release](https://github.com/wingscloud/ui/releases) 下载相应版本的源码压缩包。
 
 3. 源码下载完成后，通过 npm 安装项目依赖包，您也可以使用 pnpm 或者 yarn。
 	> 如网络不稳定，安装时出错或进度过慢！请移步 cnpm 淘宝镜像进行安装。
 
 4. 该项目提供了基于环境变量的启动命令，你可以在 package.json 中查看。例如，运行 pnpm serve 将默认启动本地开发服务。您也可以搭配环境变量使用，如：pnpm serve:stag 即本地启动测试环境的开发服务。
 
-5. 启动完成后，会自动打开浏览器访问 http://localhost:3000 ，如您看到下面的相关页面代表前端项目运行成功。
+5. 启动完成后，会自动打开浏览器访问 http://localhost:8080 ，如您看到下面的相关页面代表前端项目运行成功。
 
 # 源码目录结构
 
@@ -64,19 +46,6 @@
 ```
 
 # 界面展示
-
-<p>
-	<img width="100%" src="https://github.com/wingscloud/assets/blob/main/packages/assets/web/login.png?raw=true" />
-</p>
-
-<p>
-	<img width="100%" src="https://github.com/wingscloud/assets/blob/main/packages/assets/web/workbench.jpg?raw=true" />
-</p>
-
-
-# 参与共建
-
-欢迎提交 PR。
 
 # 开源协议
 

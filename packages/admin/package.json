@@ -71,10 +71,5 @@
     "vite-plugin-svg-icons": "^2.0.1",
     "vite-tsconfig-paths": "^4.0.7",
     "vue-tsc": "^1.2.0"
-  },
-  "eslintConfig": {
-    "extends": [
-      "@kaivanwong"
-    ]
   }
 }
