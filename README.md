@@ -2,6 +2,14 @@
 	<img width="100%" src="https://github.com/wingscloud/assets/blob/main/packages/assets/logos/banner.svg" />
 </p>
 
+# 项目特性
+
+- 集成 Vue、Uniapp、Vite 等最新前端技术栈，支持 Web 端，8 种移动端开发；
+
+- 采用前端应用一体化开发思想，集成 Vite 作为开发工具链；
+
+- 基于 Monorepo 模式的工程化，集成 Eslint 用于语法检测以及代码格式化； 
+
 # 快速上手
 
 1. 您需要提前在本地安装 Node.js，版本建议为 ^14.18.0 || ^16.0.0 。

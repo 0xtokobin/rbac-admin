@@ -1,8 +1,8 @@
 {
-  "name": "@wingscloud/ui-monorepo",
+  "name": "@wingscloud/front-end",
   "version": "0.0.0",
   "private": true,
-  "description": "✈️ 基于 Vue 和 Uniapp 生态，通用的中后台权限管理系统 / OA 移动端应用程序。【↥ ↥ ↥ 点击 Star 关注更新】",
+  "description": "✈️ 基于 Vue + Uniapp + Vite ，支持中后台 RBAC 应用及移动 OA 应用的前端系统。【↥ ↥ ↥ 点击 Star 关注更新】",
   "author": "Kaivan Wong <kaivanwong@outlook.com>",
   "license": "Apache 2.0",
   "homepage": "https://github.com/wingscloud/ui#readme",
