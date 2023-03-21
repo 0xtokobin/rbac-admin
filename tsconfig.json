@@ -1,0 +1,27 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    "types": [
+      "node",
+      "@dcloudio/types"
+    ],
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "composite": true,
+    "resolveJsonModule": true
+  },
+  "exclude": [
+    "node_modules",
+    "build",
+    "dist"
+  ],
+  "include": [
+    "packages/**/*",
+    "./package.json"
+  ]
+}

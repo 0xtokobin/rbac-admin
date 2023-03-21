@@ -19,7 +19,8 @@
   },
   "devDependencies": {
     "@kaivanwong/eslint-config": "^0.13.14",
-    "eslint": "^8.36.0"
+    "eslint": "^8.36.0",
+    "typescript": "^4.9.5"
   },
   "eslintConfig": {
     "extends": "@kaivanwong"
