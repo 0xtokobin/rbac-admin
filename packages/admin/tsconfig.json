@@ -27,6 +27,6 @@
     "src/**/*",
     "serve/**/*",
     "mock/**/*",
-    "./package.json"
+    "package.json"
   ]
 }
