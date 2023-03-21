@@ -18,12 +18,6 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "",
-    "dev:stag": "",
-    "dev:prod": "",
-    "build": "",
-    "build:dev": "",
-    "build:stag": "",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
