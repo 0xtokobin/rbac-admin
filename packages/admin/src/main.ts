@@ -15,17 +15,21 @@ import 'element-plus/theme-chalk/src/notification.scss'
 import '@/assets/style/index.scss'
 import 'uno.css'
 
-const app = createApp(App)
+export const bootstrap = () => {
+  const app = createApp(App)
 
-app
-  .use(i18n)
-  .use(createPinia())
-  .use(router)
-  .use(ElementPlus)
-  .use(Particles)
-  .use(VueDOMPurifyHTML)
-  .mount('#app', true)
+  app
+    .use(i18n)
+    .use(createPinia())
+    .use(router)
+    .use(ElementPlus)
+    .use(Particles)
+    .use(VueDOMPurifyHTML)
+    .mount('#app', true)
 
-registerMock()
+  registerMock()
 
-installComponents(app, ElementPlusIconsVue)
+  installComponents(app, ElementPlusIconsVue)
+}
+
+bootstrap()
