@@ -5,13 +5,13 @@
   "description": "✈️ 基于 Vue + Uniapp + Vite ，支持中后台 RBAC 应用及移动 OA 应用的前端系统。【↥ ↥ ↥ 点击 Star 关注更新】",
   "author": "Kaivan Wong <kaivanwong@outlook.com>",
   "license": "Apache 2.0",
-  "homepage": "https://github.com/wingscloud/ui#readme",
+  "homepage": "https://github.com/wingscloud/front-end#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wingscloud/ui.git"
+    "url": "git+https://github.com/wingscloud/front-end.git"
   },
   "bugs": {
-    "url": "https://github.com/wingscloud/ui/issues"
+    "url": "https://github.com/wingscloud/front-end/issues"
   },
   "scripts": {
     "serve-app": "uni -p app --config ./serve/index.ts",
