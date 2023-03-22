@@ -1,0 +1,53 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "target": "ESNext",
+    "paths": {
+      "@app/admin/*": [
+        "./app/admin/src/*"
+      ],
+      "@app/oa/*": [
+        "./app/oa/src/*"
+      ],
+      "@libs/common/*": [
+        "./libs/common/src/*"
+      ],
+      "@libs/language/*": [
+        "./libs/language/src/*"
+      ],
+      "@libs/mock/*": [
+        "./libs/mock/src/*"
+      ],
+      "#/*": [
+        "./types/*"
+      ],
+      "#app/admin/*": [
+        "./app/admin/types/*"
+      ],
+      "#app/oa/*": [
+        "./app/oa/types/*"
+      ],
+      "#libs/common/*": [
+        "./libs/common/types/*"
+      ],
+      "#libs/language/*": [
+        "./libs/language/types/*"
+      ],
+      "#libs/mock/*": [
+        "./libs/mock/types/*"
+      ]
+    },
+    "typeRoots": [
+      "./types"
+    ],
+    "types": [
+      "node"
+    ],
+    "allowSyntheticDefaultImports": true,
+    "composite": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "name": "Wings Cloud",
+  "description": "JS / TS based, lightweight, flexible and extensible full-stack application solution",
+  "copyright": "Copyright © 2022-PRESENT Kaivan Wong",
+  "loading": "The resource is loading. Please wait...",
+  "building": "Building...",
+  "termsConditions": "No content yet",
+  "notifications": {
+    "notifications": "Notifications",
+    "readAll": "All Read",
+    "empty": "No notification",
+    "more": "More",
+    "clear": "Empty"
+  },
+  "unknown": {
+    "error": "Unknown error, error message: {message}",
+    "code": "Unknown error occurs, error code: {code}"
+  },
+  "request": {
+    "wrong": "Wrong request",
+    "timeout": "The request timeout",
+    "resource": "Error request, the resource was not found",
+    "method": "Request method not allowed",
+    "http": "The HTTP version does not support this request"
+  },
+  "network": {
+    "implemented": "Network not implemented",
+    "error": "Network error",
+    "timeout": "Network timeout",
+    "connectError": "Network connection error, error code: {code}"
+  },
+  "server": {
+    "error": "Server side error",
+    "down": "Service unavailable",
+    "notConnect": "Unable to connect to the server"
+  },
+  "api": {
+    "error": "Api error",
+    "noParams": "Api interface missing parameters"
+  },
+  "authentication": {
+    "error": "Account error",
+    "loginSuccess": "Login successfully",
+    "logoutSuccess": "Log Out Successfully",
+    "not": "Not authorized, please log in again",
+    "denied": "Access denied",
+    "longer": "You haven't logged in for a long time, please log in again",
+    "overtime": "The login fails, you need to log in again",
+    "bind": "You have not logged in for a long time, please log in to the account again",
+    "inconformity": "The third party platform user cannot be obtained",
+    "noEmployee": "The account is not associated with any employee",
+    "failure": "The account is invalid",
+    "notFound": "Account not found",
+    "password": "Incorrect password, please try again",
+    "sms": "Sms Code Error"
+  },
+  "403": {
+    "btn": "Back",
+    "title": "No permission",
+    "description": "You do not have permission to access this page"
+  },
+  "404": {
+    "btn": "Back to home",
+    "title": "Page Not Found",
+    "description": "The page you are looking for doesn't exist or has been moved"
+  },
+  "login": {
+    "login": "Log In",
+    "keep": "Remember Me",
+    "or": "Or",
+    "normal": "Normal Login",
+    "sms": "SMS Quick Login",
+    "scan": "QR Code Login",
+    "readAndAgree": "「 {label} 」means read and agree",
+    "termsConditions": "Terms & Conditions",
+    "refresh": "Refresh the QR code"
+  },
+  "password": {
+    "reset": "Reset Password",
+    "security": "Security Authentication",
+    "account": "Enter Account No.",
+    "success": "Password reset succeeded",
+    "forget": "Forget Password ?",
+    "back": "Back to Log in"
+  },
+  "avatar": {
+    "personalCenter": "Personal Center",
+    "darkMode": "Dark Mode",
+    "theme": "Theme",
+    "layout": "Layout",
+    "language": "Language",
+    "size": "Size",
+    "navigation": "Navigation",
+    "tab": "Tab",
+    "breadcrumb": "Breadcrumb",
+    "layoutMix": "Mixed Layout",
+    "layoutTop": "Top Layout",
+    "layoutSide": "Side Layout",
+    "layoutDarkSide": "Side Dark Layout",
+    "sizeLarge": "Large",
+    "sizeDefault": "Default",
+    "sizeSmall": "Small",
+    "header": "Header",
+    "side": "Side",
+    "lightColor": "Light Color",
+    "darkColor": "Dark Color",
+    "themeColor": "Theme Color",
+    "avatar": "Avatar",
+    "nickname": "Nickname",
+    "username": "Username",
+    "mobile": "Mobile",
+    "bind": "Bind",
+    "change": "Change",
+    "empty": "Empty",
+    "dept": "Department",
+    "role": "Role",
+    "generalSettings": "General Settings",
+    "personalSettings": "Personal Settings",
+    "uiSettings": "UI Settings"
+  },
+  "tab": {
+    "more": "More",
+    "closeCurrent": "Close the current",
+    "closeOther": "Close the other",
+    "closeAll": "Close all"
+  },
+  "btn": {
+    "save": "Save",
+    "add": "Add",
+    "update": "Update",
+    "delete": "Delete",
+    "export": "Export",
+    "import": "Import",
+    "edit": "Edit",
+    "info": "Info",
+    "detail": "Detail",
+    "query": "Query",
+    "reset": "Reset",
+    "action": "Action",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "clear": "Clear",
+    "close": "Close",
+    "keyword": "Keyword",
+    "choose": "Please Choose",
+    "preview": "Preview",
+    "next": "Next",
+    "submit": "Submit",
+    "copy": "Copy",
+    "upload": "Upload",
+    "logout": "Logout"
+  },
+  "upload": {
+    "success": "Upload Complete",
+    "errortype": "Please upload a file with the correct format!",
+    "errorsize": "The size of the file cannot exceed {size}MB!",
+    "avatarType": "Avatar picture must be JPG or PNG format!",
+    "avatarSize": "Avatar picture size can not exceed 2MB!'"
+  },
+  "placeholder": {
+    "startTime": "Start Time",
+    "endTime": "End Time",
+    "startDate": "Start Date",
+    "endDate": "End Date",
+    "enter": "Please enter the {label}",
+    "enterAgain": "Please enter the {label} again",
+    "select": "Please select the {label}",
+    "selectAgain": "Please select the {label} again",
+    "formatIncorrect": "The {label} format is incorrect",
+    "inconsistent": "The {label} entered twice is inconsistent"
+  },
+  "table": {
+    "no": "No.",
+    "noData": "Empty",
+    "sort": "Sort",
+    "remark": "Remark",
+    "createTime": "Create Time",
+    "updateTime": "Update Time",
+    "actionTime": "Action Time",
+    "uploadTime": "Upload Time"
+  },
+  "mobile": {
+    "mobile": "Mobile Phone",
+    "mobileText": "mobile phone",
+    "code": "Security code",
+    "codeText": "security code",
+    "send": "Send Security Code",
+    "resend": "Send Again",
+    "retrieve": "Retrieve after {time} seconds",
+    "success": "Send Successfully"
+  }
+}

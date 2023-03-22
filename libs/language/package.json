@@ -1,0 +1,22 @@
+{
+  "name": "@wingscloud/front-end-language",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "description": "✈️ 基于 Vue + Uniapp + Vite ，支持中后台 RBAC 应用及移动 OA 应用的前端系统。【↥ ↥ ↥ 点击 Star 关注更新】",
+  "author": "Kaivan Wong <kaivanwong@outlook.com>",
+  "license": "Apache 2.0",
+  "homepage": "https://github.com/wingscloud/front-end#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wingscloud/front-end.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wingscloud/front-end/issues"
+  },
+  "devDependencies": {
+    "@kaivanwong/utils": "^0.3.8",
+    "vite": "^4.1.4",
+    "vue-i18n": "^9.2.2"
+  }
+}
