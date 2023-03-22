@@ -1,13 +1,14 @@
 import { defineStore } from 'pinia'
 import { ElNotification } from 'element-plus'
 import { getStorage, setStorage } from '@libs/common/utils/cache'
-import { CacheKeyEnum, RouteEnum } from '@libs/common/enums/base'
+import { AdminRouteEnum } from '@libs/common/enums/route'
+import { CacheKeyEnum } from '@libs/common/enums/cache'
 import { GET, POST } from '@libs/common/utils/request.axios'
 import { getLoginStorageType } from '@libs/common/utils/base'
+import { router } from '@apps/admin/router'
+import { _t } from '@libs/language/vue-i18n'
 import { useBaseStore } from './use-base-store'
 import type { IObject } from '#/global'
-import { router } from '@/router'
-import { _t } from '@/i18n'
 
 /**
  * @name useUserStore
@@ -109,7 +110,7 @@ export const useUserStore = defineStore('user', () => {
       await getRoles()
       await baseStore.getMenuRoutes()
       router.replace({
-        path: RouteEnum.ROUTE_FIRST,
+        path: AdminRouteEnum.ROUTE_FIRST,
       })
       ElNotification({
         title: _t('base.authentication.loginSuccess'),
@@ -128,7 +129,7 @@ export const useUserStore = defineStore('user', () => {
       type: 'success',
     })
     router.replace({
-      path: RouteEnum.ROUTE_LOGIN,
+      path: AdminRouteEnum.ROUTE_LOGIN,
     })
   }
 

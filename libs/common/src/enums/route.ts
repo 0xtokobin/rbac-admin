@@ -2,7 +2,7 @@
  * @name AdminRouteEnum
  * @description 中后台管理系统路由枚举
  */
-export enum RouteEnum {
+export enum AdminRouteEnum {
   ROUTE_LANDING = '/',
   ROUTE_FIRST = '/home',
   ROUTE_ERROR = '/error',
