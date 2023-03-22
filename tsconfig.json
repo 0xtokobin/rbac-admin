@@ -25,6 +25,7 @@
     "./packages/**/*",
     "./types/**/*",
     "./scripts/**/*",
+    "./index.ts",
     "package.json"
   ]
 }
