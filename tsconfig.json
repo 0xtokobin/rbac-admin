@@ -1,31 +1,12 @@
 {
-  "compilerOptions": {
-    "baseUrl": "./",
-    "lib": [
-      "esnext",
-      "dom"
-    ],
-    "types": [
-      "node"
-    ],
-    "sourceMap": true,
-    "allowSyntheticDefaultImports": true,
-    "composite": true,
-    "resolveJsonModule": true,
-    "typeRoots": [
-      "./types"
-    ]
-  },
+  "extends": "./tsconfig.base.json",
   "exclude": [
     "node_modules",
-    "build",
     "dist"
   ],
   "include": [
-    "./packages/**/*",
-    "./types/**/*",
-    "./scripts/**/*",
-    "./index.ts",
-    "package.json"
+    "./apps/**/*",
+    "./libs/**/*",
+    "./package.json"
   ]
 }
