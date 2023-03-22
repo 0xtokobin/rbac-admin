@@ -1,8 +1,7 @@
 import type { RouteRecordName, RouteRecordRaw, Router } from 'vue-router'
 import { useCloned } from '@vueuse/core'
+import { RouteEnum } from '@libs/common/enums/base'
 import type { Files, IObject, Routes, ViewComponents } from '#/global'
-
-import { RouteEnum } from '@/enum'
 
 /**
  * @name autoImportRoutes

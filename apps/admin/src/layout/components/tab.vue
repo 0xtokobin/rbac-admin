@@ -1,8 +1,8 @@
 <script lang="ts" setup>
+import { useBaseStore } from '@apps/admin/stores/use-base-store'
+import { RouteEnum } from '@libs/common/enums/base'
+import { arrayRecursion } from '@libs/common/utils/base'
 import type { IObject } from '#/global'
-import { RouteEnum } from '@/enum'
-import { useBaseStore } from '@/hooks/stores/use-base-store'
-import { arrayRecursion } from '@/utils/common'
 
 export interface Tab {
   label: IObject

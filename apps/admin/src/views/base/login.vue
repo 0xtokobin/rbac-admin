@@ -1,5 +1,9 @@
 <script lang="ts" setup>
-import pkg from '../../../package.json'
+import { setStorage } from '@libs/common/utils/cache'
+import { useBaseStore } from '@apps/admin/stores/use-base-store'
+import { CacheKeyEnum } from '@libs/common/enums/cache'
+import { GET } from '@libs/common/utils/request.axios'
+import pkg from '../../../../../package.json'
 import loginFormNormal from '@/views/base/components/login-form-normal.vue'
 import loginFormSms from '@/views/base/components/login-form-sms.vue'
 import loginFormScan from '@/views/base/components/login-form-scan.vue'
@@ -7,10 +11,6 @@ import passwordFormValidate from '@/views/base/components/password-form-validate
 import passwordFormReset from '@/views/base/components/password-form-reset.vue'
 import passwordFormResult from '@/views/base/components/password-form-result.vue'
 import type { IObject } from '#/global'
-import { useBaseStore } from '@/hooks/stores/use-base-store'
-import { GET } from '@/utils/request'
-import { StorageKeyEnum } from '@/enum'
-import { setStorage } from '@/utils/storage'
 
 const { t } = useI18n()
 
@@ -50,7 +50,7 @@ const closePassword = () => {
 
 onBeforeMount(async () => {
   const { data: mobileAreaCode } = await GET('/common/mobile/areacode')
-  setStorage(StorageKeyEnum.MOBILE_AREA_CODE, mobileAreaCode)
+  setStorage(CacheKeyEnum.MOBILE_AREA_CODE, mobileAreaCode)
 })
 </script>
 

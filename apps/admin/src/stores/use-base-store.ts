@@ -1,16 +1,16 @@
 import { defineStore } from 'pinia'
 import type { RouteRecordRaw } from 'vue-router'
+import { getStorage } from '@libs/common/utils/cache'
+import { CacheKeyEnum, DarkModeEnum, LanguageEnum, LayoutEnum, SizeEnum, ThemeEnum } from '@libs/common/enums/base'
+import { GET } from '@libs/common/utils/request.axios'
+import { setEpThemeColor } from '@libs/common/utils/base'
 import type { ViewComponents } from '#/global'
-import { DarkModeEnum, LanguageEnum, LayoutEnum, SizeEnum, StorageKeyEnum, ThemeEnum } from '@/enum'
 import {
   autoImportViewComponents,
   registerRouter,
   routerInject,
 } from '@/router/helper'
 import { router } from '@/router'
-import { GET } from '@/utils/request'
-import { getStorage } from '@/utils/storage'
-import { setEpThemeColor } from '@/utils/common'
 
 /**
  * @name useBaseStore
@@ -83,25 +83,25 @@ export const useBaseStore = defineStore('base', () => {
   }
 
   // 当前语言环境
-  const language = ref<string>(getStorage(StorageKeyEnum.PROFILE)?.language || getStorage(StorageKeyEnum.LANGUAGE) || LanguageEnum.ZH_CN_ALIAS)
+  const language = ref<string>(getStorage(CacheKeyEnum.PROFILE)?.language || getStorage(CacheKeyEnum.LANGUAGE) || LanguageEnum.ZH_CN_ALIAS)
 
   // 当前主题颜色
-  const theme = ref<string>(getStorage(StorageKeyEnum.PROFILE)?.theme || ThemeEnum.BLUE)
+  const theme = ref<string>(getStorage(CacheKeyEnum.PROFILE)?.theme || ThemeEnum.BLUE)
 
   // 当前布局
-  const layout = ref<string>(getStorage(StorageKeyEnum.PROFILE)?.layout || LayoutEnum.LAYOUT_MIX)
+  const layout = ref<string>(getStorage(CacheKeyEnum.PROFILE)?.layout || LayoutEnum.LAYOUT_MIX)
 
   // 当前组件大小
-  const size = ref<string>(getStorage(StorageKeyEnum.PROFILE)?.size || SizeEnum.DEFAULT)
+  const size = ref<string>(getStorage(CacheKeyEnum.PROFILE)?.size || SizeEnum.DEFAULT)
 
   // 是否显示标签栏
-  const tab = ref<boolean>(getStorage(StorageKeyEnum.PROFILE)?.tab || true)
+  const tab = ref<boolean>(getStorage(CacheKeyEnum.PROFILE)?.tab || true)
 
   // 是否显示面包屑
-  const breadcrumb = ref<boolean>(getStorage(StorageKeyEnum.PROFILE)?.breadcrumb || true)
+  const breadcrumb = ref<boolean>(getStorage(CacheKeyEnum.PROFILE)?.breadcrumb || true)
 
   // 当前黑暗模式
-  const darkMode = ref<string>(getStorage(StorageKeyEnum.PROFILE)?.darkMode || DarkModeEnum.DARK_MODE_AUTO)
+  const darkMode = ref<string>(getStorage(CacheKeyEnum.PROFILE)?.darkMode || DarkModeEnum.DARK_MODE_AUTO)
 
   // 当前黑暗模式开启状态
   const isDarkMode = ref<boolean>(darkMode.value === DarkModeEnum.DARK_MODE_AUTO ? window.matchMedia('(prefers-color-scheme: dark)').matches : darkMode.value === DarkModeEnum.DARK_MODE_DARK)

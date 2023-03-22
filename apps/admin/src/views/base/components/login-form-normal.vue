@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import type { FormInstance, FormRules } from 'element-plus'
 import { PASSWORD_NORMAL, USERNAME } from '@kaivanwong/utils'
-import { GET, type ResponseData } from '@/utils/request'
-import { useUserStore } from '@/hooks/stores/use-user-store'
+import { useUserStore } from '@apps/admin/stores/use-user-store'
+import { GET, type ResponseData } from '@libs/common/utils/request.axios'
 
 const emit = defineEmits(['password'])
 

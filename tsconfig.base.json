@@ -5,6 +5,9 @@
     "moduleResolution": "node",
     "target": "ESNext",
     "paths": {
+      "@*": [
+        "./*"
+      ],
       "@apps/admin/*": [
         "./apps/admin/src/*"
       ],

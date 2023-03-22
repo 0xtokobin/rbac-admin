@@ -1,14 +1,12 @@
 <script setup lang="ts">
 import type { Engine } from 'tsparticles-engine'
-
 import { loadFull } from 'tsparticles'
 import { parallax } from 'tsparticles-demo-configs'
-
 import { ArrowDown } from '@element-plus/icons-vue'
-import layoutCopyright from '@/layout/components/copyright.vue'
-import { useBaseStore } from '@/hooks/stores/use-base-store'
-import { setStorage } from '@/utils/storage'
-import { StorageKeyEnum } from '@/enum'
+import { setStorage } from '@libs/common/utils/cache'
+import { useBaseStore } from '@apps/admin/stores/use-base-store'
+import { CacheKeyEnum } from '@libs/common/enums/cache'
+import layoutCopyright from '@apps/admin/layout/components/copyright.vue'
 
 const { locale, messages } = useI18n()
 
@@ -19,7 +17,7 @@ const changeLanguage = (
 ) => {
   locale.value = value as string
   baseStore.language = value as string
-  setStorage(StorageKeyEnum.LANGUAGE, value as string)
+  setStorage(CacheKeyEnum.LANGUAGE, value as string)
   location.reload()
 }
 

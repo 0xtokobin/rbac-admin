@@ -1,13 +1,13 @@
 import { defineStore } from 'pinia'
 import { ElNotification } from 'element-plus'
+import { getStorage, setStorage } from '@libs/common/utils/cache'
+import { CacheKeyEnum, RouteEnum } from '@libs/common/enums/base'
+import { GET, POST } from '@libs/common/utils/request.axios'
+import { getLoginStorageType } from '@libs/common/utils/base'
 import { useBaseStore } from './use-base-store'
 import type { IObject } from '#/global'
-import { getStorage, setStorage } from '@/utils/storage'
-import { getLoginStorageType } from '@/utils/common'
-import { RouteEnum, StorageKeyEnum } from '@/enum'
 import { router } from '@/router'
 import { _t } from '@/i18n'
-import { GET, POST } from '@/utils/request'
 
 /**
  * @name useUserStore
@@ -17,26 +17,26 @@ import { GET, POST } from '@/utils/request'
 export const useUserStore = defineStore('user', () => {
   // 保持登录状态标识
   const stayLogin = ref<boolean>(
-    getStorage(StorageKeyEnum.STAY_LOGIN, { type: 'local' }) || false,
+    getStorage(CacheKeyEnum.STAY_LOGIN, { type: 'local' }) || false,
   )
 
   // 令牌
   const token = ref<string | null>(
-    getStorage(StorageKeyEnum.TOKEN, {
+    getStorage(CacheKeyEnum.TOKEN, {
       type: getLoginStorageType(),
     }) || '',
   )
 
   // 用户资料
   const profile = ref<IObject>(
-    getStorage(StorageKeyEnum.PROFILE, {
+    getStorage(CacheKeyEnum.PROFILE, {
       type: getLoginStorageType(),
     }) || {},
   )
 
   // 用户权限
   const roles = ref<Array<string>>(
-    getStorage(StorageKeyEnum.ROLES, {
+    getStorage(CacheKeyEnum.ROLES, {
       type: getLoginStorageType(),
     }) || [],
   )
@@ -47,7 +47,7 @@ export const useUserStore = defineStore('user', () => {
   // 缓存是否保持登录状态
   const setStayLogin = (state: boolean): void => {
     stayLogin.value = state
-    setStorage(StorageKeyEnum.STAY_LOGIN, state, {
+    setStorage(CacheKeyEnum.STAY_LOGIN, state, {
       type: 'local',
     })
   }
@@ -55,13 +55,13 @@ export const useUserStore = defineStore('user', () => {
   // 缓存令牌
   const setToken = (_token: string): void => {
     token.value = _token
-    setStorage(StorageKeyEnum.TOKEN, _token, { type: getLoginStorageType() })
+    setStorage(CacheKeyEnum.TOKEN, _token, { type: getLoginStorageType() })
   }
 
   // 缓存用户资料
   const setProfile = (data: IObject): void => {
     profile.value = data
-    setStorage(StorageKeyEnum.PROFILE, data, {
+    setStorage(CacheKeyEnum.PROFILE, data, {
       type: getLoginStorageType(),
     })
   }
@@ -69,7 +69,7 @@ export const useUserStore = defineStore('user', () => {
   // 缓存系统用户权限
   const setRoles = (data: Array<string>): void => {
     roles.value = data
-    setStorage(StorageKeyEnum.ROLES, data, {
+    setStorage(CacheKeyEnum.ROLES, data, {
       type: getLoginStorageType(),
     })
   }

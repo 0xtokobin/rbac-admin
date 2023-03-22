@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { useUserStore } from '@/hooks/stores/use-user-store'
-import { DarkModeEnum, LayoutEnum, SizeEnum, ThemeEnum } from '@/enum'
-import { useBaseStore } from '@/hooks/stores/use-base-store'
-import { setEpThemeColor } from '@/utils/common'
+import { useUserStore } from '@apps/admin/stores/use-user-store'
+import { useBaseStore } from '@apps/admin/stores/use-base-store'
+import { DarkModeEnum, LayoutEnum, SizeEnum, ThemeEnum } from '@libs/common/enums/base'
+import { setEpThemeColor } from '@libs/common/utils/base'
 import avatar from '@/assets/image/logo-black.png'
 
 const { t, locale, messages } = useI18n()

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { RouteEnum } from '@/enum'
+import { RouteEnum } from '@libs/common/enums/base'
 
 const { t } = useI18n()
 

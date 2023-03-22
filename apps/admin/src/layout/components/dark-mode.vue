@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useBaseStore } from '@/hooks/stores/use-base-store'
+import { useBaseStore } from '@apps/admin/stores/use-base-store'
 
 const baseStore = useBaseStore()
 </script>

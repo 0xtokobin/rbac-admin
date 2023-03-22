@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { ComponentInternalInstance } from 'vue'
-import { useBaseStore } from '@/hooks/stores/use-base-store'
+import { useBaseStore } from '@apps/admin/stores/use-base-store'
 
 const props = defineProps({
   value: {

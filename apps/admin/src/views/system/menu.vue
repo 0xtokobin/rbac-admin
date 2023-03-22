@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { useBaseStore } from '@/hooks/stores/use-base-store'
-import { IconTypeEnum } from '@/enum'
+import { useBaseStore } from '@apps/admin/stores/use-base-store'
+import { IconTypeEnum } from '@libs/common/enums/base'
 
 const { t, locale } = useI18n()
 

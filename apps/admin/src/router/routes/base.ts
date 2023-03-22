@@ -1,4 +1,4 @@
-import { RouteEnum } from '@/enum'
+import { RouteEnum } from '@libs/common/enums/base'
 
 export default [
   {

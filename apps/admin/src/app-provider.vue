@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import type { Language } from 'element-plus/es/locale'
-import { DarkModeEnum, LanguageEnum } from '@/enum'
-import { useBaseStore } from '@/hooks/stores/use-base-store'
-import { useDict } from '@/hooks/use-dict'
-import layoutPage from '@/layout/layout-page.vue'
-import layoutView from '@/layout/layout-view.vue'
-import { setEpThemeColor } from '@/utils/common'
+import { useBaseStore } from '@apps/admin/stores/use-base-store'
+import { DarkModeEnum, LanguageEnum } from '@libs/common/enums/base'
+import layoutPage from '@apps/admin/layout/layout-page.vue'
+import layoutView from '@apps/admin/layout/layout-view.vue'
+import { setEpThemeColor } from '@libs/common/utils/base'
+import { useDict } from '@libs/common/hooks/use-dict'
 
 const route = useRoute()
 

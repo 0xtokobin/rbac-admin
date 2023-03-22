@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { LayoutEnum, RouteEnum } from '@/enum'
-import { useBaseStore } from '@/hooks/stores/use-base-store'
+import { useBaseStore } from '@apps/admin/stores/use-base-store'
+import { LayoutEnum, RouteEnum } from '@libs/common/enums/base'
 
 const { t } = useI18n()
 

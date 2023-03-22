@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { DArrowLeft, DArrowRight } from '@element-plus/icons-vue'
-import { useBaseStore } from '@/hooks/stores/use-base-store'
+import { useBaseStore } from '@apps/admin/stores/use-base-store'
 
 const baseStore = useBaseStore()
 </script>
