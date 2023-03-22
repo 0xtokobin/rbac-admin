@@ -1,5 +1,5 @@
 {
-  "name": "@wingscloud/front-end-core",
+  "name": "@wingscloud/front-end-common",
   "version": "0.0.0",
   "private": true,
   "description": "✈️ 基于 Vue + Uniapp + Vite ，支持中后台 RBAC 应用及移动 OA 应用的前端系统。【↥ ↥ ↥ 点击 Star 关注更新】",
