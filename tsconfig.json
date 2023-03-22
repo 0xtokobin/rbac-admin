@@ -11,7 +11,10 @@
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "composite": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "typeRoots": [
+      "./types"
+    ]
   },
   "exclude": [
     "node_modules",
@@ -19,8 +22,9 @@
     "dist"
   ],
   "include": [
-    "packages/**/*",
-    "scripts/**/*",
-    "./package.json"
+    "./packages/**/*",
+    "./types/**/*",
+    "./scripts/**/*",
+    "package.json"
   ]
 }
