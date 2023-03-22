@@ -5,11 +5,11 @@
     "moduleResolution": "node",
     "target": "ESNext",
     "paths": {
-      "@app/admin/*": [
-        "./app/admin/src/*"
+      "@apps/admin/*": [
+        "./apps/admin/src/*"
       ],
-      "@app/oa/*": [
-        "./app/oa/src/*"
+      "@apps/oa/*": [
+        "./apps/oa/src/*"
       ],
       "@libs/common/*": [
         "./libs/common/src/*"
@@ -23,11 +23,11 @@
       "#/*": [
         "./types/*"
       ],
-      "#app/admin/*": [
-        "./app/admin/types/*"
+      "#apps/admin/*": [
+        "./apps/admin/types/*"
       ],
-      "#app/oa/*": [
-        "./app/oa/types/*"
+      "#apps/oa/*": [
+        "./apps/oa/types/*"
       ],
       "#libs/common/*": [
         "./libs/common/types/*"
