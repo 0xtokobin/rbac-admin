@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { RouteEnum } from '@libs/common/enums/base'
+import { AdminRouteEnum } from '@libs/common/enums/route'
 
 const { t } = useI18n()
 
@@ -22,7 +22,7 @@ const router = useRouter()
     <div text-center>
       <el-button
         important="h-12 p-x-6 text-4 font-600" type="primary"
-        @click="!route.params.type ? router.replace({ path: RouteEnum.ROUTE_LANDING }) : router.go(-1)"
+        @click="!route.params.type ? router.replace({ path: AdminRouteEnum.ROUTE_LANDING }) : router.go(-1)"
       >
         <span v-if="!route.params.type">{{ t('base.404.btn') }}</span>
         <span v-if="route.params.type === '403'">{{ t('base.403.btn') }}</span>

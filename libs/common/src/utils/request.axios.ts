@@ -2,6 +2,7 @@ import type { Axios, AxiosRequestHeaders, AxiosResponse } from 'axios'
 import axios from 'axios'
 import qs from 'qs'
 import { ElNotification } from 'element-plus'
+import { _t } from '@libs/language/vue-i18n'
 import { RequestHeaderEnum } from '../enums/base'
 import { CacheKeyEnum } from '../enums/cache'
 import { getStorage } from './cache'
@@ -15,7 +16,6 @@ import type {
   RequestOptions,
   ResponseData,
 } from '#libs/common/request'
-import { _t } from '@/i18n'
 
 export const addInterceptorsRequest = (
   axios: Axios,

@@ -4,9 +4,9 @@ import { MOBILE } from '@kaivanwong/utils'
 import { getStorage } from '@libs/common/utils/cache'
 import { CacheKeyEnum } from '@libs/common/enums/cache'
 import { POST } from '@libs/common/utils/request.axios'
-import type { MobileForm } from '@/views/base/login'
-import type { IObject } from '#/global'
 import { useCountDown } from '@libs/common/hooks/use-count-down'
+import type { MobileForm } from '@apps/admin/views/base/login'
+import type { IObject } from '#/global'
 
 const emit = defineEmits(['validate'])
 

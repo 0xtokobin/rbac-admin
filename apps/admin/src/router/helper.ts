@@ -29,7 +29,7 @@ export const autoImportRoutes = (files: Files): Routes => {
 export const autoImportViewComponents = (files: Files): ViewComponents => {
   let views: ViewComponents = {}
   Object.keys(files).forEach((key: string) => {
-    const fileName = key.replace('.vue', '').replace('/src/views', '')
+    const fileName = key.replace('.vue', '').replace('@apps/admin/views', '')
     views = {
       ...views,
       [fileName]: files[key] || {},

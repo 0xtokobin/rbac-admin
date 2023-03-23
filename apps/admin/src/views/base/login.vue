@@ -4,12 +4,12 @@ import { useBaseStore } from '@apps/admin/stores/use-base-store'
 import { CacheKeyEnum } from '@libs/common/enums/cache'
 import { GET } from '@libs/common/utils/request.axios'
 import pkg from '../../../../../package.json'
-import loginFormNormal from '@/views/base/components/login-form-normal.vue'
-import loginFormSms from '@/views/base/components/login-form-sms.vue'
-import loginFormScan from '@/views/base/components/login-form-scan.vue'
-import passwordFormValidate from '@/views/base/components/password-form-validate.vue'
-import passwordFormReset from '@/views/base/components/password-form-reset.vue'
-import passwordFormResult from '@/views/base/components/password-form-result.vue'
+import passwordFormResult from './components/password-form-result.vue'
+import passwordFormReset from './components/password-form-reset.vue'
+import passwordFormValidate from './components/password-form-validate.vue'
+import loginFormScan from './components/login-form-scan.vue'
+import loginFormNormal from './components/login-form-normal.vue'
+import loginFormSms from './components/login-form-sms.vue'
 import type { IObject } from '#/global'
 
 const { t } = useI18n()
@@ -60,7 +60,7 @@ onBeforeMount(async () => {
     :style="baseStore.isMobile ? 'margin-top:4vh;padding:0;width:88vw;' : 'margin-top:10vh;padding:1rem 1.5rem;width:20rem;'"
   >
     <div my-4 flex justify-center items-center>
-      <img w-20 h-20 src="@/assets/svg/logo.svg">
+      <img w-20 h-20 src="@libs/common/svgs/logo.svg">
     </div>
     <div mb-12 text-4 font-600 text-center style="color:var(--el-color-primary);">
       <span mr-2>{{ t('base.name') }}</span>

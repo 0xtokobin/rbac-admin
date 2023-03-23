@@ -6,12 +6,14 @@ import type { IObject } from '#/global'
 
 export const useDict = () => {
   const getDictList = async () => {
-    const { data } = await GET('/system/dict/list')
+    const { code, data } = await GET('/system/dict/list')
     let dict = {}
-    data.forEach((item: IObject) => {
-      dict = { [item.key]: item.values, ...dict }
-    })
-    setStorage(CacheKeyEnum.DICT, dict)
+    if (code === 0) {
+      data.forEach((item: IObject) => {
+        dict = { [item.key]: item.values, ...dict }
+      })
+      setStorage(CacheKeyEnum.DICT, dict)
+    }
     return data
   }
 

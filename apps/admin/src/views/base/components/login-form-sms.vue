@@ -8,7 +8,7 @@ import { useCountDown } from '@libs/common/hooks/use-count-down'
 
 const { t } = useI18n()
 
-const mobileAreaCode = getStorage(CacheKeyEnum .MOBILE_AREA_CODE)
+const mobileAreaCode = getStorage(CacheKeyEnum.MOBILE_AREA_CODE)
 
 const countDown = useCountDown()
 
