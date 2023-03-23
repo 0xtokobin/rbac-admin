@@ -42,10 +42,12 @@ export const usePluginOption = (
     ),
     TsconfigPaths(),
     viteMockServe({
-      mockPath: '/libs/mock/src/_mocks/',
+      mockPath: '../libs/mock/src/_mocks/',
       localEnabled: true,
+      prodEnabled: false,
       supportTs: true,
       watchFiles: true,
+      logger: true,
     }),
     createSvgIconsPlugin({
       iconDirs: [resolve(process.cwd(), 'src/assets/svg/')],

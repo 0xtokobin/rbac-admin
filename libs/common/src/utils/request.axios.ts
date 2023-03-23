@@ -87,6 +87,7 @@ export const request = <T>(
   addInterceptorsRequest(_axios, options)
   addInterceptorsResponse(_axios, options)
   return new Promise((resolve) => {
+    console.warn(import.meta.env)
     _axios
       .request({
         baseURL: options.baseURL || import.meta.env.WINGSCLOUD_REQUEST_URL,
