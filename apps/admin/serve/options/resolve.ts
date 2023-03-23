@@ -18,7 +18,6 @@ export const useResolveOptions = ():
       '@libs/mock': resolve(process.cwd(), '../../libs/mock/src'),
       '@apps/admin': resolve(process.cwd(), '../../apps/admin/src'),
       '@apps/oa': resolve(process.cwd(), '../../apps/oa/src'),
-      'vue-i18n': 'vue-i18n/dist/vue-i18n.cjs.js',
     },
     extensions: ['.js', '.ts', '.jsx', '.tsx', '.json', '.vue'],
   }

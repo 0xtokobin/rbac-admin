@@ -3,7 +3,7 @@ import { createI18n } from 'vue-i18n'
 import { getStorage } from '@libs/common/utils/cache'
 import { LanguageEnum } from '@libs/common/enums/base'
 import { CacheKeyEnum } from '@libs/common/enums/cache'
-import { languages, messages } from './messages'
+import { messages } from './messages'
 import type { I18nT } from '#libs/language/type'
 
 const language: any = getStorage(CacheKeyEnum.LANGUAGE) || LanguageEnum.ZH_CN_ALIAS
@@ -23,4 +23,4 @@ const i18n: I18n = createI18n({
 const { t } = i18n.global
 const _t: I18nT = t
 
-export { messages, languages, i18n, _t, language }
+export { i18n, _t, language }

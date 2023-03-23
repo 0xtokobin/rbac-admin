@@ -6,7 +6,7 @@ import { CacheKeyEnum } from '@libs/common/enums/cache'
 import { GET, POST } from '@libs/common/utils/request.axios'
 import { getLoginStorageType } from '@libs/common/utils/base'
 import { router } from '@apps/admin/router'
-import { _t } from '@libs/language/vue-i18n'
+import { _t } from '@libs/language/index'
 import { useBaseStore } from './use-base-store'
 import type { IObject } from '#/global'
 

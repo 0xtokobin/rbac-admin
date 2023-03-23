@@ -1,5 +1,6 @@
 import { FILE_NAME } from '@kaivanwong/utils'
-import type { Files, Languages } from '#libs/language/type'
+import type { Files } from '#/global'
+import type { Languages } from '#libs/language/type'
 
 /**
  * @name autoImportLanguages
