@@ -12,8 +12,8 @@ export const useDict = () => {
       data.forEach((item: IObject) => {
         dict = { [item.key]: item.values, ...dict }
       })
-      setStorage(CacheKeyEnum.DICT, dict)
     }
+    setStorage(CacheKeyEnum.DICT, dict)
     return data
   }
 

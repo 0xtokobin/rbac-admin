@@ -3,6 +3,7 @@ import { setStorage } from '@libs/common/utils/cache'
 import { useBaseStore } from '@apps/admin/stores/use-base-store'
 import { CacheKeyEnum } from '@libs/common/enums/cache'
 import { GET } from '@libs/common/utils/request.axios'
+import { crudDialog } from '@libs/common/index'
 import pkg from '../../../../../package.json'
 import passwordFormResult from './components/password-form-result.vue'
 import passwordFormReset from './components/password-form-reset.vue'
@@ -49,7 +50,11 @@ const closePassword = () => {
 }
 
 onBeforeMount(async () => {
-  const { data: mobileAreaCode } = await GET('/common/mobile/areacode')
+  const { code, data } = await GET('/common/mobile/areacode')
+  let mobileAreaCode = []
+  if (code === 0)
+    mobileAreaCode = data
+
   setStorage(CacheKeyEnum.MOBILE_AREA_CODE, mobileAreaCode)
 })
 </script>

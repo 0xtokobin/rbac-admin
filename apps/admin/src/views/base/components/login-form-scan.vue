@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { GET } from '@libs/common/utils/request.axios'
-import QRcode from '@/assets/image/qr-code.png'
+import QRcode from '@libs/common/images/qr-code.png'
 
 const { t } = useI18n()
 
