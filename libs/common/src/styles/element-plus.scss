@@ -16,22 +16,12 @@ $--colors: (
   ),
 );
 
-$--border-radius: (
-  'small': 4px,
-  'base': 6px,
-  'round': 20px,
-);
-
 @forward 'element-plus/theme-chalk/src/mixins/config.scss' with (
   $namespace: 'el'
 );
 
 @forward 'element-plus/theme-chalk/src/common/var.scss' with (
   $colors: $--colors,
-  $border-radius: $--border-radius,
-  $card: (
-    'border-radius': 6px,
-  ),
 );
 
 @use './element-plus.dark.scss';
