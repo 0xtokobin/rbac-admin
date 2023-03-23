@@ -1,10 +1,10 @@
-import { RouteEnum } from '@libs/common/enums/base'
+import { AdminRouteEnum } from '@libs/common/enums/route'
 
 export default [
   {
     path: '/',
     name: 'index',
-    redirect: RouteEnum.ROUTE_LOGIN,
+    redirect: AdminRouteEnum.ROUTE_LOGIN,
   },
   {
     path: '/error',

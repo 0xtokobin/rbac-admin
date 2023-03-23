@@ -7,9 +7,10 @@ import { useNProgress } from '@vueuse/integrations/useNProgress'
 import { getStorage } from '@libs/common/utils/cache'
 import { useBaseStore } from '@apps/admin/stores/use-base-store'
 import { useUserStore } from '@apps/admin/stores/use-user-store'
-import { CacheKeyEnum, RouteEnum } from '@libs/common/enums/base'
+import { CacheKeyEnum } from '@libs/common/enums/cache'
+import { AdminRouteEnum } from '@libs/common/enums/route'
 import { getLoginStorageType } from '@libs/common/utils/base'
-import '@/assets/style/nprogress.scss'
+import '@libs/common/styles/nprogress.scss'
 
 const { isLoading } = useNProgress()
 
@@ -39,17 +40,17 @@ export const addRouterGuard = (router: Router): Router => {
 
       if (requiresAuth && !userStore.isLogin) {
         next({
-          path: RouteEnum.ROUTE_LOGIN,
+          path: AdminRouteEnum.ROUTE_LOGIN,
         })
         return
       }
 
       if (
         userStore.isLogin
-        && to.path === RouteEnum.ROUTE_LOGIN
+        && to.path === AdminRouteEnum.ROUTE_LOGIN
       ) {
         next({
-          path: RouteEnum.ROUTE_FIRST,
+          path: AdminRouteEnum.ROUTE_FIRST,
         })
         return
       }
@@ -68,7 +69,7 @@ export const addRouterGuard = (router: Router): Router => {
 
       if (userStore.isLogin && requiresAuth && !userRoles.includes(to.path)) {
         next({
-          path: RouteEnum.ROUTE_ERROR,
+          path: AdminRouteEnum.ROUTE_ERROR,
           params: { type: '403' },
         })
         return

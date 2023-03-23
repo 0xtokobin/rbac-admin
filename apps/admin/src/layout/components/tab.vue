@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useBaseStore } from '@apps/admin/stores/use-base-store'
-import { RouteEnum } from '@libs/common/enums/base'
+import { AdminRouteEnum } from '@libs/common/enums/route'
 import { arrayRecursion } from '@libs/common/utils/base'
 import type { IObject } from '#/global'
 
@@ -85,7 +85,7 @@ onBeforeMount(() => {
   homeTab.value = arrayRecursion(
     'path',
     baseStore.menuRoutes,
-    RouteEnum.ROUTE_FIRST,
+    AdminRouteEnum.ROUTE_FIRST,
   )
   const { isFind, path } = findTab(route.path)
   if (isFind)

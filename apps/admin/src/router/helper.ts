@@ -1,7 +1,8 @@
 import type { RouteRecordName, RouteRecordRaw, Router } from 'vue-router'
 import { useCloned } from '@vueuse/core'
-import { RouteEnum } from '@libs/common/enums/base'
-import type { Files, IObject, Routes, ViewComponents } from '#/global'
+import { AdminRouteEnum } from '@libs/common/enums/route'
+import type { Files, IObject } from '#/global'
+import type { Routes, ViewComponents } from '#apps/admin/global'
 
 /**
  * @name autoImportRoutes
@@ -15,7 +16,7 @@ export const autoImportRoutes = (files: Files): Routes => {
   })
   _routes.push({
     path: '/:pathMatch(.*)',
-    redirect: RouteEnum.ROUTE_ERROR,
+    redirect: AdminRouteEnum.ROUTE_ERROR,
   })
   return _routes
 }

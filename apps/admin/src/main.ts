@@ -12,7 +12,7 @@ import App from './app.vue'
 import 'virtual:svg-icons-register'
 import 'element-plus/theme-chalk/src/message.scss'
 import 'element-plus/theme-chalk/src/notification.scss'
-import '@/assets/style/index.scss'
+import '@libs/common/styles/index.scss'
 import 'uno.css'
 
 export const bootstrap = () => {

@@ -1,16 +1,17 @@
 import { defineStore } from 'pinia'
 import type { RouteRecordRaw } from 'vue-router'
 import { getStorage } from '@libs/common/utils/cache'
-import { CacheKeyEnum, DarkModeEnum, LanguageEnum, LayoutEnum, SizeEnum, ThemeEnum } from '@libs/common/enums/base'
+import { DarkModeEnum, LanguageEnum, LayoutEnum, SizeEnum, ThemeEnum } from '@libs/common/enums/base'
+import { CacheKeyEnum } from '@libs/common/enums/cache'
 import { GET } from '@libs/common/utils/request.axios'
 import { setEpThemeColor } from '@libs/common/utils/base'
-import type { ViewComponents } from '#/global'
 import {
   autoImportViewComponents,
   registerRouter,
   routerInject,
-} from '@/router/helper'
-import { router } from '@/router'
+} from '@apps/admin/router/helper'
+import { router } from '@apps/admin/router'
+import type { ViewComponents } from '#apps/admin/global'
 
 /**
  * @name useBaseStore
