@@ -8,6 +8,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import ViteCompression from 'vite-plugin-compression'
+import { viteMockServe } from 'vite-plugin-mock'
 import TsconfigPaths from 'vite-tsconfig-paths'
 import EslintPlugin from 'vite-plugin-eslint'
 import Vue from '@vitejs/plugin-vue'
@@ -40,6 +41,12 @@ export const usePluginOption = (
       },
     ),
     TsconfigPaths(),
+    viteMockServe({
+      mockPath: '/libs/mock/src/_mocks/',
+      localEnabled: true,
+      supportTs: true,
+      watchFiles: true,
+    }),
     createSvgIconsPlugin({
       iconDirs: [resolve(process.cwd(), 'src/assets/svg/')],
       symbolId: 'icon-[dir]-[name]',

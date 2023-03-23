@@ -6,7 +6,7 @@ export const serverProxy = (
   let proxy: Record<string, string | ProxyOptions> | undefined = {}
   if (env.VITE_MODE === 'development') {
     proxy = {
-      '/admin': {
+      '/': {
         target: '/',
       },
     }

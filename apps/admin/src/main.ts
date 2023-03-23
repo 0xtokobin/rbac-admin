@@ -4,7 +4,6 @@ import Particles from 'vue3-particles'
 import VueDOMPurifyHTML from 'vue-dompurify-html'
 import ElementPlus from 'element-plus'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
-import { registerMock } from '@libs/mock/mockjs'
 import { i18n } from '@libs/language/index'
 import { installComponents } from '@libs/common/utils/base'
 import { router } from '@apps/admin/router'
@@ -16,7 +15,7 @@ import '@libs/common/styles/reset.scss'
 import '@libs/common/styles/common.scss'
 import 'uno.css'
 
-registerMock()
+// registerMock()
 
 const app = createApp(App)
 
