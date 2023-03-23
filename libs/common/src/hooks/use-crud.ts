@@ -1,6 +1,7 @@
 import { GET } from '../utils/request.axios'
 import { mergeValueByKey } from '../utils/base'
-import type { IObject, ResponseData } from '#/global'
+import type { IObject } from '#/global'
+import type { ResponseData } from '#libs/common/request'
 import type {
   Options,
   Pagination,

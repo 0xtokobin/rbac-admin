@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { GET } from '@libs/common/utils/request.axios'
-import QRcode from '@libs/common/images/qr-code.png'
+import { qrCode } from '@libs/common/index'
 
 const { t } = useI18n()
 
@@ -31,7 +31,7 @@ onUnmounted(() => {
 
 <template>
   <div w-full flex flex-wrap items-center justify-center mb-4>
-    <el-image important-w-36 important-h-36 :src="QRcode" />
+    <el-image important-w-36 important-h-36 :src="qrCode" />
     <el-button link w-full m-y-4>
       {{ t('base.login.refresh') }}
     </el-button>

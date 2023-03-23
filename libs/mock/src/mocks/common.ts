@@ -1,6 +1,6 @@
-import { interceptJointData } from '@libs/common'
+import { interceptJointData } from '@libs/common/index'
 import type { IObject } from '#/global'
-import type { ResponseData } from '#libs/mock/type'
+import type { ResponseData } from '#libs/common/request'
 
 export default {
   getMobileSmscode: {

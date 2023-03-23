@@ -31,6 +31,7 @@ const registerMock = (): void => {
         return res
       },
     )
+    console.warn(Mock)
   })
 }
 

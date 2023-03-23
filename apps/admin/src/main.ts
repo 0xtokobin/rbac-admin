@@ -12,24 +12,21 @@ import App from './app.vue'
 import 'virtual:svg-icons-register'
 import 'element-plus/theme-chalk/src/message.scss'
 import 'element-plus/theme-chalk/src/notification.scss'
-import '@libs/common/styles/index.scss'
+import '@libs/common/styles/reset.scss'
+import '@libs/common/styles/common.scss'
 import 'uno.css'
 
-export const bootstrap = () => {
-  const app = createApp(App)
+registerMock()
 
-  app
-    .use(i18n)
-    .use(createPinia())
-    .use(router)
-    .use(ElementPlus)
-    .use(Particles)
-    .use(VueDOMPurifyHTML)
-    .mount('#app', true)
+const app = createApp(App)
 
-  registerMock()
+app
+  .use(i18n)
+  .use(createPinia())
+  .use(router)
+  .use(ElementPlus)
+  .use(Particles)
+  .use(VueDOMPurifyHTML)
+  .mount('#app', true)
 
-  installComponents(app, ElementPlusIconsVue)
-}
-
-bootstrap()
+installComponents(app, ElementPlusIconsVue)
