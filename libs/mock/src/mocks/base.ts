@@ -1,11 +1,13 @@
 import { IconTypeEnum } from '@libs/common/enums/base'
 import { interceptJointData } from '@libs/common/utils/base'
 import { dict } from '@libs/mock/data/dict'
-import type { ResponseData } from '#libs/common/request'
+import { code } from '@libs/mock/data/mobile-code'
+import type { MockMethod } from 'vite-plugin-mock'
 import type { IObject } from '#/global'
+import type { ResponseData } from '#libs/common/request'
 
-export default {
-  systemUserLogin: {
+export default [
+  {
     url: '/system/user/login',
     method: 'post',
     data: 'E7UJ0aubyQm32NWlJ0iNionQkv0Ltn2dVf10',
@@ -29,12 +31,12 @@ export default {
       return res
     },
   },
-  getScanResult: {
+  {
     url: '/system/user/scan',
     method: 'post',
     data: null,
   },
-  getSystemUserProfile: {
+  {
     url: '/system/user/profile',
     method: 'get',
     data: {
@@ -56,7 +58,7 @@ export default {
       breadcrumb: true,
     },
   },
-  systemUserValidate: {
+  {
     url: '/system/user/validate',
     method: 'get',
     data: { validateResult: true },
@@ -72,7 +74,7 @@ export default {
       return res
     },
   },
-  getSystemUserRoute: {
+  {
     url: '/system/menu/list',
     method: 'get',
     data: [
@@ -209,7 +211,7 @@ export default {
       },
     ],
   },
-  getSystemUserRole: {
+  {
     url: '/system/user/roles',
     method: 'get',
     data: [
@@ -224,7 +226,7 @@ export default {
       '/system/log',
     ],
   },
-  getSystemUserNotification: {
+  {
     url: '/system/user/notification',
     method: 'get',
     data: {
@@ -249,7 +251,7 @@ export default {
       total: 2,
     },
   },
-  getSystemRoleList: {
+  {
     url: '/system/role/list',
     method: 'get',
     data: {
@@ -272,7 +274,7 @@ export default {
       total: 2,
     },
   },
-  getSystemUserList: {
+  {
     url: '/system/user/list',
     method: 'get',
     data: {
@@ -292,12 +294,12 @@ export default {
       total: 1,
     },
   },
-  getSystemDictList: {
+  {
     url: '/system/dict/list',
     method: 'get',
     data: dict,
   },
-  getSystemDictPage: {
+  {
     url: '/system/dict/page',
     method: 'get',
     data: {
@@ -305,7 +307,7 @@ export default {
       total: dict.length,
     },
   },
-  getSystemParamList: {
+  {
     url: '/system/param/list',
     method: 'get',
     data: {
@@ -313,7 +315,7 @@ export default {
       total: 0,
     },
   },
-  getSystemLogList: {
+  {
     url: '/system/log/page',
     method: 'get',
     data: {
@@ -336,34 +338,40 @@ export default {
       total: 2,
     },
   },
-  getSystemDeptList: {
+  {
     url: '/system/dept/list',
     method: 'get',
-    data: {
-      list: [
-        {
-          id: 0,
-          name: '总公司',
-          parentName: '',
-          parentId: '',
-          sort: 1,
-          remark: '',
-          children: [
+    response: <T>(data: IObject, res: ResponseData<T>) => {
+      return {
+        code: 0,
+        msg: null,
+        data: {
+          list: [
             {
-              id: 1,
-              name: '分公司',
-              parentName: '总公司',
-              parentId: '0',
+              id: 0,
+              name: '总公司',
+              parentName: '',
+              parentId: '',
               sort: 1,
               remark: '',
+              children: [
+                {
+                  id: 1,
+                  name: '分公司',
+                  parentName: '总公司',
+                  parentId: '0',
+                  sort: 1,
+                  remark: '',
+                },
+              ],
             },
           ],
+          total: 0,
         },
-      ],
-      total: 0,
+      }
     },
   },
-  getSystemFileList: {
+  {
     url: '/system/file/page',
     method: 'get',
     data: {
@@ -371,4 +379,36 @@ export default {
       total: 0,
     },
   },
-}
+  {
+    url: '/common/mobile/smscode',
+    method: 'get',
+    data: '',
+  },
+  {
+    url: '/common/mobile/smscode',
+    method: 'post',
+    data: true,
+    response: <T>(data: IObject, res: ResponseData<T>) => {
+      if (interceptJointData(data.body).code.length !== 6) {
+        return {
+          ...res,
+          code: 10040,
+          msg: null,
+          data: '',
+        }
+      }
+      return res
+    },
+  },
+  {
+    url: '/common/mobile/areacode',
+    method: 'get',
+    response: <T>(data: IObject, res: ResponseData<T>) => {
+      return {
+        code: 0,
+        msg: null,
+        data: code,
+      }
+    },
+  },
+] as MockMethod[]

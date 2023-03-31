@@ -13,7 +13,6 @@
     "url": "https://github.com/wingscloud/front-end/issues"
   },
   "devDependencies": {
-    "mockjs": "^1.1.0",
     "vite": "^4.1.4",
     "vite-plugin-mock": "^2.9.6"
   }

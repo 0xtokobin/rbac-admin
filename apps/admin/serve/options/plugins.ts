@@ -42,7 +42,7 @@ export const usePluginOption = (
     ),
     TsconfigPaths(),
     viteMockServe({
-      mockPath: '../libs/mock/src/_mocks/',
+      mockPath: '../libs/mock/src/mocks/',
       localEnabled: true,
       prodEnabled: false,
       supportTs: true,
