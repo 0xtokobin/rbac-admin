@@ -15,8 +15,8 @@
     "url": "https://github.com/wingscloud/front-end/issues"
   },
   "scripts": {
-    "dev": "pnpm esno ./scripts/dev.ts",
-    "build": "pnpm esno ./scripts/build.ts",
+    "dev": "wsc dev",
+    "build": "wsc build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "release": "bumpp package.json --commit --push --tag"
@@ -46,7 +46,8 @@
     "vite-plugin-mock": "^2.9.6",
     "vite-plugin-svg-icons": "^2.0.1",
     "vite-tsconfig-paths": "^4.0.8",
-    "vue-tsc": "^1.2.0"
+    "vue-tsc": "^1.2.0",
+    "wingscloud": "^0.1.0"
   },
   "eslintConfig": {
     "extends": "@kaivanwong"
