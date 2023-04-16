@@ -1,8 +1,6 @@
 {
   "name": "@wingscloud/front-end",
-  "type": "module",
   "version": "0.0.0",
-  "private": true,
   "description": "✈️ 基于 Vue + Uniapp + Vite ，支持中后台管理系统及移动端 OA 应用的前端系统。【↥ ↥ ↥ 点击 Star 关注更新】",
   "author": "Kaivan Wong <kaivanwong@outlook.com>",
   "license": "Apache 2.0",
@@ -15,8 +13,10 @@
     "url": "https://github.com/wingscloud/front-end/issues"
   },
   "scripts": {
-    "dev": "wsc dev",
-    "build": "wsc build",
+    "dev-admin": "wsc dev admin",
+    "dev-oa": "wsc dev oa",
+    "build-admin": "wsc build admin",
+    "build-oa": "wsc build oa",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "release": "bumpp package.json --commit --push --tag"
