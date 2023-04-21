@@ -15,8 +15,6 @@ import '@libs/common/styles/reset.scss'
 import '@libs/common/styles/common.scss'
 import 'uno.css'
 
-// registerMock()
-
 const app = createApp(App)
 
 app
