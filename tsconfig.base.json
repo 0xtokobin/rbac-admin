@@ -5,9 +5,6 @@
     "moduleResolution": "node",
     "target": "ESNext",
     "paths": {
-      "@*": [
-        "./*"
-      ],
       "@apps/admin/*": [
         "./apps/admin/src/*"
       ],
@@ -20,12 +17,6 @@
       "@libs/language/*": [
         "./libs/language/src/*"
       ],
-      "@libs/mock/*": [
-        "./libs/mock/src/*"
-      ],
-      "#/*": [
-        "./types/*"
-      ],
       "#apps/admin/*": [
         "./apps/admin/types/*"
       ],
@@ -37,9 +28,6 @@
       ],
       "#libs/language/*": [
         "./libs/language/types/*"
-      ],
-      "#libs/mock/*": [
-        "./libs/mock/types/*"
       ]
     },
     "typeRoots": [
