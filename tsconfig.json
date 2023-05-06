@@ -5,9 +5,8 @@
     "dist"
   ],
   "include": [
-    "./apps/**/*",
-    "./libs/**/*",
-    "./package.json",
-    "./types/declare.d.ts"
+    "./src/**/*",
+    "./types/**/*",
+    "./package.json"
   ]
 }
