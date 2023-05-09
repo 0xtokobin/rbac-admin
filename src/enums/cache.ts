@@ -1,7 +1,3 @@
-/**
- * @name CacheKeyEnum
- * @description 缓存 Key 枚举
- */
 export enum CacheKeyEnum {
   WINGSCLOUD = 'wingscloud',
   LANGUAGE = 'language',
