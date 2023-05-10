@@ -11,8 +11,8 @@ import { router } from '@/router'
 import 'virtual:svg-icons-register'
 import 'element-plus/theme-chalk/src/message.scss'
 import 'element-plus/theme-chalk/src/notification.scss'
-import '@libs/common/styles/reset.scss'
-import '@libs/common/styles/common.scss'
+import '@/assets/style/reset.scss'
+import '@/assets/style/common.scss'
 import 'uno.css'
 
 const app = createApp(App)
