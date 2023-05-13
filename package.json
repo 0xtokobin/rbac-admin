@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "@element-plus/icons-vue": "^2.1.0",
-    "@kaivanwong/eslint-config": "^0.14.2",
+    "@kaivanwong/eslint-config": "^0.15.0",
     "@types/node": "^18.16.5",
     "@vitejs/plugin-basic-ssl": "^1.0.1",
     "@vitejs/plugin-vue": "^4.2.1",

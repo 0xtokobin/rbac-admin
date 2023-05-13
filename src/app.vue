@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useBaseStore } from '@/store/use-base-store'
+import { useBaseStore } from '@/store/base'
 import provider from './app-provider.vue'
 
 const { t } = useI18n()

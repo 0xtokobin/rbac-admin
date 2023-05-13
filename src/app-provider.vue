@@ -68,14 +68,12 @@ watch(
     document.documentElement.classList.add(newVal ? DarkModeEnum.DARK_MODE_DARK : DarkModeEnum.DARK_MODE_LIGHT)
     baseStore.isDarkMode = newVal
   },
-),
+)
 </script>
 
 <template>
-  <el-config-provider
-    :locale="epMessages" :button="{ autoInsertSpace: true }" :message="{ max: 3 }"
-    :size="baseStore.size"
-  >
+  <el-config-provider :locale="epMessages" :button="{ autoInsertSpace: true }" :message="{ max: 3 }"
+    :size="baseStore.size">
     <layout-page v-if="route.meta?.layout === '' || route.meta?.layout === 'page'">
       <template #router-view>
         <slot name="app" />
