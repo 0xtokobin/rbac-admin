@@ -10,7 +10,7 @@ import { useUserStore } from '@/store/user'
 import { CacheKeyEnum } from '@/enums/cache'
 import { AdminRouteEnum } from '@/enums/route'
 import { getLoginStorageType } from '@/utils/base'
-import '@libs/common/styles/nprogress.scss'
+import '@/assets/style/nprogress.scss'
 
 const { isLoading } = useNProgress()
 

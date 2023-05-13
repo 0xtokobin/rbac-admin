@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { GET } from '@/utils/request.axios'
-import { qrCode } from '@libs/common/index'
+import { GET } from '@/utils/request'
+import qrCode from '@/assets/image/qr-code.png'
 
 const { t } = useI18n()
 
@@ -26,7 +26,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   clearTimer()
-})
+}),
 </script>
 
 <template>
