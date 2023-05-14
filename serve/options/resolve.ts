@@ -13,6 +13,8 @@ export const useResolveOptions = ():
   | undefined = {
     alias: {
       '@': resolve(process.cwd(), 'src'),
+      'vue-i18n': 'vue-i18n/dist/vue-i18n.cjs.js',
+    },
     extensions: ['.js', '.ts', '.jsx', '.tsx', '.json', '.vue'],
   }
   return resolveOptions

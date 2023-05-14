@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { FormInstance, FormRules } from 'element-plus'
 import { PASSWORD_NORMAL } from '@kaivanwong/utils'
-import type { PasswordForm } from '@apps/admin/views/base/login'
+import type { PasswordForm } from '@/views/base/login'
 import type { IObject } from '#/global'
 
 const emit = defineEmits(['reset'])

@@ -6,7 +6,6 @@ import { ArrowDown } from '@element-plus/icons-vue'
 import { CacheKeyEnum } from '@/enums/cache'
 import { setStorage } from '@/utils/cache'
 import { useBaseStore } from '@/store/base'
-import layoutCopyright from '@apps/admin/layout/components/copyright.vue'
 
 const { locale, messages } = useI18n()
 
@@ -67,7 +66,7 @@ const options = computed(() => {
 const particlesInit = async (engine: Engine) => {
   await loadFull(engine)
 }
-
+</script>
 
 <template>
   <Particles id="tsparticles" :options="options" :particles-init="particlesInit" />
@@ -75,27 +74,19 @@ const particlesInit = async (engine: Engine) => {
     <el-header w-full flex items-center justify-end>
       <el-dropdown @command="changeLanguage">
         <div h-full cursor-pointer flex items-center>
-          <span mr-2>{{ messages[locale].name }}</span>
+          <span mr-2> {{ messages[locale].name }}</span>
           <el-icon>
             <ArrowDown />
           </el-icon>
         </div>
         <template #dropdown>
-          <el-dropdown-menu>
-            <el-dropdown-item v-for="(value, key) in messages" :key="key" :command="key">
-              {{ value.</script>name }}
-            </el-dropdown-item>
-          </el-dropdown-menu>
+          <el-dropdown-menu-menu>
+            <el-dropdown v-for="(value, key) in messages" :key="key" :command="key">
+              {{ value.name }}
+            </el-dropdown>
+          </el-dropdown-menu-menu>
         </template>
       </el-dropdown>
     </el-header>
-    <el-scrollbar>
-      <el-main>
-        <slot name="router-view" />
-      </el-main>
-    </el-scrollbar>
-    <el-footer flex items-center justify-center>
-      <layout-copyright color="#A3A6AD" />
-    </el-footer>
   </el-container>
 </template>

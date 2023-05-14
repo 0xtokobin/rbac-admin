@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useBaseStore } from '@/store/base'
 import provider from './app-provider.vue'
+import { useBaseStore } from '@/store/base'
 
 const { t } = useI18n()
 
@@ -29,9 +29,11 @@ provide('reloadView', { reload: reloadView })
             </keep-alive>
           </transition>
           <template #fallback>
-            <div v-loading="true" class="global-loading" fixed top-0 left-0 z-9999 w-screen h-screen
+            <div
+              v-loading="true" class="global-loading" fixed top-0 left-0 z-9999 w-screen h-screen
               :element-loading-fullscreen="true" :element-loading-lock="true" :element-loading-text="t('base.loading')"
-              element-loading-background="rgba(0, 0, 0, 0.8)" />
+              element-loading-background="rgba(0, 0, 0, 0.8)"
+            />
           </template>
         </Suspense>
       </router-view>

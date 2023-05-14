@@ -5,7 +5,7 @@ import { getStorage } from '@/utils/cache'
 import { CacheKeyEnum } from '@/enums/cache'
 import { POST } from '@/utils/request'
 import { useCountDown } from '@/hooks/use-count-down'
-import type { MobileForm } from '@apps/admin/views/base/login'
+import type { MobileForm } from '@/views/base/login'
 import type { IObject } from '#/global'
 
 const emit = defineEmits(['validate'])

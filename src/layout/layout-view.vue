@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import { useBaseStore } from '@/store/base'
-import { LayoutEnum } from '@/enums/base'
 import layoutTab from '@apps/admin/layout/components/tab.vue'
 import layoutBreadcrumb from '@apps/admin/layout/components/breadcrumb.vue'
 import layoutCopyright from '@apps/admin/layout/components/copyright.vue'
@@ -12,13 +10,18 @@ import layoutDarkMode from '@apps/admin/layout/components/dark-mode.vue'
 import layoutRefresh from '@apps/admin/layout/components/refresh.vue'
 import layoutNotification from '@apps/admin/layout/components/notification.vue'
 import layoutAvatar from '@apps/admin/layout/components/avatar.vue'
+import { LayoutEnum } from '@/enums/base'
+import { useBaseStore } from '@/store/base'
 
 const baseStore = useBaseStore()
 </script>
 
 <template>
   <el-container w-screen h-screen>
-    <el-aside v-if="!baseStore.isMobile" w-auto :class="baseStore.layout !== LayoutEnum.LAYOUT_SIDE ? 'important-border-0' : ''">
+    <el-aside
+      v-if="!baseStore.isMobile" w-auto
+      :class="baseStore.layout !== LayoutEnum.LAYOUT_SIDE ? 'important-border-0' : ''"
+    >
       <layout-logo v-if="baseStore.layout === LayoutEnum.LAYOUT_SIDE" h-26 flex-initial />
       <layout-menu v-if="baseStore.layout === LayoutEnum.LAYOUT_SIDE" flex-auto overflow-auto />
       <layout-collapse v-if="baseStore.layout === LayoutEnum.LAYOUT_SIDE" />
@@ -29,10 +32,7 @@ const baseStore = useBaseStore()
           v-if="baseStore.isMobile" size="26" name="app" cursor-pointer
           @click="baseStore.mobileMenu = !baseStore.mobileMenu"
         />
-        <layout-logo
-          v-if="
-            !baseStore.isMobile && baseStore.layout !== LayoutEnum.LAYOUT_SIDE" mr="20px"
-        />
+        <layout-logo v-if="!baseStore.isMobile && baseStore.layout !== LayoutEnum.LAYOUT_SIDE" mr="20px" />
         <layout-menu v-if="!baseStore.isMobile && baseStore.layout === LayoutEnum.LAYOUT_TOP" flex-1 />
         <div v-else flex-1 />
         <div w-46 flex justify-between items-center style="height: var(--el-header-height);">

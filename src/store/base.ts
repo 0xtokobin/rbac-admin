@@ -60,7 +60,7 @@ export const useBaseStore = defineStore('base', () => {
   const getMenuRoutes = async (): Promise<Array<RouteRecordRaw>> => {
     const { data } = await GET('/system/menu/list')
     const viewComponents: ViewComponents = autoImportViewComponents(
-      import.meta.glob('@apps/admin/views/**/*.vue'),
+      import.meta.glob('@/views/**/*.vue'),
     )
     const menu: Array<RouteRecordRaw> = routerInject(data, viewComponents)
     setMenuRoutes(menu)
