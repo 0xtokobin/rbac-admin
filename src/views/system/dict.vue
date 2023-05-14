@@ -9,14 +9,14 @@ const { getDict, getDictItem } = useDict()
 
 const { queryForm, tableData, query, reset } = useCrud({
   queryUrl: '/system/dict/list',
-}),
-
+})
+</script>
 
 <template>
   <crud-card>
     <crud-table-query>
       <el-form-item :model="queryForm" @query="query" @reset="reset">
-        <el-input v-model="queryForm.</script>name" :placeholder="t('system.dict.dictName')" />
+        <el-input v-model="queryForm.name" :placeholder="t('system.dict.dictName')" />
       </el-form-item>
       <el-form-item>
         <el-select v-model="queryForm.type" clearable :placeholder="t('system.dict.dictType')">

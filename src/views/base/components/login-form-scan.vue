@@ -26,7 +26,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   clearTimer()
-}),
+})
 </script>
 
 <template>

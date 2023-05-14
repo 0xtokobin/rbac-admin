@@ -1,7 +1,7 @@
 import type { ComputedRef } from 'vue'
 import { CacheKeyEnum } from '../enums/cache'
-import { GET } from '../../libs/common/src/utils/request.axios'
-import { getStorage, setStorage } from '../../libs/common/src/utils/cache'
+import { GET } from '@/utils/request'
+import { getStorage, setStorage } from '@/utils/cache'
 import type { IObject } from '#/global'
 
 export const useDict = () => {

@@ -6,8 +6,8 @@ const { t } = useI18n()
 
 const { tableData } = useCrud({
   queryUrl: '/system/file/list',
-}),
-
+})
+</script>
 
 <template>
   <crud-card>
@@ -19,23 +19,11 @@ const { tableData } = useCrud({
       </template>
     </crud-table-query>
     <crud-table :data="tableData">
-      <el-table-column
-        type="index"
-        width="60"
-        :label="t('base.table.no')"
-      />
-      <el-table-column
-        prop="username"
-        :label="t('system.file.fileUrl')"
-        min-width="340"
-      />
-      <el-table-column
-        prop="createTime"
-        :label="t('base.table.uploadTime')"
-        width="240"
-      >
+      <el-table-column type="index" width="60" :label="t('base.table.no')" />
+      <el-table-column prop="username" :label="t('system.file.fileUrl')" min-width="340" />
+      <el-table-column prop="createTime" :label="t('base.table.uploadTime')" width="240">
         <template #default="scope">
-          {{ useDateFormat(scope.</script>row.createTime, 'YYYY-MM-DD HH:mm:ss').value }}
+          {{ useDateFormat(scope.row.createTime, 'YYYY-MM-DD HH:mm:ss').value }}
         </template>
       </el-table-column>
       <el-table-column :label="t('base.btn.action')" fixed="right" width="120">

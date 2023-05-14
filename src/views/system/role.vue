@@ -6,23 +6,14 @@ const { t } = useI18n()
 
 const { queryForm, tableData, query, reset } = useCrud({
   queryUrl: '/system/role/list',
-}),
-
+})
+</script>
 
 <template>
   <crud-card>
-    <crud-table-query
-      :inline="true"
-      :model="queryForm"
-      label-width="120px"
-      @query="query"
-      @reset="reset"
-    >
+    <crud-table-query :inline="true" :model="queryForm" label-width="120px" @query="query" @reset="reset">
       <el-form-item>
-        <el-input
-          v-model="queryForm.</script>roleName"
-          :placeholder="t('system.role.roleName')"
-        />
+        <el-input v-model="queryForm.roleName" :placeholder="t('system.role.roleName')" />
       </el-form-item>
       <template #action>
         <el-button type="primary">
@@ -31,26 +22,10 @@ const { queryForm, tableData, query, reset } = useCrud({
       </template>
     </crud-table-query>
     <crud-table :data="tableData">
-      <el-table-column
-        type="index"
-        width="60"
-        :label="t('base.table.no')"
-      />
-      <el-table-column
-        prop="name"
-        width="240"
-        :label="t('system.role.roleName')"
-      />
-      <el-table-column
-        prop="remark"
-        min-width="340"
-        :label="t('base.table.remark')"
-      />
-      <el-table-column
-        prop="createTime"
-        :label="t('base.table.createTime')"
-        width="240"
-      >
+      <el-table-column type="index" width="60" :label="t('base.table.no')" />
+      <el-table-column prop="name" width="240" :label="t('system.role.roleName')" />
+      <el-table-column prop="remark" min-width="340" :label="t('base.table.remark')" />
+      <el-table-column prop="createTime" :label="t('base.table.createTime')" width="240">
         <template #default="scope">
           {{ useDateFormat(scope.row.createTime, 'YYYY-MM-DD HH:mm:ss').value }}
         </template>
