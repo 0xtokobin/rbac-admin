@@ -42,10 +42,8 @@ npm run serve
 
 <table>
 	<tr>
-		<td><img width="100%" src="https://github.com/wingscloud/docs/blob/main/public/admin/login.png?raw=true" /></td>
-	</tr>
-	<tr>
-		<td><img width="100%" src="https://github.com/wingscloud/docs/blob/main/public/admin/workbench.jpg?raw=true" /></td>
+		<td><img width="100%" src="https://github.com/wingscloud/assets/blob/main/packages/assets/admin/login.png?raw=true" /></td>
+		<td><img width="100%" src="https://github.com/wingscloud/assets/blob/main/packages/assets/admin/workbench.jpg?raw=true" /></td>
 	</tr>
 </table>
 
