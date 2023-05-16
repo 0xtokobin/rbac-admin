@@ -1,8 +1,8 @@
 # Wing Cloud Admin
 
-一个中后台 Web 应用程序，基于 Vue + Vite + Element Plus 开发，提供 RBAC 权限系统。
+✨ 中后台权限管理 Web 应用程序，基于 Vue + Vite + Element Plus 开发。
 
-# 项目特点
+## 特点
 
 - 基于 Vue3、Vite、TypeScript、Element Plus、Pinia 等最新技术栈；
 
@@ -14,7 +14,7 @@
 
 - 支持环境变量文件，提供 dev/stag/prod 三种模式可选，支持按需扩展；
 
-# 开发
+## 快速上手
 
 ```sh
 # 拉取最新项目代码
@@ -38,7 +38,7 @@ pnpm install
 npm run serve
 ```
 
-# 示例
+## 演示
 
 <table>
 	<tr>
@@ -49,6 +49,18 @@ npm run serve
 	</tr>
 </table>
 
-# 开源协议
+## 参与共建
 
-Wings Cloud 相关开源软件遵循 [Apache 2.0 协议](https://www.apache.org/licenses/LICENSE-2.0.html)，允许商业使用，但务必保留 LICENSE 信息。
+1. Fork 该仓库到您的 Github 账号下。
+
+2. Clone Fork 后的仓库到本地。
+
+3. 安装依赖包，Wings Cloud 使用 [pnpm](https://pnpm.io/) 作为默认包管理工具。
+
+4. 项目开发完成后，提交 PR 进行代码合并审核。
+
+## 许可证
+
+软件遵循 [Apache 2.0 协议](https://www.apache.org/licenses/LICENSE-2.0)，在包含 License 情况下免费商业使用。
+
+Wings Cloud 的相关设计资源属 [CC-BY-NC-SA-4.0](https://creativecommons.org/licenses/by-nd/4.0/)，不得用于商业行为。
