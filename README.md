@@ -16,6 +16,8 @@
 
 ## 快速上手
 
+> 访问 [官方网站](https://wingscloud.kaivanwong.me) 了解更多。
+
 ```sh
 # 拉取最新项目代码
 
@@ -49,13 +51,13 @@ npm run serve
 
 ## 参与共建
 
-1. Fork 该仓库到您的 Github 账号下。
+> 访问 [官方网站](https://wingscloud.kaivanwong.me) 了解更多。
 
-2. Clone Fork 后的仓库到本地。
+1. Fork 该仓库到您的 Github 账号下，并 Clone 到本地。
 
-3. 安装依赖包，Wings Cloud 使用 [pnpm](https://pnpm.io/) 作为默认包管理工具。
+2. 安装项目依赖，Wings Cloud 使用 [pnpm](https://pnpm.io/) 作为默认包管理工具。
 
-4. 项目开发完成后，提交 PR 进行代码合并审核。
+3. 项目开发完成后，提交 PR 进行代码合并审核。
 
 ## 许可证
 
