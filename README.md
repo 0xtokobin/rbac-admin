@@ -27,17 +27,17 @@ git clone https://github.com/wingscloud/admin.git
 
 cd admin
 
+# 使用 pnpm 进行依赖安装及管理
+
+npm install pnpm -g
+
 # 安装项目依赖包
 
-npm install
-
-# 建议使用 pnpm 进行依赖安装及管理
-
-pnpm install 
+pnpm install
 
 # 启动本地开发环境
 
-npm run serve
+pnpm serve
 ```
 
 ## 演示
