@@ -1,30 +1,12 @@
 {
-  "name": "@wingscloud/admin",
+  "name": "@wingscloud/rbac-admin",
   "version": "0.0.0",
-  "description": "一个中后台 Web 应用程序，基于 Vue + Vite + Element Plus 开发，提供 RBAC 权限系统。",
-  "author": "Kaivan Wong <kaivanwong@outlook.com>",
-  "license": "Apache 2.0",
-  "homepage": "https://github.com/wingscloud/admin#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wingscloud/admin.git"
-  },
-  "bugs": {
-    "url": "https://github.com/wingscloud/admin/issues"
-  },
   "scripts": {
-    "serve": "vite --config ./serve/index.ts",
-    "serve:dev": "pnpm serve --mode development",
-    "serve:stag": "pnpm serve --mode staging",
-    "serve:prod": "pnpm serve --mode production",
-    "build": "run-p vue-tsc --noEmit vite build --config ./serve/index.ts",
-    "build:dev": "pnpm build --mode development",
-    "build:stag": "pnpm build --mode staging",
-    "build:prod": "pnpm build --mode production",
-    "preview": "run-p vue-tsc --noEmit vite build --config ./serve/index.ts",
-    "preview:dev": "pnpm preview --mode development",
-    "preview:stag": "pnpm preview --mode staging",
-    "preview:prod": "pnpm preview --mode production",
+    "dev": "vite --mode development",
+    "dev:stag": "vite --mode staging",
+    "dev:prod": "vite --mode production",
+    "build": "run-p vue-tsc --noEmit vite build  --mode production",
+    "build:stag": "run-p vue-tsc --noEmit vite build --mode staging",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },

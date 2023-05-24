@@ -1,18 +1,20 @@
-# Wing Cloud Admin
+# Wing Cloud RBAC ADMIN
 
-✨ 中后台权限管理 Web 应用程序，基于 Vue + Vite + Element Plus 开发。
+✨ 轻量级的中后台权限管理 Web 单页面应用，基于 Vue + Vite + Element Plus + TypeScript 开发。
 
 ## 特点
 
-- 基于 Vue3、Vite、TypeScript、Element Plus、Pinia 等最新技术栈；
+- 基于 Vue、Vite、TypeScript、Element Plus、Pinia、VueUse 等最新技术栈；
 
-- 支持国际化多语言、黑暗模式、多主题切换、多布局切换、动态菜单（权限）等功能；
+- 支持国际化多语言、黑暗模式、多主题、多布局、动态菜单等功能；
 
-- 集成登录、仪表台、用户/角色/菜单管理、字典/参数/系统设置等页面模板；
+- 标准、成熟的 UI 设计，适配 H5 / PC 双端；
 
-- 提供路由注入、国际化注入、网络请求、缓存、自动导入等工具函数；
+- 集成登录、仪表台、权限管理（用户、角色）、系统管理（字典、菜单）等页面模板；
 
-- 支持环境变量文件，提供 dev/stag/prod 三种模式可选，支持按需扩展；
+- 提供路由注入、国际化注入、网络请求、缓存、权限验证等工具函数；
+
+- 工程化开发，提供 Eslint 格式化及校验，基于 Vite 的环境变量、自动导入、服务代理等；
 
 ## 快速上手
 
