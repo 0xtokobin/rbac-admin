@@ -17,10 +17,8 @@ import type {
   ResponseData,
 } from '#/request'
 
-export const addInterceptorsRequest = (
-  axios: Axios,
-  options: RequestOptions,
-): number => {
+export function addInterceptorsRequest(axios: Axios,
+  options: RequestOptions): number {
   return axios.interceptors.request.use((config) => {
     if (options.isTime)
       config.params[RequestHeaderEnum.HEADER_TIME] = new Date().getTime()
@@ -44,10 +42,8 @@ export const addInterceptorsRequest = (
   })
 }
 
-export const addInterceptorsResponse = (
-  axios: Axios,
-  options: RequestOptions,
-): number => {
+export function addInterceptorsResponse(axios: Axios,
+  options: RequestOptions): number {
   return axios.interceptors.response.use((response) => {
     if (options.networkCodeAdaptor) {
       networkCodeAdaptor(response.status, _t, ({ message }) => {
@@ -80,9 +76,7 @@ export const addInterceptorsResponse = (
   })
 }
 
-export const request = <T>(
-  options: RequestOptions,
-): Promise<any | ResponseData<T> | undefined> => {
+export function request<T>(options: RequestOptions): Promise<any | ResponseData<T> | undefined> {
   const _axios: Axios = axios.create()
   addInterceptorsRequest(_axios, options)
   addInterceptorsResponse(_axios, options)
@@ -114,11 +108,9 @@ export const request = <T>(
   })
 }
 
-export const GET = <T>(
-  url: string,
+export function GET<T>(url: string,
   params?: any,
-  options?: RequestOptions,
-): Promise<any | ResponseData<T> | undefined> => {
+  options?: RequestOptions): Promise<any | ResponseData<T> | undefined> {
   return request({
     url,
     method: 'GET',
@@ -134,11 +126,9 @@ export const GET = <T>(
   })
 }
 
-export const POST = <T>(
-  url: string,
+export function POST<T>(url: string,
   data?: any,
-  options?: RequestOptions,
-): Promise<any | ResponseData<T> | undefined> => {
+  options?: RequestOptions): Promise<any | ResponseData<T> | undefined> {
   return request({
     url,
     method: 'POST',
@@ -154,11 +144,9 @@ export const POST = <T>(
   })
 }
 
-export const PUT = <T>(
-  url: string,
+export function PUT<T>(url: string,
   data?: any,
-  options?: RequestOptions,
-): Promise<any | ResponseData<T> | undefined> => {
+  options?: RequestOptions): Promise<any | ResponseData<T> | undefined> {
   return request({
     url,
     method: 'PUT',
@@ -174,11 +162,9 @@ export const PUT = <T>(
   })
 }
 
-export const DELETE = <T>(
-  url: string,
+export function DELETE<T>(url: string,
   params?: any,
-  options?: RequestOptions,
-): Promise<any | ResponseData<T> | undefined> => {
+  options?: RequestOptions): Promise<any | ResponseData<T> | undefined> {
   return request({
     url,
     method: 'DELETE',
@@ -194,11 +180,9 @@ export const DELETE = <T>(
   })
 }
 
-export const UPLOAD = <T>(
-  url: string,
+export function UPLOAD<T>(url: string,
   data?: any,
-  options?: RequestOptions,
-): Promise<any | ResponseData<T> | undefined> => {
+  options?: RequestOptions): Promise<any | ResponseData<T> | undefined> {
   return request({
     url,
     method: 'POST',
@@ -214,11 +198,9 @@ export const UPLOAD = <T>(
   })
 }
 
-export const DOWNLOAD = <T>(
-  url: string,
+export function DOWNLOAD<T>(url: string,
   params?: IObject,
-  options?: RequestOptions,
-): Promise<any | ResponseData<T> | undefined> => {
+  options?: RequestOptions): Promise<any | ResponseData<T> | undefined> {
   return request({
     url,
     method: 'GET',

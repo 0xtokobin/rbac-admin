@@ -23,7 +23,7 @@ const epMessages = computed(() => {
   ] as Language
 })
 
-const changeBrowserTitle = () => {
+function changeBrowserTitle() {
   if (route.meta.i18n)
     document.title = `${route.meta.i18n[locale.value]} - ${t('base.name')}`
 

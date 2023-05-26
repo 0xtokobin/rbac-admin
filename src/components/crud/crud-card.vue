@@ -36,11 +36,11 @@ const { t } = useI18n()
 
 const route = useRoute()
 
-const submit = () => {
+function submit() {
   emit('submit', null)
 }
 
-const cancel = () => {
+function cancel() {
   emit('cancel', null)
 }
 </script>

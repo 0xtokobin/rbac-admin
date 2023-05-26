@@ -6,10 +6,10 @@
     "target": "ESNext",
     "paths": {
       "@/*": [
-        "./src/*"
+        "src/*"
       ],
       "#/*": [
-        "./types/*"
+        "types/*"
       ]
     },
     "typeRoots": [
@@ -29,8 +29,8 @@
     "dist"
   ],
   "include": [
-    "./apps/**/*",
-    "./libs/**/*",
+    "./src/**/*",
+    "./types/**/*",
     "./package.json"
   ]
 }

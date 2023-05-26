@@ -25,7 +25,7 @@ const form = ref<Form>({
   type: 0,
 })
 
-const validateUsername = (rule: any, value: string, callback: any) => {
+function validateUsername(rule: any, value: string, callback: any) {
   if (value && !USERNAME.test(value)) {
     callback(
       new Error(
@@ -74,7 +74,7 @@ const formRules = reactive<FormRules>({
   ],
 })
 
-const password = (): void => {
+function password(): void {
   emit('password')
 }
 
@@ -82,7 +82,7 @@ const loading = ref<boolean>(false)
 
 const userStore = useUserStore()
 
-const login = async (formEl: FormInstance | undefined): Promise<void> => {
+async function login(formEl: FormInstance | undefined): Promise<void> {
   if (!formEl)
     return
   await formEl.validate(async (valid: boolean) => {

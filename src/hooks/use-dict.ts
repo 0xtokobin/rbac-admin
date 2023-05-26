@@ -4,7 +4,7 @@ import { GET } from '@/utils/request'
 import { getStorage, setStorage } from '@/utils/cache'
 import type { IObject } from '#/global'
 
-export const useDict = () => {
+export function useDict() {
   const getDictList = async () => {
     const { code, data } = await GET('/system/dict/list')
     let dict = {}

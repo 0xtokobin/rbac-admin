@@ -3,7 +3,7 @@ import { GET } from '@/utils/request'
 import type { Callback } from '#/global'
 import type { CountDownForm } from '#libs/common/count-down'
 
-export const useCountDown = () => {
+export function useCountDown() {
   const { t } = useI18n()
 
   const countDownForm = reactive<CountDownForm>({

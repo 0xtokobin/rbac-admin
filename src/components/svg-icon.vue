@@ -20,14 +20,14 @@ const props = defineProps({
 
 const symbolId = computed(
   () => `#${props.prefix}-${props.name.replace('icon-', '')}`,
-),
-
+)
+</script>
 
 <template>
   <el-icon v-bind="$attrs">
     <svg v-if="props.name" aria-hidden="true">
       <use :xlink:href="symbolId" />
     </svg>
-    <component :is="props.</script>component" v-else />
+    <component :is="props.component" v-else />
   </el-icon>
 </template>

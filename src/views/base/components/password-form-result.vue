@@ -3,7 +3,7 @@ const emit = defineEmits(['back'])
 
 const { t } = useI18n()
 
-const back = () => {
+function back() {
   emit('back')
 }
 </script>

@@ -1,11 +1,9 @@
 import type { Callback, IObject } from '#/global'
 import type { I18nT } from '#/i18n'
 
-export const networkCodeAdaptor = (
-  code: number,
+export function networkCodeAdaptor(code: number,
   t: I18nT,
-  callback?: Callback,
-): any => {
+  callback?: Callback): any {
   let message = ''
   if (code) {
     switch (code) {
@@ -58,11 +56,9 @@ export const networkCodeAdaptor = (
   return code
 }
 
-export const apiCodeAdaptor = (
-  data: IObject,
+export function apiCodeAdaptor(data: IObject,
   t: I18nT,
-  callback?: Callback,
-): any => {
+  callback?: Callback): any {
   let message = ''
   if (data.code) {
     switch (data.code) {
@@ -83,11 +79,9 @@ export const apiCodeAdaptor = (
   return data.code
 }
 
-export const authCodeAdaptor = (
-  data: IObject,
+export function authCodeAdaptor(data: IObject,
   t: I18nT,
-  callback?: Callback,
-): any => {
+  callback?: Callback): any {
   let message = ''
   if (data.code) {
     switch (data.code) {

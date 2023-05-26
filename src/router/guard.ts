@@ -14,7 +14,7 @@ import '@/assets/style/nprogress.scss'
 
 const { isLoading } = useNProgress()
 
-export const addRouterGuard = (router: Router): Router => {
+export function addRouterGuard(router: Router): Router {
   router.beforeEach(
     async (
       to: RouteLocationNormalized,

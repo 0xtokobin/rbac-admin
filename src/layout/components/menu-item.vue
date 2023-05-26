@@ -2,7 +2,7 @@
 import type { RouteRecordRaw } from 'vue-router'
 import { useBaseStore } from '@/store/base'
 import { IconTypeEnum } from '@/enums/base'
-import layoutMenuItem from '@apps/admin/layout/components/menu-item.vue'
+import layoutMenuItem from '@/layout/components/menu-item.vue'
 
 const props = defineProps({
   routes: {

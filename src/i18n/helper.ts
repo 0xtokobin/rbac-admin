@@ -2,7 +2,7 @@ import { FILE_NAME } from '@kaivanwong/utils'
 import type { Files } from '#/global'
 import type { Languages } from '#/i18n'
 
-export const autoImportLanguages = (files: Files): Languages => {
+export function autoImportLanguages(files: Files): Languages {
   const languages: Languages = {}
   Object.keys(files).forEach((key: string) => {
     const languageAlias = key.split('/')[2]

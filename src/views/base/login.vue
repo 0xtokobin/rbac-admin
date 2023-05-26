@@ -1,10 +1,4 @@
 <script lang="ts" setup>
-import { setStorage } from '@/utils/cache'
-import { useBaseStore } from '@/store/base'
-import { CacheKeyEnum } from '@/enums/cache'
-import { GET } from '@/utils/request'
-import crudDialog from '@/components/crud/crud-dialog.vue'
-import logo from '@/assets/svg/logo.svg'
 import pkg from '../../../package.json'
 import passwordFormResult from './components/password-form-result.vue'
 import passwordFormReset from './components/password-form-reset.vue'
@@ -12,13 +6,19 @@ import passwordFormValidate from './components/password-form-validate.vue'
 import loginFormScan from './components/login-form-scan.vue'
 import loginFormNormal from './components/login-form-normal.vue'
 import loginFormSms from './components/login-form-sms.vue'
+import logo from '@/assets/svg/logo.svg'
+import crudDialog from '@/components/crud/crud-dialog.vue'
+import { GET } from '@/utils/request'
+import { CacheKeyEnum } from '@/enums/cache'
+import { useBaseStore } from '@/store/base'
+import { setStorage } from '@/utils/cache'
 import type { IObject } from '#/global'
 
 const { t } = useI18n()
 
 const type = ref<string>('normal')
 
-const changeType = (e: string): void => {
+function changeType(e: string): void {
   type.value = e
 }
 
@@ -30,22 +30,22 @@ const passwordVisible = ref<boolean>(false)
 
 const passwordStep = ref<string>('validate')
 
-const openPassword = () => {
+function openPassword() {
   passwordStep.value = 'validate'
   passwordVisible.value = true
 }
 
-const validate = (e: IObject): void => {
+function validate(e: IObject): void {
   if (e.status)
     passwordStep.value = 'reset'
 }
 
-const reset = (e: IObject): void => {
+function reset(e: IObject): void {
   if (e.status)
     passwordStep.value = 'result'
 }
 
-const closePassword = () => {
+function closePassword() {
   passwordVisible.value = false
   passwordStep.value = 'validate'
 }
@@ -61,8 +61,10 @@ onBeforeMount(async () => {
 </script>
 
 <template>
-  <el-card m-auto important-border-0
-    :style="baseStore.isMobile ? 'margin-top:4vh;padding:0;width:88vw;' : 'margin-top:10vh;padding:1rem 1.5rem;width:20rem;'">
+  <el-card
+    m-auto important-border-0
+    :style="baseStore.isMobile ? 'margin-top:4vh;padding:0;width:88vw;' : 'margin-top:10vh;padding:1rem 1.5rem;width:20rem;'"
+  >
     <div my-4 flex justify-center items-center>
       <img w-20 h-20 :src="logo">
     </div>
@@ -84,8 +86,10 @@ onBeforeMount(async () => {
         {{ t('base.login.scan') }}
       </el-button>
     </div>
-    <crud-dialog v-model="passwordVisible" :width="baseStore.isMobile ? '80vw' : '22rem'"
-      :title="t('base.password.reset')" height="auto">
+    <crud-dialog
+      v-model="passwordVisible" :width="baseStore.isMobile ? '80vw' : '22rem'"
+      :title="t('base.password.reset')" height="auto"
+    >
       <password-form-validate v-if="passwordStep === 'validate'" @validate="validate" />
       <password-form-reset v-if="passwordStep === 'reset'" @reset="reset" />
       <password-form-result v-if="passwordStep === 'result'" @back="closePassword" />

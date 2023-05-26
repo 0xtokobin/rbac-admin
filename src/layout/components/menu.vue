@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useBaseStore } from '@/store/base'
 import { LayoutEnum } from '@/enums/base'
-import layoutMenuItem from '@apps/admin/layout/components/menu-item.vue'
+import layoutMenuItem from '@/layout/components/menu-item.vue'
 
 const route = useRoute()
 

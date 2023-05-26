@@ -5,7 +5,7 @@ import { arrayRecursion } from '@/utils/base'
 import type { IObject } from '#/global'
 
 export interface Tab {
-  label : IObject
+  label: IObject
   name: string
 }
 
@@ -20,7 +20,7 @@ const tabs = ref<Tab[]>([])
 const currentTab = ref(route.path)
 const homeTab = ref<Tab | undefined>(undefined)
 
-const findTab = (path: string): IObject => {
+function findTab(path: string): IObject {
   const res = { isFind: false, path: '', index: 0, length: 0 }
   if (tabs.value.length > 0) {
     res.length = tabs.value.filter((item: IObject, index: number) => {
@@ -38,7 +38,7 @@ const findTab = (path: string): IObject => {
   return res
 }
 
-const addTab = (data: IObject, isPushTab?: boolean): void => {
+function addTab(data: IObject, isPushTab?: boolean): void {
   tabs.value.push({ label: data.meta.i18n, name: data.path })
   if (isPushTab) {
     currentTab.value = data.path
@@ -46,12 +46,12 @@ const addTab = (data: IObject, isPushTab?: boolean): void => {
   }
 }
 
-const tabClick = (e: any): void => {
+function tabClick(e: any): void {
   router.push({ path: e.props.name })
   currentTab.value = e.props.name
 }
 
-const tabRemove = (e: string | number): void => {
+function tabRemove(e: string | number): void {
   if (tabs.value.length === 1)
     return
   const { isFind, index } = findTab(e.toString())
@@ -66,7 +66,7 @@ const tabRemove = (e: string | number): void => {
   }
 }
 
-const clickOperationMenu = (command: string | number | object): void => {
+function clickOperationMenu(command: string | number | object): void {
   if (command === 'current') {
     tabRemove(currentTab.value)
   }
@@ -106,7 +106,7 @@ watch(
     else
       addTab(route)
   },
-),
+)
 </script>
 
 <template>

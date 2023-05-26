@@ -8,7 +8,7 @@ const baseStore = useBaseStore()
 
 const reload = ref<boolean>(true)
 
-const reloadView = () => {
+function reloadView() {
   reload.value = false
   nextTick(() => {
     reload.value = true

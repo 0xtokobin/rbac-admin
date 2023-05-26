@@ -15,7 +15,7 @@ const changeForm = ref<PasswordForm>({
   passwordAgain: '',
 })
 
-const validatePassword = (rule: any, value: string, callback: any) => {
+function validatePassword(rule: any, value: string, callback: any) {
   if (value && !PASSWORD_NORMAL.test(value)) {
     callback(
       new Error(
@@ -73,7 +73,7 @@ const changeFormRules = reactive<FormRules>({
   ],
 })
 
-const reset = async (formEl: FormInstance | undefined): Promise<void> => {
+async function reset(formEl: FormInstance | undefined): Promise<void> {
   if (!formEl)
     return
   await formEl.validate(async (valid: boolean) => {

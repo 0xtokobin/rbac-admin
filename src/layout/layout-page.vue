@@ -11,9 +11,7 @@ const { locale, messages } = useI18n()
 
 const baseStore = useBaseStore()
 
-const changeLanguage = (
-  value: string | number | Record<string, any> | undefined,
-) => {
+function changeLanguage(value: string | number | Record<string, any> | undefined) {
   locale.value = value as string
   baseStore.language = value as string
   setStorage(CacheKeyEnum.LANGUAGE, value as string)
@@ -63,7 +61,7 @@ const options = computed(() => {
   }
 })
 
-const particlesInit = async (engine: Engine) => {
+async function particlesInit(engine: Engine) {
   await loadFull(engine)
 }
 </script>

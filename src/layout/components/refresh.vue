@@ -5,7 +5,7 @@ import {
 
 const reloadView: any = inject('reloadView')
 
-const refresh = () => {
+function refresh() {
   reloadView.reload()
 }
 </script>

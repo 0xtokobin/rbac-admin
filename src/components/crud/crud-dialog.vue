@@ -21,7 +21,7 @@ const baseStore = useBaseStore()
 
 const visible = ref<boolean>(props.value)
 
-const closedHandle = (): void => {
+function closedHandle(): void {
   emit('input', false)
 }
 </script>

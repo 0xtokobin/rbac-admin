@@ -13,13 +13,13 @@ const baseStore = useBaseStore()
 
 const personalDrawerVisible = ref<boolean>(false)
 
-const openPersonalDrawer = () => {
+function openPersonalDrawer() {
   personalDrawerVisible.value = true
 }
 
 const active = ref(['general', 'personal', 'ui'])
 
-const changeDarkMode = (e: string) => {
+function changeDarkMode(e: string) {
   if (e === DarkModeEnum.DARK_MODE_AUTO)
     baseStore.openDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches)
   else

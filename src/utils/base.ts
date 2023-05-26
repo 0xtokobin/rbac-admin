@@ -4,15 +4,13 @@ import { CacheKeyEnum } from '../enums/cache'
 import { getStorage } from './cache'
 import type { IFunction, IObject } from '#/global'
 
-export const isNullOrUndefined = (value: unknown): boolean => {
+export function isNullOrUndefined(value: unknown): boolean {
   return value === null || typeof value === 'undefined'
 }
 
-export const getValueByKeys = (
-  record: IObject = {},
+export function getValueByKeys(record: IObject = {},
   key: string,
-  defaultValue?: unknown,
-): any => {
+  defaultValue?: unknown): any {
   const keys = key.split('.')
   for (let i = 0; i < keys.length; i++)
     record = record[keys[i]] || (i === keys.length - 1 ? defaultValue : {})
@@ -20,11 +18,9 @@ export const getValueByKeys = (
   return record || defaultValue
 }
 
-export const arrayToObject = (
-  data: any[] = [],
+export function arrayToObject(data: any[] = [],
   key: string | IFunction,
-  render?: IFunction,
-): IObject => {
+  render?: IFunction): IObject {
   const obj: IObject = {}
   data.forEach((item) => {
     obj[typeof key === 'function' ? key(item) : item[key]] = render
@@ -34,7 +30,7 @@ export const arrayToObject = (
   return obj
 }
 
-export const interceptJointData = (data: string): IObject => {
+export function interceptJointData(data: string): IObject {
   let value: IObject = {}
   if (data && data.includes('?'))
     data = data.split('?')[1]
@@ -45,12 +41,10 @@ export const interceptJointData = (data: string): IObject => {
   return value
 }
 
-export const arrayRecursion = (
-  key: string,
+export function arrayRecursion(key: string,
   array: IObject[],
   validateKey: string,
-  childrenKey?: string,
-): any => {
+  childrenKey?: string): any {
   childrenKey = childrenKey || 'children'
   for (let i = 0; i < array.length; i++) {
     if (array[i][key] && array[i][key] === validateKey)
@@ -63,7 +57,7 @@ export const arrayRecursion = (
   }
 }
 
-export const mergeValueByKey = (to: IObject, source: IObject): IObject => {
+export function mergeValueByKey(to: IObject, source: IObject): IObject {
   for (const key in source) {
     if (Object.getOwnPropertyDescriptor(to, key)?.value === '')
       to[key] = source[key]
@@ -71,10 +65,8 @@ export const mergeValueByKey = (to: IObject, source: IObject): IObject => {
   return to
 }
 
-export const componentAddInstall = <T>(
-  component: T extends FunctionalComponent<any, any> ? any : any,
-  alias?: string,
-): T & Plugin => {
+export function componentAddInstall<T>(component: T extends FunctionalComponent<any, any> ? any : any,
+  alias?: string): T & Plugin {
   const _component = component as any
   _component.install = (app: App) => {
     app.component(
@@ -87,7 +79,7 @@ export const componentAddInstall = <T>(
   return component as T & Plugin
 }
 
-export const setEpThemeColor = (color: string, isDark: boolean): void => {
+export function setEpThemeColor(color: string, isDark: boolean): void {
   if (!color)
     return
   const element = document.documentElement
@@ -98,16 +90,14 @@ export const setEpThemeColor = (color: string, isDark: boolean): void => {
   element.style.setProperty('--el-color-primary-dark-2', colorMix(color, '#000000', 0.2))
 }
 
-export const getLoginStorageType = (): string => {
+export function getLoginStorageType(): string {
   return getStorage(CacheKeyEnum.STAY_LOGIN, { type: 'local' }) === true
     ? 'local'
     : 'session'
 }
 
-export const installComponents = (
-  app: App,
-  components: Record<string, any>,
-): void => {
+export function installComponents(app: App,
+  components: Record<string, any>): void {
   Object.entries(components).forEach(([, component]) => {
     if (component.install) {
       component.install(app)

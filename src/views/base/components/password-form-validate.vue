@@ -57,7 +57,7 @@ const validateFormRules = reactive<FormRules>({
   ],
 })
 
-const validate = async (formEl: FormInstance | undefined): Promise<void> => {
+async function validate(formEl: FormInstance | undefined): Promise<void> {
   if (!formEl)
     return
   await formEl.validate(async (valid: boolean) => {

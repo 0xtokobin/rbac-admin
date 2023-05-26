@@ -8,7 +8,7 @@ import type {
   QueryOptions,
 } from '#libs/common/crud'
 
-export const useCrud = (options?: Options) => {
+export function useCrud(options?: Options) {
   const queryOptions: QueryOptions = mergeValueByKey(
     {
       queryOnSetup: true,

@@ -6,12 +6,12 @@ const { t } = useI18n()
 
 const timer = ref()
 
-const clearTimer = () => {
+function clearTimer() {
   clearTimeout(timer.value)
   timer.value = null
 }
 
-const getScanResult = () => {
+function getScanResult() {
   GET('/system/user/scan').then(({ code, data }) => {
     if (code === 0 && data)
       clearTimer()
