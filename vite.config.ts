@@ -73,10 +73,10 @@ export default ({ command, mode }: ConfigEnv) => {
           }),
         ],
         dirs: ['src/components'],
-        dts: 'vite/auto-imports.ts',
+        dts: '.vite/auto-imports.ts',
         eslintrc: {
           enabled: true,
-          filepath: './vite/.eslintrc-auto-import.json',
+          filepath: '.vite/.eslintrc-auto-import.json',
           globalsPropValue: true,
         },
       }),
@@ -88,7 +88,7 @@ export default ({ command, mode }: ConfigEnv) => {
         ],
         include: [/\.vue$/, /\.vue\?vue/, /\.md$/, /\.tsx$/, /\.jsx$/],
         dirs: ['src/components'],
-        dts: 'vite/components.ts',
+        dts: '.vite/components.ts',
         types: [
           {
             from: 'vue-router',
@@ -107,7 +107,7 @@ export default ({ command, mode }: ConfigEnv) => {
     build: {
       target: 'modules',
       minify: 'esbuild',
-      outDir: './dist',
+      outDir: 'dist',
       chunkSizeWarningLimit: 1024 * 30,
       rollupOptions: {
         output: {
