@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { GET } from '@/utils/request'
+import { GET } from '@/utils/request/index.js'
 import qrCode from '@/assets/image/qr-code.png'
 
 const { t } = useI18n()

@@ -1,14 +1,14 @@
 <script lang="ts" setup>
 import type { FormInstance, FormRules } from 'element-plus'
 import { MOBILE } from '@kaivanwong/utils'
-import { getStorage } from '@/utils/cache'
-import { useUserStore } from '@/store/user'
-import { CacheKeyEnum } from '@/enums/cache'
+import { getStorage } from '@/utils/storage'
+import { useUserStore } from '@/hooks/use-user-store'
+import { StorageKeyEnum } from '@/constants/enums'
 import { useCountDown } from '@/hooks/use-count-down'
 
 const { t } = useI18n()
 
-const mobileAreaCode = getStorage(CacheKeyEnum.MOBILE_AREA_CODE)
+const mobileAreaCode = getStorage(StorageKeyEnum.MOBILE_AREA_CODE)
 
 const countDown = useCountDown()
 

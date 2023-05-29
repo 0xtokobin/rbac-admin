@@ -1,8 +1,8 @@
 import { defineStore } from 'pinia'
 import type { RouteRecordRaw } from 'vue-router'
-import { getStorage } from '@/utils/cache'
-import { DarkModeEnum, LanguageEnum, LayoutEnum, SizeEnum, ThemeEnum } from '@/enums/base'
-import { CacheKeyEnum } from '@/enums/cache'
+import { getStorage } from '@/utils/storage'
+import { DarkModeEnum, LanguageEnum, LayoutEnum, SizeEnum, StorageKeyEnum, ThemeEnum } from '@/constants/enums'
+
 import { GET } from '@/utils/request'
 import { setEpThemeColor } from '@/utils/base'
 import {
@@ -67,19 +67,19 @@ export const useBaseStore = defineStore('base', () => {
     return menu
   }
 
-  const language = ref<string>(getStorage(CacheKeyEnum.PROFILE)?.language || getStorage(CacheKeyEnum.LANGUAGE) || LanguageEnum.ZH_CN_ALIAS)
+  const language = ref<string>(getStorage(StorageKeyEnum.PROFILE)?.language || getStorage(StorageKeyEnum.LANGUAGE) || LanguageEnum.ZH_CN_ALIAS)
 
-  const theme = ref<string>(getStorage(CacheKeyEnum.PROFILE)?.theme || ThemeEnum.BLUE)
+  const theme = ref<string>(getStorage(StorageKeyEnum.PROFILE)?.theme || ThemeEnum.BLUE)
 
-  const layout = ref<string>(getStorage(CacheKeyEnum.PROFILE)?.layout || LayoutEnum.LAYOUT_MIX)
+  const layout = ref<string>(getStorage(StorageKeyEnum.PROFILE)?.layout || LayoutEnum.LAYOUT_MIX)
 
-  const size = ref<string>(getStorage(CacheKeyEnum.PROFILE)?.size || SizeEnum.DEFAULT)
+  const size = ref<string>(getStorage(StorageKeyEnum.PROFILE)?.size || SizeEnum.DEFAULT)
 
-  const tab = ref<boolean>(getStorage(CacheKeyEnum.PROFILE)?.tab || true)
+  const tab = ref<boolean>(getStorage(StorageKeyEnum.PROFILE)?.tab || true)
 
-  const breadcrumb = ref<boolean>(getStorage(CacheKeyEnum.PROFILE)?.breadcrumb || true)
+  const breadcrumb = ref<boolean>(getStorage(StorageKeyEnum.PROFILE)?.breadcrumb || true)
 
-  const darkMode = ref<string>(getStorage(CacheKeyEnum.PROFILE)?.darkMode || DarkModeEnum.DARK_MODE_AUTO)
+  const darkMode = ref<string>(getStorage(StorageKeyEnum.PROFILE)?.darkMode || DarkModeEnum.DARK_MODE_AUTO)
 
   const isDarkMode = ref<boolean>(darkMode.value === DarkModeEnum.DARK_MODE_AUTO ? window.matchMedia('(prefers-color-scheme: dark)').matches : darkMode.value === DarkModeEnum.DARK_MODE_DARK)
 

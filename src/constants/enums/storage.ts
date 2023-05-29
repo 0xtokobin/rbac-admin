@@ -1,4 +1,4 @@
-export enum CacheKeyEnum {
+export enum StorageKeyEnum {
   WINGSCLOUD = 'wingscloud',
   LANGUAGE = 'language',
   STAY_LOGIN = 'stay-login',

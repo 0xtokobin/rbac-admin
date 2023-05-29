@@ -1,7 +1,7 @@
 import type { ComputedRef } from 'vue'
-import { CacheKeyEnum } from '../enums/cache'
+import { StorageKeyEnum } from '@/constants/enums'
 import { GET } from '@/utils/request'
-import { getStorage, setStorage } from '@/utils/cache'
+import { getStorage, setStorage } from '@/utils/storage'
 import type { IObject } from '#/global'
 
 export function useDict() {
@@ -13,13 +13,13 @@ export function useDict() {
         dict = { [item.key]: item.values, ...dict }
       })
     }
-    setStorage(CacheKeyEnum.DICT, dict)
+    setStorage(StorageKeyEnum.DICT, dict)
     return data
   }
 
   const getDictItem = (key: string): ComputedRef<any> => {
     return computed(() => {
-      const data = getStorage(CacheKeyEnum.DICT)[key]
+      const data = getStorage(StorageKeyEnum.DICT)[key]
       if (!data)
         getDictList()
 

@@ -1,12 +1,12 @@
 import type { I18n, I18nOptions } from 'vue-i18n'
 import { createI18n } from 'vue-i18n'
 import { messages } from './messages'
-import { getStorage } from '@/utils/cache'
-import { LanguageEnum } from '@/enums/base'
-import { CacheKeyEnum } from '@/enums/cache'
+import { getStorage } from '@/utils/storage'
+import { LanguageEnum, StorageKeyEnum } from '@/constants/enums'
+
 import type { I18nT } from '#/i18n'
 
-const language: any = getStorage(CacheKeyEnum.LANGUAGE) || LanguageEnum.ZH_CN_ALIAS
+const language: any = getStorage(StorageKeyEnum.LANGUAGE) || LanguageEnum.ZH_CN_ALIAS
 document
   .getElementsByTagName('html')[0]
   .setAttribute('lang', language as string)

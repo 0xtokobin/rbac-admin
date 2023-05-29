@@ -1,7 +1,7 @@
 import type { App, FunctionalComponent, Plugin } from 'vue'
 import { colorMix } from '@kaivanwong/utils'
-import { CacheKeyEnum } from '../enums/cache'
-import { getStorage } from './cache'
+import { StorageKeyEnum } from '@/constants/enums'
+import { getStorage } from '@/utils/storage'
 import type { IFunction, IObject } from '#/global'
 
 export function isNullOrUndefined(value: unknown): boolean {
@@ -91,7 +91,7 @@ export function setEpThemeColor(color: string, isDark: boolean): void {
 }
 
 export function getLoginStorageType(): string {
-  return getStorage(CacheKeyEnum.STAY_LOGIN, { type: 'local' }) === true
+  return getStorage(StorageKeyEnum.STAY_LOGIN, { type: 'local' }) === true
     ? 'local'
     : 'session'
 }

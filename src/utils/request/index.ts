@@ -2,20 +2,20 @@ import type { Axios, AxiosRequestHeaders, AxiosResponse } from 'axios'
 import axios from 'axios'
 import qs from 'qs'
 import { ElNotification } from 'element-plus'
-import { RequestHeaderEnum } from '../enums/base'
-import { CacheKeyEnum } from '../enums/cache'
-import { getStorage } from './cache'
 import {
   apiCodeAdaptor,
   authCodeAdaptor,
   networkCodeAdaptor,
-} from './request-code'
-import { _t } from '@/i18n'
-import type { IObject } from '#/global'
+} from './code'
 import type {
   RequestOptions,
   ResponseData,
-} from '#/request'
+} from './index.d'
+import { RequestHeaderEnum, StorageKeyEnum } from '@/constants/enums'
+
+import { getStorage } from '@/utils/storage'
+import { _t } from '@/i18n'
+import type { IObject } from '#/global'
 
 export function addInterceptorsRequest(axios: Axios,
   options: RequestOptions): number {
@@ -27,7 +27,7 @@ export function addInterceptorsRequest(axios: Axios,
       config.headers = { ...config.headers, ...options.headers } as AxiosRequestHeaders
       if (options.isToken) {
         config.headers[RequestHeaderEnum.HEADER_TOKEN] = getStorage(
-          CacheKeyEnum.TOKEN,
+          StorageKeyEnum.TOKEN,
         )
       }
     }

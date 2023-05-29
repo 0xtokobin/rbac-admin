@@ -3,9 +3,9 @@ import type { Engine } from 'tsparticles-engine'
 import { loadFull } from 'tsparticles'
 import { parallax } from 'tsparticles-demo-configs'
 import { ArrowDown } from '@element-plus/icons-vue'
-import { CacheKeyEnum } from '@/enums/cache'
-import { setStorage } from '@/utils/cache'
-import { useBaseStore } from '@/store/base'
+import { StorageKeyEnum } from '@/constants/enums'
+import { setStorage } from '@/utils/storage'
+import { useBaseStore } from '@/hooks/use-base-store'
 
 const { locale, messages } = useI18n()
 
@@ -14,7 +14,7 @@ const baseStore = useBaseStore()
 function changeLanguage(value: string | number | Record<string, any> | undefined) {
   locale.value = value as string
   baseStore.language = value as string
-  setStorage(CacheKeyEnum.LANGUAGE, value as string)
+  setStorage(StorageKeyEnum.LANGUAGE, value as string)
   location.reload()
 }
 
@@ -78,11 +78,11 @@ async function particlesInit(engine: Engine) {
           </el-icon>
         </div>
         <template #dropdown>
-          <el-dropdown-menu-menu>
+          <el-dropdown-menu>
             <el-dropdown v-for="(value, key) in messages" :key="key" :command="key">
               {{ value.name }}
             </el-dropdown>
-          </el-dropdown-menu-menu>
+          </el-dropdown-menu>
         </template>
       </el-dropdown>
     </el-header>

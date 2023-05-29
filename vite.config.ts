@@ -1,5 +1,5 @@
 import { resolve } from 'path'
-import type { ConfigEnv, ProxyOptions } from 'vite'
+import type { ConfigEnv } from 'vite'
 import { defineConfig, loadEnv } from 'vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import IconsResolver from 'unplugin-icons/resolver'
@@ -11,24 +11,14 @@ import ViteCompression from 'vite-plugin-compression'
 import TsconfigPaths from 'vite-tsconfig-paths'
 import EslintPlugin from 'vite-plugin-eslint'
 import Vue from '@vitejs/plugin-vue'
-import basicSsl from '@vitejs/plugin-basic-ssl'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import Unocss from 'unocss/vite'
-import {
-  presetAttributify,
-  presetIcons,
-  presetUno,
-  transformerDirectives,
-  transformerVariantGroup,
-} from 'unocss'
 
 export default ({ command, mode }: ConfigEnv) => {
   const env: Record<string, string> = loadEnv(mode, './', [
     'VITE_',
     'WINGSCLOUD_',
   ])
-
-  const proxy: Record<string, string | ProxyOptions> | undefined = {}
 
   return defineConfig({
     base: env.VITE_BASE_URL,
@@ -49,6 +39,12 @@ export default ({ command, mode }: ConfigEnv) => {
         'vue-i18n': 'vue-i18n/dist/vue-i18n.cjs.js',
       },
       extensions: ['.js', '.ts', '.jsx', '.tsx', '.json', '.vue'],
+    },
+    server: {
+      host: '0.0.0.0',
+      open: true,
+      port: 8080,
+      proxy: {},
     },
     plugins: [
       Vue(),
@@ -77,10 +73,10 @@ export default ({ command, mode }: ConfigEnv) => {
           }),
         ],
         dirs: ['src/components'],
-        dts: 'types/auto-imports.ts',
+        dts: 'vite/auto-imports.ts',
         eslintrc: {
           enabled: true,
-          filepath: '.eslintrc-auto-import.json',
+          filepath: './vite/.eslintrc-auto-import.json',
           globalsPropValue: true,
         },
       }),
@@ -92,7 +88,7 @@ export default ({ command, mode }: ConfigEnv) => {
         ],
         include: [/\.vue$/, /\.vue\?vue/, /\.md$/, /\.tsx$/, /\.jsx$/],
         dirs: ['src/components'],
-        dts: 'types/components.ts',
+        dts: 'vite/components.ts',
         types: [
           {
             from: 'vue-router',
@@ -102,36 +98,17 @@ export default ({ command, mode }: ConfigEnv) => {
       }),
       ViteCompression({
         verbose: true,
-        disable: env.VITE_G_ZIP !== 'true',
         threshold: 10240,
         algorithm: 'gzip',
         ext: '.gz',
       }),
-      Unocss({
-        presets: [
-          presetUno(),
-          presetAttributify(),
-          presetIcons({
-            scale: 1.2,
-            warn: true,
-          }),
-        ],
-        transformers: [transformerDirectives(), transformerVariantGroup()],
-      }),
-      env.VITE_SERVER_HTTPS === 'true' ? basicSsl() : '',
+      Unocss(),
     ],
-    server: {
-      host: env.VITE_SERVER_HOST,
-      open: env.VITE_SERVER_OPEN === 'true',
-      port: Number(env.VITE_SERVER_PORT),
-      https: env.VITE_SERVER_HTTPS === 'true',
-      proxy,
-    },
     build: {
       target: 'modules',
       minify: 'esbuild',
-      outDir: env.VITE_DIST_PATH,
-      chunkSizeWarningLimit: Number(env.VITE_BUILD_SIZE_WARNING),
+      outDir: './dist',
+      chunkSizeWarningLimit: 1024 * 30,
       rollupOptions: {
         output: {
           chunkFileNames: 'static/js/[name]-[hash].js',

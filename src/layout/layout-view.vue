@@ -10,8 +10,8 @@ import layoutDarkMode from '@/layout/components/dark-mode.vue'
 import layoutRefresh from '@/layout/components/refresh.vue'
 import layoutNotification from '@/layout/components/notification.vue'
 import layoutAvatar from '@/layout/components/avatar.vue'
-import { LayoutEnum } from '@/enums/base'
-import { useBaseStore } from '@/store/base'
+import { LayoutEnum } from '@/constants/enums'
+import { useBaseStore } from '@/hooks/use-base-store'
 
 const baseStore = useBaseStore()
 </script>

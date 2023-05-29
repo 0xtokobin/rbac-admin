@@ -1,12 +1,12 @@
-import { GET } from '../../libs/common/src/utils/request.axios'
-import { mergeValueByKey } from '../../libs/common/src/utils/base'
-import type { IObject } from '#/global'
-import type { ResponseData } from '#libs/common/request'
 import type {
   Options,
   Pagination,
   QueryOptions,
-} from '#libs/common/crud'
+} from './index.d'
+import { GET } from '@/utils/request'
+import { mergeValueByKey } from '@/utils/base'
+import type { IObject } from '#/global'
+import type { ResponseData } from '@/utils/request/index.d'
 
 export function useCrud(options?: Options) {
   const queryOptions: QueryOptions = mergeValueByKey(

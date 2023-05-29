@@ -1,6 +1,6 @@
-import { isNullOrUndefined } from '../utils/base'
-import { CacheKeyEnum } from '../enums/cache'
-import type { AppStorageOptions } from '#/cache'
+import { isNullOrUndefined } from '../base'
+import type { AppStorageOptions } from '.'
+import { StorageKeyEnum } from '@/constants/enums'
 
 export function storageType(type: string): Storage {
   return type === 'local' ? localStorage : sessionStorage
@@ -9,7 +9,7 @@ export function storageType(type: string): Storage {
 export function setStorage(key: string,
   data: any,
   options?: AppStorageOptions): void {
-  key = `${CacheKeyEnum.WINGSCLOUD}-${key}`
+  key = `${StorageKeyEnum.WINGSCLOUD}-${key}`
   options = {
     type: 'session',
     isTemplate: false,
@@ -32,7 +32,7 @@ export function setStorage(key: string,
 }
 
 export function getStorage(key: string, options?: AppStorageOptions): any {
-  key = `${CacheKeyEnum.WINGSCLOUD}-${key}`
+  key = `${StorageKeyEnum.WINGSCLOUD}-${key}`
   options = {
     type: 'session',
     isTemplate: false,
@@ -59,6 +59,6 @@ export function getStorage(key: string, options?: AppStorageOptions): any {
 }
 
 export function removeStorage(key: string, type?: string): void {
-  key = `${CacheKeyEnum.WINGSCLOUD}-${key}`
+  key = `${StorageKeyEnum.WINGSCLOUD}-${key}`
   storageType(type || 'session').removeItem(key)
 }

@@ -9,9 +9,9 @@ import loginFormSms from './components/login-form-sms.vue'
 import logo from '@/assets/svg/logo.svg'
 import crudDialog from '@/components/crud/crud-dialog.vue'
 import { GET } from '@/utils/request'
-import { CacheKeyEnum } from '@/enums/cache'
-import { useBaseStore } from '@/store/base'
-import { setStorage } from '@/utils/cache'
+import { StorageKeyEnum } from '@/constants/enums'
+import { useBaseStore } from '@/hooks/use-base-store'
+import { setStorage } from '@/utils/storage'
 import type { IObject } from '#/global'
 
 const { t } = useI18n()
@@ -56,7 +56,7 @@ onBeforeMount(async () => {
   if (code === 0)
     mobileAreaCode = data
 
-  setStorage(CacheKeyEnum.MOBILE_AREA_CODE, mobileAreaCode)
+  setStorage(StorageKeyEnum.MOBILE_AREA_CODE, mobileAreaCode)
 })
 </script>
 

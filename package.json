@@ -4,16 +4,12 @@
   "private": true,
   "packageManager": "pnpm@8.5.0",
   "engines": {
-    "node": ">=16.4.0"
+    "node": ">=16.14.0"
   },
   "scripts": {
-    "dev": "vite --mode development",
-    "dev:stag": "vite --mode staging",
-    "dev:prod": "vite --mode production",
-    "build": "run-p vue-tsc --noEmit vite build  --mode production",
+    "dev": "vite",
+    "build": "run-p vue-tsc --noEmit vite build",
     "build:stag": "run-p vue-tsc --noEmit vite build --mode staging",
-    "clear": "rimraf ./dist",
-    "clean": "rimraf ./node_modules ./dist ./pnpm-lock.yaml",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
@@ -38,9 +34,9 @@
   },
   "devDependencies": {
     "@element-plus/icons-vue": "^2.1.0",
+    "@iconify/json": "^2.2.71",
     "@kaivanwong/eslint-config": "^0.16.1",
     "@types/node": "^18.16.15",
-    "@vitejs/plugin-basic-ssl": "^1.0.1",
     "@vitejs/plugin-vue": "^4.2.3",
     "@vitejs/plugin-vue-jsx": "^3.0.1",
     "@vue/tsconfig": "^0.1.3",

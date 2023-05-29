@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { AdminRouteEnum } from '@/enums/route'
-import { useBaseStore } from '@/store/base'
-import { arrayRecursion } from '@/utils/base'
+import { AdminRouteEnum } from '@/constants/enums'
+import { useBaseStore } from '@/hooks/use-base-store'
+import { arrayRecursion } from '@/utils/base/index.js'
 import type { IObject } from '#/global'
 
 export interface Tab {

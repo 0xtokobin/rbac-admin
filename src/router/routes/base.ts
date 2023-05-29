@@ -1,4 +1,4 @@
-import { AdminRouteEnum } from '@/enums/route'
+import { AdminRouteEnum } from '@/constants/enums'
 
 export default [
   {

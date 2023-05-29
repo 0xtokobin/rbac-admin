@@ -31,6 +31,8 @@
   "include": [
     "./src/**/*",
     "./types/**/*",
+    "./vite/**/*",
+    "./mock/**/*",
     "./package.json"
   ]
 }

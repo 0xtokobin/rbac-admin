@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import type { FormInstance, FormRules } from 'element-plus'
 import { MOBILE } from '@kaivanwong/utils'
-import { getStorage } from '@/utils/cache'
-import { CacheKeyEnum } from '@/enums/cache'
-import { POST } from '@/utils/request'
+import { getStorage } from '@/utils/storage'
+import { StorageKeyEnum } from '@/constants/enums'
+import { POST } from '@/utils/request/index.js'
 import { useCountDown } from '@/hooks/use-count-down'
 import type { MobileForm } from '@/views/base/login'
 import type { IObject } from '#/global'
@@ -12,7 +12,7 @@ const emit = defineEmits(['validate'])
 
 const { t } = useI18n()
 
-const mobileAreaCode = getStorage(CacheKeyEnum.MOBILE_AREA_CODE)
+const mobileAreaCode = getStorage(StorageKeyEnum.MOBILE_AREA_CODE)
 
 const countDown = useCountDown()
 

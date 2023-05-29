@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useBaseStore } from '@/store/base'
+import { useBaseStore } from '@/hooks/use-base-store'
 
 const props = defineProps({
   color: {

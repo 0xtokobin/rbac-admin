@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { AdminRouteEnum } from '@/enums/route'
+import { AdminRouteEnum } from '@/constants/enums'
 
 const { t } = useI18n()
 

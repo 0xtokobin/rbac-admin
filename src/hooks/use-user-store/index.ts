@@ -1,9 +1,9 @@
 import { defineStore } from 'pinia'
 import { ElNotification } from 'element-plus'
-import { useBaseStore } from './base'
-import { getStorage, setStorage } from '@/utils/cache'
-import { AdminRouteEnum } from '@/enums/route'
-import { CacheKeyEnum } from '@/enums/cache'
+import { useBaseStore } from '../use-base-store'
+import { getStorage, setStorage } from '@/utils/storage'
+import { AdminRouteEnum, StorageKeyEnum } from '@/constants/enums'
+
 import { GET, POST } from '@/utils/request'
 import { getLoginStorageType } from '@/utils/base'
 import { router } from '@/router'
@@ -12,23 +12,23 @@ import type { IObject } from '#/global'
 
 export const useUserStore = defineStore('user', () => {
   const stayLogin = ref<boolean>(
-    getStorage(CacheKeyEnum.STAY_LOGIN, { type: 'local' }) || false,
+    getStorage(StorageKeyEnum.STAY_LOGIN, { type: 'local' }) || false,
   )
 
   const token = ref<string | null>(
-    getStorage(CacheKeyEnum.TOKEN, {
+    getStorage(StorageKeyEnum.TOKEN, {
       type: getLoginStorageType(),
     }) || '',
   )
 
   const profile = ref<IObject>(
-    getStorage(CacheKeyEnum.PROFILE, {
+    getStorage(StorageKeyEnum.PROFILE, {
       type: getLoginStorageType(),
     }) || {},
   )
 
   const roles = ref<Array<string>>(
-    getStorage(CacheKeyEnum.ROLES, {
+    getStorage(StorageKeyEnum.ROLES, {
       type: getLoginStorageType(),
     }) || [],
   )
@@ -37,26 +37,26 @@ export const useUserStore = defineStore('user', () => {
 
   const setStayLogin = (state: boolean): void => {
     stayLogin.value = state
-    setStorage(CacheKeyEnum.STAY_LOGIN, state, {
+    setStorage(StorageKeyEnum.STAY_LOGIN, state, {
       type: 'local',
     })
   }
 
   const setToken = (_token: string): void => {
     token.value = _token
-    setStorage(CacheKeyEnum.TOKEN, _token, { type: getLoginStorageType() })
+    setStorage(StorageKeyEnum.TOKEN, _token, { type: getLoginStorageType() })
   }
 
   const setProfile = (data: IObject): void => {
     profile.value = data
-    setStorage(CacheKeyEnum.PROFILE, data, {
+    setStorage(StorageKeyEnum.PROFILE, data, {
       type: getLoginStorageType(),
     })
   }
 
   const setRoles = (data: Array<string>): void => {
     roles.value = data
-    setStorage(CacheKeyEnum.ROLES, data, {
+    setStorage(StorageKeyEnum.ROLES, data, {
       type: getLoginStorageType(),
     })
   }

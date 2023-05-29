@@ -1,7 +1,7 @@
 import zhCN from 'element-plus/dist/locale/zh-cn.mjs'
 import enUS from 'element-plus/dist/locale/en.mjs'
 import { autoImportLanguages } from './helper'
-import { LanguageEnum } from '@/enums/base'
+import { LanguageEnum } from '@/constants/enums'
 import type { Languages, Messages } from '#/i18n'
 
 const languages: Languages = autoImportLanguages(

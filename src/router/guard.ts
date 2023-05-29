@@ -4,11 +4,11 @@ import type {
   Router,
 } from 'vue-router'
 import { useNProgress } from '@vueuse/integrations/useNProgress'
-import { getStorage } from '@/utils/cache'
-import { useBaseStore } from '@/store/base'
-import { useUserStore } from '@/store/user'
-import { CacheKeyEnum } from '@/enums/cache'
-import { AdminRouteEnum } from '@/enums/route'
+import { getStorage } from '@/utils/storage'
+import { useBaseStore } from '@/hooks/use-base-store'
+import { useUserStore } from '@/hooks/use-user-store'
+import { AdminRouteEnum, StorageKeyEnum } from '@/constants/enums'
+
 import { getLoginStorageType } from '@/utils/base'
 import '@/assets/style/nprogress.scss'
 
@@ -23,7 +23,7 @@ export function addRouterGuard(router: Router): Router {
     ) => {
       isLoading.value = true
 
-      const userRoles: Array<string> = getStorage(CacheKeyEnum.ROLES, {
+      const userRoles: Array<string> = getStorage(StorageKeyEnum.ROLES, {
         type: getLoginStorageType(),
       })
       const requiresAuth: boolean = to.matched.some(

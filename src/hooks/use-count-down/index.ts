@@ -1,7 +1,7 @@
 import { ElMessage } from 'element-plus'
+import type { CountDownForm } from './index.d'
 import { GET } from '@/utils/request'
 import type { Callback } from '#/global'
-import type { CountDownForm } from '#libs/common/count-down'
 
 export function useCountDown() {
   const { t } = useI18n()
