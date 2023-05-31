@@ -1,28 +1,29 @@
 import { resolve } from 'path'
-import type { ConfigEnv } from 'vite'
 import { defineConfig, loadEnv } from 'vite'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-import IconsResolver from 'unplugin-icons/resolver'
-import Icons from 'unplugin-icons/vite'
-import Components from 'unplugin-vue-components/vite'
-import AutoImport from 'unplugin-auto-import/vite'
+import { ElementPlusResolver as elementPlusResolver } from 'unplugin-vue-components/resolvers'
+import iconsResolver from 'unplugin-icons/resolver'
+import icons from 'unplugin-icons/vite'
+import components from 'unplugin-vue-components/vite'
+import autoImport from 'unplugin-auto-import/vite'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import { createHtmlPlugin } from 'vite-plugin-html'
-import ViteCompression from 'vite-plugin-compression'
-import TsconfigPaths from 'vite-tsconfig-paths'
-import EslintPlugin from 'vite-plugin-eslint'
-import Vue from '@vitejs/plugin-vue'
+import viteCompression from 'vite-plugin-compression'
+import mockServer from 'vite-plugin-mock-server'
+import tsconfigPaths from 'vite-tsconfig-paths'
+import eslintPlugin from 'vite-plugin-eslint'
+import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
-import Unocss from 'unocss/vite'
+import unocss from 'unocss/vite'
 
-export default ({ command, mode }: ConfigEnv) => {
-  const env: Record<string, string> = loadEnv(mode, './', [
+export default ({ command, mode }) => {
+  const env: Record<string, string> = loadEnv(mode, '.vite/__env__/', [
     'VITE_',
     'APP_',
   ])
 
   return defineConfig({
     base: env.VITE_BASE_URL,
+    envDir: '.vite/__env__/',
     define: {
       'process.env': env,
     },
@@ -40,15 +41,13 @@ export default ({ command, mode }: ConfigEnv) => {
       extensions: ['.js', '.ts', '.jsx', '.tsx', '.json', '.vue'],
     },
     server: {
-      host: '0.0.0.0',
       open: true,
-      port: 8080,
       proxy: {},
     },
     plugins: [
-      Vue(),
+      vue(),
       vueJsx(),
-      EslintPlugin(),
+      eslintPlugin(),
       createHtmlPlugin(
         {
           inject: {
@@ -58,17 +57,17 @@ export default ({ command, mode }: ConfigEnv) => {
           },
         },
       ),
-      TsconfigPaths(),
+      tsconfigPaths(),
       createSvgIconsPlugin({
         iconDirs: [resolve(process.cwd(), 'src/assets/svg/')],
         symbolId: 'icon-[dir]-[name]',
       }),
-      Icons({}),
-      AutoImport({
+      icons({}),
+      autoImport({
         imports: ['vue', 'vue-router', 'vue-i18n'],
         resolvers: [
-          ElementPlusResolver(),
-          IconsResolver({
+          elementPlusResolver(),
+          iconsResolver({
             prefix: 'Icon',
           }),
         ],
@@ -80,9 +79,9 @@ export default ({ command, mode }: ConfigEnv) => {
           globalsPropValue: true,
         },
       }),
-      Components({
+      components({
         resolvers: [
-          ElementPlusResolver({
+          elementPlusResolver({
             importStyle: 'sass',
           }),
         ],
@@ -96,13 +95,17 @@ export default ({ command, mode }: ConfigEnv) => {
           },
         ],
       }),
-      ViteCompression({
+      viteCompression({
         verbose: true,
         threshold: 10240,
         algorithm: 'gzip',
         ext: '.gz',
       }),
-      Unocss(),
+      unocss(),
+      mockServer({
+        urlPrefixes: ['/mock'],
+        mockRootDir: '.vite/__mock__/',
+      }),
     ],
     build: {
       target: 'modules',

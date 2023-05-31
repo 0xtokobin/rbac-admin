@@ -29,10 +29,11 @@
     "dist"
   ],
   "include": [
+    ".vite/**/*",
     "src/**/*",
     "types/**/*",
     "package.json",
-    ".mock/**/*",
-    ".vite/**/*"
+    "vite.config.ts",
+    "uno.config.ts"
   ]
 }
