@@ -8,7 +8,7 @@ import autoImport from 'unplugin-auto-import/vite'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import viteCompression from 'vite-plugin-compression'
-import mockServer from 'vite-plugin-mock-server'
+import mockDevServerPlugin from 'vite-plugin-mock-dev-server'
 import tsconfigPaths from 'vite-tsconfig-paths'
 import eslintPlugin from 'vite-plugin-eslint'
 import vue from '@vitejs/plugin-vue'
@@ -102,9 +102,10 @@ export default ({ command, mode }) => {
         ext: '.gz',
       }),
       unocss(),
-      mockServer({
-        urlPrefixes: ['/mock'],
-        mockRootDir: '.vite/__mock__/',
+      mockDevServerPlugin({
+        prefix: '/mock',
+        wsPrefix: '/mock/ws',
+        include: '.vite/__mock__/',
       }),
     ],
     build: {

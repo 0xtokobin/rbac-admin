@@ -80,7 +80,6 @@ export function request<T>(options: RequestOptions): Promise<any | ResponseData<
   addInterceptorsRequest(_axios, options)
   addInterceptorsResponse(_axios, options)
   return new Promise((resolve) => {
-    console.warn(import.meta.env)
     _axios
       .request({
         baseURL: options.baseURL || import.meta.env.APP_REQUEST_URL,

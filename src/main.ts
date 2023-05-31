@@ -1,9 +1,9 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import Particles from 'vue3-particles'
-import VueDOMPurifyHTML from 'vue-dompurify-html'
-import ElementPlus from 'element-plus'
-import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+import particles from 'vue3-particles'
+import vueDOMPurifyHTML from 'vue-dompurify-html'
+import elementPlus from 'element-plus'
+import * as elementPlusIconsVue from '@element-plus/icons-vue'
 import App from './app.vue'
 import { installComponents } from '@/utils/base'
 import { i18n } from '@/plugins/vue-i18n'
@@ -21,9 +21,9 @@ app
   .use(i18n)
   .use(createPinia())
   .use(router)
-  .use(ElementPlus)
-  .use(Particles)
-  .use(VueDOMPurifyHTML)
+  .use(elementPlus)
+  .use(particles)
+  .use(vueDOMPurifyHTML)
   .mount('#app', true)
 
-installComponents(app, ElementPlusIconsVue)
+installComponents(app, elementPlusIconsVue)

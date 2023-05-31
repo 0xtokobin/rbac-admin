@@ -1,24 +1,24 @@
-import { MockHandler } from 'vite-plugin-mock-server'
+import { defineMock } from 'vite-plugin-mock-dev-server'
 
-export default (): MockHandler[] => [
+export default defineMock([
   {
-    pattern: '/mock/base/mobile/smscode',
+    url: '/mock/base/mobile/smscode',
     method: 'GET',
-    handle: (req, res) => {
+    response: (req, res) => {
       res.end()
     }
   },
   {
-    pattern: '/mock/base/mobile/smscode',
+    url: '/mock/base/mobile/smscode',
     method: 'POST',
-    handle: (req, res) => {
+    response: (req, res) => {
       res.end()
     }
   },
   {
-    pattern: '/mock/base/mobile/areacode',
+    url: '/mock/base/mobile/areacode',
     method: 'GET',
-    handle: (req, res) => {
+    response: (req, res) => {
       res.end([
         {
           area: '中国大陆',
@@ -39,4 +39,4 @@ export default (): MockHandler[] => [
       ])
     }
   },
-]
+])

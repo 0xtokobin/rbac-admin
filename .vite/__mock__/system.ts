@@ -1,109 +1,109 @@
-import { MockHandler } from 'vite-plugin-mock-server'
+import { defineMock } from 'vite-plugin-mock-dev-server'
 
-export default (): MockHandler[] => [
+export default defineMock([
   {
-    pattern: '/mock/system/user/login',
+    url: '/mock/system/user/login',
     method: 'POST',
-    handle: (req, res) => {
+    response: (req, res) => {
       res.end()
     }
   },
   {
-    pattern: '/mock/system/user/scan',
+    url: '/mock/system/user/scan',
     method: 'GET',
-    handle: (req, res) => {
+    response: (req, res) => {
       res.end()
     }
   },
   {
-    pattern: '/mock/system/user/profile',
+    url: '/mock/system/user/profile',
     method: 'GET',
-    handle: (req, res) => {
+    response: (req, res) => {
       res.end()
     }
   },
   {
-    pattern: '/mock/system/user/notification',
+    url: '/mock/system/user/notification',
     method: 'GET',
-    handle: (req, res) => {
+    response: (req, res) => {
       res.end()
     }
   },
   {
-    pattern: '/mock/system/user/validate',
+    url: '/mock/system/user/validate',
     method: 'GET',
-    handle: (req, res) => {
+    response: (req, res) => {
       res.end()
     }
   },
   {
-    pattern: '/mock/system/menu/list',
+    url: '/mock/system/menu/list',
     method: 'GET',
-    handle: (req, res) => {
+    response: (req, res) => {
       res.end()
     }
   },
   {
-    pattern: '/mock/system/user/role',
+    url: '/mock/system/user/role',
     method: 'GET',
-    handle: (req, res) => {
+    response: (req, res) => {
       res.end()
     }
   },
   {
-    pattern: '/mock/system/role/list',
+    url: '/mock/system/role/list',
     method: 'GET',
-    handle: (req, res) => {
+    response: (req, res) => {
       res.end()
     }
   },
   {
-    pattern: '/mock/system/user/list',
+    url: '/mock/system/user/list',
     method: 'GET',
-    handle: (req, res) => {
+    response: (req, res) => {
       res.end()
     }
   },
   {
-    pattern: '/mock/system/dict/list',
+    url: '/mock/system/dict/list',
     method: 'GET',
-    handle: (req, res) => {
+    response: (req, res) => {
       res.end()
     }
   },
   {
-    pattern: '/mock/system/dict/page',
+    url: '/mock/system/dict/page',
     method: 'GET',
-    handle: (req, res) => {
+    response: (req, res) => {
       res.end()
     }
   },
   {
-    pattern: '/mock/system/param/page',
+    url: '/mock/system/param/page',
     method: 'GET',
-    handle: (req, res) => {
+    response: (req, res) => {
       res.end()
     }
   },
   {
-    pattern: '/mock/system/log/page',
+    url: '/mock/system/log/page',
     method: 'GET',
-    handle: (req, res) => {
+    response: (req, res) => {
       res.end()
     }
   },
   {
-    pattern: '/mock/system/dept/page',
+    url: '/mock/system/dept/page',
     method: 'GET',
-    handle: (req, res) => {
+    response: (req, res) => {
       res.end()
     }
   },
   {
-    pattern: '/mock/system/file/page',
+    url: '/mock/system/file/page',
     method: 'GET',
-    handle: (req, res) => {
+    response: (req, res) => {
       res.end()
     }
   },
-]
+])
