@@ -4,7 +4,7 @@ import { MOBILE } from '@kaivanwong/utils'
 import { getStorage } from '@/utils/storage'
 import { StorageKeyEnum } from '@/constants/enums'
 import { POST } from '@/utils/request/index.js'
-import { useCountDown } from '@/hooks/use-count-down'
+import { useCountDown } from '@/hooks/use-crud'
 import type { MobileForm } from '@/views/base/login'
 import type { IObject } from '#/global'
 

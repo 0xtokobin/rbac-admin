@@ -1,0 +1,28 @@
+$--colors: (
+  'primary': (
+    'base': #3dabf5,
+  ),
+  'success': (
+    'base': #009580,
+  ),
+  'warning': (
+    'base': #ffab2a,
+  ),
+  'danger': (
+    'base': #f75151,
+  ),
+  'info': (
+    'base': #84818a,
+  ),
+);
+
+@forward 'element-plus/theme-chalk/src/mixins/config.scss' with (
+  $namespace: 'el'
+);
+
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
+  $colors: $--colors,
+);
+
+@use './style.dark.scss';
+@use 'element-plus/theme-chalk/src/dark/css-vars.scss' as *;

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useBaseStore } from '@/hooks/use-base-store'
+import { useBaseStore } from '@/hooks/use-store'
 import { useCrud } from '@/hooks/use-crud'
 
 const { t } = useI18n()

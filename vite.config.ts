@@ -29,14 +29,13 @@ export default ({ command, mode }: ConfigEnv) => {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@use "@/assets/style/element-plus.scss" as *;',
+          additionalData: '@use "@/plugins/element-plus/style.scss" as *;',
         },
       },
     },
     resolve: {
       alias: {
         '@': resolve(process.cwd(), 'src'),
-        'vue-i18n': 'vue-i18n/dist/vue-i18n.cjs.js',
       },
       extensions: ['.js', '.ts', '.jsx', '.tsx', '.json', '.vue'],
     },

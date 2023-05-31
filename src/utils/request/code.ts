@@ -1,5 +1,5 @@
 import type { Callback, IObject } from '#/global'
-import type { I18nT } from '#/i18n'
+import type { I18nT } from '@/plugins/vue-i18n'
 
 export function networkCodeAdaptor(code: number,
   t: I18nT,

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { FormInstance, FormRules } from 'element-plus'
 import { PASSWORD_NORMAL, USERNAME } from '@kaivanwong/utils'
-import { useUserStore } from '@/hooks/use-user-store'
+import { useUserStore } from '@/hooks/use-store'
 import { GET } from '@/utils/request/index.js'
 import type { ResponseData } from '#libs/common/request'
 

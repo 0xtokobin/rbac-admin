@@ -2,12 +2,12 @@
 import type {
   Language,
 } from 'element-plus/es/locale'
-import { useBaseStore } from '@/hooks/use-base-store'
+import { useBaseStore } from '@/hooks/use-store'
 import { DarkModeEnum, LanguageEnum } from '@/constants/enums'
-import layoutView from '@/layout/layout-view.vue'
-import layoutPage from '@/layout/layout-page.vue'
+import layoutView from '@/layouts/layout-view.vue'
+import layoutPage from '@/layouts/layout-page.vue'
 import { setEpThemeColor } from '@/utils/base/index.js'
-import { useDict } from '@/hooks/use-dict'
+import { useDict } from '@/hooks/use-crud'
 
 const route = useRoute()
 

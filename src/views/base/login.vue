@@ -10,7 +10,7 @@ import logo from '@/assets/svg/logo.svg'
 import crudDialog from '@/components/crud/crud-dialog.vue'
 import { GET } from '@/utils/request'
 import { StorageKeyEnum } from '@/constants/enums'
-import { useBaseStore } from '@/hooks/use-base-store'
+import { useBaseStore } from '@/hooks/use-store'
 import { setStorage } from '@/utils/storage'
 import type { IObject } from '#/global'
 

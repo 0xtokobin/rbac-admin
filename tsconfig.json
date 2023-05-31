@@ -29,10 +29,10 @@
     "dist"
   ],
   "include": [
-    "./src/**/*",
-    "./types/**/*",
-    "./mock/**/*",
-    "./package.json",
+    "src/**/*",
+    "types/**/*",
+    "package.json",
+    ".mock/**/*",
     ".vite/**/*"
   ]
 }

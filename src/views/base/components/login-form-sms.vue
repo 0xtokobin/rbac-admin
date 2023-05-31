@@ -2,9 +2,9 @@
 import type { FormInstance, FormRules } from 'element-plus'
 import { MOBILE } from '@kaivanwong/utils'
 import { getStorage } from '@/utils/storage'
-import { useUserStore } from '@/hooks/use-user-store'
+import { useUserStore } from '@/hooks/use-store'
 import { StorageKeyEnum } from '@/constants/enums'
-import { useCountDown } from '@/hooks/use-count-down'
+import { useCountDown } from '@/hooks/use-crud'
 
 const { t } = useI18n()
 
