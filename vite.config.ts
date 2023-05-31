@@ -17,12 +17,11 @@ import Unocss from 'unocss/vite'
 export default ({ command, mode }: ConfigEnv) => {
   const env: Record<string, string> = loadEnv(mode, './', [
     'VITE_',
-    'WINGSCLOUD_',
+    'APP_',
   ])
 
   return defineConfig({
     base: env.VITE_BASE_URL,
-    envDir: './',
     define: {
       'process.env': env,
     },

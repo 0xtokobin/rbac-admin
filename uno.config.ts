@@ -20,7 +20,6 @@ export default defineConfig({
         display: 'inline-block',
       },
     }),
-    presetAttributify(),
     presetTypography(),
     presetWebFonts({
       fonts: {

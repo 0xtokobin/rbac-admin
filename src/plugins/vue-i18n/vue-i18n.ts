@@ -1,4 +1,4 @@
-import type { I18n, I18nOptions } from 'vue-i18n'
+import type { I18n } from 'vue-i18n'
 import { createI18n } from 'vue-i18n'
 import { messages } from './messages'
 import type { I18nT } from './types'
@@ -17,7 +17,7 @@ const i18n: I18n = createI18n({
   globalInjection: true,
   useScope: 'global',
   messages,
-} as I18nOptions)
+})
 
 const { t } = i18n.global
 

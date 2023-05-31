@@ -1,6 +1,5 @@
 <script lang="ts" setup>
-import { useUserStore } from '@/hooks/use-store'
-import { useBaseStore } from '@/hooks/use-store'
+import { useBaseStore, useUserStore } from '@/hooks/use-store'
 import { DarkModeEnum, LayoutEnum, SizeEnum, ThemeEnum } from '@/constants/enums'
 import { setEpThemeColor } from '@/utils/base/index.js'
 import avatar from '@/assets/image/logo-black.png'

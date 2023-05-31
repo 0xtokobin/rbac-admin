@@ -5,10 +5,8 @@ import type {
 } from 'vue-router'
 import { useNProgress } from '@vueuse/integrations/useNProgress'
 import { getStorage } from '@/utils/storage'
-import { useBaseStore } from '@/hooks/use-store'
-import { useUserStore } from '@/hooks/use-store'
+import { useBaseStore, useUserStore } from '@/hooks/use-store'
 import { AdminRouteEnum, StorageKeyEnum } from '@/constants/enums'
-
 import { getLoginStorageType } from '@/utils/base'
 import '@/assets/style/nprogress.scss'
 

@@ -1,17 +1,9 @@
 import zhCN from 'element-plus/dist/locale/zh-cn.mjs'
 import enUS from 'element-plus/dist/locale/en.mjs'
-import { autoImportLanguages } from './helper'
-import type { Languages, Messages } from './types'
+import { languages } from './languages'
 import { LanguageEnum } from '@/constants/enums'
 
-const languages: Languages = autoImportLanguages(
-  import.meta.glob('@/languages/**/*.json', {
-    import: 'default',
-    eager: true,
-  }),
-)
-
-const messages: Messages = {
+const messages = {
   [LanguageEnum.EN_US_ALIAS]: {
     name: LanguageEnum.EN_US_NAME,
     ...languages[LanguageEnum.EN_US_ALIAS],
@@ -24,4 +16,4 @@ const messages: Messages = {
   },
 }
 
-export { messages, languages }
+export { messages }

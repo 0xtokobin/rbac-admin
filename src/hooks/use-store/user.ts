@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ElNotification } from 'element-plus'
-import { useBaseStore } from '../use-base-store'
+import { useBaseStore } from './base'
 import { getStorage, setStorage } from '@/utils/storage'
 import { AdminRouteEnum, StorageKeyEnum } from '@/constants/enums'
 import { GET, POST } from '@/utils/request'
