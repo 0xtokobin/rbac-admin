@@ -28,7 +28,7 @@ function changeBrowserTitle() {
     document.title = `${route.meta.i18n[locale.value]} - ${t('base.name')}`
 
   else
-    document.title = t('base.name') || import.meta.env.WINGSCLOUD_BROWSER_TITLE
+    document.title = t('base.name') || import.meta.env.APP_BROWSER_TITLE
 }
 
 onBeforeMount(() => {

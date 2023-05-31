@@ -83,7 +83,7 @@ export function request<T>(options: RequestOptions): Promise<any | ResponseData<
     console.warn(import.meta.env)
     _axios
       .request({
-        baseURL: options.baseURL || import.meta.env.WINGSCLOUD_REQUEST_URL,
+        baseURL: options.baseURL || import.meta.env.APP_REQUEST_URL,
         url: options.url,
         method: options.method,
         timeout: options.timeout || 30000,
