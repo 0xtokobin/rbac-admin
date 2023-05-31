@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { FormInstance, FormRules } from 'element-plus'
-import { MOBILE } from '@kaivanwong/utils'
+import { MOBILE } from '@/utils/base'
 import { getStorage } from '@/utils/storage'
 import { StorageKeyEnum } from '@/constants/enums'
 import { POST } from '@/utils/request/index.js'

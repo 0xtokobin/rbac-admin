@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { FormInstance, FormRules } from 'element-plus'
-import { PASSWORD_NORMAL } from '@kaivanwong/utils'
+import { PASSWORD_NORMAL } from '@/utils/base'
 import type { PasswordForm } from '@/views/base/login'
 import type { IObject } from '#/global'
 

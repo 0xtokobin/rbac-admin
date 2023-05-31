@@ -4,7 +4,7 @@
 
 ## 特点
 
-- 基于 Vue、Vite、TypeScript、Element Plus、Pinia、VueUse 等最新技术栈；
+- 基于 Vue、Vite、TypeScript、Element Plus、Pinia、VueUse、Iconify 等最新技术栈；
 
 - 支持国际化多语言、黑暗模式、多主题、多布局、动态菜单等功能，UI 适配 H5 / PC 双端；
 
