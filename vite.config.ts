@@ -42,6 +42,7 @@ export default ({ command, mode }) => {
     },
     server: {
       open: true,
+      host: true,
       proxy: {},
     },
     plugins: [
