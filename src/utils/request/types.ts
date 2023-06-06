@@ -52,15 +52,15 @@ export interface RequestOptions {
    */
   headers?: AxiosRequestHeaders
   /**
-   * Network state adapter, set to true will automatically intercept network state.
+   * Network state adapter, set to `true` will automatically intercept network state.
    */
   networkCodeAdaptor?: boolean
   /**
-   * Api interface state adapter, set to true will automatically intercept network state.
+   * Api interface state adapter, set to `true` will automatically intercept network state.
    */
   apiCodeAdaptor?: boolean
   /**
-   * Authentication state adapter, set to true will automatically intercept network state.
+   * Authentication state adapter, set to `true` will automatically intercept network state.
    */
   authCodeAdaptor?: boolean
 }

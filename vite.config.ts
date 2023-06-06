@@ -16,19 +16,33 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import unocss from 'unocss/vite'
 
+/**
+ * The Vite Server & Build Config.
+ */
 export default (options: ConfigEnv) => {
+  // The environment mode.
   const { mode } = options
+
+  // Load custom environment variables from the env file.
   const env: Record<string, string> = loadEnv(mode, '.vite/__env__/', [
     'VITE_',
     'APP_',
   ])
 
+  /**
+   * Return the Vite config.
+   * https://vitejs.dev
+   */
   return defineConfig({
+    // The public path.
     base: env.VITE_BASE_URL,
+    // The env file path.
     envDir: '.vite/__env__/',
+    // Customize the Env variable.
     define: {
       'process.env': env,
     },
+    // Overlay global style.
     css: {
       preprocessorOptions: {
         scss: {
@@ -36,17 +50,20 @@ export default (options: ConfigEnv) => {
         },
       },
     },
+    // Resolve the import path alias.
     resolve: {
       alias: {
         '@': resolve(process.cwd(), 'src'),
       },
       extensions: ['.js', '.ts', '.jsx', '.tsx', '.json', '.vue'],
     },
+    // Development proxy server, you can set the proxy configuration here.
     server: {
       open: true,
       host: true,
       proxy: {},
     },
+    // Registered the third-party plugin.
     plugins: [
       vue(),
       vueJsx(),
@@ -111,6 +128,7 @@ export default (options: ConfigEnv) => {
         include: '.vite/__mock__/**/*.ts',
       }),
     ],
+    // Package build optimization.
     build: {
       target: 'modules',
       minify: 'esbuild',
