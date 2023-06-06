@@ -7,6 +7,7 @@ import type { IObject } from '#/global'
 export function useDict() {
   const getDictList = async () => {
     const { code, data } = await GET('/system/dict/list')
+    console.log(code, data)
     let dict = {}
     if (code === 0) {
       data.forEach((item: IObject) => {
@@ -14,7 +15,6 @@ export function useDict() {
       })
     }
     setStorage(StorageKeyEnum.DICT, dict)
-    return data
   }
 
   const getDictItem = (key: string): ComputedRef<any> => {

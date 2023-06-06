@@ -1,3 +1,4 @@
+import type { Plugin } from 'vue'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import particles from 'vue3-particles'
@@ -22,7 +23,7 @@ app
   .use(createPinia())
   .use(router)
   .use(elementPlus)
-  .use(particles)
+  .use(particles as Plugin)
   .use(vueDOMPurifyHTML)
   .mount('#app', true)
 
