@@ -1,4 +1,4 @@
-import type { App, FunctionalComponent, Plugin } from 'vue'
+import type { App, Plugin } from 'vue'
 import { colorMix } from './color'
 import { StorageKeyEnum } from '@/constants/enums'
 import { getStorage } from '@/utils/storage'
@@ -65,14 +65,10 @@ export function mergeValueByKey(to: IObject, source: IObject): IObject {
   return to
 }
 
-export function componentAddInstall<T>(component: T extends FunctionalComponent<any, any> ? any : any,
-  alias?: string): T & Plugin {
-  const _component = component as any
-  _component.install = (app: App) => {
-    app.component(
-      alias || _component.name || _component.displayName,
-      component,
-    )
+export function componentAddInstall<T extends object>(component: T, alias?: string): T & Plugin {
+  const comp = component as any
+  comp.install = (app: App) => {
+    app.component(comp.name || comp.displayName, component)
     if (alias)
       app.config.globalProperties[alias] = component
   }

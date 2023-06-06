@@ -12,7 +12,7 @@ declare module '*.tiff';
 declare module '*.gif';
 declare module 'tsparticles';
 declare module 'unplugin-vue-define-options/vite';
-declare module '@element-plus/icons-vue'
+declare module '@element-plus/icons-vue';
 declare module 'vue-router' {
   interface RouteMeta {
     layout: string
