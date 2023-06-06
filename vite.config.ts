@@ -1,5 +1,6 @@
 import { resolve } from 'path'
 import { defineConfig, loadEnv } from 'vite'
+import type { ConfigEnv } from 'vite'
 import { ElementPlusResolver as elementPlusResolver } from 'unplugin-vue-components/resolvers'
 import iconsResolver from 'unplugin-icons/resolver'
 import icons from 'unplugin-icons/vite'
@@ -15,7 +16,8 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import unocss from 'unocss/vite'
 
-export default ({ command, mode }) => {
+export default (options: ConfigEnv) => {
+  const { mode } = options
   const env: Record<string, string> = loadEnv(mode, '.vite/__env__/', [
     'VITE_',
     'APP_',
@@ -106,7 +108,7 @@ export default ({ command, mode }) => {
       mockDevServerPlugin({
         prefix: '/mock',
         wsPrefix: '/mock/ws',
-        include: '.vite/__mock__/',
+        include: '.vite/__mock__/**/*.ts',
       }),
     ],
     build: {

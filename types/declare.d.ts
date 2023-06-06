@@ -19,6 +19,7 @@ declare module 'vue-router' {
     component?: string | Component
     isI18n?: boolean
     i18nKey?: string
+    i18n: Record<string, string>
     isMenu?: boolean
     requiresAuth?: boolean
     iconType?: string

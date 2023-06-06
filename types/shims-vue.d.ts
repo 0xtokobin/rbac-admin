@@ -13,3 +13,4 @@ declare module 'element-plus/dist/locale/en.mjs' {
   const en: Record<string, string>;
   export default en;
 }
+
