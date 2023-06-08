@@ -4,10 +4,10 @@ import type {
 } from 'element-plus/es/locale'
 import { useBaseStore } from '@/hooks/use-store'
 import { DarkModeEnum, LanguageEnum } from '@/constants/enums'
-import layoutView from '@/layouts/layout-view.vue'
-import layoutPage from '@/layouts/layout-page.vue'
 import { setEpThemeColor } from '@/utils/base/index.js'
 import { useDict } from '@/hooks/use-crud'
+import LayoutView from '@/layouts/layout-view.vue'
+import LayoutPage from '@/layouts/layout-page.vue'
 
 const route = useRoute()
 
@@ -76,15 +76,15 @@ watch(
     :locale="epMessages" :button="{ autoInsertSpace: true }" :message="{ max: 3 }"
     :size="baseStore.size"
   >
-    <layout-page v-if="route.meta?.layout === '' || route.meta?.layout === 'page'">
+    <LayoutPage v-if="route.meta.layout === '' || route.meta?.layout === 'page'">
       <template #router-view>
         <slot name="app" />
       </template>
-    </layout-page>
-    <layout-view v-if="route.meta?.layout === 'view'">
+    </LayoutPage>
+    <LayoutView v-if="route.meta?.layout === 'view'">
       <template #router-view>
         <slot name="app" />
       </template>
-    </layout-view>
+    </LayoutView>
   </el-config-provider>
 </template>

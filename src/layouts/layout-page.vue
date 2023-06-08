@@ -7,6 +7,10 @@ import { StorageKeyEnum } from '@/constants/enums'
 import { setStorage } from '@/utils/storage'
 import { useBaseStore } from '@/hooks/use-store'
 
+defineOptions({
+  name: 'LayoutPage',
+})
+
 const { locale, messages } = useI18n()
 
 const baseStore = useBaseStore()
@@ -86,5 +90,8 @@ async function particlesInit(engine: Engine) {
         </template>
       </el-dropdown>
     </el-header>
+    <el-main>
+      <slot name="router-view" />
+    </el-main>
   </el-container>
 </template>

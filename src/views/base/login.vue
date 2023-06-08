@@ -51,12 +51,8 @@ function closePassword() {
 }
 
 onBeforeMount(async () => {
-  const { code, data } = await GET('/common/mobile/areacode')
-  let mobileAreaCode = []
-  if (code === 0)
-    mobileAreaCode = data
-
-  setStorage(StorageKeyEnum.MOBILE_AREA_CODE, mobileAreaCode)
+  const { data } = await GET('/common/mobile/areacode')
+  setStorage(StorageKeyEnum.MOBILE_AREA_CODE, data)
 })
 </script>
 

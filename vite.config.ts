@@ -18,6 +18,7 @@ import unocss from 'unocss/vite'
 
 /**
  * The Vite Server & Build Config.
+   * https://vitejs.dev
  */
 export default (options: ConfigEnv) => {
   // The environment mode.
@@ -29,10 +30,7 @@ export default (options: ConfigEnv) => {
     'APP_',
   ])
 
-  /**
-   * Return the Vite config.
-   * https://vitejs.dev
-   */
+  // Return the Vite config.
   return defineConfig({
     // The public path.
     base: env.VITE_BASE_URL,

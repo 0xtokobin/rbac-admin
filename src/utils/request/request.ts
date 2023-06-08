@@ -44,15 +44,6 @@ export function addInterceptorsRequest(axios: Axios,
 export function addInterceptorsResponse(axios: Axios,
   options: RequestOptions): number {
   return axios.interceptors.response.use((response) => {
-    if (options.networkCodeAdaptor) {
-      networkCodeAdaptor(response.status, _t, ({ message }) => {
-        ElNotification({
-          title: _t('base.network.error'),
-          message,
-          type: 'error',
-        })
-      })
-    }
     if (options.apiCodeAdaptor) {
       apiCodeAdaptor(response.data, _t, ({ message }) => {
         ElNotification({
@@ -96,11 +87,20 @@ export function request(options: RequestOptions): Promise<ResponseData> {
       .then((res: AxiosResponse<any, any>) => {
         resolve(res.data as ResponseData)
       })
-      .catch((error) => {
+      .catch(({ response }) => {
+        if (options.networkCodeAdaptor) {
+          networkCodeAdaptor(response.status, _t, ({ message }) => {
+            ElNotification({
+              title: _t('base.network.error'),
+              message,
+              type: 'error',
+            })
+          })
+        }
         resolve({
-          code: error.response.status,
-          msg: error.response.statusText,
-          data: error.data,
+          code: response.status,
+          msg: response.statusText,
+          data: response.data,
         } as ResponseData)
       })
   })
