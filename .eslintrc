@@ -1,3 +1,6 @@
 {
-  "extends": "@kaivanwong"
+  "extends": "@kaivanwong",
+  "rules": {
+    "no-console": "off"
+  }
 }

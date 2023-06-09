@@ -47,7 +47,7 @@ export function networkCodeAdaptor(code: number,
         message = t('base.request.http')
         break
       default:
-        message = t('base.unkown.code', { code })
+        message = t('base.unknown.code', { code })
     }
   }
   if (code && message && callback)
@@ -66,7 +66,7 @@ export function apiCodeAdaptor(data: IObject,
         message = ''
         break
       case 500:
-        message = t('base.unkown.error', { message: data.msg })
+        message = t('base.unknown.error', { message: data.msg })
         break
       case 50001:
         message = t('base.api.noParams')

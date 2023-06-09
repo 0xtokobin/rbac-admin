@@ -2,105 +2,105 @@ import { defineMock } from 'vite-plugin-mock-dev-server'
 
 export default defineMock([
   {
-    url: '/mock/system/user/login',
+    url: '/system/user/login',
     method: 'POST',
     response: (req, res) => {
       res.end()
     }
   },
   {
-    url: '/mock/system/user/scan',
+    url: '/system/user/scan',
     method: 'GET',
     response: (req, res) => {
       res.end()
     }
   },
   {
-    url: '/mock/system/user/profile',
+    url: '/system/user/profile',
     method: 'GET',
     response: (req, res) => {
       res.end()
     }
   },
   {
-    url: '/mock/system/user/notification',
+    url: '/system/user/notification',
     method: 'GET',
     response: (req, res) => {
       res.end()
     }
   },
   {
-    url: '/mock/system/user/validate',
+    url: '/system/user/validate',
     method: 'GET',
     response: (req, res) => {
       res.end()
     }
   },
   {
-    url: '/mock/system/menu/list',
+    url: '/system/menu/list',
     method: 'GET',
     response: (req, res) => {
       res.end()
     }
   },
   {
-    url: '/mock/system/user/role',
+    url: '/system/user/role',
     method: 'GET',
     response: (req, res) => {
       res.end()
     }
   },
   {
-    url: '/mock/system/role/list',
+    url: '/system/role/list',
     method: 'GET',
     response: (req, res) => {
       res.end()
     }
   },
   {
-    url: '/mock/system/user/list',
+    url: '/system/user/list',
     method: 'GET',
     response: (req, res) => {
       res.end()
     }
   },
   {
-    url: '/mock/system/dict/list',
+    url: '/system/dict/list',
     method: 'GET',
     response: (req, res) => {
       res.end()
     }
   },
   {
-    url: '/mock/system/dict/page',
+    url: '/system/dict/page',
     method: 'GET',
     response: (req, res) => {
       res.end()
     }
   },
   {
-    url: '/mock/system/param/page',
+    url: '/system/param/page',
     method: 'GET',
     response: (req, res) => {
       res.end()
     }
   },
   {
-    url: '/mock/system/log/page',
+    url: '/system/log/page',
     method: 'GET',
     response: (req, res) => {
       res.end()
     }
   },
   {
-    url: '/mock/system/dept/page',
+    url: '/system/dept/page',
     method: 'GET',
     response: (req, res) => {
       res.end()
     }
   },
   {
-    url: '/mock/system/file/page',
+    url: '/system/file/page',
     method: 'GET',
     response: (req, res) => {
       res.end()

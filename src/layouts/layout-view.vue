@@ -13,6 +13,10 @@ import layoutAvatar from '@/layouts/components/avatar.vue'
 import { LayoutEnum } from '@/constants/enums'
 import { useBaseStore } from '@/hooks/use-store'
 
+defineOptions({
+  name: 'LayoutView',
+})
+
 const baseStore = useBaseStore()
 </script>
 

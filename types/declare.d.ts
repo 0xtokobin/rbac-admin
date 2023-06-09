@@ -12,13 +12,14 @@ declare module '*.tiff';
 declare module '*.gif';
 declare module 'tsparticles';
 declare module 'unplugin-vue-define-options/vite';
-declare module '@element-plus/icons-vue'
+declare module '@element-plus/icons-vue';
 declare module 'vue-router' {
   interface RouteMeta {
     layout: string
     component?: string | Component
     isI18n?: boolean
     i18nKey?: string
+    i18n: Record<string, string>
     isMenu?: boolean
     requiresAuth?: boolean
     iconType?: string

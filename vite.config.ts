@@ -1,5 +1,6 @@
 import { resolve } from 'path'
 import { defineConfig, loadEnv } from 'vite'
+import type { ConfigEnv } from 'vite'
 import { ElementPlusResolver as elementPlusResolver } from 'unplugin-vue-components/resolvers'
 import iconsResolver from 'unplugin-icons/resolver'
 import icons from 'unplugin-icons/vite'
@@ -15,18 +16,31 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import unocss from 'unocss/vite'
 
-export default ({ command, mode }) => {
+/**
+ * The Vite Server & Build Config.
+   * https://vitejs.dev
+ */
+export default (options: ConfigEnv) => {
+  // The environment mode.
+  const { mode } = options
+
+  // Load custom environment variables from the env file.
   const env: Record<string, string> = loadEnv(mode, '.vite/__env__/', [
     'VITE_',
     'APP_',
   ])
 
+  // Return the Vite config.
   return defineConfig({
+    // The public path.
     base: env.VITE_BASE_URL,
+    // The env file path.
     envDir: '.vite/__env__/',
+    // Customize the Env variable.
     define: {
       'process.env': env,
     },
+    // Overlay global style.
     css: {
       preprocessorOptions: {
         scss: {
@@ -34,17 +48,20 @@ export default ({ command, mode }) => {
         },
       },
     },
+    // Resolve the import path alias.
     resolve: {
       alias: {
         '@': resolve(process.cwd(), 'src'),
       },
       extensions: ['.js', '.ts', '.jsx', '.tsx', '.json', '.vue'],
     },
+    // Development proxy server, you can set the proxy configuration here.
     server: {
       open: true,
       host: true,
       proxy: {},
     },
+    // Registered the third-party plugin.
     plugins: [
       vue(),
       vueJsx(),
@@ -106,9 +123,10 @@ export default ({ command, mode }) => {
       mockDevServerPlugin({
         prefix: '/mock',
         wsPrefix: '/mock/ws',
-        include: '.vite/__mock__/',
+        include: '.vite/__mock__/**/*.ts',
       }),
     ],
+    // Package build optimization.
     build: {
       target: 'modules',
       minify: 'esbuild',

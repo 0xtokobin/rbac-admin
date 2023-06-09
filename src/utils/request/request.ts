@@ -44,15 +44,6 @@ export function addInterceptorsRequest(axios: Axios,
 export function addInterceptorsResponse(axios: Axios,
   options: RequestOptions): number {
   return axios.interceptors.response.use((response) => {
-    if (options.networkCodeAdaptor) {
-      networkCodeAdaptor(response.status, _t, ({ message }) => {
-        ElNotification({
-          title: _t('base.network.error'),
-          message,
-          type: 'error',
-        })
-      })
-    }
     if (options.apiCodeAdaptor) {
       apiCodeAdaptor(response.data, _t, ({ message }) => {
         ElNotification({
@@ -75,14 +66,14 @@ export function addInterceptorsResponse(axios: Axios,
   })
 }
 
-export function request<T>(options: RequestOptions): Promise<any | ResponseData<T> | undefined> {
+export function request(options: RequestOptions): Promise<ResponseData> {
   const _axios: Axios = axios.create()
   addInterceptorsRequest(_axios, options)
   addInterceptorsResponse(_axios, options)
   return new Promise((resolve) => {
     _axios
       .request({
-        baseURL: options.baseURL || import.meta.env.APP_REQUEST_URL,
+        baseURL: import.meta.env.APP_REQUEST_URL + import.meta.env.APP_REQUEST_PREFIX,
         url: options.url,
         method: options.method,
         timeout: options.timeout || 30000,
@@ -94,14 +85,23 @@ export function request<T>(options: RequestOptions): Promise<any | ResponseData<
         data: options.data,
       })
       .then((res: AxiosResponse<any, any>) => {
-        resolve(res.data as ResponseData<T>)
+        resolve(res.data as ResponseData)
       })
-      .catch((error) => {
+      .catch(({ response }) => {
+        if (options.networkCodeAdaptor) {
+          networkCodeAdaptor(response.status, _t, ({ message }) => {
+            ElNotification({
+              title: _t('base.network.error'),
+              message,
+              type: 'error',
+            })
+          })
+        }
         resolve({
-          code: error.response.status,
-          msg: error.response.statusText,
-          data: error.data,
-        } as ResponseData<T>)
+          code: response.status,
+          msg: response.statusText,
+          data: response.data,
+        } as ResponseData)
       })
   })
 }

@@ -19,10 +19,10 @@
     "types": [
       "node"
     ],
+    "strict": true,
     "allowSyntheticDefaultImports": true,
     "allowImportingTsExtensions": true,
     "noEmit": true,
-    "composite": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "jsx": "preserve",

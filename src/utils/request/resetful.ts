@@ -1,15 +1,16 @@
 import type { AxiosRequestHeaders } from 'axios'
 import { request } from './request'
 import type {
+  Data,
+  Params,
   RequestOptions,
   ResponseData,
 } from './types'
 import { RequestHeaderEnum } from '@/constants/enums'
-import type { IObject } from '#/global'
 
-export function GET<T>(url: string,
-  params?: any,
-  options?: RequestOptions): Promise<any | ResponseData<T> | undefined> {
+export function GET(url: string,
+  params?: Params,
+  options?: RequestOptions): Promise<ResponseData> {
   return request({
     url,
     method: 'GET',
@@ -25,9 +26,9 @@ export function GET<T>(url: string,
   })
 }
 
-export function POST<T>(url: string,
-  data?: any,
-  options?: RequestOptions): Promise<any | ResponseData<T> | undefined> {
+export function POST(url: string,
+  data?: Data,
+  options?: RequestOptions): Promise<ResponseData> {
   return request({
     url,
     method: 'POST',
@@ -43,9 +44,9 @@ export function POST<T>(url: string,
   })
 }
 
-export function PUT<T>(url: string,
-  data?: any,
-  options?: RequestOptions): Promise<any | ResponseData<T> | undefined> {
+export function PUT(url: string,
+  data?: Data,
+  options?: RequestOptions): Promise<ResponseData> {
   return request({
     url,
     method: 'PUT',
@@ -61,9 +62,9 @@ export function PUT<T>(url: string,
   })
 }
 
-export function DELETE<T>(url: string,
-  params?: any,
-  options?: RequestOptions): Promise<any | ResponseData<T> | undefined> {
+export function DELETE(url: string,
+  params?: Params,
+  options?: RequestOptions): Promise<ResponseData> {
   return request({
     url,
     method: 'DELETE',
@@ -79,9 +80,9 @@ export function DELETE<T>(url: string,
   })
 }
 
-export function UPLOAD<T>(url: string,
-  data?: any,
-  options?: RequestOptions): Promise<any | ResponseData<T> | undefined> {
+export function UPLOAD(url: string,
+  data?: Data,
+  options?: RequestOptions): Promise<ResponseData> {
   return request({
     url,
     method: 'POST',
@@ -97,9 +98,9 @@ export function UPLOAD<T>(url: string,
   })
 }
 
-export function DOWNLOAD<T>(url: string,
-  params?: IObject,
-  options?: RequestOptions): Promise<any | ResponseData<T> | undefined> {
+export function DOWNLOAD(url: string,
+  params?: Params,
+  options?: RequestOptions): Promise<ResponseData> {
   return request({
     url,
     method: 'GET',
@@ -108,7 +109,6 @@ export function DOWNLOAD<T>(url: string,
       'Content-Type': RequestHeaderEnum.CONTENT_TYPE_JSON,
       ...options?.headers,
     } as AxiosRequestHeaders,
-    responseType: 'blob',
     networkCodeAdaptor: true,
     apiCodeAdaptor: true,
     authCodeAdaptor: true,

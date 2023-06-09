@@ -12,9 +12,8 @@ export function useDict() {
       data.forEach((item: IObject) => {
         dict = { [item.key]: item.values, ...dict }
       })
+      setStorage(StorageKeyEnum.DICT, dict)
     }
-    setStorage(StorageKeyEnum.DICT, dict)
-    return data
   }
 
   const getDictItem = (key: string): ComputedRef<any> => {
