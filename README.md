@@ -1,6 +1,6 @@
 # Wing Cloud Admin
 
-✨ 轻量级的中后台权限管理 Web 单页面应用，基于 Vue + Vite + Element Plus + TypeScript 开发。
+✨ 轻量级的中后台权限管理 Web 单页面应用，基于 Vue 3 + Vite + Element Plus + TypeScript 开发。
 
 ## 特点
 
