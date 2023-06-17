@@ -2,20 +2,26 @@ import type { Axios, AxiosRequestHeaders, AxiosResponse } from 'axios'
 import axios from 'axios'
 import qs from 'qs'
 import { ElNotification } from 'element-plus'
+import type {
+  RequestOptions,
+  ResponseData,
+} from './types'
 import {
   apiCodeAdaptor,
   authCodeAdaptor,
   networkCodeAdaptor,
 } from './code'
-import type {
-  RequestOptions,
-  ResponseData,
-} from './types'
 import { RequestHeaderEnum, StorageKeyEnum } from '@/constants/enums'
-
 import { getStorage } from '@/utils/storage'
 import { _t } from '@/plugins/vue-i18n'
 
+/**
+ * @name addInterceptorsRequest
+ * @description Add an interceptor for network requests。
+ * @param axios The Axios instance.
+ * @param options Network request configuration.
+ * @returns
+ */
 export function addInterceptorsRequest(axios: Axios,
   options: RequestOptions): number {
   return axios.interceptors.request.use((config) => {
@@ -41,6 +47,13 @@ export function addInterceptorsRequest(axios: Axios,
   })
 }
 
+/**
+ * @name addInterceptorsResponse
+ * @description Add an interceptor for network response.
+ * @param axios The Axios instance.
+ * @param options Network request configuration.
+ * @returns
+ */
 export function addInterceptorsResponse(axios: Axios,
   options: RequestOptions): number {
   return axios.interceptors.response.use((response) => {
@@ -66,6 +79,12 @@ export function addInterceptorsResponse(axios: Axios,
   })
 }
 
+/**
+ * @name request
+ * @description Network request, based on Axios.
+ * @param options Network request configuration.
+ * @returns
+ */
 export function request(options: RequestOptions): Promise<ResponseData> {
   const _axios: Axios = axios.create()
   addInterceptorsRequest(_axios, options)

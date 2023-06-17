@@ -80,5 +80,5 @@ export interface ResponseData {
   /**
    * The response data.
    */
-  data: Record<string, any>
+  data: { [key: string]: (any | never) } | Array<any> | null
 }

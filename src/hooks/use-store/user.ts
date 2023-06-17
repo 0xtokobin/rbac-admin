@@ -1,4 +1,3 @@
-import { defineStore } from 'pinia'
 import { ElNotification } from 'element-plus'
 import { useBaseStore } from './base'
 import { getStorage, setStorage } from '@/utils/storage'
@@ -60,26 +59,16 @@ export const useUserStore = defineStore('user', () => {
     })
   }
 
-  const getProfile = async (): Promise<IObject> => {
+  const getProfile = async (): Promise<void> => {
     const { code, data } = await GET('/system/user/profile')
-    if (code === 0) {
+    if (code === 0)
       setProfile(data)
-      return data
-    }
-    else {
-      return {}
-    }
   }
 
-  const getRoles = async (): Promise<IObject> => {
+  const getRoles = async (): Promise<void> => {
     const { code, data } = await GET('/system/user/roles')
-    if (code === 0) {
+    if (code === 0)
       setRoles(data)
-      return data
-    }
-    else {
-      return {}
-    }
   }
 
   const login = async (form: any): Promise<void> => {
@@ -87,7 +76,7 @@ export const useUserStore = defineStore('user', () => {
     if (code === 0) {
       const baseStore = useBaseStore()
       await setStayLogin(form.remember)
-      await setToken(data)
+      await setToken(data.token)
       await getProfile()
       await getRoles()
       await baseStore.getMenuRoutes()

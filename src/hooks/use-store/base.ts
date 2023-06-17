@@ -1,4 +1,3 @@
-import { defineStore } from 'pinia'
 import type { RouteRecordRaw } from 'vue-router'
 import { getStorage } from '@/utils/storage'
 import { GET } from '@/utils/request'
@@ -10,7 +9,7 @@ import {
   router,
   routerInject,
 } from '@/plugins/vue-router'
-import type { ViewComponents } from '#/global'
+import type { Routes, ViewComponents } from '#/global'
 
 export const useBaseStore = defineStore('base', () => {
   const collapse = ref<boolean>(false)
@@ -61,7 +60,7 @@ export const useBaseStore = defineStore('base', () => {
     const viewComponents: ViewComponents = autoImportViewComponents(
       import.meta.glob('@/views/**/*.vue'),
     )
-    const menu: Array<RouteRecordRaw> = routerInject(data, viewComponents)
+    const menu: Array<RouteRecordRaw> = routerInject(data as Routes, viewComponents)
     setMenuRoutes(menu)
     return menu
   }

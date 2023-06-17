@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Engine } from 'tsparticles-engine'
 import { loadFull } from 'tsparticles'
-import { parallax } from 'tsparticles-demo-configs'
+import tsparticles from 'tsparticles-demo-configs'
 import { ArrowDown } from '@element-plus/icons-vue'
 import { StorageKeyEnum } from '@/constants/enums'
 import { setStorage } from '@/utils/storage'
@@ -24,7 +24,7 @@ function changeLanguage(value: string | number | Record<string, any> | undefined
 
 const options = computed(() => {
   return {
-    ...parallax,
+    ...tsparticles.parallax,
     ...{
       fullScreen: {
         zIndex: -1,

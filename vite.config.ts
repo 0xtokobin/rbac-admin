@@ -82,7 +82,7 @@ export default (options: ConfigEnv) => {
       }),
       icons({}),
       autoImport({
-        imports: ['vue', 'vue-router', 'vue-i18n'],
+        imports: ['vue', 'vue-router', 'vue-i18n', 'pinia'],
         resolvers: [
           elementPlusResolver(),
           iconsResolver({
