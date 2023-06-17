@@ -83,9 +83,9 @@ async function particlesInit(engine: Engine) {
         </div>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown v-for="(value, key) in messages" :key="key" :command="key">
+            <el-dropdown-item v-for="(value, key) in messages" :key="key" :command="key">
               {{ value.name }}
-            </el-dropdown>
+            </el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>

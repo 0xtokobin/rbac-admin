@@ -61,10 +61,10 @@ onBeforeMount(async () => {
     m-auto important-border-0
     :style="baseStore.isMobile ? 'margin-top:4vh;padding:0;width:88vw;' : 'margin-top:10vh;padding:1rem 1.5rem;width:20rem;'"
   >
-    <div my-4 flex justify-center items-center>
+    <div select-none my-4 flex justify-center items-center>
       <img w-20 h-20 :src="logo">
     </div>
-    <div mb-12 text-4 font-600 text-center style="color:var(--el-color-primary);">
+    <div select-none mb-12 text-4 font-600 text-center style="color:var(--el-color-primary);">
       <span mr-2>{{ t('base.name') }}</span>
       <span>{{ `v${release}` }}</span>
     </div>

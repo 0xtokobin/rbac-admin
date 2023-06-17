@@ -80,7 +80,7 @@ export default (options: ConfigEnv) => {
         iconDirs: [resolve(process.cwd(), 'src/assets/svg/')],
         symbolId: 'icon-[dir]-[name]',
       }),
-      icons({}),
+      icons(),
       autoImport({
         imports: ['vue', 'vue-router', 'vue-i18n', 'pinia'],
         resolvers: [
