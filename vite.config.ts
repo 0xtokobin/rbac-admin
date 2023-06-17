@@ -18,7 +18,7 @@ import unocss from 'unocss/vite'
 
 /**
  * The Vite Server & Build Config.
-   * https://vitejs.dev
+ * https://vitejs.dev
  */
 export default (options: ConfigEnv) => {
   // The environment mode.
