@@ -19,11 +19,11 @@
 ```sh
 # 拉取最新项目代码
 
-git clone https://github.com/wingscloud/admin.git
+git clone https://github.com/template/admin.git
 
 # 进入项目代码目录
 
-cd admin
+cd rbac-admin
 
 # 使用 pnpm 进行依赖安装及管理
 
