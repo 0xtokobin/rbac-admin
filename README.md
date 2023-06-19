@@ -42,8 +42,8 @@ pnpm dev
 
 <table>
 	<tr>
-		<td><img width="100%" src="https://github.com/wingscloud/assets/blob/main/packages/assets/admin/login.png?raw=true" /></td>
-		<td><img width="100%" src="https://github.com/wingscloud/assets/blob/main/packages/assets/admin/workbench.jpg?raw=true" /></td>
+		<td><img width="100%" src="https://github.com/template-app/rbac-admin/blob/main/.github/assets/login.png?raw=true" /></td>
+		<td><img width="100%" src="https://github.com/template-app/rbac-admin/blob/main/.github/assets/workbench.jpg?raw=true" /></td>
 	</tr>
 </table>
 
