@@ -1,6 +1,6 @@
 # RBAC Admin
 
-中后台权限管理 Web 单页面应用，基于 Vue 3 + Vite + Element Plus + TypeScript 开发。
+中后台权限管理 Web 单页面应用，基于 Vue 3 + Vite + Element Plus + TypeScript 开发，支持国际化、黑暗模式等，提供常用页面模板。
 
 ## 特点
 
