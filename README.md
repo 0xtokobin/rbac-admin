@@ -1,4 +1,4 @@
-# Admin
+# RBAC Admin
 
 中后台权限管理 Web 单页面应用，基于 Vue 3 + Vite + Element Plus + TypeScript 开发。
 
