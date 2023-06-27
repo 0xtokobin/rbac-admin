@@ -72,7 +72,7 @@ export function request(options: RequestOptions): Promise<ResponseData> {
   return new Promise((resolve) => {
     _axios
       .request({
-        baseURL: __APP_REQUEST_URL__ + __APP_REQUEST_PREFIX__,
+        baseURL: __REQUEST_URL__ + __REQUEST_PREFIX__,
         url: options.url,
         method: options.method,
         timeout: options.timeout || 30000,

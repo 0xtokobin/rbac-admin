@@ -21,7 +21,9 @@ function changeType(e: string): void {
   type.value = e
 }
 
-const title = import.meta.env.APP_TITLE
+const name = __APP_NAME__
+
+const version = __APP_VERSION__
 
 const baseStore = useBaseStore()
 
@@ -64,7 +66,8 @@ onBeforeMount(async () => {
       <img w-20 h-20 :src="logo">
     </div>
     <div select-none mb-12 text-4 font-600 text-center style="color:var(--el-color-primary);">
-      <span mr-2>{{ title }}</span>
+      <span mr-2>{{ name }}</span>
+      <span>{{ version }}</span>
     </div>
     <login-form-normal v-if="type === 'normal'" @password="openPassword" />
     <login-form-sms v-if="type === 'sms'" />

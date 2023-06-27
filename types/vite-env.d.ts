@@ -9,9 +9,9 @@ interface ImportMeta {
   readonly env: ImportMetaEnv
 }
 
-declare const __APP_TITLE__: string
+declare const __APP_NAME__: string
 declare const __APP_VERSION__: string
-declare const __APP_REQUEST_URL__: string
-declare const __APP_REQUEST_PREFIX__: string
-declare const __APP_SOCKET_URL__: string
-declare const __APP_SOCKET_PREFIX__: string
+declare const __REQUEST_URL__: string
+declare const __REQUEST_PREFIX__: string
+declare const __SOCKET_URL__: string
+declare const __SOCKET_PREFIX__: string

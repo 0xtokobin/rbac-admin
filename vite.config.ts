@@ -28,12 +28,12 @@ export default (options: ConfigEnv) => {
     base: env.VITE_BASE_URL,
     envDir: '.vite/__env__/',
     define: {
-      __APP_TITLE__: JSON.stringify(env.APP_TITLE),
+      __APP_NAME__: JSON.stringify(env.APP_NAME),
       __APP_VERSION__: JSON.stringify(env.APP_VERSION),
-      __APP_REQUEST_URL__: JSON.stringify(env.APP_REQUEST_URL),
-      __APP_REQUEST_PREFIX__: JSON.stringify(env.APP_REQUEST_PREFIX),
-      __APP_SOCKET_URL__: JSON.stringify(env.APP_SOCKET_URL),
-      __APP_SOCKET_PREFIX__: JSON.stringify(env.APP_SOCKET_PREFIX),
+      __REQUEST_URL__: JSON.stringify(env.REQUEST_URL),
+      __REQUEST_PREFIX__: JSON.stringify(env.REQUEST_PREFIX),
+      __SOCKET_URL__: JSON.stringify(env.SOCKET_URL),
+      __SOCKET_PREFIX__: JSON.stringify(env.SOCKET_PREFIX),
     },
     css: {
       preprocessorOptions: {

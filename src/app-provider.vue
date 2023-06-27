@@ -26,10 +26,10 @@ const epMessages = computed(() => {
 function changeBrowserTitle() {
   console.warn(import.meta.env)
   if (route.meta.i18n)
-    document.title = `${route.meta.i18n[locale.value]} - ${__APP_TITLE__}`
+    document.title = `${route.meta.i18n[locale.value]} - ${__APP_NAME__}`
 
   else
-    document.title = __APP_TITLE__
+    document.title = __APP_NAME__
 }
 
 onBeforeMount(() => {
