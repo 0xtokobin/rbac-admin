@@ -59,9 +59,9 @@ pnpm dev
 	</tr>
 </table>
 
-## 🤝 参与共建
+## 🤝 参与共建 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)]()
 
-请参考[贡献指南](https://github.com/template-app/.github/contribute.md).
+请参考[贡献指南](https://github.com/template-app/.github/contribute.md)。
 
 ## ❤️ 免费商业使用
 
