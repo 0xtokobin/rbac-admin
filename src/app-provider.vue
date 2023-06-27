@@ -15,7 +15,7 @@ const baseStore = useBaseStore()
 
 const { getDictList } = useDict()
 
-const { t, messages, locale } = useI18n()
+const { messages, locale } = useI18n()
 
 const epMessages = computed(() => {
   return messages.value[baseStore.language][
@@ -25,10 +25,10 @@ const epMessages = computed(() => {
 
 function changeBrowserTitle() {
   if (route.meta.i18n)
-    document.title = `${route.meta.i18n[locale.value]} - ${t('base.name')}`
+    document.title = `${route.meta.i18n[locale.value]} - ${process.env.APP_TITLE}`
 
   else
-    document.title = t('base.name') || import.meta.env.APP_BROWSER_TITLE
+    document.title = process.env.APP_TITLE as string
 }
 
 onBeforeMount(() => {

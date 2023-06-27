@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import pkg from '../../../package.json'
 import passwordFormResult from './components/password-form-result.vue'
 import passwordFormReset from './components/password-form-reset.vue'
 import passwordFormValidate from './components/password-form-validate.vue'
@@ -22,7 +21,7 @@ function changeType(e: string): void {
   type.value = e
 }
 
-const release = ref<string>(pkg.version)
+const title = process.env.APP_TITLE
 
 const baseStore = useBaseStore()
 
@@ -65,8 +64,7 @@ onBeforeMount(async () => {
       <img w-20 h-20 :src="logo">
     </div>
     <div select-none mb-12 text-4 font-600 text-center style="color:var(--el-color-primary);">
-      <span mr-2>{{ t('base.name') }}</span>
-      <span>{{ `v${release}` }}</span>
+      <span mr-2>{{ title }}</span>
     </div>
     <login-form-normal v-if="type === 'normal'" @password="openPassword" />
     <login-form-sms v-if="type === 'sms'" />
