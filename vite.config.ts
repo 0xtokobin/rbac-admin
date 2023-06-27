@@ -19,10 +19,7 @@ import unocss from 'unocss/vite'
 export default (options: ConfigEnv) => {
   const { mode } = options
 
-  const env: Record<string, string> = loadEnv(mode, '.vite/__env__/', [
-    'VITE_',
-    'APP_',
-  ])
+  const env: Record<string, string> = loadEnv(mode, '.vite/__env__/', ['VITE_', 'APP_', 'REQUEST_', 'SOCKET_'])
 
   return defineConfig({
     base: env.VITE_BASE_URL,
@@ -112,7 +109,7 @@ export default (options: ConfigEnv) => {
       }),
       unocss(),
       mockDevServerPlugin({
-        prefix: '/mock',
+        prefix: '/mock/admin',
         wsPrefix: '/mock/ws',
         include: '.vite/__mock__/**/*.ts',
       }),
