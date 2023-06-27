@@ -21,7 +21,7 @@ function changeType(e: string): void {
   type.value = e
 }
 
-const title = process.env.APP_TITLE
+const title = import.meta.env.APP_TITLE
 
 const baseStore = useBaseStore()
 

@@ -19,16 +19,21 @@ import unocss from 'unocss/vite'
 export default (options: ConfigEnv) => {
   const { mode } = options
 
-  const env: Record<string, string> = loadEnv(mode, './.vite/__env__/', [
+  const env: Record<string, string> = loadEnv(mode, '.vite/__env__/', [
     'VITE_',
     'APP_',
   ])
 
   return defineConfig({
     base: env.VITE_BASE_URL,
-    envDir: './.vite/__env__/',
+    envDir: '.vite/__env__/',
     define: {
-      'process.env': env,
+      __APP_TITLE__: JSON.stringify(env.APP_TITLE),
+      __APP_VERSION__: JSON.stringify(env.APP_VERSION),
+      __APP_REQUEST_URL__: JSON.stringify(env.APP_REQUEST_URL),
+      __APP_REQUEST_PREFIX__: JSON.stringify(env.APP_REQUEST_PREFIX),
+      __APP_SOCKET_URL__: JSON.stringify(env.APP_SOCKET_URL),
+      __APP_SOCKET_PREFIX__: JSON.stringify(env.APP_SOCKET_PREFIX),
     },
     css: {
       preprocessorOptions: {
