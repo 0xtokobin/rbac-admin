@@ -16,7 +16,7 @@
 
 - 🌈 基于 Vue、Vite、TypeScript、Element Plus、Pinia 等技术栈；
 
-- 🌍 支持国际化多语言、动态菜单等功能；
+- 🌍 内置基于 Vue i18n 的国际化多语言，提供无需刷新的语言切换体验；
 
 - 📦 集成登录、仪表台、权限管理、系统管理等页面模板；
 
@@ -59,9 +59,9 @@ pnpm dev
 	</tr>
 </table>
 
-## 🤝 参与共建
+## 🤝 参与共建 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)]()
 
-请参考[贡献指南](https://github.com/template-app/.github/contribute.md).
+请参考[贡献指南](https://github.com/template-app/.github/blob/main/contribute.md)。
 
 ## ❤️ 免费商业使用
 
