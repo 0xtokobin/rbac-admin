@@ -42,13 +42,16 @@ export default (options: ConfigEnv) => {
     resolve: {
       alias: {
         '@': resolve(process.cwd(), 'src'),
+        '#': resolve(process.cwd(), 'types'),
       },
       extensions: ['.js', '.ts', '.jsx', '.tsx', '.json', '.vue'],
     },
     server: {
       open: true,
       host: true,
-      proxy: {},
+      proxy: {
+        'http://localhost:8080/admin': '/mock',
+      },
     },
     plugins: [
       vue(),
@@ -109,9 +112,8 @@ export default (options: ConfigEnv) => {
       }),
       unocss(),
       mockDevServerPlugin({
-        prefix: '/mock/admin',
-        wsPrefix: '/mock/ws',
         include: '.vite/__mock__/**/*.ts',
+        prefix: ['/mock'],
       }),
     ],
     build: {
