@@ -4,15 +4,19 @@ export default defineMock([
   {
     url: '/mock/base/mobile/smscode',
     method: 'GET',
-    response: (req, res) => {
-      res.end()
+    body: {
+      code: 0,
+      data: null,
+      message: 'success'
     }
   },
   {
     url: '/mock/base/mobile/smscode',
     method: 'POST',
-    response: (req, res) => {
-      res.end()
+    body: {
+      code: 0,
+      data: null,
+      message: 'success'
     }
   },
   {
