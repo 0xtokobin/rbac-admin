@@ -18,8 +18,9 @@ export default defineMock([
   {
     url: '/mock/base/mobile/areacode',
     method: 'GET',
-    response: (req, res) => {
-      res.end([
+    body: {
+      code: 0,
+      data: [
         {
           area: '中国大陆',
           code: '+86',
@@ -36,7 +37,8 @@ export default defineMock([
           area: '中国台湾',
           code: '+886',
         },
-      ])
+      ],
+      message: 'success'
     }
   },
 ])
