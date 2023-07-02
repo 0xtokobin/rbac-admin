@@ -50,7 +50,7 @@ export default (options: ConfigEnv) => {
       open: true,
       host: true,
       proxy: {
-        'http://localhost:8080/admin': '/mock',
+        '^/mock': 'http://example.com/',
       },
     },
     plugins: [
@@ -113,7 +113,6 @@ export default (options: ConfigEnv) => {
       unocss(),
       mockDevServerPlugin({
         include: '.vite/__mock__/**/*.ts',
-        prefix: ['/mock'],
       }),
     ],
     build: {

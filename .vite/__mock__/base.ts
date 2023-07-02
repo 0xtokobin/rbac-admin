@@ -2,21 +2,21 @@ import { defineMock } from 'vite-plugin-mock-dev-server'
 
 export default defineMock([
   {
-    url: '/base/mobile/smscode',
+    url: '/mock/base/mobile/smscode',
     method: 'GET',
     response: (req, res) => {
       res.end()
     }
   },
   {
-    url: '/base/mobile/smscode',
+    url: '/mock/base/mobile/smscode',
     method: 'POST',
     response: (req, res) => {
       res.end()
     }
   },
   {
-    url: '/base/mobile/areacode',
+    url: '/mock/base/mobile/areacode',
     method: 'GET',
     response: (req, res) => {
       res.end([
